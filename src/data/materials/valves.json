@@ -1,0 +1,12 @@
+{
+  "coefficients": {
+    "valve_globe": 0.5,
+    "valve_ball": 0.4
+  },
+  "sgp": {
+    "valve_globe": {
+      "15": { "weight": 1.2 },
+      "25": { "weight": 1.8 }
+    }
+  }
+}

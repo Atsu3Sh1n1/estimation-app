@@ -1,0 +1,12 @@
+{
+  "coefficients": {
+    "elbow_same": 0.15,
+    "elbow_diff": 0.16
+  },
+  "sgp": {
+    "elbow_same": {
+      "15": { "weight": 0.5 },
+      "25": { "weight": 0.8 }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "categories": [
+    {
+      "name": "pipe",
+      "label": "パイプ",
+      "options": [{ "value": "pipe", "label": "パイプ" }]
+    },
+    {
+      "name": "fittings",
+      "label": "継手",
+      "options": [
+        { "value": "elbow_same", "label": "同径エルボ" },
+        { "value": "elbow_diff", "label": "異径エルボ" }
+      ]
+    },
+    {
+      "name": "valves",
+      "label": "バルブ",
+      "options": [
+        { "value": "valve_globe", "label": "グローブバルブ" },
+        { "value": "valve_ball", "label": "ボールバルブ" }
+      ]
+    },
+    {
+      "name": "steels",
+      "label": "鋼材",
+      "options": [
+        { "value": "flatbar", "label": "フラットバー" },
+        { "value": "angle", "label": "アングル" }
+      ]
+    }
+  ]
+}
