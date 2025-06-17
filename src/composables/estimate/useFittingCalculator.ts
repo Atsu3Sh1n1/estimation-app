@@ -1,61 +1,30 @@
-import { computed, type Ref } from 'vue';
-import type { EstimateItem } from '@/types/estimate';
-import { useMaterialData } from '@/composables/useMaterialData';
-import categoriesData from '@/data/materials/categories.json';
+import { computed } from 'vue';
+import type { Fitting, Valve } from '../types';
 
-export function useFittingCalculator(localItem: Ref<EstimateItem>) {
-  const { inchMap, fittings, valves, getFittingWeight, getValveWeight } = useMaterialData();
-
-  const size = computed(() => localItem.value.size);
-  const length = computed(() => localItem.value.length ?? 0);
-  const shape = computed(() => localItem.value.shape ?? '');
-  const material = computed(() => localItem.value.material);
-  const schedule = computed(() => localItem.value.schedule ?? '');
-
-  const pipeInch = computed(() => {
-    const sizeStr = size.value?.replace('A', '') ?? '';
-    const numericSize = parseInt(sizeStr, 10);
-    return inchMap[numericSize] ?? 0;
-  });
-
-  const coefficient = computed(() => {
-    if (fittings.value.coefficients[shape.value]) {
-      return fittings.value.coefficients[shape.value];
-    }
-    if (valves.value.coefficients[shape.value]) {
-      return valves.value.coefficients[shape.value];
-    }
-    return 1;
-  });
-
-  const isFittingOrValve = computed(() =>
-    categoriesData.categories.find(c => c.name === 'fittings' || c.name === 'valves')?.options.some(o => o.value === shape.value)
+export function useFittingCalculator(
+  length: number,
+  material: string,
+  size: string,
+  type: string,
+  schedule: string = '',  // scheduleは必須じゃなければデフォルト空文字可
+  items: (Fitting | Valve)[]
+) {
+  const item = computed(() =>
+    items.find(i =>
+      i.material === material &&
+      i.size === size &&
+      i.type === type &&
+      (
+        schedule 
+        ? i.schedule === schedule 
+        : typeof i.schedule === 'string' && i.schedule.length > 0
+      )
+    )
   );
 
-  const pipeSizeInch = computed(() => {
-    if (!length.value || !size.value) return 0;
-    if (isFittingOrValve.value) {
-      return pipeInch.value * coefficient.value * length.value;
-    } else if (shape.value === 'pipe') {
-      return pipeInch.value * length.value;
-    }
-    return 0;
-  });
+  const actualWeight = computed(() => (item.value?.weight || 0) * length);
+  const estimatedWeight = computed(() => actualWeight.value * 1); // 係数例
+  const pipeLength = computed(() => (item.value?.lengthCoefficient || 0) * length * 39.37);
 
-  const computedWeight = computed(() => {
-    if (!length.value || !size.value) return 0;
-    if (fittings.value.coefficients[shape.value]) {
-      return getFittingWeight(material.value, shape.value, size.value) * length.value;
-    } else if (valves.value.coefficients[shape.value]) {
-      return getValveWeight(material.value, shape.value, size.value) * length.value;
-    } else if (shape.value === 'pipe') {
-      return pipeInch.value * length.value * getPipeWeight(material.value, size.value, schedule.value);
-    }
-    return 0;
-  });
-
-  return {
-    computedWeight,
-    pipeSizeInch,
-  };
+  return { actualWeight, estimatedWeight, pipeLength };
 }

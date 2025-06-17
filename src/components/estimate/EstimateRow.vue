@@ -1,62 +1,97 @@
-<template>
+<template> 
   <tr>
     <td>
-      <select v-model="localItem.shape" @change="onShapeChange">
-        <optgroup v-for="category in shapeOptionsData" :label="category.label" :key="category.name">
-          <option v-for="opt in category.options" :value="opt.value" :key="opt.value">{{ opt.label }}</option>
-        </optgroup>
+      <select v-model="row.shape" @change="resetFields" :disabled="!shapes.length">
+        <option value="">選択</option>
+        <option v-for="shape in shapes" :key="shape.id" :value="shape.id">{{ shape.name }}</option>
       </select>
     </td>
+
     <td>
-      <select v-model="localItem.material" @change="onMaterialChange">
-        <option v-for="opt in materialOptions" :value="opt" :key="opt">{{ opt }}</option>
+      <select v-model="row.type" @change="resetSize" :disabled="types.length === 0">
+        <option value="">選択</option>
+        <option v-for="type in types" :key="type" :value="type">{{ type }}</option>
       </select>
     </td>
+
     <td>
-      <select v-model="localItem.size" @change="onSizeChange">
-        <option v-for="size in availableSizes" :value="size" :key="size">{{ size }}</option>
+      <select
+        v-model="row.material"
+        @change="resetSize"
+        :disabled="row.shape !== 'pipe' && !row.type"
+      >
+        <option value="">選択</option>
+        <option v-for="material in materials" :key="material" :value="material">{{ material }}</option>
       </select>
     </td>
+
     <td>
-      <select v-model="localItem.schedule">
-        <option v-for="sch in availableSchedules" :value="sch" :key="sch">{{ sch }}</option>
+      <select v-model="row.size" @change="updateWeights" :disabled="!sizes.length">
+        <option value="">選択</option>
+        <option v-for="size in sizes" :key="size" :value="size">{{ size }}</option>
       </select>
     </td>
-    <td><input v-model.number="localItem.length" type="number" min="0" /></td>
-    <td><input v-model.number="localItem.unitPrice" type="number" min="0" /></td>
-    <td>{{ computedWeight.toFixed(2) }}</td>
-    <td>{{ pipeSizeInch.toFixed(2) }}</td>
-    <td>{{ totalPrice.toFixed(2) }}</td>
+
+    <td>
+      <!-- 鋼材の場合はスケジュール選択を無効化 -->
+      <select
+        v-model="row.schedule"
+        @change="updateWeights"
+        :disabled="row.shape === 'steel' || !schedules.length"
+      >
+        <option value="">選択</option>
+        <option v-for="schedule in schedules" :key="schedule" :value="schedule">{{ schedule }}</option>
+      </select>
+    </td>
+
+    <td>
+      <input
+        type="number"
+        v-model.number="row.length"
+        @input="validateLength"
+        min="0"
+        step="0.01"
+        :class="{ error: lengthError }"
+      />
+    </td>
+
+    <td>{{ row.estimatedWeight.toFixed(2) }} kg</td>
+    <td>{{ row.actualWeight.toFixed(2) }} kg</td>
+    <td>{{ row.pipeLength.toFixed(2) }} インチ・m</td>
+
+    <td><button @click="emit('remove')">削除</button></td>
   </tr>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { EstimateItem } from '@/types/estimate';
-import { useEstimateRow } from '@/composables/estimate';
+import { useEstimateRow } from '../../composables/estimate';
 
-const props = defineProps<{
-  item: EstimateItem;
-}>();
+defineProps<{ index: number }>();
+const emit = defineEmits(['remove']);
 
-const localItem = ref<EstimateItem>({ ...props.item });
-const {
-  materialOptions,
-  shapeOptionsData,
-  availableSizes,
-  availableSchedules,
-  computedWeight,
-  totalPrice,
-  computedQuantity,
-  pipeSizeInch,
-  onMaterialChange,
-  onShapeChange,
-  onSizeChange,
-} = useEstimateRow(localItem);
+const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow();
+const lengthError = ref(false);
+
+const resetFields = () => {
+  row.type = '';
+  row.material = '';
+  row.size = '';
+  row.schedule = '';
+  row.length = 0;
+  updateWeights();
+};
+
+const resetSize = () => {
+  row.size = '';
+  row.schedule = '';
+  updateWeights();
+};
+
+const validateLength = () => {
+  lengthError.value = row.length < 0 || isNaN(row.length);
+  if (!lengthError.value) updateWeights();
+};
 </script>
 
-<style scoped>
-tr { display: flex; gap: 8px; }
-td { flex: 1; }
-select, input { width: 100%; padding: 4px; }
-</style>
+<style src="./EstimateRow.css"></style>

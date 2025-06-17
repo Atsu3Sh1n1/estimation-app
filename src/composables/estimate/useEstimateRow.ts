@@ -1,130 +1,113 @@
-import { computed, type Ref } from 'vue';
-import type { EstimateItem } from '@/types/estimate';
+import { reactive, computed, watch } from 'vue';
+import { useMaterialData } from './useMaterialData';
 import { usePipeCalculator } from './usePipeCalculator';
 import { useFittingCalculator } from './useFittingCalculator';
-import { useMaterialData } from '@/composables/useMaterialData';
-import categoriesData from '@/data/materials/categories.json';
+import type { EstimateRow } from '../../types';
 
-interface CategoryOption {
-  value: string;
-  label: string;
-}
+export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
+  const {
+    shapes,
+    fittingTypes,
+    valveTypes,
+    steelTypes,
+    getSizes,
+    getSchedules,
+    pipes,
+    fittings,
+    valves,
+    steels
+  } = useMaterialData();
 
-interface Category {
-  name: string;
-  label: string;
-  options: CategoryOption[];
-}
-
-export function useEstimateRow(localItem: Ref<EstimateItem>) {
-  const { pipes, fittings, valves, steels, inchMap, getPipeWeight, getFittingWeight, getValveWeight, getSteelWeight, pipeSizes, steelSizes } = useMaterialData();
-
-  const shapeOptionsData = computed(() => categoriesData.categories as Category[]);
-
-  const materialOptions = computed(() => {
-    const materials = new Set<string>();
-    [pipes.value, fittings.value, valves.value, steels.value].forEach(data => {
-      Object.keys(data).forEach(m => materials.add(m));
-    });
-    return Array.from(materials);
+  const row = reactive<EstimateRow>({
+    shape: initialRow?.shape || '',
+    type: initialRow?.type || '',
+    material: initialRow?.material || '',
+    size: initialRow?.size || '',
+    schedule: initialRow?.schedule || '',
+    length: initialRow?.length || 0,
+    estimatedWeight: initialRow?.estimatedWeight || 0,
+    actualWeight: initialRow?.actualWeight || 0,
+    pipeLength: initialRow?.pipeLength || 0,
+    errors: {}
   });
 
-  const availableSizes = computed(() => {
-    const shape = localItem.value.shape;
-    if (!shape) return [];
-    if (shape === 'pipe') return pipeSizes.value;
-    if (categoriesData.categories.find(c => c.name === 'steels')?.options.some(o => o.value === shape)) {
-      return steelSizes.value;
-    }
-    if (shape.startsWith('valve')) return ['15A', '20A', '25A', '32A'];
-    return pipeSizes.value;
+  const materials = computed(() => {
+    if (!row.shape) return [];
+    const arr = {
+      pipe: pipes,
+      fitting: fittings.filter(f => !row.type || f.type === row.type),
+      valve: valves.filter(v => !row.type || v.type === row.type),
+      steel: steels.filter(s => !row.type || s.type === row.type)
+    }[row.shape] || [];
+    return [...new Set(arr.map(i => i.material))];
   });
 
-  const allSchedules = [
-    'sch5', 'sch10', 'sch40', 'sch80', 'sch120', 'sch160',
-    'sch5s', 'sch10s', 'sch20s', 'sch40s', 'sch80s', 'sch120s', 'sch160s',
-  ];
-
-  const availableSchedules = computed(() => {
-    const material = localItem.value.material;
-    const shape = localItem.value.shape;
-    if (!localItem.value.size || !shape) return [];
-
-    if (material === 'sgp') return [];
-
-    const isStainless = ['sus304', 'sus304L', 'sus316', 'sus316L'].includes(material);
-    const isPipeOrFitting =
-      shape === 'pipe' ||
-      categoriesData.categories.find(c => c.name === 'fittings')?.options.some(o => o.value === shape);
-
-    if (isPipeOrFitting) {
-      return allSchedules.filter(sch => isStainless ? sch.endsWith('s') : !sch.endsWith('s'));
-    }
-    return allSchedules;
+  const types = computed(() => {
+    if (row.shape === 'fitting') return fittingTypes.value;
+    if (row.shape === 'valve') return valveTypes.value;
+    if (row.shape === 'steel') return steelTypes.value;
+    return [];
   });
 
-  const { computedWeight: pipeWeight, computedTotalPrice: pipePrice, computedQuantity } = usePipeCalculator(localItem);
-  const { computedWeight: fittingWeight, pipeSizeInch } = useFittingCalculator(localItem);
-
-  const steelWeight = computed(() => {
-    const shape = localItem.value.shape;
-    const material = localItem.value.material;
-    const size = localItem.value.size;
-    const length = localItem.value.length ?? 0;
-    if (!size || !shape || !length) return 0;
-
-    const steelCategory = categoriesData.categories.find(c => c.name === 'steels');
-    if (steelCategory?.options.some(o => o.value === shape)) {
-      return getSteelWeight(material, shape, size) * length;
-    }
-    return 0;
+  const sizes = computed(() => {
+    const arr = {
+      pipe: pipes,
+      fitting: fittings.filter(f => !row.type || f.type === row.type),
+      valve: valves.filter(v => !row.type || v.type === row.type),
+      steel: steels.filter(s => !row.type || s.type === row.type)
+    }[row.shape] || [];
+    return [...new Set(arr.filter(i => i.material === row.material).map(i => i.size))];
   });
 
-  const computedWeight = computed(() => {
-    const shape = localItem.value.shape;
-    if (shape === 'pipe') return pipeWeight.value;
-    if (categoriesData.categories.find(c => c.name === 'fittings')?.options.some(o => o.value === shape)) {
-      return fittingWeight.value;
-    }
-    if (categoriesData.categories.find(c => c.name === 'valves')?.options.some(o => o.value === shape)) {
-      return fittingWeight.value;
-    }
-    if (categoriesData.categories.find(c => c.name === 'steels')?.options.some(o => o.value === shape)) {
-      return steelWeight.value;
-    }
-    return 0;
+  const schedules = computed(() => {
+    if (!row.shape || row.shape === 'steel' || !row.material || !row.size) return [];
+    return getSchedules(row.shape, row.material, row.size, row.type);
   });
 
-  const computedTotalPrice = computed(() => {
-    const unitPrice = localItem.value.unitPrice ?? 0;
-    return computedWeight.value * unitPrice;
-  });
-
-  function onMaterialChange() {
-    localItem.value.schedule = '';
-    localItem.value.size = '';
-  }
-
-  function onShapeChange() {
-    localItem.value.size = '';
-    localItem.value.schedule = '';
-  }
-
-  function onSizeChange() {
-    localItem.value.schedule = '';
-  }
-
-  return {
-    materialOptions,
-    shapeOptionsData,
-    availableSizes,
-    availableSchedules,
-    computedWeight,
-    totalPrice: computedTotalPrice,
-    computedQuantity,
-    pipeSizeInch,
-    onMaterialChange,
-    onShapeChange,
-    onSizeChange,
+  const validate = () => {
+    row.errors = {};
+    if (!row.shape) row.errors.shape = '形状を選択してください';
+    if ((row.shape === 'fitting' || row.shape === 'valve' || row.shape === 'steel') && !row.type) {
+      row.errors.type = '種類を選択してください';
+    }
+    if (!row.material) row.errors.material = '材質を選択してください';
+    if (!row.size) row.errors.size = 'サイズを選択してください';
+    if (row.shape !== 'steel' && !row.schedule) row.errors.schedule = 'スケジュールを選択してください';
+    if (row.length <= 0 || isNaN(row.length)) row.errors.length = '長さは正の数値を入力してください';
   };
+
+  const updateWeights = () => {
+    validate();
+    if (Object.keys(row.errors).length) {
+      row.actualWeight = row.estimatedWeight = row.pipeLength = 0;
+      return;
+    }
+    if (row.shape !== 'steel' && !row.schedule) {
+      row.actualWeight = row.estimatedWeight = row.pipeLength = 0;
+      return;
+    }
+    let calc;
+    if (row.shape === 'pipe') {
+      calc = usePipeCalculator(row.length, row.material, row.size, row.schedule || '', pipes);
+    } else if (row.shape === 'fitting') {
+      calc = useFittingCalculator(row.length, row.material, row.size, row.type, row.schedule || '', fittings);
+    } else if (row.shape === 'valve') {
+      calc = useFittingCalculator(row.length, row.material, row.size, row.type, row.schedule || '', valves);
+    } else if (row.shape === 'steel') {
+      calc = usePipeCalculator(row.length, row.material, row.size, '', steels);
+    }
+    if (calc) {
+      row.actualWeight = calc.actualWeight.value;
+      row.estimatedWeight = calc.estimatedWeight.value;
+      row.pipeLength = row.shape === 'steel' ? 0 : calc.pipeLength.value;
+    }
+  };
+
+  watch(
+    [() => row.shape, () => row.type, () => row.material, () => row.size, () => row.schedule, () => row.length],
+    updateWeights,
+    { immediate: true }
+  );
+
+  return { row, shapes, materials, types, sizes, schedules, updateWeights };
 }

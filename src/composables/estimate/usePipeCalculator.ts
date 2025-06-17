@@ -1,38 +1,11 @@
-import { computed, type Ref } from 'vue';
-import type { EstimateItem } from '@/types/estimate';
-import { useMaterialData } from '@/composables/useMaterialData';
+import { computed } from 'vue';
+import type { Pipe } from '../types';
 
-export function usePipeCalculator(localItem: Ref<EstimateItem>) {
-  const { inchMap, getPipeWeight } = useMaterialData();
+export function usePipeCalculator(length: number, material: string, size: string, schedule: string, pipes: Pipe[]) {
+  const pipe = computed(() => pipes.find(p => p.material === material && p.size === size && p.schedule === schedule));
+  const actualWeight = computed(() => (pipe.value?.weightPerMeter || 0) * length);
+  const estimatedWeight = computed(() => actualWeight.value);
+  const pipeLength = computed(() => length * 39.37); // m to inch-m
 
-  const size = computed(() => localItem.value.size);
-  const length = computed(() => localItem.value.length ?? 0);
-  const material = computed(() => localItem.value.material);
-  const schedule = computed(() => localItem.value.schedule ?? '');
-  const unitPrice = computed(() => localItem.value.unitPrice ?? 0);
-
-  const pipeInch = computed(() => {
-    const sizeStr = size.value?.replace('A', '') ?? '';
-    const numericSize = parseInt(sizeStr, 10);
-    return inchMap[numericSize] ?? 0;
-  });
-
-  const computedWeight = computed(() => {
-    if (!length.value || !size.value) return 0;
-    return pipeInch.value * length.value * getPipeWeight(material.value, size.value, schedule.value);
-  });
-
-  const computedTotalPrice = computed(() => {
-    return computedWeight.value * unitPrice.value;
-  });
-
-  const computedQuantity = computed(() => {
-    return length.value || 0;
-  });
-
-  return {
-    computedWeight,
-    computedTotalPrice,
-    computedQuantity,
-  };
+  return { actualWeight, estimatedWeight, pipeLength };
 }

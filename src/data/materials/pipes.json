@@ -1,6 +1,8 @@
-{
-  "sgp": {
-    "15": { "sch40": { "weight": 1.68 }, "sch80": { "weight": 2.17 } },
-    "25": { "sch40": { "weight": 2.77 }, "sch80": { "weight": 3.63 } }
-  }
-}
+[
+  { "material": "SGP-White", "size": "1/2", "schedule": "Sch40", "weightPerMeter": 1.68 },
+  { "material": "SGP-White", "size": "1", "schedule": "Sch40", "weightPerMeter": 2.87 },
+  { "material": "SGP-Black", "size": "3/4", "schedule": "Sch80", "weightPerMeter": 2.3 },
+  { "material": "SUS304", "size": "100A", "schedule": "Sch80", "weightPerMeter": 3.24 },
+  { "material": "SUS316", "size": "2", "schedule": "Sch40", "weightPerMeter": 5.45 },
+  { "material": "SUS316L", "size": "1-1/2", "schedule": "Sch40", "weightPerMeter": 4.1 }
+]

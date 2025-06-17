@@ -1,12 +1,8 @@
-{
-  "coefficients": {
-    "elbow_same": 0.15,
-    "elbow_diff": 0.16
-  },
-  "sgp": {
-    "elbow_same": {
-      "15": { "weight": 0.5 },
-      "25": { "weight": 0.8 }
-    }
-  }
-}
+[
+  { "type": "同径エルボ", "material": "SGP-White", "size": "1/2", "schedule": "Sch80", "weight": 0.15, "lengthCoefficient": 0.05 },
+  { "type": "同径エルボ", "material": "SUS304", "size": "1", "weight": 0.2, "lengthCoefficient": 0.06 },
+  { "type": "同径チーズ", "material": "SGP-White", "size": "1", "weight": 0.35, "lengthCoefficient": 0.08 },
+  { "type": "同心レジューサ", "material": "SUS316", "size": "2x1", "weight": 0.5, "lengthCoefficient": 0.07 },
+  { "type": "異径エルボ", "material": "SUS304", "size": "1x3/4", "weight": 0.25, "lengthCoefficient": 0.06 },
+  { "type": "偏心レジューサ", "material": "SGP-Black", "size": "1x1/2", "schedule": "Sch80", "weight": 0.4, "lengthCoefficient": 0.07 }
+]

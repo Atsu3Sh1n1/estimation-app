@@ -1,13 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import EstimationView from '@/views/EstimationView.vue';
+import EstimationView from '../views/EstimationView.vue';
 
 const routes = [
-  { path: '/', component: EstimationView },
+  {
+    path: '/',
+    name: 'Estimation',
+    component: EstimationView
+  }
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes
 });
 
 export default router;

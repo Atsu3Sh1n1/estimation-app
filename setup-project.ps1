@@ -1,4 +1,6 @@
-# project/setup.ps1
+# project/setup-project.ps1
+$projectDir = "."
+
 $dirs = @(
     "src/assets/images",
     "src/components/estimate",
@@ -31,17 +33,42 @@ $files = @(
     "src/main.ts",
     "src/style.css",
     "src/vite-env.d.ts",
-    "README.md"
+    "README.md",
+    ".eslintrc.cjs",
+    ".prettierrc",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vite.config.ts"
 )
 
-# ディレクトリ作成
+# Create directories
 foreach ($dir in $dirs) {
-    New-Item -ItemType Directory -Path $dir -Force
+    New-Item -ItemType Directory -Path "$projectDir/$dir" -Force
 }
 
-# 空ファイル作成
+# Create files
 foreach ($file in $files) {
-    New-Item -ItemType File -Path $file -Force
+    New-Item -ItemType File -Path "$projectDir/$file" -Force
 }
 
-Write-Host "ディレクトリとファイルを作成しました。"
+# Initialize Vite project
+Set-Location $projectDir
+npm create vite@latest . -- --template vue-ts --force
+npm install
+npm install vue-router@4
+npm install -D prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin vue-eslint-parser gh-pages
+
+# Initialize Git
+git init
+git add .
+git commit -m "Initial commit: Set up Vue.js project with TypeScript"
+
+# Create GitHub repository
+gh repo create estimation-app --public --source=. --remote=origin
+git push -u origin main
+
+# Build and deploy
+npm run build
+npm run deploy
+
+Write-Host "Project setup completed."

@@ -1,33 +1,13 @@
 {
-  "categories": [
-    {
-      "name": "pipe",
-      "label": "パイプ",
-      "options": [{ "value": "pipe", "label": "パイプ" }]
-    },
-    {
-      "name": "fittings",
-      "label": "継手",
-      "options": [
-        { "value": "elbow_same", "label": "同径エルボ" },
-        { "value": "elbow_diff", "label": "異径エルボ" }
-      ]
-    },
-    {
-      "name": "valves",
-      "label": "バルブ",
-      "options": [
-        { "value": "valve_globe", "label": "グローブバルブ" },
-        { "value": "valve_ball", "label": "ボールバルブ" }
-      ]
-    },
-    {
-      "name": "steels",
-      "label": "鋼材",
-      "options": [
-        { "value": "flatbar", "label": "フラットバー" },
-        { "value": "angle", "label": "アングル" }
-      ]
-    }
-  ]
+  "shapes": [
+    { "id": "pipe", "name": "パイプ" },
+    { "id": "fitting", "name": "継手" },
+    { "id": "valve", "name": "バルブ" },
+    { "id": "steel", "name": "鋼材" }
+  ],
+  "materials": ["SGP-White", "SGP-Black", "STPG", "SS400", "SUS304", "SUS304L", "SUS316", "SUS316L"],
+  
+  "fittingTypes": ["同径エルボ", "異径エルボ", "同径チーズ", "異径チーズ", "同心レジューサ", "偏心レジューサ"],
+  "valveTypes": ["グローブ弁", "仕切り弁", "ボール弁", "バタフライ弁"],
+  "steelTypes": ["アングル", "チャンネル", "H鋼", "フラットバー"]
 }
