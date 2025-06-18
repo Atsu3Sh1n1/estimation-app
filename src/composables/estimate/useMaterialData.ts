@@ -9,59 +9,79 @@ import type { Shape, Pipe, Fitting, Valve, Steel } from '../../types';
 
 export function useMaterialData() {
   const shapes = ref<Shape[]>(categories.shapes);
+  const pipeTypes = ref<string[]>(categories.pipeTypes);
   const fittingTypes = ref<string[]>(categories.fittingTypes);
   const valveTypes = ref<string[]>(categories.valveTypes);
   const steelTypes = ref<string[]>(categories.steelTypes);
 
-  const getMaterials = (shape: string, type?: string): string[] => {
-    let items: (Pipe | Fitting | Valve | Steel)[] = [];
+  const filteredPipes = pipes.filter(p => !!p.type);
+  const filteredFittings = fittings.filter(f => !!f.type);
+  const filteredValves = valves.filter(v => !!v.type);
+  const filteredSteels = steels.filter(s => !!s.type);
 
-    if (shape === 'pipe') items = pipes;
-    else if (shape === 'fitting') items = type ? fittings.filter(f => f.type === type) : fittings;
-    else if (shape === 'valve') items = type ? valves.filter(v => v.type === type) : valves;
-    else if (shape === 'steel') items = steels;
-
-    return [...new Set(items.map(item => item.material))];
+  const getItems = (shape?: string): (Pipe | Fitting | Valve | Steel)[] => {
+    switch (shape) {
+      case 'pipe': return filteredPipes;
+      case 'fitting': return filteredFittings;
+      case 'valve': return filteredValves;
+      case 'steel': return filteredSteels;
+      default: return [];
+    }
   };
 
-  const getSizes = (shape: string, material: string, type?: string): string[] => {
-    let items: (Pipe | Fitting | Valve | Steel)[] = [];
-
-    if (shape === 'pipe') items = pipes;
-    else if (shape === 'fitting') items = fittings.filter(f => !type || f.type === type);
-    else if (shape === 'valve') items = valves.filter(v => !type || v.type === type);
-    else if (shape === 'steel') items = steels.filter(s => !type || s.type === type);
-
-    return [...new Set(items.filter(i => i.material === material).map(i => i.size))];
+  const getMaterials = (shape?: string, type?: string): string[] => {
+    return [...new Set(
+      getItems(shape)
+        .filter(i => !type || i.type === type)
+        .map(i => i.material)
+    )];
   };
 
-  const getSchedules = (shape: string, material: string, size: string, type?: string): string[] => {
-    let items: (Pipe | Fitting | Valve)[] = [];
+  const getSizes = (shape?: string, material?: string, schedule?: string, type?: string): string[] => {
+    return [...new Set(
+      getItems(shape)
+        .filter(i =>
+          (!material || i.material === material) &&
+          (!schedule || (i as Pipe | Fitting | Valve).schedule === schedule) &&
+          (!type || i.type === type)
+        )
+        .map(i => i.size)
+    )];
+  };
 
-    if (shape === 'pipe') items = pipes;
-    else if (shape === 'fitting') items = fittings.filter(f => !type || f.type === type);
-    else if (shape === 'valve') items = valves.filter(v => !type || v.type === type);
-    else return [];
+
+  const getSchedules = (
+    shape?: string,
+    material?: string,
+    size?: string,
+    type?: string
+  ): string[] => {
+    if (shape === 'steel') return [];
 
     return [...new Set(
-      items
-        .filter(i => i.material === material && i.size === size)
-        .map(i => i.schedule)
-        .filter(schedule => !!schedule)
+      getItems(shape)
+        .filter(i =>
+          (!type || i.type === type) &&
+          (!material || i.material === material) &&
+          (!size || i.size === size)
+        )
+        .map(i => (i as Pipe | Fitting | Valve).schedule)
+        .filter(Boolean)
     )];
   };
 
   return {
     shapes,
+    pipeTypes,
     fittingTypes,
     valveTypes,
     steelTypes,
     getMaterials,
     getSizes,
     getSchedules,
-    pipes,
-    fittings,
-    valves,
-    steels,
+    pipes: filteredPipes,
+    fittings: filteredFittings,
+    valves: filteredValves,
+    steels: filteredSteels,
   };
 }

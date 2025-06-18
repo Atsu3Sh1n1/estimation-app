@@ -1,6 +1,6 @@
 <template>
   <div class="estimation-view">
-    <h1>配管見積システム</h1>
+    <h1>見積システム</h1>
     <EstimateSheet />
   </div>
 </template>
@@ -12,7 +12,7 @@ import EstimateSheet from '../components/estimate/EstimateSheet.vue';
 <style scoped>
 .estimation-view {
   padding: 20px;
-  max-width: 1400px;
+  max-width: 100%;
   margin: 0 auto;
 }
 h1 {
@@ -20,6 +20,7 @@ h1 {
   margin-bottom: 20px;
   color: #333;
   font-size: 1.5em;
+  
 }
 @media (max-width: 768px) {
   .estimation-view {

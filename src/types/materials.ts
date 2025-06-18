@@ -8,6 +8,7 @@ export interface Material {
 }
 
 export interface Pipe {
+  type: string;
   material: string;
   size: string;
   schedule: string;
@@ -18,16 +19,17 @@ export interface Fitting {
   type: string;
   material: string;
   size: string;
-  schedule: string;  // ←必須化
+  schedule: string;
   weight: number;
   lengthCoefficient: number;
+  pipeUnitWeight: number;
 }
 
 export interface Valve {
   type: string;
   material: string;
   size: string;
-  schedule: string;  // ←必須化
+  schedule: string;
   weight: number;
   lengthCoefficient: number;
 }

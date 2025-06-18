@@ -1,5 +1,5 @@
 [
-  { "type": "同径エルボ", "material": "SGP-White", "size": "1/2", "schedule": "Sch80", "weight": 0.15, "lengthCoefficient": 0.05 },
+  { "type": "同径エルボ", "material": "SUS304", "size": "100A", "schedule": "Sch40", "weight": 3.84, "lengthCoefficient": 0.15, "pipeUnitWeight": 16.2 },
   { "type": "同径エルボ", "material": "SUS304", "size": "1", "weight": 0.2, "lengthCoefficient": 0.06 },
   { "type": "同径チーズ", "material": "SGP-White", "size": "1", "weight": 0.35, "lengthCoefficient": 0.08 },
   { "type": "同心レジューサ", "material": "SUS316", "size": "2x1", "weight": 0.5, "lengthCoefficient": 0.07 },

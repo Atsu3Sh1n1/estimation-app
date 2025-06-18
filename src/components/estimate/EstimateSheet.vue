@@ -1,5 +1,10 @@
 <template>
   <div class="estimate-sheet">
+
+    <div class="footer">
+      <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
+    </div>
+    
     <div class="controls">
       <button @click="addRow">行追加</button>
       <button @click="saveToLocalStorage">保存</button>
@@ -8,16 +13,18 @@
     <table>
       <thead>
         <tr>
-          <th>形状</th>
-          <th>種類</th>
-          <th>材質</th>
-          <th>サイズ</th>
-          <th>スケジュール</th>
-          <th>数量</th>
-          <th>見積重量</th>
-          <th>実重量</th>
-          <th>m/DB</th>
-          <th></th>
+          <th style="width: 70px;">形状</th>
+          <th style="width: 150px;">種類</th>
+          <th style="width: 90px;">材質</th>
+           <th style="width: 80px;">スケジュール</th>
+          <th style="width: 100px;">サイズ</th>
+         
+          <th style="width: 70px;">m・個・枚</th>
+          <th style="width: 110px; ">見積重量</th>
+          <th style="width: 110px; ">実重量</th>
+          <th style="width: 90px; ">m/DB</th>
+          <th style="width: 20px;"></th>
+          <th style="width: 50px;"></th>
         </tr>
       </thead>
       <tbody>
@@ -25,19 +32,16 @@
           v-for="(row, index) in rows"
           :key="index"
           :index="index"
+          :row="row"
           @remove="removeRow(index)"
         />
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="1">合計</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td>{{ totalEstimatedWeight.toFixed(2) }} kg</td>
-          <td>{{ totalActualWeight.toFixed(2) }} kg</td>
-          <td>{{ totalPipeLength.toFixed(2) }} インチ・m</td>
+          <td colspan="6"></td>
+          <td style="text-align: right;">{{ totalEstimatedWeight.toFixed(2) }} kg</td>
+          <td style="text-align: right;">{{ totalActualWeight.toFixed(2) }} kg</td>
+          <td style="text-align: right;">{{ totalPipeLength.toFixed(2) }} m/DB</td>
           <td></td>
         </tr>
       </tfoot>
@@ -49,7 +53,16 @@
 import EstimateRow from './EstimateRow.vue';
 import { useEstimateSheet } from '../../composables/estimate';
 
-const { rows, addRow, removeRow, totalEstimatedWeight, totalActualWeight, totalPipeLength, saveToLocalStorage, exportToCSV } = useEstimateSheet();
+const { 
+  rows, 
+  addRow, 
+  removeRow, 
+  totalEstimatedWeight, 
+  totalActualWeight, 
+  totalPipeLength, 
+  saveToLocalStorage, 
+  exportToCSV 
+} = useEstimateSheet();
 </script>
 
 <style scoped>
@@ -69,7 +82,7 @@ table {
 th, td {
   border: 1px solid #ccc;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 th {
   background: #f0f0f0;
@@ -77,6 +90,7 @@ th {
 tfoot td {
   font-weight: bold;
 }
+
 button {
   padding: 8px 16px;
   background: #4caf50;

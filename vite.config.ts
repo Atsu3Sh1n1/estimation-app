@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
@@ -9,4 +9,8 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-});
+  base: '/estimation-app/', // ← ここはリポジトリ名に！
+  build: {
+    outDir: 'docs', // ← これで GitHub Pages の指定フォルダに出す
+  },
+})
