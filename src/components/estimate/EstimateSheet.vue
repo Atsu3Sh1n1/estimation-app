@@ -41,7 +41,7 @@
           <td colspan="6"></td>
           <td style="text-align: right;">{{ totalEstimatedWeight.toFixed(2) }} kg</td>
           <td style="text-align: right;">{{ totalActualWeight.toFixed(2) }} kg</td>
-          <td style="text-align: right;">{{ totalPipeLength.toFixed(2) }} m/DB</td>
+          <td style="text-align: right;">{{ totalPipeLength.toFixed(2) }} m</td>
           <td></td>
         </tr>
       </tfoot>
