@@ -1,0 +1,55 @@
+/* EstimateSheet.css */
+.estimate-sheet {
+  padding: 10px;
+}
+
+.controls {
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* 以降テーブルやボタンのスタイルも記述 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background: #f0f0f0;
+}
+
+button {
+  padding: 8px 16px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #388e3c;
+}
+
+/* メディアクエリもOK */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.8em;
+  }
+  th, td {
+    padding: 4px;
+  }
+  .controls {
+    flex-direction: column;
+  }
+  button {
+    width: 100%;
+  }
+}

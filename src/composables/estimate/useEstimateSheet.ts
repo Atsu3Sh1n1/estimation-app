@@ -1,13 +1,19 @@
 import { reactive, computed } from 'vue';
-import { useEstimateRow } from './useEstimateRow';
-import type { EstimateRow } from '../../types';
+
+export interface EstimateRow {
+  estimatedWeight: number;
+  actualWeight: number;
+  pipeLength: number;
+  // 他必要なら追加してください
+}
 
 export function useEstimateSheet() {
-  const rows = reactive<EstimateRow[]>([]);
+  const rows = reactive<EstimateRow[]>([
+    { estimatedWeight: 0, actualWeight: 0, pipeLength: 0 },
+  ]);
 
   const addRow = () => {
-    const { row } = useEstimateRow();
-    rows.push({ ...row });
+    rows.push({ estimatedWeight: 0, actualWeight: 0, pipeLength: 0 });
   };
 
   const removeRow = (index: number) => {
@@ -15,46 +21,16 @@ export function useEstimateSheet() {
   };
 
   const totalEstimatedWeight = computed(() =>
-    rows.reduce((sum, row) => sum + row.estimatedWeight, 0)
+    rows.reduce((sum, row) => sum + (row.estimatedWeight || 0), 0)
   );
 
   const totalActualWeight = computed(() =>
-    rows.reduce((sum, row) => sum + row.actualWeight, 0)
+    rows.reduce((sum, row) => sum + (row.actualWeight || 0), 0)
   );
 
   const totalPipeLength = computed(() =>
-    rows.reduce((sum, row) => sum + row.pipeLength, 0)
+    rows.reduce((sum, row) => sum + (row.pipeLength || 0), 0)
   );
-
-  const exportToCSV = () => {
-    const headers = ['形状', '種類', '材質', 'サイズ', 'スケジュール', '長さ(m)', '見積重量(kg)', '実重量(kg)', '配管長(インチ・m)'];
-    const csvRows = rows.map(row => [
-      row.shape,
-      row.type || '',
-      row.material,
-      row.size,
-      row.schedule || '',
-      row.length.toFixed(2),
-      row.estimatedWeight.toFixed(2),
-      row.actualWeight.toFixed(2),
-      row.pipeLength.toFixed(2)
-    ]);
-    const csvContent = [
-      headers.join(','),
-      ...csvRows.map(row => row.join(','))
-    ].join('\n');
-
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = `estimate_${new Date().toISOString().slice(0, 10)}.csv`;
-    link.click();
-  };
-
-  // 初期に1行だけ追加
-  if (!rows.length) {
-    addRow();
-  }
 
   return {
     rows,
@@ -63,6 +39,5 @@ export function useEstimateSheet() {
     totalEstimatedWeight,
     totalActualWeight,
     totalPipeLength,
-    exportToCSV,
   };
 }
