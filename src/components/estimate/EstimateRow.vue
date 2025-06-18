@@ -75,15 +75,15 @@
     </td>
 
  <td style="text-align: right;">
-  <strong>{{ Math.floor(row.estimatedWeight) }}</strong><span style="font-size: 0.8em;">{{ (row.estimatedWeight % 1).toFixed(2).slice(1) }}</span> kg
+  <strong>{{ Math.floor(row.estimatedWeight) }}</strong><span style="font-size: 0.8em;">{{ (row.estimatedWeight % 1).toFixed(2).slice(1) }}</span>
 </td>
 <td style="text-align: right;">
   <strong>{{ Math.floor(row.actualWeight) }}</strong>
-  <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(2).slice(1) }}</span> kg
+  <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(2).slice(1) }}</span>
 </td>
 
 <td style="text-align: right;">
-  <strong>{{ Math.floor(row.pipeLength) }}</strong><span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span> m
+  <strong>{{ Math.floor(row.pipeLength) }}</strong><span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span>
 </td>
 
 
