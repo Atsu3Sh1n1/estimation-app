@@ -103,3 +103,45 @@ input.error {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
+
+@media screen and (max-width: 768px) {
+  .estimate-sheet {
+    background-size: cover;
+    background-attachment: scroll; /* モバイルでは fixed は多くのブラウザで非対応 */
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  table {
+    font-size: 0.9rem;
+    table-layout: auto; /* 固定幅だとスマホで窮屈になるため */
+  }
+
+  th,
+  td {
+    padding: 6px 2px;
+  }
+
+  input,
+  select {
+    font-size: 0.9rem;
+    padding: 6px 2px;
+  }
+
+  .button-wrapper button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  td.total-price-cell {
+    width: auto;
+    font-size: 1rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+    padding: 4px 0;
+  }
+}
