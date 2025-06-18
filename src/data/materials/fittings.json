@@ -110,14 +110,8 @@
   { "type": "90°エルボ（JIS B 2311）", "material": "SUS304", "size": "250A", "schedule": "Sch160", "weight": 101, "lengthCoefficient": 0.15, "pipeUnitWeight": 170 },
   { "type": "90°エルボ（JIS B 2311）", "material": "SUS304", "size": "300A", "schedule": "Sch160", "weight": 168, "lengthCoefficient": 0.15, "pipeUnitWeight": 237 },
   { "type": "90°エルボ（JIS B 2311）", "material": "SUS304", "size": "350A", "schedule": "Sch160", "weight": 236, "lengthCoefficient": 0.15, "pipeUnitWeight": 284 },
-  { "type": "90°エルボ（JIS B 2311）", "material": "SUS304", "size": "400A", "schedule": "Sch160", "weight": 350, "lengthCoefficient": 0.15, "pipeUnitWeight": 369 },
+  { "type": "90°エルボ（JIS B 2311）", "material": "SUS304", "size": "400A", "schedule": "Sch160", "weight": 350, "lengthCoefficient": 0.15, "pipeUnitWeight": 369 }
 
 
 
-  { "type": "FSGP（JIS B 2311）", "material": "SUS304", "size": "100A", "schedule": "Sch40", "weight": 3.84, "lengthCoefficient": 0.15, "pipeUnitWeight": 16.2 },
-  { "type": "FSGP（JIS B 2311）", "material": "SUS304", "size": "1", "weight": 0.2, "lengthCoefficient": 0.06 },
-  { "type": "同径チーズ", "material": "SGP-White", "size": "1", "weight": 0.35, "lengthCoefficient": 0.08 },
-  { "type": "同心レジューサ", "material": "SUS316", "size": "2x1", "weight": 0.5, "lengthCoefficient": 0.07 },
-  { "type": "異径エルボ", "material": "SUS304", "size": "1x3/4", "weight": 0.25, "lengthCoefficient": 0.06 },
-  { "type": "偏心レジューサ", "material": "SGP-Black", "size": "1x1/2", "schedule": "Sch80", "weight": 0.4, "lengthCoefficient": 0.07 }
 ]

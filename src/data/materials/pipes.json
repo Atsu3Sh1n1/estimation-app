@@ -576,7 +576,7 @@
   { "type": "STPG370（JIS G 3454）", "material": "STPG370(白)", "size": "150A", "schedule": "Sch80", "weightPerMeter": 41.8 },
   { "type": "STPG370（JIS G 3454）", "material": "STPG370(白)", "size": "200A", "schedule": "Sch80", "weightPerMeter": 63.8 },
   { "type": "STPG370（JIS G 3454）", "material": "STPG370(白)", "size": "250A", "schedule": "Sch80", "weightPerMeter": 93.9 },
-  { "type": "STPG370（JIS G 3454）", "material": "STPG370(白)", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
+  { "type": "STPG370（JIS G 3454）", "material": "STPG370(白)", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 }
 
 
 
@@ -587,8 +587,4 @@
 
 
 
-  { "type": "アングル", "material": "SGP-White", "size": "1", "schedule": "Sch40", "weightPerMeter": 2.87 },
-  { "type": "アングル", "material": "SUS304", "size": "100A", "schedule": "Sch80", "weightPerMeter": 3.24 },
-  { "type": "アングル", "material": "SUS316", "size": "2", "schedule": "Sch40", "weightPerMeter": 5.45 },
-  { "type": "アングル", "material": "SUS316L", "size": "1-1/2", "schedule": "Sch40", "weightPerMeter": 4.1 }
 ]
