@@ -10,6 +10,7 @@
     "deploy": "vite build && git add . && git commit -m \"deploy\" && git push origin main"
   },
   "dependencies": {
+    "@vueuse/head": "^2.0.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
   },

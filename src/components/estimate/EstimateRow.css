@@ -145,6 +145,10 @@ input.error {
     padding: 4px 0;
   }
 
+  .estimate-sheet {
+    background-size: 2000px auto; /* スマホではさらに拡大してぼやけ透かし風 */
+    background-attachment: scroll; /* スマホでfixedが効かない対策 */
   
+}
 
 }
