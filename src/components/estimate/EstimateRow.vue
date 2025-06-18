@@ -89,6 +89,7 @@
 
     <td><button @click="emit('remove')">削除</button></td>
   </tr>
+  
 </template>
 
 <script setup lang="ts">

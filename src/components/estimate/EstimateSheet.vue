@@ -47,6 +47,8 @@
       </tfoot>
     </table>
   </div>
+  <meta name="viewport" content="width=1024">
+
 </template>
 
 <script setup lang="ts">
