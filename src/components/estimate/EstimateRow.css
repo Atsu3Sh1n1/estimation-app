@@ -1,39 +1,17 @@
-.estimate-sheet {
-  position: relative; /* 擬似要素の基準 */
-  z-index: 0;         /* 背景は後ろに */
-  min-height: 100vh;
-  padding: 0;
-  font-size: 1.2rem;
-  background: none; /* 背景画像は削除 */
-}
+/* EstimateRow.css */
 
-.estimate-sheet::before {
-  content: "";
-  position: fixed; /* 画面に固定 */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+.estimate-sheet {
   background-image: url('yumikou.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: contain; /* 全画面透かし的に見せる */
-  opacity: 0.05; /* 透かしの濃さ */
-  pointer-events: none; /* 背景に触れない */
-  z-index: -1; /* コンテンツより背面 */
+  background-size: cover;            /* 画面いっぱいに広げる */
+  background-attachment: fixed;      /* PCでは固定 */
+  min-height: 100vh;
+  padding: 0%;
+  font-size: 1.2rem;
 }
 
-/* スマホも同じように透かし固定表示 */
-
-@media screen and (max-width: 768px) {
-  .estimate-sheet::before {
-    background-size: 150vw auto; /* スマホで少し拡大 */
-    opacity: 0.03; /* さらに薄め */
-  }
-}
-
-
-
+/* テーブル設定 */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -102,8 +80,7 @@ td.total-price-cell {
   font-weight: bold;
 }
 
-
-
+/* フッター */
 .footer {
   text-align: center;
   margin-top: 0px;
@@ -111,6 +88,7 @@ td.total-price-cell {
   font-size: 0.9em;
 }
 
+/* エラー表示 */
 select.error {
   border: 2px solid red;
   background-color: #ffe6e6;
@@ -120,23 +98,24 @@ select.disabled-error:disabled {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
+
 input.error {
   border: 1px solid red;
   background-color: #ffe6e6;
 }
 
-
+/* レスポンシブ対応 */
 @media screen and (max-width: 768px) {
   .estimate-sheet {
-    background-size: cover;
-    background-attachment: scroll; /* モバイルでは fixed は多くのブラウザで非対応 */
+    background-size: 2000px auto;    /* 大きめにして透かし風に */
+    background-attachment: scroll;   /* モバイルでは fixed 無効なため */
     font-size: 1rem;
     padding: 8px;
   }
 
   table {
     font-size: 0.9rem;
-    table-layout: auto; /* 固定幅だとスマホで窮屈になるため */
+    table-layout: auto; /* 固定幅だと窮屈 */
   }
 
   th,
@@ -165,11 +144,4 @@ input.error {
     font-size: 0.8rem;
     padding: 4px 0;
   }
-
-  .estimate-sheet {
-    background-size: 2000px auto; /* スマホではさらに拡大してぼやけ透かし風 */
-    background-attachment: scroll; /* スマホでfixedが効かない対策 */
-  
-}
-
 }
