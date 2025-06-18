@@ -2,7 +2,7 @@ export interface EstimateRow {
   shape: string;
   type?: string;
   material: string;
-  size: string;
+  size?: string;
   schedule?: string;
   length: number;
   estimatedWeight: number;

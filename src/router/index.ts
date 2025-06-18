@@ -5,13 +5,13 @@ const routes = [
   {
     path: '/',
     name: 'Estimation',
-    component: EstimationView
-  }
+    component: EstimationView,
+  },
 ];
 
 const router = createRouter({
-  history: createWebHistory('/estimation-app/'), 
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL), 
+  routes,
 });
 
 export default router;

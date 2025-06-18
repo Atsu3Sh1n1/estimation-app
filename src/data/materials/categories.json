@@ -3,11 +3,13 @@
     { "id": "pipe", "name": "パイプ" },
     { "id": "fitting", "name": "継手" },
     { "id": "valve", "name": "バルブ" },
-    { "id": "steel", "name": "鋼材" }
-  ],
-  "materials": ["SGP-White", "SGP(黒)", "STPG", "SS400", "SUS304", "SUS304L", "SUS316", "SUS316L","ネジなし" ],
+    { "id": "steel", "name": "鋼材" },
+    { "id": "parts", "name": "消耗品" }
 
-  "pipeTypes": ["JIS G 3452 SGP", "圧力配管用", "JIS G 3459 配管用ステンレス", "硬質塩ビ", "白管", "黒管", "シームレス"],
+  ],
+  "materials": ["SGP-White", "STPG", "STPG370(S)", "STPG370(E)", "SS400", "SUS304", "SUS304L", "SUS316", "SUS316L","ネジなし" ],
+
+  "pipeTypes": ["JIS G 3452 SGP", "JIS G 3454 STPG370", "JIS G 3459 ステンレス", "SGP(黒)", "硬質塩ビ", "白管", "黒管", "シームレス"],
   "fittingTypes": ["同径エルボ", "異径エルボ", "同径チーズ", "異径チーズ", "同心レジューサ", "偏心レジューサ"],
   "valveTypes": ["グローブ弁", "仕切り弁", "ボール弁", "バタフライ弁"],
   "steelTypes": ["アングル", "チャンネル", "H鋼", "フラットバー"]

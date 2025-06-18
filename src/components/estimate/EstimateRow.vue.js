@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { useEstimateRow } from '../../composables/estimate';
+import { useEstimateRow } from '../../composables/estimate/useEstimateRow.ts';
 const __VLS_props = defineProps();
 const emit = defineEmits(['remove']);
 const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow();

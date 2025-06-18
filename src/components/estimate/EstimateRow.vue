@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 <template>
   <tr>
     <td>
@@ -81,7 +83,7 @@
 </td>
 
 <td style="text-align: right;">
-  <strong>{{ Math.floor(row.pipeLength) }}</strong><span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span> m/DB
+  <strong>{{ Math.floor(row.pipeLength) }}</strong><span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span> m
 </td>
 
 
@@ -91,7 +93,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useEstimateRow } from '../../composables/estimate';
+import { useEstimateRow } from '../../composables/estimate/useEstimateRow.ts';
+
 
 defineProps<{ index: number }>();
 const emit = defineEmits(['remove']);
