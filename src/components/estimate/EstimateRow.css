@@ -1,7 +1,37 @@
 .estimate-sheet {
-  padding: 0%;
+  position: relative; /* 擬似要素の基準 */
+  z-index: 0;         /* 背景は後ろに */
+  min-height: 100vh;
+  padding: 0;
   font-size: 1.2rem;
+  background: none; /* 背景画像は削除 */
 }
+
+.estimate-sheet::before {
+  content: "";
+  position: fixed; /* 画面に固定 */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('yumikou.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; /* 全画面透かし的に見せる */
+  opacity: 0.05; /* 透かしの濃さ */
+  pointer-events: none; /* 背景に触れない */
+  z-index: -1; /* コンテンツより背面 */
+}
+
+/* スマホも同じように透かし固定表示 */
+
+@media screen and (max-width: 768px) {
+  .estimate-sheet::before {
+    background-size: 150vw auto; /* スマホで少し拡大 */
+    opacity: 0.03; /* さらに薄め */
+  }
+}
+
 
 
 table {
