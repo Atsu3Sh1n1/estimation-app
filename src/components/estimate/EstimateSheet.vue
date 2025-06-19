@@ -27,11 +27,11 @@
 
       <tbody>
         <EstimateRow
-          v-for="(row, index) in rows"
-          :key="index"
-          :index="index"
-          :row="row"
-          @remove="removeRow(index)"
+          v-for="row in rows"
+          :key="row.id"
+          :id="row.id"
+          :initialRow="row"
+          @remove="removeRow"
         />
       </tbody>
 
@@ -41,29 +41,37 @@
     </table>
   </div>
 
-  <meta name="viewport" content="width=1024">
+  <meta name="viewport" content="width=1024" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import EstimateRow from './EstimateRow.vue';
-import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 
-// 初期行生成関数（useEstimateRow を呼び出して row を取り出す）
-const createNewRow = () => {
-  const { row } = useEstimateRow();
-  return row;
-};
+let nextId = 1;
 
-const rows = ref([createNewRow()]); // 初期1行
+const createEmptyRow = () => ({
+  id: nextId++,
+  shape: '',
+  type: '',
+  material: '',
+  schedule: '',
+  size: '',
+  length: 0,
+  estimatedWeight: 0,
+  actualWeight: 0,
+  pipeLength: 0,
+  errors: {},
+});
+
+const rows = ref([createEmptyRow()]);
 
 const addRow = () => {
-  rows.value.push(createNewRow());
+  rows.value.push(createEmptyRow());
 };
 
-const removeRow = (index: number) => {
-  if (rows.value.length <= 1) return;
-  rows.value.splice(index, 1);
+const removeRow = (idToRemove: number) => {
+  rows.value = rows.value.filter(row => row.id !== idToRemove);
 };
 </script>
 
