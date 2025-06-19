@@ -11,11 +11,11 @@
     <table>
       <thead>
         <tr>
-          <th style="width: 70px;">形状</th>
-          <th style="width: 150px;">種類</th>
+          <th style="width: 40px;">形状</th>
+          <th style="width: 120px;">種類</th>
           <th style="width: 70px;">材質</th>
           <th style="width: 80px;">スケジュール</th>
-          <th style="width: 50px;">サイズ</th>
+          <th style="width: 60px;">サイズ</th>
           <th style="width: 40px;">m/個/枚</th>
           <th style="width: 50px;">見積重量</th>
           <th style="width: 50px;">実重量</th>
