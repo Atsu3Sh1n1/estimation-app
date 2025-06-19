@@ -1,5 +1,4 @@
-// @ts-nocheck
-
+<!-- EstimateRow.vue -->
 <template>
   <tr>
     <td>
@@ -38,7 +37,7 @@
       </select>
     </td>
 
-    <!-- 🔁 スケジュールをサイズより前に配置 -->
+    <!-- スケジュール -->
     <td>
       <select
         v-model="row.schedule"
@@ -51,6 +50,7 @@
       </select>
     </td>
 
+    <!-- サイズ -->
     <td>
       <select
         v-model="row.size"
@@ -63,6 +63,7 @@
       </select>
     </td>
 
+    <!-- 長さ入力 -->
     <td>
       <input
         type="number"
@@ -74,54 +75,65 @@
       />
     </td>
 
- <td style="text-align: right;">
-  <strong>{{ Math.floor(row.estimatedWeight) }}</strong><span style="font-size: 0.8em;">{{ (row.estimatedWeight % 1).toFixed(2).slice(1) }}</span>
-</td>
-<td style="text-align: right;">
-  <strong>{{ Math.floor(row.actualWeight) }}</strong>
-  <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(2).slice(1) }}</span>
-</td>
+    <!-- 見積重量 -->
+    <td style="text-align: right;">
+      <strong>{{ Math.floor(row.estimatedWeight) }}</strong>
+      <span style="font-size: 0.8em;">{{ (row.estimatedWeight % 1).toFixed(2).slice(1) }}</span>
+    </td>
 
-<td style="text-align: right;">
-  <strong>{{ Math.floor(row.pipeLength) }}</strong><span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span>
-</td>
+    <!-- 実重量 -->
+    <td style="text-align: right;">
+      <strong>{{ Math.floor(row.actualWeight) }}</strong>
+      <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(2).slice(1) }}</span>
+    </td>
 
+    <!-- m/DB -->
+    <td style="text-align: right;">
+      <strong>{{ Math.floor(row.pipeLength) }}</strong>
+      <span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span>
+    </td>
 
-    <td><button @click="emit('remove')">削除</button></td>
+    <!-- 削除ボタン -->
+    <td><button @click="emit('remove', index)">削除</button></td>
   </tr>
-  
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useEstimateRow } from '../../composables/estimate/useEstimateRow.ts';
+import { useEstimateRow } from '@/composables/estimate/useEstimateRow'; // ✅ これでOK
 
+const props = defineProps<{
+  index: number;
+  row: any;
+}>();
 
-defineProps<{ index: number }>();
-const emit = defineEmits(['remove']);
+const emit = defineEmits<{
+  (e: 'remove', index: number): void;
+}>();
 
-const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow();
+// ロジック
+const { shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow(props.row);
 const lengthError = ref(false);
 
 const resetFields = () => {
-  row.type = '';
-  row.material = '';
-  row.size = '';
-  row.schedule = '';
-  row.length = 0;
+  props.row.type = '';
+  props.row.material = '';
+  props.row.size = '';
+  props.row.schedule = '';
+  props.row.length = 0;
   updateWeights();
 };
 
 const resetSize = () => {
-  row.size = '';
-  row.schedule = '';
+  props.row.size = '';
+  props.row.schedule = '';
   updateWeights();
 };
 
 const validateLength = () => {
-  lengthError.value = row.length < 0 || isNaN(row.length);
+  lengthError.value = props.row.length < 0 || isNaN(props.row.length);
   if (!lengthError.value) updateWeights();
 };
 </script>
 
-<style src="./EstimateRow.css"></style>
+<style src="./EstimateRow.css" scoped></style>

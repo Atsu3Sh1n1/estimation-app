@@ -45,15 +45,26 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import EstimateRow from './EstimateRow.vue';
-import { useEstimateSheet } from '../../composables/estimate';
+import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 
-const {
-  rows,
-  addRow,
-  removeRow,
-} = useEstimateSheet();
+// 初期行生成関数（useEstimateRow を呼び出して row を取り出す）
+const createNewRow = () => {
+  const { row } = useEstimateRow();
+  return row;
+};
+
+const rows = ref([createNewRow()]); // 初期1行
+
+const addRow = () => {
+  rows.value.push(createNewRow());
+};
+
+const removeRow = (index: number) => {
+  if (rows.value.length <= 1) return;
+  rows.value.splice(index, 1);
+};
 </script>
 
 <style src="./EstimateSheet.css" scoped></style>
-

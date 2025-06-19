@@ -53,3 +53,10 @@ button:hover {
     width: 100%;
   }
 }
+
+.footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9em;
+}
+
