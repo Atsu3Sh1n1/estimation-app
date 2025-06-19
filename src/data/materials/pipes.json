@@ -37,6 +37,14 @@
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "250A", "schedule": "Sch10", "weightPerMeter": 26.2 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "300A", "schedule": "Sch10", "weightPerMeter": 35.2 },
   
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "350A", "schedule": "Sch10", "weightPerMeter": 43.7 },
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "400A", "schedule": "Sch10", "weightPerMeter": 50 },
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "450A", "schedule": "Sch10", "weightPerMeter": 56.3 },
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "500A", "schedule": "Sch10", "weightPerMeter": 68.8 },
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "550A", "schedule": "Sch10", "weightPerMeter": 75.8 },
+  { "type": "ステンレス（JIS G 3468）", "material": "SUS304", "size": "600A", "schedule": "Sch10", "weightPerMeter": 97.7 },
+
+
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "6A", "schedule": "Sch20", "weightPerMeter": 0.336 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "8A", "schedule": "Sch20", "weightPerMeter": 0.588 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "10A", "schedule": "Sch20", "weightPerMeter": 0.762 },

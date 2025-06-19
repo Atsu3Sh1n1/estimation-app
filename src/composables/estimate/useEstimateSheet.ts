@@ -1,35 +1,68 @@
-import { reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 
 export interface EstimateRow {
+  id: number;  // ユニークIDを追加
+  shape?: string;
+  type?: string;
+  material?: string;
+  schedule?: string;
+  size?: string;
+  length?: number;
   estimatedWeight: number;
   actualWeight: number;
   pipeLength: number;
-  // 他必要なら追加してください
+  errors?: Record<string, string>;
 }
 
+let nextId = 1;
+
 export function useEstimateSheet() {
-  const rows = reactive<EstimateRow[]>([
-    { estimatedWeight: 0, actualWeight: 0, pipeLength: 0 },
+  const rows = ref<EstimateRow[]>([
+    {
+      id: nextId++,
+      shape: '',
+      type: '',
+      material: '',
+      schedule: '',
+      size: '',
+      length: 0,
+      estimatedWeight: 0,
+      actualWeight: 0,
+      pipeLength: 0,
+      errors: {},
+    },
   ]);
 
   const addRow = () => {
-    rows.push({ estimatedWeight: 0, actualWeight: 0, pipeLength: 0 });
+    rows.value.push({
+      id: nextId++,
+      shape: '',
+      type: '',
+      material: '',
+      schedule: '',
+      size: '',
+      length: 0,
+      estimatedWeight: 0,
+      actualWeight: 0,
+      pipeLength: 0,
+      errors: {},
+    });
   };
 
-  const removeRow = (index: number) => {
-    rows.splice(index, 1);
+  const removeRow = (idToRemove: number) => {
+    rows.value = rows.value.filter(row => row.id !== idToRemove);
   };
 
   const totalEstimatedWeight = computed(() =>
-    rows.reduce((sum, row) => sum + (row.estimatedWeight || 0), 0)
+    rows.value.reduce((sum, row) => sum + (row.estimatedWeight || 0), 0)
   );
 
   const totalActualWeight = computed(() =>
-    rows.reduce((sum, row) => sum + (row.actualWeight || 0), 0)
+    rows.value.reduce((sum, row) => sum + (row.actualWeight || 0), 0)
   );
 
   const totalPipeLength = computed(() =>
-    rows.reduce((sum, row) => sum + (row.pipeLength || 0), 0)
+    rows.value.reduce((sum, row) => sum + (row.pipeLength || 0), 0)
   );
 
   return {

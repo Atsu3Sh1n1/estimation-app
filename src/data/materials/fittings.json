@@ -755,7 +755,128 @@
   { "type": "45°エルボ：ショート（JIS B 2311/2312）", "material": "SUS316", "size": "250A", "schedule": "Sch160", "weight": 33.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 170 },
   { "type": "45°エルボ：ショート（JIS B 2311/2312）", "material": "SUS316", "size": "300A", "schedule": "Sch160", "weight": 56.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 237 },
   { "type": "45°エルボ：ショート（JIS B 2311/2312）", "material": "SUS316", "size": "350A", "schedule": "Sch160", "weight": 78.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 284 },
-  { "type": "45°エルボ：ショート（JIS B 2311/2312）", "material": "SUS316", "size": "400A", "schedule": "Sch160", "weight": 116, "lengthCoefficient": 0.15, "pipeUnitWeight": 369 }
+  { "type": "45°エルボ：ショート（JIS B 2311/2312）", "material": "SUS316", "size": "400A", "schedule": "Sch160", "weight": 116, "lengthCoefficient": 0.15, "pipeUnitWeight": 369 },
+
+
+
+
+
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "15A × 15A", "schedule": "Sch10", "weight": 0.067, "lengthCoefficient": 0.15, "pipeUnitWeight": 1.03 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "20A × 20A", "schedule": "Sch10", "weight": 0.095, "lengthCoefficient": 0.15, "pipeUnitWeight": 1.31 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "20A × 15A", "schedule": "Sch10", "weight": 0.095, "lengthCoefficient": 0.15, "pipeUnitWeight": 1.31 },
+  
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "25A × 25A", "schedule": "Sch10", "weight": 0.212, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.18 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "25A × 20A", "schedule": "Sch10", "weight": 0.212, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.18 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "25A × 15A", "schedule": "Sch10", "weight": 0.212, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.18 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "32A × 32A", "schedule": "Sch10", "weight": 0.338, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.78 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "32A × 25A", "schedule": "Sch10", "weight": 0.338, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.78 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "32A × 20A", "schedule": "Sch10", "weight": 0.338, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.78 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "32A × 15A", "schedule": "Sch10", "weight": 0.338, "lengthCoefficient": 0.15, "pipeUnitWeight": 2.78 },
+  
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "40A × 40A", "schedule": "Sch10", "weight": 0.471, "lengthCoefficient": 0.15, "pipeUnitWeight": 3.19 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "40A × 32A", "schedule": "Sch10", "weight": 0.471, "lengthCoefficient": 0.15, "pipeUnitWeight": 3.19 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "40A × 25A", "schedule": "Sch10", "weight": 0.471, "lengthCoefficient": 0.15, "pipeUnitWeight": 3.19 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "40A × 20A", "schedule": "Sch10", "weight": 0.471, "lengthCoefficient": 0.15, "pipeUnitWeight": 3.19 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "40A × 15A", "schedule": "Sch10", "weight": 0.471, "lengthCoefficient": 0.15, "pipeUnitWeight": 3.19 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "50A × 50A", "schedule": "Sch10", "weight": 0.645, "lengthCoefficient": 0.15, "pipeUnitWeight": 4.02 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "50A × 40A", "schedule": "Sch10", "weight": 0.645, "lengthCoefficient": 0.15, "pipeUnitWeight": 4.02 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "50A × 32A", "schedule": "Sch10", "weight": 0.645, "lengthCoefficient": 0.15, "pipeUnitWeight": 4.02 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "50A × 25A", "schedule": "Sch10", "weight": 0.645, "lengthCoefficient": 0.15, "pipeUnitWeight": 4.02 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "50A × 20A", "schedule": "Sch10", "weight": 0.645, "lengthCoefficient": 0.15, "pipeUnitWeight": 4.02 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "65A × 65A", "schedule": "Sch10", "weight": 1.04, "lengthCoefficient": 0.15, "pipeUnitWeight": 5.48 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "65A × 50A", "schedule": "Sch10", "weight": 1.04, "lengthCoefficient": 0.15, "pipeUnitWeight": 5.48 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "65A × 40A", "schedule": "Sch10", "weight": 1.04, "lengthCoefficient": 0.15, "pipeUnitWeight": 5.48 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "65A × 32A", "schedule": "Sch10", "weight": 1.04, "lengthCoefficient": 0.15, "pipeUnitWeight": 5.48 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "65A × 25A", "schedule": "Sch10", "weight": 1.04, "lengthCoefficient": 0.15, "pipeUnitWeight": 5.48 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "80A × 80A", "schedule": "Sch10", "weight": 1.37, "lengthCoefficient": 0.15, "pipeUnitWeight": 6.43 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "80A × 65A", "schedule": "Sch10", "weight": 1.37, "lengthCoefficient": 0.15, "pipeUnitWeight": 6.43 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "80A × 50A", "schedule": "Sch10", "weight": 1.37, "lengthCoefficient": 0.15, "pipeUnitWeight": 6.43 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "80A × 40A", "schedule": "Sch10", "weight": 1.37, "lengthCoefficient": 0.15, "pipeUnitWeight": 6.43 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "80A × 32A", "schedule": "Sch10", "weight": 1.37, "lengthCoefficient": 0.15, "pipeUnitWeight": 6.43 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "90A × 90A", "schedule": "Sch10", "weight": 1.73, "lengthCoefficient": 0.15, "pipeUnitWeight": 7.37 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "90A × 80A", "schedule": "Sch10", "weight": 1.73, "lengthCoefficient": 0.15, "pipeUnitWeight": 7.37 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "90A × 65A", "schedule": "Sch10", "weight": 1.73, "lengthCoefficient": 0.15, "pipeUnitWeight": 7.37 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "90A × 50A", "schedule": "Sch10", "weight": 1.73, "lengthCoefficient": 0.15, "pipeUnitWeight": 7.37 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "90A × 40A", "schedule": "Sch10", "weight": 1.73, "lengthCoefficient": 0.15, "pipeUnitWeight": 7.37 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "100A × 100A", "schedule": "Sch10", "weight": 2.14, "lengthCoefficient": 0.15, "pipeUnitWeight": 8.32 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "100A × 90A", "schedule": "Sch10", "weight": 2.14, "lengthCoefficient": 0.15, "pipeUnitWeight": 8.32 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "100A × 80A", "schedule": "Sch10", "weight": 2.14, "lengthCoefficient": 0.15, "pipeUnitWeight": 8.32 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "100A × 65A", "schedule": "Sch10", "weight": 2.14, "lengthCoefficient": 0.15, "pipeUnitWeight": 8.32 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "100A × 50A", "schedule": "Sch10", "weight": 2.14, "lengthCoefficient": 0.15, "pipeUnitWeight": 8.32 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "125A × 125A", "schedule": "Sch10", "weight": 3.48, "lengthCoefficient": 0.15, "pipeUnitWeight": 11.6 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "125A × 100A", "schedule": "Sch10", "weight": 3.48, "lengthCoefficient": 0.15, "pipeUnitWeight": 11.6 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "125A × 90A", "schedule": "Sch10", "weight": 3.48, "lengthCoefficient": 0.15, "pipeUnitWeight": 11.6 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "125A × 80A", "schedule": "Sch10", "weight": 3.48, "lengthCoefficient": 0.15, "pipeUnitWeight": 11.6 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "125A × 65A", "schedule": "Sch10", "weight": 3.48, "lengthCoefficient": 0.15, "pipeUnitWeight": 11.6 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "150A × 150A", "schedule": "Sch10", "weight": 4.74, "lengthCoefficient": 0.15, "pipeUnitWeight": 13.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "150A × 125A", "schedule": "Sch10", "weight": 4.74, "lengthCoefficient": 0.15, "pipeUnitWeight": 13.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "150A × 100A", "schedule": "Sch10", "weight": 4.74, "lengthCoefficient": 0.15, "pipeUnitWeight": 13.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "150A × 90A", "schedule": "Sch10", "weight": 4.74, "lengthCoefficient": 0.15, "pipeUnitWeight": 13.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "150A × 80A", "schedule": "Sch10", "weight": 4.74, "lengthCoefficient": 0.15, "pipeUnitWeight": 13.7 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "200A × 200A", "schedule": "Sch10", "weight": 9.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 21.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "200A × 150A", "schedule": "Sch10", "weight": 9.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 21.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "200A × 125A", "schedule": "Sch10", "weight": 9.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 21.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "200A × 100A", "schedule": "Sch10", "weight": 9.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 21.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "200A × 90A", "schedule": "Sch10", "weight": 9.0, "lengthCoefficient": 0.15, "pipeUnitWeight": 21.2 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "250A × 250A", "schedule": "Sch10", "weight": 13.5, "lengthCoefficient": 0.15, "pipeUnitWeight": 26.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "250A × 200A", "schedule": "Sch10", "weight": 13.5, "lengthCoefficient": 0.15, "pipeUnitWeight": 26.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "250A × 150A", "schedule": "Sch10", "weight": 13.5, "lengthCoefficient": 0.15, "pipeUnitWeight": 26.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "250A × 125A", "schedule": "Sch10", "weight": 13.5, "lengthCoefficient": 0.15, "pipeUnitWeight": 26.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "250A × 100A", "schedule": "Sch10", "weight": 13.5, "lengthCoefficient": 0.15, "pipeUnitWeight": 26.2 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "300A × 300A", "schedule": "Sch10", "weight": 21.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 35.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "300A × 250A", "schedule": "Sch10", "weight": 21.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 35.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "300A × 200A", "schedule": "Sch10", "weight": 21.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 35.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "300A × 150A", "schedule": "Sch10", "weight": 21.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 35.2 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "300A × 125A", "schedule": "Sch10", "weight": 21.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 35.2 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "350A × 350A", "schedule": "Sch10", "weight": 28.8, "lengthCoefficient": 0.15, "pipeUnitWeight": 43.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "350A × 300A", "schedule": "Sch10", "weight": 28.8, "lengthCoefficient": 0.15, "pipeUnitWeight": 43.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "350A × 250A", "schedule": "Sch10", "weight": 28.8, "lengthCoefficient": 0.15, "pipeUnitWeight": 43.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "350A × 200A", "schedule": "Sch10", "weight": 28.8, "lengthCoefficient": 0.15, "pipeUnitWeight": 43.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "350A × 150A", "schedule": "Sch10", "weight": 28.8, "lengthCoefficient": 0.15, "pipeUnitWeight": 43.7 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "400A × 400A", "schedule": "Sch10", "weight": 35.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 50 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "400A × 350A", "schedule": "Sch10", "weight": 35.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 50 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "400A × 300A", "schedule": "Sch10", "weight": 35.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 50 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "400A × 250A", "schedule": "Sch10", "weight": 35.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 50 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "400A × 200A", "schedule": "Sch10", "weight": 35.6, "lengthCoefficient": 0.15, "pipeUnitWeight": 50 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "450A × 450A", "schedule": "Sch10", "weight": 45.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 56.3 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "450A × 400A", "schedule": "Sch10", "weight": 45.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 56.3 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "450A × 350A", "schedule": "Sch10", "weight": 45.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 56.3 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "450A × 300A", "schedule": "Sch10", "weight": 45.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 56.3 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "450A × 250A", "schedule": "Sch10", "weight": 45.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 56.3 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "500A × 500A", "schedule": "Sch10", "weight": 61.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 68.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "500A × 450A", "schedule": "Sch10", "weight": 61.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 68.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "500A × 400A", "schedule": "Sch10", "weight": 61.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 68.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "500A × 350A", "schedule": "Sch10", "weight": 61.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 68.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "500A × 300A", "schedule": "Sch10", "weight": 61.2, "lengthCoefficient": 0.15, "pipeUnitWeight": 68.8 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "550A × 550A", "schedule": "Sch10", "weight": 74.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 75.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "550A × 500A", "schedule": "Sch10", "weight": 74.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 75.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "550A × 450A", "schedule": "Sch10", "weight": 74.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 75.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "550A × 400A", "schedule": "Sch10", "weight": 74.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 75.8 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "550A × 350A", "schedule": "Sch10", "weight": 74.1, "lengthCoefficient": 0.15, "pipeUnitWeight": 75.8 },
+
+  { "type": "T同径（JIS B 2311/2312）", "material": "SUS304", "size": "600A × 600A", "schedule": "Sch10", "weight": 96.7, "lengthCoefficient": 0.15, "pipeUnitWeight": 97.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "600A × 550A", "schedule": "Sch10", "weight": 96.7, "lengthCoefficient": 0.15, "pipeUnitWeight": 97.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "600A × 500A", "schedule": "Sch10", "weight": 96.7, "lengthCoefficient": 0.15, "pipeUnitWeight": 97.7 },
+  { "type": "T異径（JIS B 2311/2312）", "material": "SUS304", "size": "600A × 450A", "schedule": "Sch10", "weight": 96.7, "lengthCoefficient": 0.15, "pipeUnitWeight": 97.7 }
+  
 
 
 ]
