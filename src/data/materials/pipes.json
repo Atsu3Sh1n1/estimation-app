@@ -138,7 +138,7 @@
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "50A", "schedule": "Sch160", "weightPerMeter": 11.2 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "65A", "schedule": "Sch160", "weightPerMeter": 15.9 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "80A", "schedule": "Sch160", "weightPerMeter": 21.6 },
-  { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "90A", "schedule": "Sch160", "weightPerMeter": 33.9 },
+  { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "90A", "schedule": "Sch160", "weightPerMeter": 28.1 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "100A", "schedule": "Sch160", "weightPerMeter": 33.9 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "125A", "schedule": "Sch160", "weightPerMeter": 49.1 },
   { "type": "ステンレス（JIS G 3459）", "material": "SUS304", "size": "150A", "schedule": "Sch160", "weightPerMeter": 66.6 },

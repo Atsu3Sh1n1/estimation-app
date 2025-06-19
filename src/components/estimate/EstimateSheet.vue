@@ -16,10 +16,10 @@
           <th style="width: 70px;">材質</th>
           <th style="width: 80px;">スケジュール</th>
           <th style="width: 50px;">サイズ</th>
-          <th style="width: 70px;">m/個/枚</th>
-          <th style="width: 70px;">見積重量</th>
-          <th style="width: 70px;">実重量</th>
-          <th style="width: 70px;">m/DB</th>
+          <th style="width: 40px;">m/個/枚</th>
+          <th style="width: 50px;">見積重量</th>
+          <th style="width: 50px;">実重量</th>
+          <th style="width: 50px;">m/DB</th>
           <th style="width: 20px;"></th>
           <th style="width: 50px;"></th>
         </tr>
