@@ -18,7 +18,7 @@
           <th style="width: 60px;">サイズ</th>
           <th style="width: 40px;">m/個/枚</th>
           <th style="width: 50px;">見積重量</th>
-          <th style="width: 50px;">実重量</th>
+          <th style="width: 50px;">重量</th>
           <th style="width: 50px;">m/DB</th>
           <th style="width: 20px;"></th>
           <th style="width: 50px;"></th>

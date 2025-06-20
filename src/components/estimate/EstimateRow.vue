@@ -12,6 +12,7 @@ const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEs
 
 const lengthError = ref(false);
 
+// 形状が変わったときは全部リセット
 const resetFields = () => {
   row.type = '';
   row.material = '';
@@ -21,7 +22,16 @@ const resetFields = () => {
   updateWeights();
 };
 
-const resetSize = () => {
+// 種類が変わったときは材質以下をリセット（材質もリセット）
+const resetType = () => {
+  row.material = '';
+  row.size = '';
+  row.schedule = '';
+  updateWeights();
+};
+
+// 材質が変わったときはサイズ以下をリセット（材質はリセットしない）
+const resetMaterial = () => {
   row.size = '';
   row.schedule = '';
   updateWeights();
@@ -54,7 +64,7 @@ const onRemove = () => {
     <td>
       <select
         v-model="row.type"
-        @change="resetSize"
+        @change="resetType"
         :disabled="types.length === 0"
         :class="{ error: !row.type }"
       >
@@ -66,7 +76,7 @@ const onRemove = () => {
     <td>
       <select
         v-model="row.material"
-        @change="resetSize"
+        @change="resetMaterial"
         :disabled="!row.type"
         :class="{ error: !row.material || !row.type }"
       >
