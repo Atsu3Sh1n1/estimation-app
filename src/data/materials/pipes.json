@@ -403,12 +403,17 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch30", "weightPerMeter": 155 },
+
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -430,6 +435,9 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
+
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -451,6 +459,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -472,8 +482,10 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
- { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "25A", "schedule": "Sch160", "weightPerMeter": 4.36 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "32A", "schedule": "Sch160", "weightPerMeter": 5.73 },
@@ -490,6 +502,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 },
 
 
 
@@ -511,12 +525,16 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch30", "weightPerMeter": 155 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -538,6 +556,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -559,6 +579,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -580,8 +602,10 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
- { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "25A", "schedule": "Sch160", "weightPerMeter": 4.36 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "32A", "schedule": "Sch160", "weightPerMeter": 5.73 },
@@ -598,7 +622,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
-
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 },
 
 
 
@@ -618,12 +643,16 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch30", "weightPerMeter": 155 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -645,6 +674,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -666,6 +697,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -687,8 +720,10 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
-    { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "25A", "schedule": "Sch160", "weightPerMeter": 4.36 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "32A", "schedule": "Sch160", "weightPerMeter": 5.73 },
@@ -705,7 +740,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
-
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(S)白", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 },
 
 
 
@@ -725,12 +761,16 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch30", "weightPerMeter": 155 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -752,6 +792,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -773,6 +815,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -794,6 +838,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
@@ -812,7 +858,8 @@
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
   { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
-
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STPG370(圧力)：G3454", "material": "STPG370(E)白", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 },
 
 
 
@@ -831,12 +878,16 @@
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch30", "weightPerMeter": 155 },
 
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -858,6 +909,8 @@
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
 
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -879,6 +932,8 @@
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -900,6 +955,8 @@
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
@@ -918,7 +975,8 @@
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
   { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
-
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STPT370(高温)：G3456", "material": "STPT370", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 },
 
 
 
@@ -938,12 +996,16 @@
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch20", "weightPerMeter": 49.3 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch20", "weightPerMeter": 67.7 },
   { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch20", "weightPerMeter": 77.6 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch20", "weightPerMeter": 87.5 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch20", "weightPerMeter": 117 },
 
   { "type": "STS370：G3455", "material": "STS370", "size": "200A", "schedule": "Sch30", "weightPerMeter": 36.1 },
   { "type": "STS370：G3455", "material": "STS370", "size": "250A", "schedule": "Sch30", "weightPerMeter": 49.9 },
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch30", "weightPerMeter": 64.2 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch30", "weightPerMeter": 81.1 },
   { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch30", "weightPerMeter": 93.0 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch30", "weightPerMeter": 122 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch30", "weightPerMeter": 155 },
 
   { "type": "STS370：G3455", "material": "STS370", "size": "6A", "schedule": "Sch40", "weightPerMeter": 0.369 },
   { "type": "STS370：G3455", "material": "STS370", "size": "8A", "schedule": "Sch40", "weightPerMeter": 0.629 },
@@ -965,6 +1027,8 @@
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch40", "weightPerMeter": 78.3 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch40", "weightPerMeter": 94.3 },
   { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch40", "weightPerMeter": 123 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch40", "weightPerMeter": 156 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch40", "weightPerMeter": 184 },
 
   { "type": "STS370：G3455", "material": "STS370", "size": "6A", "schedule": "Sch60", "weightPerMeter": 0.450 },
   { "type": "STS370：G3455", "material": "STS370", "size": "8A", "schedule": "Sch60", "weightPerMeter": 0.675 },
@@ -986,6 +1050,8 @@
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch60", "weightPerMeter": 107 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch60", "weightPerMeter": 127 },
   { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch60", "weightPerMeter": 160 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch60", "weightPerMeter": 205 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch60", "weightPerMeter": 248 },
 
   { "type": "STS370：G3455", "material": "STS370", "size": "6A", "schedule": "Sch80", "weightPerMeter": 0.479 },
   { "type": "STS370：G3455", "material": "STS370", "size": "8A", "schedule": "Sch80", "weightPerMeter": 0.799 },
@@ -1007,6 +1073,8 @@
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch80", "weightPerMeter": 129 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch80", "weightPerMeter": 158 },
   { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch80", "weightPerMeter": 203 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch80", "weightPerMeter": 254 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch80", "weightPerMeter": 311 },
 
   { "type": "STS370：G3455", "material": "STS370", "size": "15A", "schedule": "Sch160", "weightPerMeter": 1.97 },
   { "type": "STS370：G3455", "material": "STS370", "size": "20A", "schedule": "Sch160", "weightPerMeter": 2.94 },
@@ -1024,7 +1092,9 @@
   { "type": "STS370：G3455", "material": "STS370", "size": "250A", "schedule": "Sch160", "weightPerMeter": 168 },
   { "type": "STS370：G3455", "material": "STS370", "size": "300A", "schedule": "Sch160", "weightPerMeter": 234 },
   { "type": "STS370：G3455", "material": "STS370", "size": "350A", "schedule": "Sch160", "weightPerMeter": 282 },
-  { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 }
+  { "type": "STS370：G3455", "material": "STS370", "size": "400A", "schedule": "Sch160", "weightPerMeter": 365 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "450A", "schedule": "Sch160", "weightPerMeter": 459 },
+  { "type": "STS370：G3455", "material": "STS370", "size": "500A", "schedule": "Sch160", "weightPerMeter": 565 }
 
 
 
