@@ -12,18 +12,15 @@
       <thead>
         <tr>
           <th style="width: 40px;">形状</th>
-          <th style="width: 120px;">種類</th>
+          <th style="width: 100px;">種類</th>
           <th style="width: 70px;">材質</th>
           <th style="width: 80px;">スケジュール</th>
           <th style="width: 60px;">サイズ</th>
           <th style="width: 40px;">m/個/枚</th>
-          <th style="width: 50px;">重量</th>
+          <th style="width: 50px;">{{ totalActualWeight.toFixed(0) }} kg</th>
           <th style="width: 50px;">{{ totalPipeLength.toFixed(0) }} m/DB</th>
           <th style="width: 50px;">{{ totalWeldingPoints }} w/DB</th>
           <th class="no-border" style="width: 1px;"></th>
-
-
-
         </tr>
       </thead>
 
@@ -38,7 +35,6 @@
         />
       </tbody>
 
-      
     </table>
   </div>
 
@@ -75,6 +71,11 @@ const addRow = () => {
 const removeRow = (idToRemove: number) => {
   rows.value = rows.value.filter(row => row.id !== idToRemove);
 };
+
+// 合計重量（実重量の合計）
+const totalActualWeight = computed(() =>
+  rows.value.reduce((sum, row) => sum + (row.actualWeight ?? 0), 0)
+);
 
 // 合計溶接ポイント
 const totalWeldingPoints = computed(() =>

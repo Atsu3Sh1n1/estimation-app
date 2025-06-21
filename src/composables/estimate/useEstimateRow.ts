@@ -57,7 +57,7 @@ export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
 
   const validate = () => {
     row.errors = {};
-    if (!row.shape) row.errors.shape = '形状を選択してください';
+    if (!row.shape) row.errors.shape = 'カテゴリを選択してください';
     if ((row.shape === 'pipe' || row.shape === 'fitting' || row.shape === 'valve' || row.shape === 'steel') && !row.type) {
       row.errors.type = '種類を選択してください';
     }

@@ -57,6 +57,7 @@ export function useFittingCalculator(
 
     const multiplier =
       upper.includes('TEE') ? 1 :
+      upper.includes('45°') ? 1 :
       upper.includes('ELBOW') ? 1 :
       upper.includes('REDUCER') ? 1 :
       upper.includes('FLANGE') ? 1 :

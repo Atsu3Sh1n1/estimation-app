@@ -4,7 +4,11 @@
     { "id": "fitting", "name": "継手" },
     { "id": "valve", "name": "バルブ" },
     { "id": "steel", "name": "鋼材" },
+    { "id": "steel", "name": "足場" },
+    { "id": "steel", "name": "保温" },
+    { "id": "steel", "name": "塗装" },
     { "id": "parts", "name": "消耗品" }
+    
 
   ],
 
