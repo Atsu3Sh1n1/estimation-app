@@ -120,10 +120,7 @@ const onRemove = () => {
       />
     </td>
 
-    <td style="text-align: right;">
-      <strong>{{ Math.floor(row.estimatedWeight) }}</strong>
-      <span style="font-size: 0.8em;">{{ (row.estimatedWeight % 1).toFixed(1).slice(1) }}</span>
-    </td>
+    
     <td style="text-align: right;">
       <strong>{{ Math.floor(row.actualWeight) }}</strong>
       <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(3).slice(1) }}</span>
