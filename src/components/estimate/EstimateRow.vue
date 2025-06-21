@@ -144,9 +144,13 @@ watch(
       <strong>{{ Math.floor(row.pipeLength) }}</strong>
       <span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span>
     </td>
-
+<td></td>
     <td>
-      <button @click="onRemove">削除</button>
+     <td class="delete-cell">
+  <button @click="onRemove" class="delete-button">×</button>
+</td>
+
+
     </td>
   </tr>
 </template>

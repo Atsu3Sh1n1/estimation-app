@@ -18,9 +18,12 @@
           <th style="width: 60px;">サイズ</th>
           <th style="width: 40px;">m/個/枚</th>
           <th style="width: 50px;">重量</th>
-          <th style="width: 50px;">m/DB</th>
-          <th style="width: 20px;"></th>
-          <th style="width: 50px;">予備/定尺？</th>
+          <th style="width: 50px;">{{ totalPipeLength.toFixed(0) }}m/DB</th>
+          <th style="width: 50px;">{{ totalWeldingPoints }} w/DB</th>
+          <th class="no-border" style="width: 1px;"></th>
+
+
+
         </tr>
       </thead>
 
@@ -35,16 +38,7 @@
         />
       </tbody>
 
-      <tfoot>
-        <tr>
-          <td colspan="9" style="text-align: right; font-weight: bold;"></td>
-          <td colspan="1" style=" font-weight: bold;">
-            {{ totalWeldingPoints }} w/DB
-          </td>
-          
-         
-        </tr>
-      </tfoot>
+      
     </table>
   </div>
 
@@ -67,7 +61,7 @@ const createEmptyRow = () => ({
   length: 0,
   estimatedWeight: 0,
   actualWeight: 0,
-  pipeLength: 0,
+  pipeLength: 0,      // インチメーター換算長さ
   weldingPoints: 0,
   errors: {},
 });
@@ -82,12 +76,17 @@ const removeRow = (idToRemove: number) => {
   rows.value = rows.value.filter(row => row.id !== idToRemove);
 };
 
-// 合計DB数（weldingPointsの合計）
+// 合計溶接ポイント
 const totalWeldingPoints = computed(() =>
   rows.value.reduce((sum, row) => sum + (row.weldingPoints ?? 0), 0)
 );
 
-// 各行から更新が来たらマージする
+// 合計インチメーター換算長さ
+const totalPipeLength = computed(() =>
+  rows.value.reduce((sum, row) => sum + (row.pipeLength ?? 0), 0)
+);
+
+// 行データ更新時にマージ
 const updateRow = ({ id, updatedRow }: { id: number; updatedRow: any }) => {
   const index = rows.value.findIndex(r => r.id === id);
   if (index !== -1) {
