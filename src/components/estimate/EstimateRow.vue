@@ -6,7 +6,10 @@ const { id, initialRow } = defineProps<{ id: number; initialRow: any }>();
 
 const emit = defineEmits<{
   (e: 'remove', id: number): void;
+  (e: 'updateRow', payload: { id: number; updatedRow: any }): void; // ← 追加
 }>();
+
+
 
 const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow(initialRow);
 
@@ -45,6 +48,18 @@ const validateLength = () => {
 const onRemove = () => {
   emit('remove', id);
 };
+
+import { watch } from 'vue';
+
+// row の全体変更を watch
+watch(
+  row,
+  () => {
+    emit('updateRow', { id, updatedRow: { ...row } });
+  },
+  { deep: true }
+);
+
 </script>
 
 <template>
@@ -120,7 +135,7 @@ const onRemove = () => {
       />
     </td>
 
-    
+  
     <td style="text-align: right;">
       <strong>{{ Math.floor(row.actualWeight) }}</strong>
       <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(3).slice(1) }}</span>

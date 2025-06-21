@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue';
 
 export interface EstimateRow {
-  id: number;  // ユニークIDを追加
+  id: number;
   shape?: string;
   type?: string;
   material?: string;
@@ -11,6 +11,7 @@ export interface EstimateRow {
   estimatedWeight: number;
   actualWeight: number;
   pipeLength: number;
+  weldingPoints?: number; // ← これを追加
   errors?: Record<string, string>;
 }
 

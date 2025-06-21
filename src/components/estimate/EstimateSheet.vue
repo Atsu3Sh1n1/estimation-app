@@ -31,11 +31,19 @@
           :id="row.id"
           :initialRow="row"
           @remove="removeRow"
+          @updateRow="updateRow"
         />
       </tbody>
 
       <tfoot>
-        <!-- トータル関連の行は一切なし -->
+        <tr>
+          <td colspan="9" style="text-align: right; font-weight: bold;"></td>
+          <td colspan="1" style=" font-weight: bold;">
+            {{ totalWeldingPoints }} w/DB
+          </td>
+          
+         
+        </tr>
       </tfoot>
     </table>
   </div>
@@ -44,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 
 let nextId = 1;
@@ -60,6 +68,7 @@ const createEmptyRow = () => ({
   estimatedWeight: 0,
   actualWeight: 0,
   pipeLength: 0,
+  weldingPoints: 0,
   errors: {},
 });
 
@@ -71,6 +80,19 @@ const addRow = () => {
 
 const removeRow = (idToRemove: number) => {
   rows.value = rows.value.filter(row => row.id !== idToRemove);
+};
+
+// 合計DB数（weldingPointsの合計）
+const totalWeldingPoints = computed(() =>
+  rows.value.reduce((sum, row) => sum + (row.weldingPoints ?? 0), 0)
+);
+
+// 各行から更新が来たらマージする
+const updateRow = ({ id, updatedRow }: { id: number; updatedRow: any }) => {
+  const index = rows.value.findIndex(r => r.id === id);
+  if (index !== -1) {
+    rows.value[index] = { ...rows.value[index], ...updatedRow };
+  }
 };
 </script>
 

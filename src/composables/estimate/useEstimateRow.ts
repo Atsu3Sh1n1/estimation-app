@@ -31,6 +31,7 @@ export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
     estimatedWeight: initialRow?.estimatedWeight || 0,
     actualWeight: initialRow?.actualWeight || 0,
     pipeLength: initialRow?.pipeLength || 0,
+    weldingPoints: initialRow?.weldingPoints || 0, // 🧩 追加
     errors: {}
   });
 
@@ -50,8 +51,6 @@ export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
     return getSizes(row.shape, row.material, row.schedule, row.type);
   });
 
-
-  // 🔧 修正箇所：size を null 許容に
   const schedules = computed(() => {
     return getSchedules(row.shape, row.material, row.size || null, row.type);
   });
@@ -71,7 +70,7 @@ export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
   const updateWeights = () => {
     validate();
     if (Object.keys(row.errors).length) {
-      row.actualWeight = row.estimatedWeight = row.pipeLength = 0;
+      row.actualWeight = row.estimatedWeight = row.pipeLength = row.weldingPoints = 0;
       return;
     }
 
@@ -95,6 +94,7 @@ export function useEstimateRow(initialRow?: Partial<EstimateRow>) {
       row.actualWeight = calc.actualWeight.value;
       row.estimatedWeight = calc.estimatedWeight.value;
       row.pipeLength = row.shape === 'steel' ? 0 : calc.pipeLength?.value || 0;
+      row.weldingPoints = calc.weldingPoints?.value ?? 0; // 🧩 ここが重要
     }
   };
 
