@@ -5,7 +5,41 @@
     <link rel="icon" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>見積システム</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #c0ffff; /* ← ここで背景色を変更 */
+        font-family: sans-serif;
+      }
+
+      #app {
+        padding: 1rem;
+      }
+
+      a {
+        text-decoration: none;       /* 下線を消す */
+        color: #333;                 /* お好みで変更可能 */
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      .footer a {
+        text-decoration: none;
+        color: #47c7d5;
+      }
+
+      .footer a:hover {
+        color: #000;
+      }
+    </style>
   </head>
+
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
