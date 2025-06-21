@@ -57,14 +57,27 @@ button:hover {
   }
 }
 
-.footer {
+.footer { 
   text-align: center;
   margin-top: 1rem;
   font-size: 0.9em;
 }
 
+/* リンクスタイルの上書き */
+.footer a {
+  text-decoration: none;        /* 下線を消す */
+  color: #29bac5;                  /* 任意の色に変更（例: 濃いグレー） */
+}
+
+/* 任意：ホバー時の色変更 */
+.footer a:hover {
+  color: #007acc;               /* ホバー時に色を変えたい場合 */
+  text-decoration: underline;   /* ホバー時に下線を戻したいなら */
+}
+
+
 .no-border {
-  border: none !important;
+width: 1px;
   background-color: transparent;
   
 }
