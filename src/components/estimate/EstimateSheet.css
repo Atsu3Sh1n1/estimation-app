@@ -27,14 +27,14 @@ td {
 
 button {
   padding: 8px 16px;
-  background: #4caf50;
+  background: #32c8cb;
   color: white;
   border: none;
   cursor: pointer;
 }
 
 button:hover {
-  background: #388e3c;
+  background: #33bbb9;
 }
 
 /* メディアクエリもOK */

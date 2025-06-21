@@ -5,7 +5,7 @@
     </div>
 
     <div class="controls">
-      <button @click="addRow">行追加</button>
+      <button @click="addRow">追加</button>
     </div>
 
     <table>
@@ -18,7 +18,7 @@
           <th style="width: 60px;">サイズ</th>
           <th style="width: 40px;">m/個/枚</th>
           <th style="width: 50px;">重量</th>
-          <th style="width: 50px;">{{ totalPipeLength.toFixed(0) }}m/DB</th>
+          <th style="width: 50px;">{{ totalPipeLength.toFixed(0) }} m/DB</th>
           <th style="width: 50px;">{{ totalWeldingPoints }} w/DB</th>
           <th class="no-border" style="width: 1px;"></th>
 
