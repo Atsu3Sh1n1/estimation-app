@@ -20,7 +20,7 @@
           <th style="width: 50px;">重量</th>
           <th style="width: 50px;">m/DB</th>
           <th style="width: 20px;"></th>
-          <th style="width: 50px;">予備</th>
+          <th style="width: 50px;">予備/定尺？</th>
         </tr>
       </thead>
 
