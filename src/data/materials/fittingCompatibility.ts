@@ -23,7 +23,7 @@ export const fittingCompatibility = {
             STPT410E: ['G3456'],
             STPT480S: ['G3456'],
             STPT480E: ['G3456'],
-            
+
             STPT370S_W: ['G3456'],
             STPT370E_W: ['G3456'],
             STPT370S_WN: ['G3456'],
@@ -74,7 +74,7 @@ export const fittingCompatibility = {
             STPT410E: ['G3456'],
             STPT480S: ['G3456'],
             STPT480E: ['G3456'],
-            
+
             STPT370S_W: ['G3456'],
             STPT370E_W: ['G3456'],
             STPT370S_WN: ['G3456'],
@@ -105,6 +105,59 @@ export const fittingCompatibility = {
         },
 
     },
+
+    shortelbow: {
+        materials: [
+            'STPG370S', 'STPG370E', 'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L',
+
+            '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+
+        ],
+
+        jisMap: {
+            STPG370S: ['G3454'],
+            STPG370E: ['G3454'],
+            STPG410S: ['G3454'],
+            STPG410E: ['G3454'],
+
+            STPT370S: ['G3456'],
+            STPT370E: ['G3456'],
+            STPT410S: ['G3456'],
+            STPT410E: ['G3456'],
+            STPT480S: ['G3456'],
+            STPT480E: ['G3456'],
+
+            STPT370S_W: ['G3456'],
+            STPT370E_W: ['G3456'],
+            STPT370S_WN: ['G3456'],
+            STPT370E_WN: ['G3456'],
+            STPT370S_N: ['G3456'],
+            STPT370E_N: ['G3456'],
+
+
+            SUS304: ['G3459'],
+            SUS304L: ['G3459'],
+            SUS316: ['G3459'],
+            SUS316L: ['G3459'],
+            SUS430: ['G3459'],
+            SUS410: ['G3459'],
+            SUS329J4L: ['G3459'],
+
+            金24K: ['G3459', 'G3454'],
+            銀Ag: ['G3459', 'G3454'],
+            銅Cu: ['G3459', 'G3454'],
+            プラチナ: [],
+            チタン: ['G3459', 'G3454'],
+            アルミ: ['G3459', 'G3454'],
+            鋳鉄: ['G3459', 'G3454'],
+            塩ビPVC: [],
+            PEポリエチレン: ['G3459', 'G3454'],
+            ダイヤモンド: ['G3459', 'G3454'],
+            タングステン: ['G3459', 'G3454'],
+        },
+
+    },
+
 
     tee: {
         materials: [
@@ -126,7 +179,7 @@ export const fittingCompatibility = {
             STPT410E: ['G3456'],
             STPT480S: ['G3456'],
             STPT480E: ['G3456'],
-            
+
             STPT370S_W: ['G3456'],
             STPT370E_W: ['G3456'],
             STPT370S_WN: ['G3456'],
@@ -157,7 +210,7 @@ export const fittingCompatibility = {
         },
     },
 
-    reducer: {
+    ducer: {
         materials: [
             'STPG370S', 'STPG370E', 'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L',
 
@@ -177,7 +230,7 @@ export const fittingCompatibility = {
             STPT410E: ['G3456'],
             STPT480S: ['G3456'],
             STPT480E: ['G3456'],
-            
+
             STPT370S_W: ['G3456'],
             STPT370E_W: ['G3456'],
             STPT370S_WN: ['G3456'],

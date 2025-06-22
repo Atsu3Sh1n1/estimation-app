@@ -1,5 +1,6 @@
-import { pipeSizes, materialDensities, fittingFactors } from '@/data/materials';
+import { pipeSizes, materialDensities } from '@/data/materials';
 import type { EstimateRow } from '@/types/estimate';
+import { fittingFactors } from '@/composables/estimate/useFittingCalculator';
 
 /**
  * サイズから呼び径（インチ）をマッピング
@@ -11,7 +12,6 @@ const sizeToNominalInch: Record<string, number> = {
   '250A': 10, '300A': 12, '350A': 14, '400A': 16, '450A': 18, '500A': 20,
   '550A': 22, '600A': 24, '650A': 26, '700A': 28, '750A': 30, '800A': 32,
   '850A': 34, '900A': 36, '1000A': 40,
-  // 必要に応じて追加してください
 };
 
 /**
@@ -24,12 +24,12 @@ export function getPipeWeight(row: EstimateRow): number {
 
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
-  const volume = area / 1e6 * row.length; // mm² → m² × 長さ
+  const volume = area / 1e6 * row.length;
   return volume * density;
 }
 
 /**
- * 継手の重量を計算（JIS対応・係数使用・呼び径も考慮）
+ * 継手の重量を計算（異径サイズ対応・JIS対応・係数使用・呼び径考慮）
  */
 export function getFittingWeight(row: EstimateRow): number {
   const spec = pipeSizes[row.jis]?.[row.size]?.[row.schedule];
@@ -39,13 +39,13 @@ export function getFittingWeight(row: EstimateRow): number {
 
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
+  const pipeWeightPerMeter = area / 1e6 * density;
 
-  // パイプ1mあたりの重量
-  const pipeWeightPerMeter = area / 1e6 * density; // m³ × 密度 = kg/m
+  // 呼び径を取得（異径対応: "100*25" → ["100A", "25A"]）
+  const nominalInchTotal = row.size
+    .split('*')
+    .map((s) => sizeToNominalInch[s.trim()] ?? 1)
+    .reduce((sum, inch) => sum + inch, 0);
 
-  // 呼び径（インチ）をサイズから取得（デフォルト1インチ）
-  const nominalInch = sizeToNominalInch[row.size] ?? 1;
-
-  // 継手の重量 = パイプ1m重量 × factor × 呼び径（インチ） × 数量
-  return pipeWeightPerMeter * factor * nominalInch * row.quantity;
+  return pipeWeightPerMeter * factor * nominalInchTotal * row.quantity;
 }
