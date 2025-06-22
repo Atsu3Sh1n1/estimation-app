@@ -10,7 +10,7 @@
       <option value="reducer">レジューサ</option>
        <option value="reducer">ラップフランジ</option>
         <option value="reducer">板フランジ</option>
-        
+
     </select>
 
     <!-- 材質 -->
@@ -112,7 +112,7 @@ const availableJis = computed(() => {
 const jisLabelMap: Record<string, string> = {
   G3459: 'B2312/2313',
   G3454: 'B2312/2313',
-  
+  G3452: 'B2311',
 };
 
 function getJisLabel(jis: string): string {

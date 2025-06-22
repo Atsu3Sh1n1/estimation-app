@@ -1,5 +1,7 @@
 export const materialDensities = {
 
+    SGP: 7850,
+    
     // STPG（圧力配管用） JIS G3454
     STPG370S: 7850,   // 継目あり（Seam）
     STPG370E: 7850,   // 継目なし（Electric Welded）
