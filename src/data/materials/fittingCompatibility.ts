@@ -18,6 +18,8 @@ export const fittingCompatibility = {
             SGP白EG: ['G3452'],
             SGP白鍛BC: ['G3452'],
 
+            SGPW: ['G3442'],
+
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
             STPG410S: ['G3454'],
@@ -77,10 +79,13 @@ export const fittingCompatibility = {
             SGP白EG: ['G3452'],
             SGP白鍛BC: ['G3452'],
 
+            SGPW: ['G3442'],
+
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
             STPG410S: ['G3454'],
             STPG410E: ['G3454'],
+
 
             STPT370S: ['G3456'],
             STPT370E: ['G3456'],
@@ -136,10 +141,13 @@ export const fittingCompatibility = {
             SGP白EG: ['G3452'],
             SGP白鍛BC: ['G3452'],
 
+            SGPW: ['G3442'],
+
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
             STPG410S: ['G3454'],
             STPG410E: ['G3454'],
+
 
             STPT370S: ['G3456'],
             STPT370E: ['G3456'],
@@ -196,10 +204,13 @@ export const fittingCompatibility = {
             SGP白EG: ['G3452'],
             SGP白鍛BC: ['G3452'],
 
+            SGPW: ['G3442'],
+
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
             STPG410S: ['G3454'],
             STPG410E: ['G3454'],
+
 
             STPT370S: ['G3456'],
             STPT370E: ['G3456'],
@@ -255,10 +266,13 @@ export const fittingCompatibility = {
             SGP白EG: ['G3452'],
             SGP白鍛BC: ['G3452'],
 
+            SGPW: ['G3442'],
+
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
             STPG410S: ['G3454'],
             STPG410E: ['G3454'],
+
 
             STPT370S: ['G3456'],
             STPT370E: ['G3456'],
