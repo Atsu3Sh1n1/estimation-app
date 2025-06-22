@@ -4,8 +4,6 @@
   gap: 12px;
   align-items: center;
   padding: 8px 12px;
-  border-bottom: 1px solid #ddd;
-  background-color: #f9f9f9;
   border-radius: 6px;
   margin-bottom: 6px;
 }
@@ -17,7 +15,6 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
   min-width: 100px;
-  background-color: #fff;
 }
 
 input[type="number"] {
@@ -31,7 +28,6 @@ button {
   color: white;
   border: none;
   border-radius: 4px;
-  transition: background-color 0.2s ease;
 }
 
 button:hover {
