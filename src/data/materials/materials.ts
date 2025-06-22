@@ -1,14 +1,10 @@
 export const materialDensities = {
-
     SGP黒EG: 7850,
     SGP黒鍛BH: 7850,
     SGP白EG: 7850,
     SGP白鍛BC: 7850,
-
     SGPW: 7850,
 
-
-    
     // STPG（圧力配管用） JIS G3454
     STPG370S: 7850,   // 継目あり（Seam）
     STPG370E: 7850,   // 継目なし（Electric Welded）
@@ -21,9 +17,9 @@ export const materialDensities = {
     STPT410S: 7850,   // 継目あり（強度410）
     STPT410E: 7850,   // 継目なし（強度410）
     STPT480S: 7850,   // 継目あり（Seam） 強度480
-    STPT480E: 7850,   // 継目なし（Electric Welded） 強度480
-
-
+    STPT480E: 7850, 
+    
+    // 継目なし（Electric Welded） 強度480
     // 亜鉛めっき（白管）などのバリエーション（便宜的に）
     STPT370S_W: 7850,    // 白管・継目あり
     STPT370E_W: 7850,    // 白管・継目なし
@@ -54,12 +50,6 @@ export const materialDensities = {
     PEポリエチレン: 950,
     ダイヤモンド: 3500,
     タングステン: 19300,
-
-
-
-
-
-
 
 } as const;
 
