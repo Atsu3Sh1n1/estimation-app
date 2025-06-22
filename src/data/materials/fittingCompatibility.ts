@@ -13,7 +13,10 @@ export const fittingCompatibility = {
 
         jisMap: {
 
-            SGP: ['G3452'],
+            SGP黒EG: ['G3452'],
+            SGP黒鍛BH: ['G3452'],
+            SGP白EG: ['G3452'],
+            SGP白鍛BC: ['G3452'],
 
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
@@ -69,7 +72,10 @@ export const fittingCompatibility = {
 
         jisMap: {
 
-            SGP: ['G3452'],
+            SGP黒EG: ['G3452'],
+            SGP黒鍛BH: ['G3452'],
+            SGP白EG: ['G3452'],
+            SGP白鍛BC: ['G3452'],
 
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
@@ -125,7 +131,10 @@ export const fittingCompatibility = {
 
         jisMap: {
 
-            SGP: ['G3452'],
+            SGP黒EG: ['G3452'],
+            SGP黒鍛BH: ['G3452'],
+            SGP白EG: ['G3452'],
+            SGP白鍛BC: ['G3452'],
 
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
@@ -182,7 +191,10 @@ export const fittingCompatibility = {
 
         jisMap: {
 
-            SGP: ['G3452'],
+            SGP黒EG: ['G3452'],
+            SGP黒鍛BH: ['G3452'],
+            SGP白EG: ['G3452'],
+            SGP白鍛BC: ['G3452'],
 
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],
@@ -238,7 +250,10 @@ export const fittingCompatibility = {
 
         jisMap: {
 
-            SGP: ['G3452'],
+            SGP黒EG: ['G3452'],
+            SGP黒鍛BH: ['G3452'],
+            SGP白EG: ['G3452'],
+            SGP白鍛BC: ['G3452'],
 
             STPG370S: ['G3454'],
             STPG370E: ['G3454'],

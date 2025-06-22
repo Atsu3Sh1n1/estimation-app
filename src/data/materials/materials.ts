@@ -1,6 +1,11 @@
 export const materialDensities = {
 
-    SGP: 7850,
+    SGP黒EG: 7850,
+    SGP黒鍛BH: 7850,
+    SGP白EG: 7850,
+    SGP白鍛BC: 7850,
+
+
     
     // STPG（圧力配管用） JIS G3454
     STPG370S: 7850,   // 継目あり（Seam）
