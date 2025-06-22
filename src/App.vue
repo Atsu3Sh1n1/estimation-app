@@ -6,15 +6,15 @@
 import { useHead } from '@vueuse/head'
 
 useHead({
-  title: 'プラント配管見積システム｜JIS B 2311 対応・継手重量計算',
+  title: 'プラント配管見積システム｜継手重量計算',
   meta: [
     {
       name: 'description',
-      content: 'JIS B 2311、JIS G 3452 に準拠した配管見積支援ツール。呼び径やスケジュール別に継手・パイプ重量を自動算出。'
+      content: '配管見積支援ツール。呼び径やスケジュール別に継手・パイプ重量を自動算出。'
     },
     {
       name: 'keywords',
-      content: 'JIS B 2311, 継手重量, プラント配管, 配管見積, SGP, Sch40, Sch80'
+      content: 'JIS, 継手重量, プラント配管, 配管見積, SGP, Sch40, Sch80'
     },
     {
       property: 'og:title',
