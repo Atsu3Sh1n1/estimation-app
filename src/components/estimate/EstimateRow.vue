@@ -1,158 +1,132 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-import { useEstimateRow } from '../../composables/estimate/useEstimateRow';
-
-const { id, initialRow } = defineProps<{ id: number; initialRow: any }>();
-
-const emit = defineEmits<{
-  (e: 'remove', id: number): void;
-  (e: 'updateRow', payload: { id: number; updatedRow: any }): void; // ← 追加
-}>();
-
-
-
-const { row, shapes, materials, types, sizes, schedules, updateWeights } = useEstimateRow(initialRow);
-
-const lengthError = ref(false);
-
-// 形状が変わったときは全部リセット
-const resetFields = () => {
-  row.type = '';
-  row.material = '';
-  row.size = '';
-  row.schedule = '';
-  row.length = 0;
-  updateWeights();
-};
-
-// 種類が変わったときは材質以下をリセット（材質もリセット）
-const resetType = () => {
-  row.material = '';
-  row.size = '';
-  row.schedule = '';
-  updateWeights();
-};
-
-// 材質が変わったときはサイズ以下をリセット（材質はリセットしない）
-const resetMaterial = () => {
-  row.size = '';
-  row.schedule = '';
-  updateWeights();
-};
-
-const validateLength = () => {
-  lengthError.value = row.length < 0 || isNaN(row.length);
-  if (!lengthError.value) updateWeights();
-};
-
-const onRemove = () => {
-  emit('remove', id);
-};
-
-import { watch } from 'vue';
-
-// row の全体変更を watch
-watch(
-  row,
-  () => {
-    emit('updateRow', { id, updatedRow: { ...row } });
-  },
-  { deep: true }
-);
-
-</script>
-
 <template>
-  <tr>
-    <td>
-      <select
-        v-model="row.shape"
-        @change="resetFields"
-        :disabled="!shapes.length"
-        :class="{ error: !row.shape }"
+  <div class="row">
+    <!-- 形状 -->
+    <select v-model="localRow.shape">
+      <option value="pipe">パイプ</option>
+      <option value="elbow">エルボ</option>
+      <option value="tee">T字</option>
+      <option value="tee_reducing">異径T字</option>
+      <option value="reducer">レジューサ</option>
+    </select>
+
+    <!-- 材質 -->
+    <select v-model="localRow.material">
+      <option v-for="mat in availableMaterials" :key="mat" :value="mat">
+        {{ mat }}
+      </option>
+    </select>
+
+    <!-- JIS種別 -->
+    <select v-model="localRow.jis">
+      <option v-for="jis in availableJis" :key="jis" :value="jis">
+        {{ getJisLabel(jis) }}
+      </option>
+    </select>
+
+    <!-- サイズ -->
+    <select v-model="localRow.size">
+      <option
+        v-for="(val, key) in pipeSizes[localRow.jis] || {}"
+        :key="key"
+        :value="key"
       >
-        <option value="">選択</option>
-        <option v-for="shape in shapes" :key="shape.id" :value="shape.id">{{ shape.name }}</option>
-      </select>
-    </td>
+        {{ key }}
+      </option>
+    </select>
 
-    <td>
-      <select
-        v-model="row.type"
-        @change="resetType"
-        :disabled="types.length === 0"
-        :class="{ error: !row.type }"
+    <!-- スケジュール -->
+    <select v-model="localRow.schedule">
+      <option
+        v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}"
+        :key="key"
+        :value="key"
       >
-        <option value="">選択</option>
-        <option v-for="type in types" :key="type" :value="type">{{ type }}</option>
-      </select>
-    </td>
+        {{ key }}
+      </option>
+    </select>
 
-    <td>
-      <select
-        v-model="row.material"
-        @change="resetMaterial"
-        :disabled="!row.type"
-        :class="{ error: !row.material || !row.type }"
-      >
-        <option value="">選択</option>
-        <option v-for="material in materials" :key="material" :value="material">{{ material }}</option>
-      </select>
-    </td>
+    <!-- 長さ or 個数 -->
+    <input
+      v-if="localRow.shape === 'pipe'"
+      v-model.number="localRow.length"
+      type="number"
+      min="0"
+      step="0.01"
+      style="width: 80px"
+      placeholder="長さ(m)"
+    />
+    <input
+      v-else
+      v-model.number="localRow.quantity"
+      type="number"
+      min="0"
+      step="1"
+      style="width: 80px"
+      placeholder="個数"
+    />
 
-    <td>
-      <select
-        v-model="row.schedule"
-        @change="updateWeights"
-        :disabled="row.shape === 'steel' || !schedules.length"
-        :class="{ error: !row.schedule && row.shape !== 'steel' }"
-      >
-        <option value="">選択</option>
-        <option v-for="schedule in schedules" :key="schedule" :value="schedule">{{ schedule }}</option>
-      </select>
-    </td>
-
-    <td>
-      <select
-        v-model="row.size"
-        @change="updateWeights"
-        :disabled="!sizes.length"
-        :class="{ error: !row.size }"
-      >
-        <option value="">選択</option>
-        <option v-for="size in sizes" :key="size" :value="size">{{ size }}</option>
-      </select>
-    </td>
-
-    <td>
-      <input
-        type="number"
-        v-model.number="row.length"
-        @input="validateLength"
-        min="0"
-        step="0.1"
-        :class="{ error: lengthError || row.length === 0 }"
-      />
-    </td>
-
-  
-    <td style="text-align: right;">
-      <strong>{{ Math.floor(row.actualWeight) }}</strong>
-      <span style="font-size: 0.8em;">{{ (row.actualWeight % 1).toFixed(3).slice(1) }}</span>
-    </td>
-    <td style="text-align: right;">
-      <strong>{{ Math.floor(row.pipeLength) }}</strong>
-      <span style="font-size: 0.8em;">{{ (row.pipeLength % 1).toFixed(2).slice(1) }}</span>
-    </td>
-<td></td>
-    <td>
-     <td class="delete-cell">
-  <button @click="onRemove" class="delete-button">×</button>
-</td>
-
-
-    </td>
-  </tr>
+    <!-- 重量 -->
+    <span>{{ weight.toFixed(3) }} kg</span>
+    <button @click="$emit('remove')">削除</button>
+  </div>
 </template>
 
+<script setup lang="ts">
+import { computed, watch, reactive } from 'vue';
+import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
+import { pipeSizes, materialDensities } from '@/data/materials';
+import type { EstimateRow as EstimateRowType } from '@/types/estimate';
+import { fittingCompatibility } from '@/data/materials/fittingCompatibility';
+
+const props = defineProps<{
+  initialRow: EstimateRowType;
+}>();
+
+const emit = defineEmits<{
+  (e: 'update', row: EstimateRowType & { weight: number }): void;
+  (e: 'remove'): void;
+}>();
+
+const localRow = reactive({ ...props.initialRow });
+
+// 材質候補（形状に応じて切替）
+const availableMaterials = computed(() => {
+  const shapeInfo = fittingCompatibility[localRow.shape];
+  return shapeInfo?.materials ?? [];
+});
+
+// JIS 候補（材質によって制限）
+const availableJis = computed(() => {
+  const shapeInfo = fittingCompatibility[localRow.shape];
+  if (!shapeInfo) return [];
+
+  const jisList = shapeInfo.jisMap?.[localRow.material];
+  return jisList ?? [];
+});
+
+// JISの表示名（継手のみ変換、パイプはそのまま）
+const jisLabelMap: Record<string, string> = {
+  G3459: 'B2312/2313',
+  G3454: 'B2312/2313',
+  
+};
+
+function getJisLabel(jis: string): string {
+  return localRow.shape === 'pipe' ? jis : (jisLabelMap[jis] || jis);
+}
+
+// 重量計算ロジック
+const { weight } = useEstimateRow(localRow);
+
+// 更新通知
+watch(
+  localRow,
+  () => {
+    emit('update', { ...localRow, weight: weight.value });
+  },
+  { deep: true, immediate: true }
+);
+</script>
+
 <style src="./EstimateRow.css"></style>
+

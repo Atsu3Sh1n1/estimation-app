@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>配管・継手重量リアルタイム計算</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    label { font-weight: bold; margin-right: 10px; }
+    select, input { margin: 5px; font-size: 16px; }
+    .row { margin-bottom: 10px; }
+    .section-title { font-size: 18px; margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>重量リアルタイム計算</h2>
+
+  <div class="row">
+    <label>材質:</label>
+    <select id="material">
+      <option value="7930">SUS304</option>
+      <option value="7920">SUS304L</option>
+      <option value="7850">STPG</option>
+    </select>
+  </div>
+
+  <div class="section-title">配管（長さ[m]）</div>
+  <div class="row">
+    <label>サイズ:</label>
+    <select id="pipeSize">
+      <option value="100A">100A</option>
+      <option value="80A">80A</option>
+      <option value="50A">50A</option>
+    </select>
+    <label>スケジュール:</label>
+    <select id="pipeSchedule">
+      <option value="Sch10">Sch10</option>
+      <option value="Sch40">Sch40</option>
+    </select>
+    <label>長さ:</label>
+    <input type="number" id="pipeLength" value="1" min="0" step="0.01" />
+  </div>
+
+  <div class="section-title">継手（個数）</div>
+  <div class="row">
+    <label>形状:</label>
+    <select id="fittingShape">
+      <option value="elbow">エルボ</option>
+      <option value="tee">同径T字</option>
+      <option value="tee_reducing">異径T字</option>
+      <option value="reducer">レジューサ</option>
+    </select>
+    <label>サイズ:</label>
+    <select id="fittingSize">
+      <option value="100A">100A</option>
+      <option value="80A">80A</option>
+      <option value="50A">50A</option>
+    </select>
+    <label>スケジュール:</label>
+    <select id="fittingSchedule">
+      <option value="Sch10">Sch10</option>
+      <option value="Sch40">Sch40</option>
+    </select>
+    <label>個数:</label>
+    <input type="number" id="fittingCount" value="1" min="0" />
+  </div>
+
+  <div class="row">
+    <label>配管重量(kg):</label>
+    <input type="text" id="pipeWeight" readonly />
+    <label>継手重量(kg):</label>
+    <input type="text" id="fittingWeight" readonly />
+    <label>合計重量(kg):</label>
+    <input type="text" id="totalWeight" readonly />
+  </div>
+
+  <script>
+    const sizeData = {
+      '100A': { 'Sch10': { od: 114.3, t: 3.0 }, 'Sch40': { od: 114.3, t: 6.0 } },
+      '80A': { 'Sch10': { od: 89.1, t: 2.8 }, 'Sch40': { od: 88.9, t: 5.5 } },
+      '50A': { 'Sch10': { od: 60.5, t: 2.5 }, 'Sch40': { od: 60.3, t: 3.9 } }
+    };
+
+    const shapeFactors = {
+      pipe: 1.0,
+      elbow: 0.15,
+      tee: 0.3,
+      tee_reducing: 0.25,
+      reducer: 0.2
+    };
+
+    const elements = [
+      'material', 'pipeSize', 'pipeSchedule', 'pipeLength',
+      'fittingShape', 'fittingSize', 'fittingSchedule', 'fittingCount'
+    ];
+
+    elements.forEach(id => {
+      document.getElementById(id).addEventListener('input', calculate);
+    });
+
+    function calculate() {
+      const density = parseFloat(document.getElementById('material').value);
+
+      // Pipe weight
+      const pipeSize = document.getElementById('pipeSize').value;
+      const pipeSch = document.getElementById('pipeSchedule').value;
+      const pipeLength = parseFloat(document.getElementById('pipeLength').value);
+      const pipeSpec = sizeData[pipeSize]?.[pipeSch];
+      let pipeWeight = 0;
+      if (pipeSpec) {
+        const id = pipeSpec.od - 2 * pipeSpec.t;
+        const area = Math.PI * (pipeSpec.od ** 2 - id ** 2) / 4;
+        const vol = area / 1e6 * pipeLength;
+        pipeWeight = vol * density;
+        document.getElementById('pipeWeight').value = pipeWeight.toFixed(3);
+      }
+
+      // Fitting weight
+      const shape = document.getElementById('fittingShape').value;
+      const fitSize = document.getElementById('fittingSize').value;
+      const fitSch = document.getElementById('fittingSchedule').value;
+      const count = parseFloat(document.getElementById('fittingCount').value);
+      const fitSpec = sizeData[fitSize]?.[fitSch];
+      let fittingWeight = 0;
+      if (fitSpec) {
+        const id2 = fitSpec.od - 2 * fitSpec.t;
+        const area2 = Math.PI * (fitSpec.od ** 2 - id2 ** 2) / 4;
+        const vol2 = area2 / 1e6 * shapeFactors[shape];
+        fittingWeight = vol2 * density * count;
+        document.getElementById('fittingWeight').value = fittingWeight.toFixed(3);
+      }
+
+      const total = pipeWeight + fittingWeight;
+      document.getElementById('totalWeight').value = total.toFixed(3);
+    }
+
+    window.addEventListener('DOMContentLoaded', calculate);
+  </script>
+</body>
+</html>

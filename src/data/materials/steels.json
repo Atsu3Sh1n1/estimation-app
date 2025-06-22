@@ -1,5 +1,0 @@
-[
-  { "type": "アングル", "material": "SS400", "size": "50x50x5", "weightPerMeter": 3.8 },
-  { "type": "H鋼", "material": "SS400", "size": "100x100x6x8", "weightPerMeter": 17.2 },
-  { "type": "チャンネル", "material": "SS400", "size": "100x50x5", "weightPerMeter": 9.36 }
-]

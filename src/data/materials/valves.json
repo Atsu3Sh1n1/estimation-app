@@ -1,5 +1,0 @@
-[
-  { "type": "グローブ弁", "material": "SUS304", "size": "1", "schedule": "10K", "weight": 2.5, "lengthCoefficient": 0.1 },
-  { "type": "ボール弁", "material": "SGP-White", "size": "1/2", "weight": 1.8, "lengthCoefficient": 0.09 },
-  { "type": "仕切り弁", "material": "SUS316", "size": "2", "weight": 4.0, "lengthCoefficient": 0.12 }
-]

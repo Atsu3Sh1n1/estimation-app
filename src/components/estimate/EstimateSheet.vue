@@ -3,97 +3,62 @@
     <div class="footer">
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
+  
 
-    <div class="controls">
-      <button @click="addRow">追加</button>
+    <button @click="addRow">行追加</button>
+
+    <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
+      <EstimateRow
+        :initialRow="row"
+        @update="updateRow(index, $event)"
+        @remove="removeRow(index)"
+      />
     </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th style="width: 40px;">形状</th>
-          <th style="width: 100px;">種類</th>
-          <th style="width: 70px;">材質</th>
-          <th style="width: 80px;">スケジュール</th>
-          <th style="width: 60px;">サイズ</th>
-          <th style="width: 40px;">m/個/枚</th>
-          <th style="width: 50px;">{{ totalActualWeight.toFixed(0) }} kg</th>
-          <th style="width: 50px;">{{ totalPipeLength.toFixed(0) }} m/DB</th>
-          <th style="width: 50px;">{{ totalWeldingPoints }} w/DB</th>
-          <th class="no-border" style="width: 1px;"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <EstimateRow
-          v-for="row in rows"
-          :key="row.id"
-          :id="row.id"
-          :initialRow="row"
-          @remove="removeRow"
-          @updateRow="updateRow"
-        />
-      </tbody>
-
-    </table>
+    <div class="total">
+      <strong>合計重量: {{ totalWeight.toFixed(0) }} kg</strong>
+    </div>
   </div>
-
-  <meta name="viewport" content="width=1024" />
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { reactive, computed } from 'vue';
 import EstimateRow from './EstimateRow.vue';
+import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 
-let nextId = 1;
+let idCounter = 0;
+function createEmptyRow(): EstimateRowType & { id: number } {
+  return {
+    id: ++idCounter,
+    material: 'SUS304',
+    shape: 'pipe',
+    size: '100A',
+    schedule: 'Sch40',
+    length: 0,
+    quantity: 0,
+  };
+}
 
-const createEmptyRow = () => ({
-  id: nextId++,
-  shape: '',
-  type: '',
-  material: '',
-  schedule: '',
-  size: '',
-  length: 0,
-  estimatedWeight: 0,
-  actualWeight: 0,
-  pipeLength: 0,      // インチメーター換算長さ
-  weldingPoints: 0,
-  errors: {},
+const rows = reactive<(EstimateRowType & { id: number })[]>([
+  createEmptyRow(),
+]);
+
+const totalWeight = computed(() => {
+  return rows.reduce((acc, row) => acc + (row.weight ?? 0), 0);
 });
 
-const rows = ref([createEmptyRow()]);
+function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
+  rows[index] = { ...updated };
+}
 
-const addRow = () => {
-  rows.value.push(createEmptyRow());
-};
+function addRow() {
+  rows.push(createEmptyRow());
+}
 
-const removeRow = (idToRemove: number) => {
-  rows.value = rows.value.filter(row => row.id !== idToRemove);
-};
-
-// 合計重量（実重量の合計）
-const totalActualWeight = computed(() =>
-  rows.value.reduce((sum, row) => sum + (row.actualWeight ?? 0), 0)
-);
-
-// 合計溶接ポイント
-const totalWeldingPoints = computed(() =>
-  rows.value.reduce((sum, row) => sum + (row.weldingPoints ?? 0), 0)
-);
-
-// 合計インチメーター換算長さ
-const totalPipeLength = computed(() =>
-  rows.value.reduce((sum, row) => sum + (row.pipeLength ?? 0), 0)
-);
-
-// 行データ更新時にマージ
-const updateRow = ({ id, updatedRow }: { id: number; updatedRow: any }) => {
-  const index = rows.value.findIndex(r => r.id === id);
-  if (index !== -1) {
-    rows.value[index] = { ...rows.value[index], ...updatedRow };
-  }
-};
+function removeRow(index: number) {
+  rows.splice(index, 1);
+}
 </script>
 
 <style src="./EstimateSheet.css" scoped></style>
+
