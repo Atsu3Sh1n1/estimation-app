@@ -40,3 +40,15 @@ span {
   min-width: 80px;
   text-align: right;
 }
+
+select.placeholder {
+  color: #888; /* 灰色の文字 */
+}
+
+select.error {
+  border: 1px solid red;
+}
+input.error {
+  border: 1px solid red;
+}
+

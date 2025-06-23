@@ -32,10 +32,12 @@ function createEmptyRow(): EstimateRowType & { id: number } {
     id: ++idCounter,
     material: 'SUS304',
     shape: 'pipe',
-    size: '100A',
-    schedule: 'Sch40',
-    length: 0,
+    size: '',
+    jis: '',
+    schedule: '',
+    length:'',
     quantity: 0,
+    weight: 0, // 初期値として安全
   };
 }
 

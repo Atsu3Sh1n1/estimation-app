@@ -147,6 +147,7 @@ export const pipeSpecsC = {
 
 
 export const pipeSpecsD = {
+
   "150A": { Sch5s: { od: 165.2, t: 2.8 }, Sch10s: { od: 165.2, t: 3.4 }, Sch20s: { od: 165.2, t: 5.0 }, Sch40: { od: 165.2, t: 7.1 }, },
   "200A": { Sch5s: { od: 216.3, t: 2.8 }, Sch10s: { od: 216.3, t: 4.0 }, Sch20s: { od: 216.3, t: 6.5 }, Sch40: { od: 216.3, t: 8.2 }, },
   "250A": { Sch5s: { od: 267.4, t: 3.4 }, Sch10s: { od: 267.4, t: 4.0 }, Sch20s: { od: 267.4, t: 6.5 }, Sch40: { od: 267.4, t: 9.3 }, },
@@ -158,12 +159,12 @@ export const pipeSpecsD = {
   "550A": { Sch5s: { od: 558.8, t: 5.0 }, Sch10s: { od: 558.8, t: 5.5 }, Sch20s: { od: 558.8, t: 9.5 }, Sch40: { od: 558.8, t: 15.9 }, },
   "600A": { Sch5s: { od: 609.6, t: 5.5 }, Sch10s: { od: 609.6, t: 6.5 }, Sch20s: { od: 609.6, t: 9.5 }, Sch40: { od: 609.6, t: 17.5 }, },
   "650A": { Sch5s: { od: 660.4, t: 5.5 }, Sch10s: { od: 660.4, t: 8.0 }, Sch20s: { od: 660.4, t: 12.7 }, Sch40: { od: 660.4, t: 17.5 }, },
-  "700": { Sch5s: { od: 711.2, t: 5.5 }, Sch10s: { od: 711.2, t: 8.0 }, Sch20s: { od: 711.2, t: 12.7 }, Sch40: { od: 711.2, t: 17.5 }, },
-  "750": { Sch5s: { od: 762.0, t: 6.5 }, Sch10s: { od: 762.0, t: 8.0 }, Sch20s: { od: 762.0, t: 12.7 }, Sch40: { od: 762.0, t: 17.5 }, },
-  "800": { Sch10s: { od: 812.8, t: 8.0 }, Sch20s: { od: 812.8, t: 12.7 }, Sch40: { od: 812.8, t: 17.5 }, },
-  "850": { Sch10s: { od: 863.6, t: 8.0 }, Sch20s: { od: 863.6, t: 12.7 }, Sch40: { od: 863.6, t: 17.5 }, },
-  "900": { Sch10s: { od: 914.4, t: 8.0 }, Sch20s: { od: 914.4, t: 12.7 }, Sch40: { od: 914.4, t: 19.1 }, },
-  "1000": { Sch10s: { od: 1016.0, t: 9.5 }, Sch20s: { od: 1016.0, t: 14.3 }, Sch40: { od: 1016.0, t: 26.2 }, },
+  "700A": { Sch5s: { od: 711.2, t: 5.5 }, Sch10s: { od: 711.2, t: 8.0 }, Sch20s: { od: 711.2, t: 12.7 }, Sch40: { od: 711.2, t: 17.5 }, },
+  "750A": { Sch5s: { od: 762.0, t: 6.5 }, Sch10s: { od: 762.0, t: 8.0 }, Sch20s: { od: 762.0, t: 12.7 }, Sch40: { od: 762.0, t: 17.5 }, },
+  "800A": { Sch10s: { od: 812.8, t: 8.0 }, Sch20s: { od: 812.8, t: 12.7 }, Sch40: { od: 812.8, t: 17.5 }, },
+  "850A": { Sch10s: { od: 863.6, t: 8.0 }, Sch20s: { od: 863.6, t: 12.7 }, Sch40: { od: 863.6, t: 17.5 }, },
+  "900A": { Sch10s: { od: 914.4, t: 8.0 }, Sch20s: { od: 914.4, t: 12.7 }, Sch40: { od: 914.4, t: 19.1 }, },
+  "1000A": { Sch10s: { od: 1016.0, t: 9.5 }, Sch20s: { od: 1016.0, t: 14.3 }, Sch40: { od: 1016.0, t: 26.2 }, },
 
 };
 
@@ -175,6 +176,8 @@ export const jisMap = {
   G3459: pipeSpecsB, B2312: pipeSpecsB,
 
   G3454: pipeSpecsC, G3456: pipeSpecsC, G3455: pipeSpecsC,
+
+  G3468: pipeSpecsD,
 
   B2311: pipeSpecsF,
 

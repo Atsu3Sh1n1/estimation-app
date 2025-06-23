@@ -8,38 +8,38 @@
       <option value="tee">TEE(同径)</option>
       <option value="tee_reducing">TEE(異径)</option>
       <option value="reducer">レジューサ</option>
-       <option value="reducer">ラップフランジ</option>
-        <option value="reducer">板フランジ</option>
-
+      <option value="lap_joint">ラップフランジ</option>
+      <option value="flat_flange">板フランジ</option>
     </select>
 
     <!-- 材質 -->
-   <select v-model="localRow.material">
-  <optgroup
-    v-for="group in availableMaterialsByGroup"
-    :key="group.groupName"
-    :label="group.groupName"
-  >
-    <option
-      v-for="mat in group.materials"
-      :key="mat"
-      :value="mat"
-    >
-      {{ mat }}
-    </option>
-  </optgroup>
-</select>
-
+    <select v-model="localRow.material">
+      <optgroup
+        v-for="group in availableMaterialsByGroup"
+        :key="group.groupName"
+        :label="group.groupName"
+      >
+        <option
+          v-for="mat in group.materials"
+          :key="mat"
+          :value="mat"
+        >
+          {{ mat }}
+        </option>
+      </optgroup>
+    </select>
 
     <!-- JIS種別 -->
-    <select v-model="localRow.jis">
+    <select v-model="localRow.jis" :class="jisClass">
+      <option disabled value="" hidden>JISを選択</option>
       <option v-for="jis in availableJis" :key="jis" :value="jis">
-        {{ getJisLabel(jis) }}
+        {{ jis }}
       </option>
     </select>
 
     <!-- サイズ -->
-    <select v-model="localRow.size">
+    <select v-model="localRow.size" :class="sizeClass">
+      <option disabled value="" hidden>サイズを選択</option>
       <option
         v-for="(val, key) in pipeSizes[localRow.jis] || {}"
         :key="key"
@@ -50,7 +50,8 @@
     </select>
 
     <!-- スケジュール -->
-    <select v-model="localRow.schedule">
+    <select v-model="localRow.schedule" :class="scheduleClass">
+      <option disabled value="" hidden>スケジュールを選択</option>
       <option
         v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}"
         :key="key"
@@ -60,7 +61,7 @@
       </option>
     </select>
 
-    <!-- 長さ or 個数 -->
+    <!-- 長さ -->
     <input
       v-if="localRow.shape === 'pipe'"
       v-model.number="localRow.length"
@@ -68,8 +69,11 @@
       min="0"
       step="0.01"
       style="width: 80px"
+      :class="{ error: !localRow.length }"
       placeholder="長さ(m)"
     />
+
+    <!-- 個数 -->
     <input
       v-else
       v-model.number="localRow.quantity"
@@ -77,6 +81,7 @@
       min="0"
       step="1"
       style="width: 80px"
+      :class="{ error: !localRow.quantity }"
       placeholder="個数"
     />
 
@@ -91,7 +96,6 @@ import { computed, watch, reactive } from 'vue';
 import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { pipeSizes, fittingCompatibility, MaterialName, materialCategories } from '@/data/materials';
-
 
 const props = defineProps<{
   initialRow: EstimateRowType;
@@ -126,16 +130,31 @@ const availableJis = computed(() => {
   return jisList ?? [];
 });
 
-// JISの表示名（継手のみ変換、パイプはそのまま）
-const jisLabelMap: Record<string, string> = {
-  G3459: 'B2312/2313',
-  G3454: 'B2312/2313',
-  G3452: 'B2311',
-};
+// v-modelが変更されたときに項目を初期化（リセット時に赤枠表示を復活させるため）
+watch(
+  () => [localRow.shape, localRow.material],
+  () => {
+    localRow.jis = '';
+    localRow.size = '';
+    localRow.schedule = '';
+  }
+);
 
-function getJisLabel(jis: string): string {
-  return localRow.shape === 'pipe' ? jis : (jisLabelMap[jis] || jis);
-}
+// 動的クラス computed化（強制再評価）
+const jisClass = computed(() => ({
+  placeholder: localRow.jis === '',
+  error: localRow.jis === ''
+}));
+
+const sizeClass = computed(() => ({
+  placeholder: localRow.size === '',
+  error: localRow.size === ''
+}));
+
+const scheduleClass = computed(() => ({
+  placeholder: localRow.schedule === '',
+  error: localRow.schedule === ''
+}));
 
 // 重量計算ロジック
 const { weight } = useEstimateRow(localRow);
@@ -149,6 +168,17 @@ watch(
   { deep: true, immediate: true }
 );
 </script>
+
+<style scoped>
+select.placeholder {
+  color: #888;
+}
+select.error,
+input.error {
+  border: 1px solid red;
+}
+</style>
+
 
 <style src="./EstimateRow.css"></style>
 
