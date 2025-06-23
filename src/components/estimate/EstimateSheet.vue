@@ -15,8 +15,7 @@
     </div>
 
     <div class="total">
-      <strong>合計重量: {{ totalWeight.toFixed(0) }} kg</strong><br />
-      <strong>継手溶接: {{ totalNominalInches.toFixed(0) }} DB</strong>
+      <strong>継手溶接: {{ totalFittingInches.toFixed(0) }} DB</strong>
     </div>
   </div>
 </template>
@@ -41,7 +40,11 @@ function createEmptyRow(): EstimateRowType & { id: number } {
   };
 }
 
-// 呼び径 → インチ変換表
+const rows = reactive<(EstimateRowType & { id: number })[]>([
+  createEmptyRow(),
+]);
+
+// 呼び径 → インチ変換
 function getNominalInches(size: string): number {
   const sizeToNominalInch: Record<string, number> = {
     '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
@@ -54,43 +57,12 @@ function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 1;
 }
 
-const rows = reactive<(EstimateRowType & { id: number })[]>([
-  createEmptyRow(),
-]);
-
-const totalWeight = computed(() => {
-  return rows.reduce((acc, row) => {
-    const weight = row.weight ?? 0;
-    const shape = row.shape;
-    const quantity = row.quantity === '' || row.quantity == null ? 1 : Number(row.quantity);
-
-    if (shape === 'elbow' || shape === 'shortelbow') {
-      const inch = getNominalInches(row.size);
-      return acc + weight * inch * 2 * quantity;
-    }
-
-    if (shape === 'tee' || shape === 'tee_reducing') {
-      const totalInch = row.size
-        .split('*')
-        .map((s) => getNominalInches(s.trim()))
-        .reduce((sum, i) => sum + i, 0);
-      return acc + weight * totalInch * quantity;
-    }
-
-    return acc + weight * quantity;
-  }, 0);
-});
-
-const totalNominalInches = computed(() => {
+// 継手の呼び径インチ合計（パイプ除外、溶接箇所想定）
+const totalFittingInches = computed(() => {
   return rows.reduce((acc, row) => {
     const shape = row.shape;
-    const quantity = row.quantity === '' || row.quantity == null ? 1 : Number(row.quantity);
+    const quantity = Number(row.quantity) || 1;
     if (!row.size) return acc;
-
-    if (shape === 'pipe') {
-      // パイプは個数掛けずに合計に加算しない（反映しない）
-      return acc;
-    }
 
     if (shape === 'elbow' || shape === 'shortelbow') {
       const inch = getNominalInches(row.size);
@@ -105,6 +77,7 @@ const totalNominalInches = computed(() => {
       return acc + totalInch * quantity;
     }
 
+    // 継手以外（パイプなど）はスキップ
     return acc;
   }, 0);
 });
