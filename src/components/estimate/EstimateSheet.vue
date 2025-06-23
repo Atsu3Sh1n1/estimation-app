@@ -54,17 +54,14 @@ function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 1;
 }
 
-// 行データ
 const rows = reactive<(EstimateRowType & { id: number })[]>([
   createEmptyRow(),
 ]);
 
-// 合計重量（形状別ロジック）
 const totalWeight = computed(() => {
   return rows.reduce((acc, row) => {
     const weight = row.weight ?? 0;
     const shape = row.shape;
-    // 個数を '' または null の場合は1、それ以外は数値として扱う
     const quantity = row.quantity === '' || row.quantity == null ? 1 : Number(row.quantity);
 
     if (shape === 'elbow' || shape === 'shortelbow') {
@@ -84,12 +81,16 @@ const totalWeight = computed(() => {
   }, 0);
 });
 
-// 合計呼び径インチ（個数反映）
 const totalNominalInches = computed(() => {
   return rows.reduce((acc, row) => {
     const shape = row.shape;
     const quantity = row.quantity === '' || row.quantity == null ? 1 : Number(row.quantity);
     if (!row.size) return acc;
+
+    if (shape === 'pipe') {
+      // パイプは個数掛けずに合計に加算しない（反映しない）
+      return acc;
+    }
 
     if (shape === 'elbow' || shape === 'shortelbow') {
       const inch = getNominalInches(row.size);
@@ -104,7 +105,7 @@ const totalNominalInches = computed(() => {
       return acc + totalInch * quantity;
     }
 
-    return acc + getNominalInches(row.size) * quantity;
+    return acc;
   }, 0);
 });
 
