@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, computed } from 'vue';
+import { reactive, ref } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 
@@ -57,41 +57,49 @@ function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 1;
 }
 
-// 継手の呼び径インチ合計（パイプ除外、溶接箇所想定）
-const totalFittingInches = computed(() => {
-  return rows.reduce((acc, row) => {
+const totalFittingInches = ref(0);
+
+function calculateTotalFittingInches() {
+  let total = 0;
+  for (const row of rows) {
+    if (!row.size) continue;
     const shape = row.shape;
-    const quantity = Number(row.quantity) || 1;
-    if (!row.size) return acc;
+    const quantity = Number(row.quantity);
+    if (!quantity || quantity <= 0) continue;
 
     if (shape === 'elbow' || shape === 'shortelbow') {
       const inch = getNominalInches(row.size);
-      return acc + inch * 2 * quantity;
-    }
-
-    if (shape === 'tee' || shape === 'tee_reducing') {
+      total += inch * 2 * quantity;
+    } else if (shape === 'tee' || shape === 'tee_reducing') {
       const totalInch = row.size
         .split('*')
         .map((s) => getNominalInches(s.trim()))
         .reduce((sum, i) => sum + i, 0);
-      return acc + totalInch * quantity;
+      total += totalInch * quantity;
     }
-
-    // 継手以外（パイプなど）はスキップ
-    return acc;
-  }, 0);
-});
+  }
+  totalFittingInches.value = total;
+}
 
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
+  const oldQuantity = Number(rows[index].quantity);
   rows[index] = { ...updated };
+  const newQuantity = Number(updated.quantity);
+
+  // quantityが変わったら合計を再計算
+  if (oldQuantity !== newQuantity) {
+    calculateTotalFittingInches();
+  }
 }
 
 function addRow() {
   rows.push(createEmptyRow());
+  calculateTotalFittingInches();
 }
 
 function removeRow(index: number) {
   rows.splice(index, 1);
+  calculateTotalFittingInches();
 }
 </script>
 
