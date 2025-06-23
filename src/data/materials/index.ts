@@ -1,5 +1,6 @@
 export * from './pipes';
 export * from './materials';
-export * from './fittings';
-
+export * from './categories';
+export * from './fittingCompatibility';
+export * from './materials';
 

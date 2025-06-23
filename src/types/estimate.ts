@@ -12,3 +12,15 @@ export type Schedule = keyof (typeof pipeSizes)[JISStandard][PipeSize];
 
 // 材質（例: 'SUS304' など）
 export type Material = keyof typeof import('@/data/materials').materialDensities;
+
+// src/types/estimate.ts
+export type EstimateRow = {
+  id: string;
+  shape: 'pipe' | 'elbow' | 'tee' | 'reducer' | string;
+  size: string;
+  schedule: string;
+  material: string;
+  length?: number;
+  quantity?: number;
+  // 他に必要なプロパティを追加
+};

@@ -14,11 +14,22 @@
     </select>
 
     <!-- 材質 -->
-    <select v-model="localRow.material">
-      <option v-for="mat in availableMaterials" :key="mat" :value="mat">
-        {{ mat }}
-      </option>
-    </select>
+   <select v-model="localRow.material">
+  <optgroup
+    v-for="group in availableMaterialsByGroup"
+    :key="group.groupName"
+    :label="group.groupName"
+  >
+    <option
+      v-for="mat in group.materials"
+      :key="mat"
+      :value="mat"
+    >
+      {{ mat }}
+    </option>
+  </optgroup>
+</select>
+
 
     <!-- JIS種別 -->
     <select v-model="localRow.jis">
@@ -78,9 +89,9 @@
 <script setup lang="ts">
 import { computed, watch, reactive } from 'vue';
 import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
-import { pipeSizes, materialDensities } from '@/data/materials';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
-import { fittingCompatibility } from '@/data/materials/fittingCompatibility';
+import { pipeSizes, fittingCompatibility, MaterialName, materialCategories } from '@/data/materials';
+
 
 const props = defineProps<{
   initialRow: EstimateRowType;
@@ -93,10 +104,17 @@ const emit = defineEmits<{
 
 const localRow = reactive({ ...props.initialRow });
 
-// 材質候補（形状に応じて切替）
-const availableMaterials = computed(() => {
+// 材質候補（形状に応じて切替し、カテゴリ分けして表示用）
+const availableMaterialsByGroup = computed(() => {
   const shapeInfo = fittingCompatibility[localRow.shape];
-  return shapeInfo?.materials ?? [];
+  const materials = shapeInfo?.materials ?? [];
+
+  return Object.entries(materialCategories)
+    .map(([groupName, mats]) => ({
+      groupName,
+      materials: mats.filter((m): m is MaterialName => materials.includes(m)),
+    }))
+    .filter(group => group.materials.length > 0);
 });
 
 // JIS 候補（材質によって制限）
