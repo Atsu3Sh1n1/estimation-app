@@ -16,7 +16,7 @@ export type Material = keyof typeof import('@/data/materials').materialDensities
 // src/types/estimate.ts
 export type EstimateRow = {
   id: number;
-  shape: 'pipe' | 'elbow' | 'tee' | 'reducer' | string;
+  shape: 'pipe' | 'elbow' | 'shortelbow' | 'halfelbow' | 'halfshortelbow' | 'tee' | 'reducer' | string;
   size: string;
   schedule: string;
   material: string;

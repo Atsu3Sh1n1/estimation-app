@@ -5,6 +5,9 @@
       <option value="pipe">パイプ</option>
       <option value="elbow">90°エルボ(ロング)</option>
       <option value="shortelbow">90°エルボ(ショート)</option>
+      <option value="halfelbow">45°エルボ(ロング)</option>
+      <option value="halfshortelbow">45°エルボ(ショート)</option>
+
       <option value="tee">TEE(同径)</option>
       <option value="tee_reducing">TEE(異径)</option>
       <option value="reducer">レジューサ</option>

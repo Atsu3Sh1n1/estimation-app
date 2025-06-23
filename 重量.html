@@ -121,3 +121,144 @@
 "200A":{ 一般: { od: 216.3, t: 15.9 } },
 "250A":{ 一般: { od: 267.4, t: 19.8 } },
 "300A":{ 一般: { od: 318.5, t: 23.6 } },
+
+
+
+
+
+// src/composables/estimate/usePipeCalculator.ts
+
+import { pipeSizes, materialDensities } from '@/data/materials';
+import type { EstimateRow } from '@/types/estimate';
+import { fittingFactors } from '@/composables/estimate/useFittingCalculator';
+
+/**
+ * サイズから呼び径（インチ）をマッピング
+ */
+const sizeToNominalInch: Record<string, number> = {
+  '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
+  '32A': 1.25, '40A': 1.5, '50A': 2, '65A': 2.5, '80A': 3, '90A': 3.5,
+  '100A': 4, '125A': 5, '150A': 6, '175A': 7, '200A': 8, '225A': 9,
+  '250A': 10, '300A': 12, '350A': 14, '400A': 16, '450A': 18, '500A': 20,
+  '550A': 22, '600A': 24, '650A': 26, '700A': 28, '750A': 30, '800A': 32,
+  '850A': 34, '900A': 36, '1000A': 40,
+};
+
+/**
+ * パイプの重量を計算（JIS・材質・スケジュール対応）
+ */
+export function getPipeWeight(row: EstimateRow): number {
+  // pipeSizesはjisMapとして複数グループ対応済み想定
+  const specs = pipeSizes[row.jis];
+  if (!specs) return 0;
+
+  const spec = specs[row.size]?.[row.schedule];
+  if (!spec) return 0;
+
+  const density = materialDensities[row.material];
+  if (!density) return 0;
+
+  const id = spec.od - 2 * spec.t;
+  const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
+  const volume = area / 1e6 * row.length;
+  return volume * density;
+}
+
+/**
+ * 継手の重量を計算（異径サイズ対応・JIS・材質・スケジュール対応）
+ */
+export function getFittingWeight(row: EstimateRow): number {
+  const specs = pipeSizes[row.jis];
+  if (!specs) return 0;
+
+  const spec = specs[row.size]?.[row.schedule];
+  if (!spec) return 0;
+
+  const density = materialDensities[row.material];
+  if (!density) return 0;
+
+  const factor = fittingFactors[row.shape] ?? 0.2;
+
+  const id = spec.od - 2 * spec.t;
+  const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
+  const pipeWeightPerMeter = area / 1e6 * density;
+
+  
+
+  // 呼び径を取得（異径対応: "100A*25A" → ["100A", "25A"]）
+  const nominalInchTotal = row.size
+    .split('*')
+    .map((s) => sizeToNominalInch[s.trim()] ?? 1)
+    .reduce((sum, inch) => sum + inch, 0);
+
+    
+
+  return pipeWeightPerMeter * factor * nominalInchTotal * row.quantity;
+}
+
+
+
+
+0.085   01.31   15A     21.7,  t: 2.8
+0.112   01.68   20A     27.2,  t: 2.8
+0.236   02.43   25A     34.0,  t: 3.2
+0.411   03.38   32A     42.7,  t: 3.5
+0.573   03.89   40A     48.6,  t: 3.5
+0.851   05.31   50A     60.5,  t: 3.8
+1.420   07.47   65A     76.3,  t: 4.2
+1.870   08.79   80A     89.1,  t: 4.2
+2.320   10.1    90A     101.6, t: 4.2
+3.130   12.2    100A    114.3, t: 4.5
+4.530   15.0    125A    139.8, t: 4.5
+6.840   19.8    150A    165.2, t: 5.0
+12.80   30.1    200A    216.3, t: 5.8
+21.80   42.4    250A    267.4, t: 6.6
+32.00   53.0    300A    318.5, t: 6.9
+44.70   67.7    350A    355.6, t: 7.9
+55.20   77.6    400A    406.4, t: 7.9
+70.00   87.5    450A    457.2, t: 7.9
+86.60   97.4    500A    508.0, t: 7.9
+
+
+
+
+
+| 呼び径  | 外径 D (mm) | 元厚み (mm) | 調整パイプ重量 (kg/m) | 計算厚み t (mm) |
+| ---- | --------- | -------- | -------------- | ----------- |
+| 15A  | 21.7      | 2.8      | 2.646          | 5.37        |
+| 20A  | 27.2      | 2.8      | 2.326          | 3.88        |
+| 25A  | 34.0      | 3.2      | 3.674          | 5.20        |
+| 32A  | 42.7      | 3.5      | 5.123          | 5.20        |
+| 40A  | 48.6      | 3.5      | 5.899          | 6.13        |
+| 50A  | 60.5      | 3.8      | 6.623          | 4.78        |
+| 65A  | 76.3      | 4.2      | 8.854          | 5.19        |
+| 80A  | 89.1      | 4.2      | 9.705          | 3.99        |
+| 90A  | 101.6     | 4.2      | 10.31          | 3.33        |
+| 100A | 114.3     | 4.5      | 12.18          | 4.50        |
+| 125A | 139.8     | 4.5      | 14.11          | 3.77        |
+| 150A | 165.2     | 5.0      | 17.77          | 3.98        |
+| 200A | 216.3     | 5.8      | 24.83          | 3.61        |
+| 250A | 267.4     | 6.6      | 33.95          | 3.87        |
+| 300A | 318.5     | 6.9      | 41.22          | 3.84        |
+| 350A | 355.6     | 7.9      | 49.73          | 4.01        |
+| 400A | 406.4     | 7.9      | 53.58          | 3.45        |
+| 450A | 457.2     | 7.9      | 60.50          | 3.53        |
+| 500A | 508.0     | 7.9      | 67.44          | 3.73        |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,6 @@ const sizeToNominalInch: Record<string, number> = {
  * パイプの重量を計算（JIS・材質・スケジュール対応）
  */
 export function getPipeWeight(row: EstimateRow): number {
-  // pipeSizesはjisMapとして複数グループ対応済み想定
   const specs = pipeSizes[row.jis];
   if (!specs) return 0;
 
@@ -37,7 +36,7 @@ export function getPipeWeight(row: EstimateRow): number {
 }
 
 /**
- * 継手の重量を計算（異径サイズ対応・JIS・材質・スケジュール対応）
+ * 継手の重量を計算（サイズ別係数対応・異径TEE対応）
  */
 export function getFittingWeight(row: EstimateRow): number {
   const specs = pipeSizes[row.jis];
@@ -49,16 +48,19 @@ export function getFittingWeight(row: EstimateRow): number {
   const density = materialDensities[row.material];
   if (!density) return 0;
 
-  const factor = fittingFactors[row.shape] ?? 0.2;
-
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
   const pipeWeightPerMeter = area / 1e6 * density;
 
-  // 呼び径を取得（異径対応: "100A*25A" → ["100A", "25A"]）
-  const nominalInchTotal = row.size
-    .split('*')
-    .map((s) => sizeToNominalInch[s.trim()] ?? 1)
+  const sizes = row.size.split('*').map(s => s.trim());
+  const baseSize = sizes[0]; // 同径ならこれだけ、異径TEEも代表サイズで扱う
+
+  const specificKey = `${row.shape}${baseSize}`;
+  const genericKey = row.shape;
+  const factor = fittingFactors[specificKey] ?? fittingFactors[genericKey] ?? 0.2;
+
+  const nominalInchTotal = sizes
+    .map(s => sizeToNominalInch[s] ?? 1)
     .reduce((sum, inch) => sum + inch, 0);
 
   return pipeWeightPerMeter * factor * nominalInchTotal * row.quantity;
