@@ -36,7 +36,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
     jis: '',
     schedule: '',
     length:'',
-    quantity: 0,
+    quantity: '',
     weight: 0, // 初期値として安全
   };
 }

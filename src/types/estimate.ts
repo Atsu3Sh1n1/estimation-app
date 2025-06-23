@@ -15,12 +15,13 @@ export type Material = keyof typeof import('@/data/materials').materialDensities
 
 // src/types/estimate.ts
 export type EstimateRow = {
-  id: string;
+  id: number;
   shape: 'pipe' | 'elbow' | 'tee' | 'reducer' | string;
   size: string;
   schedule: string;
   material: string;
-  length?: number;
-  quantity?: number;
-  // 他に必要なプロパティを追加
+  length?: string;
+  quantity?: string;
+  weight?: number; // ✅ 重量を追加
+  index?: number;  // ✅ 行番号を追加（必要であれば）
 };
