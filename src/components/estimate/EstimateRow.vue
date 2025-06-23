@@ -9,7 +9,7 @@
       <option value="halfshortelbow">45°エルボ(ショート)</option>
 
       <option value="tee">TEE(同径)</option>
-      <option value="tee_reducing">調整中*TEE(異径)</option>
+      <option value="tee_reducing">TEE(異径)</option>
       <option value="reducer">レジューサ</option>
       <option value="lap_joint">ラップフランジ</option>
       <option value="flat_flange">板フランジ</option>
