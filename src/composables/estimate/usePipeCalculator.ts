@@ -1,3 +1,5 @@
+// src/composables/estimate/usePipeCalculator.ts
+
 import { pipeSizes, materialDensities } from '@/data/materials';
 import type { EstimateRow } from '@/types/estimate';
 import { fittingFactors } from '@/composables/estimate/useFittingCalculator';
@@ -15,12 +17,18 @@ const sizeToNominalInch: Record<string, number> = {
 };
 
 /**
- * パイプの重量を計算（JIS対応）
+ * パイプの重量を計算（JIS・材質・スケジュール対応）
  */
 export function getPipeWeight(row: EstimateRow): number {
-  const spec = pipeSizes[row.jis]?.[row.size]?.[row.schedule];
+  // pipeSizesはjisMapとして複数グループ対応済み想定
+  const specs = pipeSizes[row.jis];
+  if (!specs) return 0;
+
+  const spec = specs[row.size]?.[row.schedule];
+  if (!spec) return 0;
+
   const density = materialDensities[row.material];
-  if (!spec || !density) return 0;
+  if (!density) return 0;
 
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
@@ -29,19 +37,25 @@ export function getPipeWeight(row: EstimateRow): number {
 }
 
 /**
- * 継手の重量を計算（異径サイズ対応・JIS対応・係数使用・呼び径考慮）
+ * 継手の重量を計算（異径サイズ対応・JIS・材質・スケジュール対応）
  */
 export function getFittingWeight(row: EstimateRow): number {
-  const spec = pipeSizes[row.jis]?.[row.size]?.[row.schedule];
+  const specs = pipeSizes[row.jis];
+  if (!specs) return 0;
+
+  const spec = specs[row.size]?.[row.schedule];
+  if (!spec) return 0;
+
   const density = materialDensities[row.material];
+  if (!density) return 0;
+
   const factor = fittingFactors[row.shape] ?? 0.2;
-  if (!spec || !density) return 0;
 
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
   const pipeWeightPerMeter = area / 1e6 * density;
 
-  // 呼び径を取得（異径対応: "100*25" → ["100A", "25A"]）
+  // 呼び径を取得（異径対応: "100A*25A" → ["100A", "25A"]）
   const nominalInchTotal = row.size
     .split('*')
     .map((s) => sizeToNominalInch[s.trim()] ?? 1)

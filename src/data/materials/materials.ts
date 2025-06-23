@@ -5,6 +5,8 @@ export const materialDensities = {
     SGP白鍛BC: 7850,
     SGPW: 7850,
 
+    STS370: 7850,
+
     // STPG（圧力配管用） JIS G3454
     STPG370S: 7850,   // 継目あり（Seam）
     STPG370E: 7850,   // 継目なし（Electric Welded）
@@ -33,6 +35,8 @@ export const materialDensities = {
 
     SUS304: 7930,
     SUS304L: 7920,
+    SUS304TPD: 7930,
+
     SUS316: 8000,
     SUS316L: 7990,
     SUS430: 7750,
