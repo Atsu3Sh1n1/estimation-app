@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="estimate-sheet">
     <div class="footer">
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
@@ -15,13 +15,15 @@
     </div>
 
     <div class="total">
-      <strong>継手溶接: {{ totalFittingInches.toFixed(0) }} DB</strong>
+      <strong>継手溶接: {{ totalFittingInches.toFixed(0) }} DB</strong><br>
+      <strong>総重量: {{ totalWeight.toFixed(2) }} kg</strong><br>
+      <strong>工数: {{ totalManHours.toFixed(2) }} 人工</strong>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { reactive, computed } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 
@@ -44,7 +46,6 @@ const rows = reactive<(EstimateRowType & { id: number })[]>([
   createEmptyRow(),
 ]);
 
-// 呼び径 → インチ変換
 function getNominalInches(size: string): number {
   const sizeToNominalInch: Record<string, number> = {
     '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
@@ -54,52 +55,59 @@ function getNominalInches(size: string): number {
     '550A': 22, '600A': 24, '650A': 26, '700A': 28, '750A': 30, '800A': 32,
     '850A': 34, '900A': 36, '1000A': 40,
   };
-  return sizeToNominalInch[size] ?? 1;
+  return sizeToNominalInch[size] ?? 0;
 }
 
-const totalFittingInches = ref(0);
+const totalFittingInches = computed(() => {
+  return rows.reduce((acc, row) => {
+    if (!row.size || !row.shape) return acc;
 
-function calculateTotalFittingInches() {
-  let total = 0;
-  for (const row of rows) {
-    if (!row.size) continue;
+    const quantity = row.quantity !== '' ? Number(row.quantity) : 0;
+    if (!quantity || quantity <= 0) return acc;
+
     const shape = row.shape;
-    const quantity = Number(row.quantity);
-    if (!quantity || quantity <= 0) continue;
 
-    if (shape === 'elbow' || shape === 'shortelbow') {
+    if (['elbow', 'shortelbow'].includes(shape)) {
       const inch = getNominalInches(row.size);
-      total += inch * 2 * quantity;
-    } else if (shape === 'tee' || shape === 'tee_reducing') {
+      return acc + inch * 2 * quantity;
+    }
+
+    if (['tee', 'tee_reducing'].includes(shape)) {
       const totalInch = row.size
         .split('*')
         .map((s) => getNominalInches(s.trim()))
         .reduce((sum, i) => sum + i, 0);
-      total += totalInch * quantity;
+      return acc + totalInch * quantity;
     }
-  }
-  totalFittingInches.value = total;
-}
+
+    return acc;
+  }, 0);
+});
+
+const totalWeight = computed(() => {
+  return rows.reduce((acc, row) => {
+    const weight = Number(row.weight);
+    if (!isNaN(weight)) {
+      acc += weight;
+    }
+    return acc;
+  }, 0);
+});
+
+const totalManHours = computed(() => {
+  return totalWeight.value * 0.025;
+});
 
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
-  const oldQuantity = Number(rows[index].quantity);
-  rows[index] = { ...updated };
-  const newQuantity = Number(updated.quantity);
-
-  // quantityが変わったら合計を再計算
-  if (oldQuantity !== newQuantity) {
-    calculateTotalFittingInches();
-  }
+  rows[index] = { ...rows[index], ...updated };
 }
 
 function addRow() {
   rows.push(createEmptyRow());
-  calculateTotalFittingInches();
 }
 
 function removeRow(index: number) {
   rows.splice(index, 1);
-  calculateTotalFittingInches();
 }
 </script>
 
