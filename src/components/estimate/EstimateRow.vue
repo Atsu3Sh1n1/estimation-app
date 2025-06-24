@@ -1,19 +1,18 @@
 <template>
   <div class="row">
     <!-- 形状 -->
-  <select v-model="localRow.shape">
-  <option disabled value="" hidden>形状を選択</option>
-  <optgroup v-for="group in shapeGroups" :key="group.groupName" :label="group.groupName">
-    <option
-      v-for="shape in group.shapes"
-      :key="shape.value"
-      :value="shape.value"
-    >
-      {{ shape.label }}
-    </option>
-  </optgroup>
-</select>
-
+    <select v-model="localRow.shape">
+      <option disabled value="" hidden>形状を選択</option>
+      <optgroup v-for="group in shapeGroups" :key="group.groupName" :label="group.groupName">
+        <option
+          v-for="shape in group.shapes"
+          :key="shape.value"
+          :value="shape.value"
+        >
+          {{ shape.label }}
+        </option>
+      </optgroup>
+    </select>
 
     <!-- 材質 -->
     <select v-model="localRow.material">
@@ -89,23 +88,27 @@
     />
 
     <!-- 重量 -->
-<span>{{ weight.toFixed(3) }} kg</span>
+    <span>{{ weight.toFixed(3) }} kg</span>
 
-<!-- 定尺本数 -->
-<span v-if="localRow.shape === 'pipe'">
- 定尺 {{ pipeLengthCount.toFixed(0) }} 本
-</span>
+    <!-- 金額 -->
+    <span>{{ price.toLocaleString() }} 円</span>
+
+    <!-- 定尺本数 -->
+    <span v-if="localRow.shape === 'pipe'">
+      定尺 {{ pipeLengthCount.toFixed(0) }} 本
+    </span>
 
     <button @click="$emit('remove')">削除</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { shapeGroups } from '@/data/genres'; 
+import { shapeGroups } from '@/data/genres';
 import { computed, watch, reactive } from 'vue';
 import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
-import { pipeSizes, fittingCompatibility, MaterialName, materialCategories } from '@/data/materials';
+import { pipeSizes, fittingCompatibility, materialCategories, MaterialName } from '@/data/materials';
+import { materialPrices } from '@/data/materials/materialPrices';
 
 const props = defineProps<{
   initialRow: EstimateRowType;
@@ -118,7 +121,7 @@ const emit = defineEmits<{
 
 const localRow = reactive({ ...props.initialRow });
 
-// 材質候補（形状に応じて切替し、カテゴリ分けして表示用）
+// 材質候補
 const availableMaterialsByGroup = computed(() => {
   const shapeInfo = fittingCompatibility[localRow.shape];
   const materials = shapeInfo?.materials ?? [];
@@ -131,16 +134,47 @@ const availableMaterialsByGroup = computed(() => {
     .filter(group => group.materials.length > 0);
 });
 
-// JIS 候補（材質によって制限）
+// JIS候補
 const availableJis = computed(() => {
   const shapeInfo = fittingCompatibility[localRow.shape];
   if (!shapeInfo) return [];
-
-  const jisList = shapeInfo.jisMap?.[localRow.material];
-  return jisList ?? [];
+  return shapeInfo.jisMap?.[localRow.material] ?? [];
 });
 
-// v-modelが変更されたときに項目を初期化（リセット時に赤枠表示を復活させるため）
+// クラス
+const jisClass = computed(() => ({
+  placeholder: localRow.jis === '',
+  error: localRow.jis === '',
+}));
+const sizeClass = computed(() => ({
+  placeholder: localRow.size === '',
+  error: localRow.size === '',
+}));
+const scheduleClass = computed(() => ({
+  placeholder: localRow.schedule === '',
+  error: localRow.schedule === '',
+}));
+
+// 重量計算
+const { weight } = useEstimateRow(localRow);
+
+// 金額計算
+const price = computed(() => {
+  const unitPrice = materialPrices[localRow.material as MaterialName] ?? 0;
+  return Math.round(weight.value * unitPrice);
+});
+
+// 定尺本数
+const pipeLengthCount = computed(() => {
+  if (localRow.shape !== 'pipe') return 0;
+  const len = Number(localRow.length);
+  if (!len || isNaN(len)) return 0;
+  const isStainless = localRow.material.startsWith('SUS');
+  const stdLength = isStainless ? 4 : 5.5;
+  return Math.ceil(len / stdLength);
+});
+
+// 初期化ウォッチ
 watch(
   () => [localRow.shape, localRow.material],
   () => {
@@ -150,39 +184,7 @@ watch(
   }
 );
 
-// 動的クラス computed化（強制再評価）
-const jisClass = computed(() => ({
-  placeholder: localRow.jis === '',
-  error: localRow.jis === ''
-}));
-
-const sizeClass = computed(() => ({
-  placeholder: localRow.size === '',
-  error: localRow.size === ''
-}));
-
-const scheduleClass = computed(() => ({
-  placeholder: localRow.schedule === '',
-  error: localRow.schedule === ''
-}));
-
-// 重量計算ロジック
-const { weight } = useEstimateRow(localRow);
-
-// パイプ定尺本数の自動計算
-const pipeLengthCount = computed(() => {
-  if (localRow.shape !== 'pipe') return 0;
-
-  const len = Number(localRow.length);
-  if (!len || isNaN(len)) return 0;
-
-  const isStainless = localRow.material.startsWith('SUS');
-  const stdLength = isStainless ? 4 : 5.5;
-
-  return Math.ceil(len / stdLength); // ← 🔥 修正：切り出しに必要な本数
-});
-
-// 更新通知
+// 通知
 watch(
   localRow,
   () => {
@@ -192,8 +194,4 @@ watch(
 );
 </script>
 
-
-
-
 <style src="./EstimateRow.css"></style>
-
