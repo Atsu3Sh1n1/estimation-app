@@ -94,9 +94,7 @@
 <!-- 金額 -->
 <span>
   {{
-    (localRow.shape === 'pipe'
-      ? (price * 2).toLocaleString()
-      : price.toLocaleString())
+    (price * (shapePriceFactor[localRow.shape] ?? 1)).toLocaleString()
   }} 円
 </span>
 
@@ -120,6 +118,16 @@ import { materialPrices } from '@/data/materials/materialPrices';
 const props = defineProps<{
   initialRow: EstimateRowType;
 }>();
+
+const shapePriceFactor: Record<string, number> = {
+  pipe: 2,
+  elbow: 5,
+  tee: 6,
+  reducer: 4,
+  cap: 3.5,
+  flange: 3,
+};
+
 
 const emit = defineEmits<{
   (e: 'update', row: EstimateRowType & { weight: number }): void;
