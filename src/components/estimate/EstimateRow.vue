@@ -1,19 +1,19 @@
 <template>
   <div class="row">
     <!-- 形状 -->
-    <select v-model="localRow.shape">
-      <option value="pipe">パイプ</option>
-      <option value="elbow">90°エルボ(ロング)</option>
-      <option value="shortelbow">90°エルボ(ショート)</option>
-      <option value="halfelbow">45°エルボ(ロング)</option>
-      <option value="halfshortelbow">45°エルボ(ショート)</option>
+  <select v-model="localRow.shape">
+  <option disabled value="" hidden>形状を選択</option>
+  <optgroup v-for="group in shapeGroups" :key="group.groupName" :label="group.groupName">
+    <option
+      v-for="shape in group.shapes"
+      :key="shape.value"
+      :value="shape.value"
+    >
+      {{ shape.label }}
+    </option>
+  </optgroup>
+</select>
 
-      <option value="tee">TEE(同径)</option>
-      <option value="tee_reducing">TEE(異径)</option>
-      <option value="reducer">レジューサ</option>
-      <option value="lap_joint">ラップフランジ</option>
-      <option value="flat_flange">板フランジ</option>
-    </select>
 
     <!-- 材質 -->
     <select v-model="localRow.material">
@@ -101,6 +101,7 @@
 </template>
 
 <script setup lang="ts">
+import { shapeGroups } from '@/data/genres'; 
 import { computed, watch, reactive } from 'vue';
 import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
