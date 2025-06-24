@@ -17,7 +17,7 @@
     <div class="total">
       <strong>継手溶接: {{ totalFittingInches.toFixed(0) }} DB</strong><br>
       <strong>総重量: {{ totalWeight.toFixed(2) }} kg</strong><br>
-      <strong>工数: {{ totalManHours.toFixed(2) }} 人工</strong>
+      <strong>工数（重量）: {{ totalManHours.toFixed(2) }} 人工</strong>
     </div>
   </div>
 </template>
@@ -95,7 +95,7 @@ const totalWeight = computed(() => {
 });
 
 const totalManHours = computed(() => {
-  return totalWeight.value * 0.025;
+  return totalWeight.value * 0.025 + totalFittingInches.value * 0.05;
 });
 
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
