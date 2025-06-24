@@ -105,7 +105,7 @@ const totalWeight = computed(() => {
 });
 
 const totalManHours = computed(() => {
-  return totalWeight.value * 0.025 + totalFittingInches.value * 0.05;
+  return totalWeight.value * 0.025 + totalFittingInches.value * 0.1;
 });
 
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
