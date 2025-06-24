@@ -171,12 +171,14 @@ const { weight } = useEstimateRow(localRow);
 // パイプ定尺本数の自動計算
 const pipeLengthCount = computed(() => {
   if (localRow.shape !== 'pipe') return 0;
+
   const len = Number(localRow.length);
   if (!len || isNaN(len)) return 0;
 
   const isStainless = localRow.material.startsWith('SUS');
   const stdLength = isStainless ? 4 : 5.5;
-  return len / stdLength;
+
+  return Math.ceil(len / stdLength); // ← 🔥 修正：切り出しに必要な本数
 });
 
 // 更新通知

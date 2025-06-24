@@ -46,6 +46,7 @@ const rows = reactive<(EstimateRowType & { id: number })[]>([
   createEmptyRow(),
 ]);
 
+// 呼び径（インチ）変換
 function getNominalInches(size: string): number {
   const sizeToNominalInch: Record<string, number> = {
     '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
@@ -58,6 +59,7 @@ function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 0;
 }
 
+// 継手・パイプを含めたDB（リング）計算
 const totalFittingInches = computed(() => {
   return rows.reduce((acc, row) => {
     if (!row.size || !row.shape) return acc;
@@ -66,7 +68,7 @@ const totalFittingInches = computed(() => {
     const quantity = Number(row.quantity) || 0;
     const inch = getNominalInches(row.size);
 
-    // 継手
+    // 継手処理
     if (['elbow', 'shortelbow'].includes(shape)) {
       return acc + inch * 2 * quantity;
     }
@@ -79,21 +81,23 @@ const totalFittingInches = computed(() => {
       return acc + totalInch * quantity;
     }
 
-    // パイプ（定尺換算 DB を加算）
+    // パイプ処理（定尺換算リング）
     if (shape === 'pipe') {
-      const length = Number(row.length);
-      if (!inch || !length) return acc;
+      const length = Number(row.length) || 0;
+      if (length <= 0 || inch <= 0) return acc;
 
       const isStainless = row.material.startsWith('SUS');
       const stdLength = isStainless ? 4 : 5.5;
-      const pipeCount = length / stdLength;
-      return acc + pipeCount * inch;
+
+      const numOfRings = Math.ceil(length / stdLength); // ← 🔥 ここが修正点
+      return acc + numOfRings * inch;
     }
 
     return acc;
   }, 0);
 });
 
+// 総重量（継手・パイプ）
 const totalWeight = computed(() => {
   return rows.reduce((acc, row) => {
     const weight = Number(row.weight);
@@ -104,18 +108,22 @@ const totalWeight = computed(() => {
   }, 0);
 });
 
+// 工数：総重量 × 0.025 + リング数 × 0.1
 const totalManHours = computed(() => {
   return totalWeight.value * 0.025 + totalFittingInches.value * 0.1;
 });
 
+// 行更新
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {
   rows[index] = { ...rows[index], ...updated };
 }
 
+// 行追加
 function addRow() {
   rows.push(createEmptyRow());
 }
 
+// 行削除
 function removeRow(index: number) {
   rows.splice(index, 1);
 }
