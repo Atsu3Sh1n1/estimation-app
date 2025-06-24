@@ -90,8 +90,15 @@
     <!-- 重量 -->
     <span>{{ weight.toFixed(3) }} kg</span>
 
-    <!-- 金額 -->
-    <span>{{ price.toLocaleString() }} 円</span>
+
+<!-- 金額 -->
+<span>
+  {{
+    (localRow.shape === 'pipe'
+      ? (price * 2).toLocaleString()
+      : price.toLocaleString())
+  }} 円
+</span>
 
     <!-- 定尺本数 -->
     <span v-if="localRow.shape === 'pipe'">

@@ -16,8 +16,8 @@
 
     <div class="total">
       <strong>溶接: {{ totalFittingInches.toFixed(0) }} DB</strong><br>
-      <strong>総重: {{ totalWeight.toFixed(0) }} kg</strong><br>
-      <strong>工数: {{ totalManHours.toFixed(0) }} 人日</strong>
+      <strong>総重: {{ totalWeight.toFixed(1) }} kg</strong><br>
+      <strong>工数: {{ totalManHours.toFixed(1) }} 人日</strong>
     </div>
   </div>
 </template>
