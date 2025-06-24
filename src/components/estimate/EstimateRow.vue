@@ -89,7 +89,13 @@
     />
 
     <!-- 重量 -->
-    <span>{{ weight.toFixed(3) }} kg</span>
+<span>{{ weight.toFixed(3) }} kg</span>
+
+<!-- 定尺本数 -->
+<span v-if="localRow.shape === 'pipe'">
+ 定尺 {{ pipeLengthCount.toFixed(0) }} 本
+</span>
+
     <button @click="$emit('remove')">削除</button>
   </div>
 </template>
@@ -162,6 +168,17 @@ const scheduleClass = computed(() => ({
 // 重量計算ロジック
 const { weight } = useEstimateRow(localRow);
 
+// パイプ定尺本数の自動計算
+const pipeLengthCount = computed(() => {
+  if (localRow.shape !== 'pipe') return 0;
+  const len = Number(localRow.length);
+  if (!len || isNaN(len)) return 0;
+
+  const isStainless = localRow.material.startsWith('SUS');
+  const stdLength = isStainless ? 4 : 5.5;
+  return len / stdLength;
+});
+
 // 更新通知
 watch(
   localRow,
@@ -172,15 +189,7 @@ watch(
 );
 </script>
 
-<style scoped>
-select.placeholder {
-  color: #888;
-}
-select.error,
-input.error {
-  border: 1px solid red;
-}
-</style>
+
 
 
 <style src="./EstimateRow.css"></style>

@@ -16,8 +16,8 @@
 
     <div class="total">
       <strong>継手溶接: {{ totalFittingInches.toFixed(0) }} DB</strong><br>
-      <strong>総重量: {{ totalWeight.toFixed(2) }} kg</strong><br>
-      <strong>工数（重量）: {{ totalManHours.toFixed(2) }} 人工</strong>
+      <strong>総重量: {{ totalWeight.toFixed(0) }} kg</strong><br>
+      <strong>工数: {{ totalManHours.toFixed(0) }} 人日</strong>
     </div>
   </div>
 </template>
@@ -62,13 +62,12 @@ const totalFittingInches = computed(() => {
   return rows.reduce((acc, row) => {
     if (!row.size || !row.shape) return acc;
 
-    const quantity = row.quantity !== '' ? Number(row.quantity) : 0;
-    if (!quantity || quantity <= 0) return acc;
-
     const shape = row.shape;
+    const quantity = Number(row.quantity) || 0;
+    const inch = getNominalInches(row.size);
 
+    // 継手
     if (['elbow', 'shortelbow'].includes(shape)) {
-      const inch = getNominalInches(row.size);
       return acc + inch * 2 * quantity;
     }
 
@@ -78,6 +77,17 @@ const totalFittingInches = computed(() => {
         .map((s) => getNominalInches(s.trim()))
         .reduce((sum, i) => sum + i, 0);
       return acc + totalInch * quantity;
+    }
+
+    // パイプ（定尺換算 DB を加算）
+    if (shape === 'pipe') {
+      const length = Number(row.length);
+      if (!inch || !length) return acc;
+
+      const isStainless = row.material.startsWith('SUS');
+      const stdLength = isStainless ? 4 : 5.5;
+      const pipeCount = length / stdLength;
+      return acc + pipeCount * inch;
     }
 
     return acc;
