@@ -82,16 +82,17 @@ const totalFittingInches = computed(() => {
     }
 
     // パイプ処理（定尺換算リング）
-    if (shape === 'pipe') {
-      const length = Number(row.length) || 0;
-      if (length <= 0 || inch <= 0) return acc;
+if (shape === 'pipe') {
+  const length = Number(row.length) || 0;
+  if (length <= 0 || inch <= 0) return acc;
 
-      const isStainless = row.material.startsWith('SUS');
-      const stdLength = isStainless ? 4 : 5.5;
+  const isStainless = row.material.startsWith('SUS');
+  const stdLength = isStainless ? 4 : 5.5;
 
-      const numOfRings = Math.ceil(length / stdLength); // ← 🔥 ここが修正点
-      return acc + numOfRings * inch;
-    }
+  const numOfRings = Math.ceil(length / stdLength);
+  const ringsPerStdLength = 1;  // ここを変えればOK
+  return acc + numOfRings * ringsPerStdLength * inch;
+}
 
     return acc;
   }, 0);

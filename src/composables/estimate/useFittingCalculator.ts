@@ -27,8 +27,29 @@ export const fittingFactors = {
   tee550A: 0.0148168502039695,
   tee600A: 0.0137575545492149,
 
+  tee_reducing15A: 0.0433,
+  tee_reducing20A: 0.0296,
+  tee_reducing25A: 0.0324,
+  tee_reducing32A: 0.0324,
+  tee_reducing40A: 0.0327,
+  tee_reducing50A: 0.0267,
+  tee_reducing65A: 0.0253,
+  tee_reducing80A: 0.0236,
+  tee_reducing90A: 0.0219,
+  tee_reducing100A: 0.0214150399472861,
+  tee_reducing125A: 0.0201,
+  tee_reducing150A: 0.0192,
+  tee_reducing200A: 0.0177,
+  tee_reducing250A: 0.0171,
+  tee_reducing300A: 0.0168,
+  tee_reducing350A: 0.0157,
+  tee_reducing400A: 0.0148,
+  tee_reducing450A: 0.0148,
+  tee_reducing500A: 0.0148131369514061,
+  tee_reducing550A: 0.0148168502039695,
+  tee_reducing600A: 0.0137575545492149,
 
-  tee_reducing: 0.063,
+
   reducer: 0.03,
 } as const;
 
