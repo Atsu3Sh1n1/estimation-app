@@ -101,7 +101,7 @@ export const fittingCompatibility = {
         jisMap: {
             SUS304: ['B2312_TE'], SUS304L: ['B2312_TE'], SUS304TPD: ['G3448'], SUS316: ['B2312_TE'], SUS316L: ['B2312_TE'], SUS430: ['B2312_TE'], SUS410: ['B2312_TE'], SUS329J4L: ['B2312_TE'],
 
-            SGP黒EG: ['B2311'], SGP黒鍛BH: ['B2311'], SGP白EG: ['B2311'], SGP白鍛BC: ['B2311'], SGPW: ['B2311'],
+            SGP黒EG: ['B2311_T'], SGP黒鍛BH: ['B2311_T'], SGP白EG: ['B2311_T'], SGP白鍛BC: ['B2311_T'], SGPW: ['B2311_T'],
 
             STPG370S: ['B2312_TE'], STPG370E: ['B2312_TE'], STPG410S: ['B2312_TE'], STPG410E: ['B2312_TE'],
 

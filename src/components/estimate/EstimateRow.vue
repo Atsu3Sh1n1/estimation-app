@@ -93,7 +93,7 @@
 
 <!-- 金額 -->
 <span>
-  {{
+  ※材質原価 {{
     (price * (shapePriceFactor[localRow.shape] ?? 1)).toLocaleString()
   }} 円
 </span>
@@ -120,12 +120,12 @@ const props = defineProps<{
 }>();
 
 const shapePriceFactor: Record<string, number> = {
-  pipe: 2,
-  elbow: 5,
-  tee: 6,
-  reducer: 4,
-  cap: 3.5,
-  flange: 3,
+  pipe: 1,
+  elbow: 1,
+  tee: 1,
+  reducer: 1,
+  cap: 1,
+  flange: 1,
 };
 
 
