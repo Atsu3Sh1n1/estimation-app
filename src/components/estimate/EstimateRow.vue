@@ -49,7 +49,7 @@
   <input
     v-model.number="localRow.length"
     type="number"
- 
+    min="0"
     step="0.01"
     :class="{ error: !localRow.length }"
   />
@@ -61,7 +61,7 @@
   <input
     v-model.number="localRow.quantity"
     type="number"
- 
+    min="0"
     step="1"
     :class="{ error: !localRow.quantity }"
   />
