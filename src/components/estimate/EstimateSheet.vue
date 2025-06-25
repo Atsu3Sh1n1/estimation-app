@@ -4,7 +4,7 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-    <button @click="addRow">行追加</button>　<button @click="exportCSV">CSV出力</button>
+    <button @click="addRow">追加</button>　<button @click="exportCSV">CSV</button>
 
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
