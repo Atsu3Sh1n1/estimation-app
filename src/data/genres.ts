@@ -29,7 +29,9 @@ export const shapeGroups = [
             { value: 'halfshortelbow', label: '45°エルボ(ショート)' },
             { value: 'tee', label: 'TEE(同径)' },
             { value: 'tee_reducing', label: 'TEE(異径)' },
-            { value: 'reducer', label: 'レジューサ' },
+            { value: 'reducer', label: 'レジューサ(同芯)' },
+            { value: 'reducer', label: 'レジューサ(偏芯)' },
+
             { value: 'lap_joint', label: 'ラップフランジ' },
             { value: 'flat_flange', label: '板フランジ' },
 
