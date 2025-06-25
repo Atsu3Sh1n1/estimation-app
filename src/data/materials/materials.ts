@@ -32,8 +32,14 @@ export const materialDensities = {
     STPT370E_N: 7850,    // 黒管・継目なし・ねじあり
 
 
-
     SUS304: 7930,
+    SUS304TP_S_H: 7930,
+    SUS304TP_S_C: 7930,
+    SUS304TP_E_H: 7930,
+    SUS304TP_E_C: 7930,
+
+
+    
     SUS304L: 7920,
     SUS304TPD: 7930,
 

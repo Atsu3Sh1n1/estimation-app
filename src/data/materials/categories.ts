@@ -2,7 +2,7 @@
 export const materialCategories: Record<string, MaterialName[]> = {
   
   ステンレス: [
-    'SUS304', 'SUS304L', 'SUS304TPD','SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L'
+    'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C', 'SUS304','SUS304L', 'SUS304TPD','SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L'
   ],
   鉄: [
     'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',

@@ -4,28 +4,17 @@
     <select v-model="localRow.shape">
       <option disabled value="" hidden>形状を選択</option>
       <optgroup v-for="group in shapeGroups" :key="group.groupName" :label="group.groupName">
-        <option
-          v-for="shape in group.shapes"
-          :key="shape.value"
-          :value="shape.value"
-        >
+        <option v-for="shape in group.shapes" :key="shape.value" :value="shape.value">
           {{ shape.label }}
         </option>
       </optgroup>
     </select>
 
     <!-- 材質 -->
-    <select v-model="localRow.material">
-      <optgroup
-        v-for="group in availableMaterialsByGroup"
-        :key="group.groupName"
-        :label="group.groupName"
-      >
-        <option
-          v-for="mat in group.materials"
-          :key="mat"
-          :value="mat"
-        >
+    <select v-model="localRow.material" :class="materialClass">
+      <option disabled value="" hidden>材質を選択</option>
+      <optgroup v-for="group in availableMaterialsByGroup" :key="group.groupName" :label="group.groupName">
+        <option v-for="mat in group.materials" :key="mat" :value="mat">
           {{ mat }}
         </option>
       </optgroup>
@@ -42,11 +31,7 @@
     <!-- サイズ -->
     <select v-model="localRow.size" :class="sizeClass">
       <option disabled value="" hidden>サイズを選択</option>
-      <option
-        v-for="(val, key) in pipeSizes[localRow.jis] || {}"
-        :key="key"
-        :value="key"
-      >
+      <option v-for="(val, key) in pipeSizes[localRow.jis] || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
@@ -54,49 +39,29 @@
     <!-- スケジュール -->
     <select v-model="localRow.schedule" :class="scheduleClass">
       <option disabled value="" hidden>スケジュールを選択</option>
-      <option
-        v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}"
-        :key="key"
-        :value="key"
-      >
+      <option v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
 
     <!-- 長さ -->
-    <input
-      v-if="localRow.shape === 'pipe'"
-      v-model.number="localRow.length"
-      type="number"
-      min="0"
-      step="0.01"
-      style="width: 80px"
-      :class="{ error: !localRow.length }"
-      placeholder="長さ(m)"
-    />
+    <input v-if="localRow.shape === 'pipe'" v-model.number="localRow.length" type="number" min="0" step="0.01"
+      style="width: 80px" :class="{ error: !localRow.length }" placeholder="長さ(m)" />
 
     <!-- 個数 -->
-    <input
-      v-else
-      v-model.number="localRow.quantity"
-      type="number"
-      min="0"
-      step="1"
-      style="width: 80px"
-      :class="{ error: !localRow.quantity }"
-      placeholder="個数"
-    />
+    <input v-else v-model.number="localRow.quantity" type="number" min="0" step="1" style="width: 80px"
+      :class="{ error: !localRow.quantity }" placeholder="個数" />
 
     <!-- 重量 -->
     <span>{{ weight.toFixed(3) }} kg</span>
 
 
-<!-- 金額 -->
-<span>
-  ※材質原価 {{
-    (price * (shapePriceFactor[localRow.shape] ?? 1)).toLocaleString()
-  }} 円
-</span>
+    <!-- 金額 -->
+    <span>
+      ※材質原価 {{
+        (price * (shapePriceFactor[localRow.shape] ?? 1)).toLocaleString()
+      }} 円
+    </span>
 
     <!-- 定尺本数 -->
     <span v-if="localRow.shape === 'pipe'">
@@ -156,6 +121,10 @@ const availableJis = computed(() => {
 });
 
 // クラス
+const materialClass = computed(() => ({
+  placeholder: localRow.material === '',
+  error: localRow.material === '',
+}));
 const jisClass = computed(() => ({
   placeholder: localRow.jis === '',
   error: localRow.jis === '',
@@ -168,6 +137,7 @@ const scheduleClass = computed(() => ({
   placeholder: localRow.schedule === '',
   error: localRow.schedule === '',
 }));
+
 
 // 重量計算
 const { weight } = useEstimateRow(localRow);
@@ -213,5 +183,3 @@ watch(
 </script>
 
 <style src="./EstimateRow.css" scoped></style>
-
-<style src="./EstimateRow.css"></style>

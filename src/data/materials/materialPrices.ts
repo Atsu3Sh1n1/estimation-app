@@ -33,6 +33,11 @@ export const materialPrices: Record<MaterialName, number> = {
   STPT370E_N: 154,
 
   SUS304: 750,
+  SUS304TP_S_H: 750,
+  SUS304TP_S_C: 750,
+  SUS304TP_E_H: 750,
+  SUS304TP_E_C: 750,
+
   SUS304L: 740,
   SUS304TPD: 760,
 

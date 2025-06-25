@@ -4,11 +4,14 @@ export const fittingCompatibility = {
     pipe: {
         materials: [
             'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW', 'STS370', 'STPG370SH', 'STPG370EH', 'STPG410S', 'STPG410E', 'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN', 'STPT370S_N', 'STPT370E_N',
-            'SUS304', 'SUS304L', 'SUS304TPD', 'SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L',
+
+            'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C', 'SUS304L', 'SUS304TPD', 'SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L',
+
             '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
         ],
         jisMap: {
-            SUS304: ['G3459', 'G3468'], SUS304L: ['G3459', 'G3468'], SUS304TPD: ['G3448'], SUS316: ['G3459', 'G3468'], SUS316L: ['G3459', 'G3468'], SUS430: ['G3459', 'G3468'], SUS410: ['G3459', 'G3468'], SUS329J4L: ['G3459', 'G3468'],
+            SUS304TP_S_H: ['G3459'], SUS304TP_S_C: ['G3459'], SUS304TP_E_H: ['G3459'], SUS304TP_E_C: ['G3459'], SUS304TPY: ['G3468'],
+            SUS304L: ['G3459'], SUS304TPD: ['G3448'], SUS316: ['G3459'], SUS316L: ['G3459'], SUS430: ['G3459'], SUS410: ['G3459'], SUS329J4L: ['G3459'],
 
             SGP黒EG: ['G3452'], SGP黒鍛BH: ['G3452'], SGP白EG: ['G3452'], SGP白鍛BC: ['G3452'], SGPW: ['G3442'],
 

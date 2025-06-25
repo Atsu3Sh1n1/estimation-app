@@ -4,7 +4,8 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-    <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button>
+    <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button> <button @click="openLink">参考資料</button>
+
     <div class="meta-info">
       <label>
         図面番号 / タイトル:
@@ -19,7 +20,7 @@
     </div>
 
     <div class="total">
-      <strong>溶接: {{ totalFittingInches.toFixed(0) }} DB</strong><br>
+      <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong><br>
       <strong>総重: {{ totalWeight.toFixed(1) }} kg</strong><br>
       <strong>工数: {{ totalManHours.toFixed(1) }} 人日</strong>
     </div>
@@ -30,13 +31,18 @@
 import { reactive, computed } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
+import { shapeGroups } from '@/data/genres';
+
+const openLink = () => {
+  window.open('/reference/steel-info.html', '_blank')
+}
 
 let idCounter = 0;
 function createEmptyRow(): EstimateRowType & { id: number } {
   return {
     id: ++idCounter,
-    material: 'SUS304',
     shape: 'pipe',
+    material: '',
     size: '',
     jis: '',
     schedule: '',
@@ -140,30 +146,37 @@ const now = new Date();
 
 // 管理番号（例：20250625_143210）
 const controlId = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
-
+const shapeLabelMap: Record<string, string> = {};
+shapeGroups.forEach(group => {
+  group.shapes.forEach(shape => {
+    if (shape.value) {
+      shapeLabelMap[shape.value] = shape.label;
+    }
+  });
+});
 function exportCSV() {
   const headers = [
-    '材質', '形状', 'サイズ', 'JIS', 'スケジュール',
+    '形状', '材質', 'サイズ', 'JIS', 'スケジュール',
     '長さ(m)', '数量', '重量(kg)', '定尺本数'
   ];
 
   const body = rows.map((row) => [
-    row.material,
-    row.shape,
+
+    shapeLabelMap[row.shape] ?? row.shape, row.material,
     row.size,
     row.jis,
     row.schedule,
     row.length,
     row.quantity,
-    row.weight,
+    row.weight.toFixed(0),
     row.pipeLengthCount ?? '',
   ]);
 
   const totals = [
     [], [], [], [], [],
-    ['溶接DB', totalFittingInches.value.toFixed(1)],
-    ['総重量(kg)', totalWeight.value.toFixed(1)],
-    ['工数(人日)', totalManHours.value.toFixed(1)],
+    ['溶接DB', totalFittingInches.value.toFixed(0)],
+    ['総重量(kg)', totalWeight.value.toFixed(0)],
+    ['工数(人日)', totalManHours.value.toFixed(0)],
   ];
 
   const metadata = [
