@@ -34,7 +34,7 @@ import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
 
 const openLink = () => {
-  window.open('/reference/steel-info.html', '_blank')
+  window.open('public/reference/steel-info.html', '_blank')
 }
 
 let idCounter = 0;
@@ -121,7 +121,7 @@ const totalWeight = computed(() => {
 
 // 工数：総重量 × 0.025 + リング数 × 0.1
 const totalManHours = computed(() => {
-  return totalWeight.value * 0.025 + totalFittingInches.value * 0.1;
+  return totalWeight.value * 0.025 + totalFittingInches.value * 0.05;
 });
 
 // 行更新
@@ -157,7 +157,7 @@ shapeGroups.forEach(group => {
 function exportCSV() {
   const headers = [
     '形状', '材質', 'サイズ', 'JIS', 'スケジュール',
-    '長さ(m)', '数量', '重量(kg)', '定尺本数'
+    '長さ(m)', '数量(個)', '重量(kg)', '定尺本数'
   ];
 
   const body = rows.map((row) => [

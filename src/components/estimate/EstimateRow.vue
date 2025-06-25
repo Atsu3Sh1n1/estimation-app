@@ -45,12 +45,29 @@
     </select>
 
     <!-- 長さ -->
-    <input v-if="localRow.shape === 'pipe'" v-model.number="localRow.length" type="number" min="0" step="0.01"
-      style="width: 80px" :class="{ error: !localRow.length }" placeholder="長さ(m)" />
+<div v-if="localRow.shape === 'pipe'" class="input-with-unit">
+  <input
+    v-model.number="localRow.length"
+    type="number"
+ 
+    step="0.01"
+    :class="{ error: !localRow.length }"
+  />
+  <span class="unit">m</span>
+</div>
 
-    <!-- 個数 -->
-    <input v-else v-model.number="localRow.quantity" type="number" min="0" step="1" style="width: 80px"
-      :class="{ error: !localRow.quantity }" placeholder="個数" />
+<!-- 個数 -->
+<div v-else class="input-with-unit">
+  <input
+    v-model.number="localRow.quantity"
+    type="number"
+ 
+    step="1"
+    :class="{ error: !localRow.quantity }"
+  />
+  <span class="unit">個</span>
+</div>
+
 
     <!-- 重量 -->
     <span>{{ weight.toFixed(3) }} kg</span>

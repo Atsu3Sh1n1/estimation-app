@@ -50,7 +50,36 @@ select.placeholder {
 
 select.error {
   border: 1px solid red;
+    background-color: #ffdbd7;
+
 }
+input.error {
+  border: 1px solid red;
+}
+
+.input-with-unit {
+  position: relative;
+  display: inline-block;
+  width: 100px; /* 必要なら調整 */
+}
+
+.input-with-unit input {
+  width: 100%;
+  padding-right: 1.8em; /* 単位のスペースを確保 */
+  box-sizing: border-box;
+}
+
+.input-with-unit .unit {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 0.9em;
+  pointer-events: none;
+}
+
+/* エラースタイル（共通） */
 input.error {
   border: 1px solid red;
 }
