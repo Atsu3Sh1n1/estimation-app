@@ -1,10 +1,6 @@
 // src/data/materials/categories.ts
 export const materialCategories: Record<string, MaterialName[]> = {
 
-  ステンレス一般: [
-    'SUS304TPD',
-  ],
-
   ステンレス配管用・プラント標準: [
     'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C', 'SUS304',
   ],
@@ -16,6 +12,10 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   SGP: [
     'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',
+  ],
+
+  ステンレス一般: [
+    'SUS304TPD',
   ],
 
   スパイラル鋼管: [
