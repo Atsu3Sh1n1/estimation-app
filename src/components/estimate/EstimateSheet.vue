@@ -73,7 +73,7 @@ const totalFittingInches = computed(() => {
       return acc + inch * 2 * quantity;
     }
 
-    if (['tee', 'tee_reducing'].includes(shape)) {
+    if (['tee', 'tee_reducing','reducer'].includes(shape)) {
       const totalInch = row.size
         .split('*')
         .map((s) => getNominalInches(s.trim()))

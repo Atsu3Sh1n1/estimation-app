@@ -50,7 +50,7 @@ export const fittingFactors = {
   tee_reducing600A: 0.0137575545492149,
 
 
-  reducer: 0.03,
+  reducer: 0.0127,
 } as const;
 
 

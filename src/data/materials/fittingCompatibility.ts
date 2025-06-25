@@ -135,6 +135,7 @@ export const fittingCompatibility = {
             金24K: ['B2312',], 銀Ag: ['B2312',], 銅Cu: ['B2312',], プラチナ: ['B2312'], チタン: ['B2312',], アルミ: ['B2312',], 鋳鉄: ['B2312',], 塩ビPVC: [], PEポリエチレン: ['B2312',], ダイヤモンド: ['B2312',], タングステン: ['B2312',],
         },
     },
+
     halfshortelbow: {
         materials: [
             'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW', 'STS370', 'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E', 'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN', 'STPT370S_N', 'STPT370E_N',
@@ -156,6 +157,31 @@ export const fittingCompatibility = {
             金24K: ['B2312',], 銀Ag: ['B2312',], 銅Cu: ['B2312',], プラチナ: ['B2312'], チタン: ['B2312',], アルミ: ['B2312',], 鋳鉄: ['B2312',], 塩ビPVC: [], PEポリエチレン: ['B2312',], ダイヤモンド: ['B2312',], タングステン: ['B2312',],
         },
     },
+
+    
+
+        reducer: {
+        materials: [
+            'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW', 'STS370', 'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E', 'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN', 'STPT370S_N', 'STPT370E_N',
+            'SUS304', 'SUS304L', 'SUS304TPD', 'SUS316', 'SUS316L', 'SUS430', 'SUS410', 'SUS329J4L',
+            '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+        ],
+        jisMap: {
+            SUS304: ['B2312_R'], SUS304L: ['B2312_R'], SUS304TPD: [''], SUS316: ['B2312_R'], SUS316L: ['B2312_R'], SUS430: ['B2312_R'], SUS410: ['B2312_R'], SUS329J4L: ['B2312_R'],
+
+            SGP黒EG: [''], SGP黒鍛BH: [''], SGP白EG: [''], SGP白鍛BC: [''], SGPW: [''],
+
+            STPG370S: ['B2312_R'], STPG370E: ['B2312_R'], STPG410S: ['B2312_R'], STPG410E: ['B2312_R'],
+
+            STPT370S: ['B2312_R'], STPT370E: ['B2312_R'], STPT410S: ['B2312_R'], STPT410E: ['B2312_R'], STPT480S: ['B2312_R'], STPT480E: ['B2312_R'],
+            STPT370S_W: ['B2312_R'], STPT370E_W: ['B2312_R'], STPT370S_WN: ['B2312_R'], STPT370E_WN: ['B2312_R'], STPT370S_N: ['B2312_R'], STPT370E_N: ['B2312_R'],
+
+            STS370: ['B2312_R'],
+
+            金24K: ['B2312_R',], 銀Ag: ['B2312_R',], 銅Cu: ['B2312_R',], プラチナ: ['B2312_R'], チタン: ['B2312_R',], アルミ: ['B2312_R',], 鋳鉄: ['B2312_R',], 塩ビPVC: [], PEポリエチレン: ['B2312_R',], ダイヤモンド: ['B2312_R',], タングステン: ['B2312_R',],
+        },
+    },
+
 
 
 };
