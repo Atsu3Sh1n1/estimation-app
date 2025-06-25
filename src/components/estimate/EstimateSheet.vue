@@ -1,18 +1,14 @@
-<template> 
+<template>
   <div class="estimate-sheet">
     <div class="footer">
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-    <button @click="addRow">追加</button>　<button @click="exportCSV">CSV</button>
+     <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button>
 
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
-      <EstimateRow
-        :initialRow="row"
-        @update="updateRow(index, $event)"
-        @remove="removeRow(index)"
-      />
+      <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
     </div>
 
     <div class="total">
@@ -74,7 +70,7 @@ const totalFittingInches = computed(() => {
       return acc + inch * 2 * quantity;
     }
 
-    if (['tee', 'tee_reducing','reducer'].includes(shape)) {
+    if (['tee', 'tee_reducing', 'reducer'].includes(shape)) {
       const totalInch = row.size
         .split('*')
         .map((s) => getNominalInches(s.trim()))
@@ -83,17 +79,17 @@ const totalFittingInches = computed(() => {
     }
 
     // パイプ処理（定尺換算リング）
-if (shape === 'pipe') {
-  const length = Number(row.length) || 0;
-  if (length <= 0 || inch <= 0) return acc;
+    if (shape === 'pipe') {
+      const length = Number(row.length) || 0;
+      if (length <= 0 || inch <= 0) return acc;
 
-  const isStainless = row.material.startsWith('SUS');
-  const stdLength = isStainless ? 4 : 5.5;
+      const isStainless = row.material.startsWith('SUS');
+      const stdLength = isStainless ? 4 : 5.5;
 
-  const numOfRings = Math.ceil(length / stdLength);
-  const ringsPerStdLength = 1;  // ここを変えればOK
-  return acc + numOfRings * ringsPerStdLength * inch;
-}
+      const numOfRings = Math.ceil(length / stdLength);
+      const ringsPerStdLength = 1;  // ここを変えればOK
+      return acc + numOfRings * ringsPerStdLength * inch;
+    }
 
     return acc;
   }, 0);
@@ -129,12 +125,13 @@ function addRow() {
 function removeRow(index: number) {
   rows.splice(index, 1);
 }
-
 function exportCSV() {
   const headers = [
-    '材質', '形状', 'サイズ', 'JIS', 'スケジュール', '長さ', '数量', '重量(kg)'
+    '材質', '形状', 'サイズ', 'JIS', 'スケジュール',
+    '長さ(m)', '数量', '重量(kg)', '定尺本数'
   ];
-  const rowsData = rows.map(row => [
+
+  const body = rows.map((row) => [
     row.material,
     row.shape,
     row.size,
@@ -142,23 +139,32 @@ function exportCSV() {
     row.schedule,
     row.length,
     row.quantity,
-    row.weight.toFixed(2)
+    row.weight.toFixed(0),
+    row.pipeLengthCount ?? '',
   ]);
 
-  const csvContent =
-    [headers, ...rowsData]
-      .map(e => e.map(v => `"${String(v).replace(/"/g, '""')}"`).join(','))
-      .join('\n');
+
+
+  const totals = [
+    [], [], [], [], [],
+    ['溶接DB', totalFittingInches.value.toFixed(0)],
+    ['総重量(kg)', totalWeight.value.toFixed(0)],
+    ['工数(人日)', totalManHours.value.toFixed(0)],
+  ];
+
+  const csvContent = [headers, ...body, [], ...totals]
+    .map(row => row.join(','))
+    .join('\n');
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
-  link.href = url;
+  link.href = URL.createObjectURL(blob);
   link.setAttribute('download', 'estimate.csv');
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
 }
+
 
 </script>
 

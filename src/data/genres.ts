@@ -11,11 +11,7 @@ export const shapeGroups = [
             { value: '', label: '角形鋼管' },
             { value: '', label: '角鋼(角棒)' },
             { value: '', label: '丸鋼(丸棒)' },
-            { value: '', label: '縞鋼板(滑り止め板)' },
-            { value: '', label: '普通鋼板(SS400)' },
-            { value: '', label: '高張力鋼板(SM490)' },
-            { value: '', label: '耐候性鋼板(Corten)' },
-            { value: '', label: 'ステンレス鋼板(SUS304)' },
+            { value: '', label: '鋼板' },
 
 
         ],

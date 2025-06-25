@@ -128,9 +128,8 @@ const shapePriceFactor: Record<string, number> = {
   flange: 1,
 };
 
-
 const emit = defineEmits<{
-  (e: 'update', row: EstimateRowType & { weight: number }): void;
+  (e: 'update', row: EstimateRowType & { weight: number; pipeLengthCount?: number }): void;
   (e: 'remove'): void;
 }>();
 
@@ -203,10 +202,16 @@ watch(
 watch(
   localRow,
   () => {
-    emit('update', { ...localRow, weight: weight.value });
+    emit('update', {
+      ...localRow,
+      weight: weight.value,
+      pipeLengthCount: pipeLengthCount.value, // ここを追加
+    });
   },
   { deep: true, immediate: true }
 );
 </script>
+
+<style src="./EstimateRow.css" scoped></style>
 
 <style src="./EstimateRow.css"></style>
