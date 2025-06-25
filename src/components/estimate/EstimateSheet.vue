@@ -20,8 +20,9 @@
     </div>
      <br>
     <div class="total">
+      
+      <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>&nbsp;
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong><br>
-      <strong>総重: {{ totalWeight.toFixed(1) }} kg</strong><br>
       <strong>工数: {{ totalManHours.toFixed(1) }} 人日 (0.025/kg・0.05/DB)</strong>
     </div>
   </div>
