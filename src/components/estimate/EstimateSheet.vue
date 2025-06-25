@@ -4,7 +4,8 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-    <button @click="addRow">行追加</button>
+    <button @click="addRow">行追加</button>　<button @click="exportCSV">CSV出力</button>
+
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
       <EstimateRow
@@ -128,6 +129,37 @@ function addRow() {
 function removeRow(index: number) {
   rows.splice(index, 1);
 }
+
+function exportCSV() {
+  const headers = [
+    '材質', '形状', 'サイズ', 'JIS', 'スケジュール', '長さ', '数量', '重量(kg)'
+  ];
+  const rowsData = rows.map(row => [
+    row.material,
+    row.shape,
+    row.size,
+    row.jis,
+    row.schedule,
+    row.length,
+    row.quantity,
+    row.weight.toFixed(2)
+  ]);
+
+  const csvContent =
+    [headers, ...rowsData]
+      .map(e => e.map(v => `"${String(v).replace(/"/g, '""')}"`).join(','))
+      .join('\n');
+
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.setAttribute('download', 'estimate.csv');
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 </script>
 
 <style src="./EstimateSheet.css" scoped></style>
