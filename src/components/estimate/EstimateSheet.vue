@@ -1,4 +1,5 @@
 <template>
+
   <div class="estimate-sheet">
     <div class="footer">
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
@@ -14,8 +15,6 @@
       </label>
     </div>
 
-
-
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
       <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
     </div>
@@ -30,7 +29,7 @@
     <div class="options">
       <label>
         <input type="checkbox" v-model="isTIG" />
-        TIG溶接で計算する(1DB = 0.1人工：アーク0.05)
+        TIG溶接で計算する<br>(1DB = 0.1人工：アーク0.05)
       </label>
     </div>
 
