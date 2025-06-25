@@ -4,7 +4,8 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-    <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button> <button @click="openLink">参考資料</button>
+    <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button> <button
+      @click="openLink">参考資料</button>
 
     <div class="meta-info">
       <label>
@@ -18,13 +19,21 @@
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
       <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
     </div>
-     <br>
+    <br>
     <div class="total">
-      
+
       <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>&nbsp;
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong><br>
-      <strong>工数: {{ totalManHours.toFixed(1) }} 人日 (0.025/kg・0.1/DB)</strong>
+      <strong>工数: {{ totalManHours.toFixed(1) }} 人日 (0.025/kg・{{ isTIG ? '0.1' : '0.05' }}/DB)</strong>
+
     </div>
+    <div class="options">
+      <label>
+        <input type="checkbox" v-model="isTIG" />
+        TIG溶接で計算する(1DB = 0.1人工：アーク0.05)
+      </label>
+    </div>
+
   </div>
 </template>
 
@@ -35,7 +44,7 @@ import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
 
 const openLink = () => {
-window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
+  window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
 };
 
 let idCounter = 0;
@@ -120,10 +129,15 @@ const totalWeight = computed(() => {
   }, 0);
 });
 
+const isTIG = ref(true); // false ならアーク基準（1DB=0.05人工）
+
+
 // 工数：総重量 × 0.025 + リング数 × 0.1
 const totalManHours = computed(() => {
-  return totalWeight.value * 0.025 + totalFittingInches.value * 0.1;
+  const dbUnit = isTIG.value ? 0.1 : 0.05; // TIGなら0.1、通常なら0.05
+  return totalWeight.value * 0.025 + totalFittingInches.value * dbUnit;
 });
+
 
 // 行更新
 function updateRow(index: number, updated: EstimateRowType & { weight: number }) {

@@ -90,3 +90,8 @@ button:hover {
   border-radius: 6px;
   min-width: 250px;
 }
+
+.options {
+  font-size: 0.85em; /* 小さめ */
+  color: #555;       /* お好みで色も控えめに */
+}
