@@ -4,7 +4,14 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
     </div>
 
-     <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button>
+    <button @click="addRow">追加</button> <button @click="exportCSV">CSV出力</button>
+    <div class="meta-info">
+      <label>
+        図面番号 / タイトル:
+        <input v-model="title" placeholder="例：配管図A-101" />
+      </label>
+    </div>
+
 
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
@@ -125,6 +132,15 @@ function addRow() {
 function removeRow(index: number) {
   rows.splice(index, 1);
 }
+
+import { ref } from 'vue';
+
+const title = ref(''); // 図面番号・タイトル入力
+const now = new Date();
+
+// 管理番号（例：20250625_143210）
+const controlId = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}${String(now.getSeconds()).padStart(2, '0')}`;
+
 function exportCSV() {
   const headers = [
     '材質', '形状', 'サイズ', 'JIS', 'スケジュール',
@@ -139,27 +155,31 @@ function exportCSV() {
     row.schedule,
     row.length,
     row.quantity,
-    row.weight.toFixed(0),
+    row.weight,
     row.pipeLengthCount ?? '',
   ]);
 
-
-
   const totals = [
     [], [], [], [], [],
-    ['溶接DB', totalFittingInches.value.toFixed(0)],
-    ['総重量(kg)', totalWeight.value.toFixed(0)],
-    ['工数(人日)', totalManHours.value.toFixed(0)],
+    ['溶接DB', totalFittingInches.value.toFixed(1)],
+    ['総重量(kg)', totalWeight.value.toFixed(1)],
+    ['工数(人日)', totalManHours.value.toFixed(1)],
   ];
 
-  const csvContent = [headers, ...body, [], ...totals]
+  const metadata = [
+    [`図面番号`, title.value],
+    [`管理番号`, controlId],
+    [`作成日時`, now.toLocaleString()]
+  ];
+
+  const csvContent = [...metadata, [], headers, ...body, [], ...totals]
     .map(row => row.join(','))
     .join('\n');
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.setAttribute('download', 'estimate.csv');
+  link.setAttribute('download', `${controlId}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
