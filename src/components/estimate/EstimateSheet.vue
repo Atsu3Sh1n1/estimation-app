@@ -34,8 +34,8 @@ import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
 
 const openLink = () => {
-  window.open('/reference/steel-info.html', '_blank')
-}
+window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
+};
 
 let idCounter = 0;
 function createEmptyRow(): EstimateRowType & { id: number } {
