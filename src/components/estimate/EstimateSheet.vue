@@ -23,7 +23,7 @@
       
       <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>&nbsp;
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong><br>
-      <strong>工数: {{ totalManHours.toFixed(1) }} 人日 (0.025/kg・0.05/DB)</strong>
+      <strong>工数: {{ totalManHours.toFixed(1) }} 人日 (0.025/kg・0.1/DB)</strong>
     </div>
   </div>
 </template>
@@ -122,7 +122,7 @@ const totalWeight = computed(() => {
 
 // 工数：総重量 × 0.025 + リング数 × 0.1
 const totalManHours = computed(() => {
-  return totalWeight.value * 0.025 + totalFittingInches.value * 0.05;
+  return totalWeight.value * 0.025 + totalFittingInches.value * 0.1;
 });
 
 // 行更新
