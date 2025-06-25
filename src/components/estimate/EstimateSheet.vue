@@ -18,7 +18,7 @@
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
       <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
     </div>
-
+     <br>
     <div class="total">
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong><br>
       <strong>総重: {{ totalWeight.toFixed(1) }} kg</strong><br>
@@ -34,7 +34,7 @@ import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
 
 const openLink = () => {
-  window.open('public/reference/steel-info.html', '_blank')
+  window.open('/reference/steel-info.html', '_blank')
 }
 
 let idCounter = 0;
