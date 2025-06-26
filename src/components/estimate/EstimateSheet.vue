@@ -92,6 +92,10 @@ const totalFittingInches = computed(() => {
       return acc + inch * 2 * quantity;
     }
 
+     if (['flat_flange'].includes(shape)) {
+      return acc + inch * 3 * quantity;
+    }
+
     if (['tee', 'tee_reducing', 'reducer'].includes(shape)) {
       const totalInch = row.size
         .split('*')
