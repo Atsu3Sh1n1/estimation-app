@@ -9,15 +9,12 @@ export const materialCategories: Record<string, MaterialName[]> = {
     'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
   ],
 
-    SGP_溶接用: [
-    'SGP_黒', 'SGP_白', 
+  SGP_溶接用: [
+    'SGP_黒', 'SGP_白',
   ],
-    SGP_ネジ用: [
-    '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 
+  SGP_ネジ用: [
+    '可鍛鋳鉄_黒', '可鍛鋳鉄_白',
   ],
-
-
-
 
   ステンレス配管用304: [
     'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C',
@@ -38,6 +35,9 @@ export const materialCategories: Record<string, MaterialName[]> = {
     'SUS430', 'SUS410', 'SUS329J4L',
   ],
 
+  SGP: [
+    'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',
+  ],
 
   高圧: [
     'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E', 'STS370',
@@ -59,8 +59,6 @@ export const materialCategories: Record<string, MaterialName[]> = {
   スパイラル鋼管: [
     'STPY400',
   ],
-
-
 
   その他: [
     '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄',
