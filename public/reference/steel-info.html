@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,42 +10,47 @@
       font-family: sans-serif;
       padding: 1em;
     }
+
     h1 {
       font-size: 1.2em;
       margin-bottom: 0.5em;
     }
+
     .block {
       padding: 1em;
       margin-bottom: 1em;
       border-radius: 8px;
     }
+
     .title {
       font-weight: bold;
       margin-bottom: 0.5em;
     }
+
     .item {
       font-size: 0.9em;
       white-space: pre-wrap;
     }
 
-            body::before {
-            content: "";
-            position: fixed;
-            top: -4%;
-            left: -60%;
-            width: 180vw;
-            height: 180vh;
-            background-image: url('yumikou.png');
-            background-repeat: repeat;
-            background-size: 200px 100px;
-            opacity: 0.03;
-            transform: rotate(-10deg);
-            transform-origin: center;
-            z-index: -1;
-            pointer-events: none;
-            background-attachment: fixed;
-        }
-          .footer {
+    body::before {
+      content: "";
+      position: fixed;
+      top: -4%;
+      left: -60%;
+      width: 180vw;
+      height: 180vh;
+      background-image: url('yumikou.png');
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      opacity: 0.03;
+      transform: rotate(-10deg);
+      transform-origin: center;
+      z-index: -1;
+      pointer-events: none;
+      background-attachment: fixed;
+    }
+
+    .footer {
       text-align: center;
       margin-top: 10px;
       margin-bottom: 20px;
@@ -55,64 +61,92 @@
       color: #007bff;
       text-decoration: none;
     }
-
   </style>
 </head>
-<body>
 
+<body>
   <h1>鋼管の記号と分類</h1>
   <div class="footer">
-      <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
-    </div>
-
+    <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
+  </div>
   <div class="block">
     <div class="item">TP は「Tube Pipe（チューブ・パイプ）」の略</div>
   </div>
   <div class="block">
     <div class="title">製管方法を表す記号</div>
     <div class="item">
-S：継目無し(シームレス)  
-A：自動アーク溶接  
-L：レーザー溶接  
-E：電気抵抗溶接
+      S：継目無し(シームレス)
+      A：自動アーク溶接
+      L：レーザー溶接
+      E：電気抵抗溶接
     </div>
   </div>
-
   <div class="block">
     <div class="title">仕上方法を表す記号</div>
     <div class="item">
-H：熱間仕上げ  
-C：冷間仕上げ  
-B：溶接部加工仕上げ  
-G：電気抵抗溶接
+      H：熱間仕上げ
+      C：冷間仕上げ
+      B：溶接部加工仕上げ
+      G：電気抵抗溶接
     </div>
   </div>
-
   <div class="block">
     <div class="title">オーステナイト系</div>
     <div class="item">
-SUS304TP, SUS304HTP, SUS304LTP, SUS309TP, SUS309STP,  
-SUS310TP, SUS310STP, SUS315J1TP, SUS315J2TP,  
-SUS316TP, SUS316HTP, SUS316LTP, SUS316TiTP,  
-SUS317TP, SUS317LTP, SUS836LTP, SUS890LTP,  
-SUS321TP, SUS321HTP, SUS347TP, SUS347HTP
+      SUS304TP, SUS304HTP, SUS304LTP, SUS309TP, SUS309STP,
+      SUS310TP, SUS310STP, SUS315J1TP, SUS315J2TP,
+      SUS316TP, SUS316HTP, SUS316LTP, SUS316TiTP,
+      SUS317TP, SUS317LTP, SUS836LTP, SUS890LTP,
+      SUS321TP, SUS321HTP, SUS347TP, SUS347HTP
     </div>
   </div>
-
   <div class="block">
     <div class="title">オーステナイト・フェライト系</div>
     <div class="item">
-SUS329J1TP, SUS329J3LTP, SUS329J4LTP
+      SUS329J1TP, SUS329J3LTP, SUS329J4LTP
     </div>
   </div>
-
   <div class="block">
     <div class="title">フェライト系</div>
     <div class="item">
-SUS405TP, SUS409LTP, SUS430TP, SUS430LXTP,  
-SUS430J1LTP, SUS436LTP, SUS444TP
+      SUS405TP, SUS409LTP, SUS430TP, SUS430LXTP,
+      SUS430J1LTP, SUS436LTP, SUS444TP
     </div>
   </div>
 
+    <h2>フランジの種類と特徴</h2>
+    <h3>差込み溶接式フランジ</h3>
+    <ul>
+      <li>
+        <strong>ハブフランジ（SOH: Slip On Hub）</strong><br>
+        中央の穴の周りに縁（ハブ）があるタイプ。強度が高く、軸方向の力に耐えやすい。
+      </li>
+      <li>
+        <strong>板フランジ（SOP: Slip On Plate）</strong><br>
+        平坦で板状のフランジ。構造がシンプルで、コストを抑えやすい。
+      </li>
+    </ul>
+    <h3>閉止フランジ（BFフランジ）</h3>
+    <ul>
+      <li>
+        <strong>BF（Blank Flange または Blind Flange）</strong><br>
+        配管の終端や分岐点などを一時的に塞ぐためのフランジ。流体を遮断する用途に使用される。
+      </li>
+    </ul>
+    <h3>シート面の形状</h3>
+    <ul>
+      <li>
+        <strong>FF（Flat Face）</strong><br>
+        平らな接合面。主に低圧配管などで使用される。
+      </li>
+      <li>
+        <strong>RF（Raised Face）</strong><br>
+        接合面が突き出している形状。高い密閉性が求められる用途に適する。
+      </li>
+    </ul>
+  </div>
+
+
 </body>
+
 </html>

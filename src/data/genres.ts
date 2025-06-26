@@ -22,14 +22,14 @@ export const shapeGroups = [
     },
 
         {
-        groupName: 'フランジ',
+        groupName: '板フランジ',
         shapes: [
             { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
-            { value: 'BL_flat_flange', label: 'BL-FF 板閉止フランジ' },
-            { value: 'flange', label: 'SOP-RF レイズドフェースフランジ' },
-            { value: 'flange', label: 'BL-RF レイズドフェース閉止フランジ' },
+            { value: 'BL_flat_flange', label: 'BL-FF 閉止フランジ' },
+            { value: 'flange', label: 'SOP-RF 板フランジ' },
+            { value: 'flange', label: 'BL-RF 閉止フランジ' },
 
-            { value: 'lap_joint', label: 'ラップフランジ' },
+            { value: 'lap_joint', label: 'ラップフランジ仮' },
 
         ],
     },
