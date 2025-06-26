@@ -19,7 +19,7 @@ export const shapeGroups = [
             { value: 'reducer', label: 'R(E) レジューサ/偏芯' },
 
             { value: 'lap_joint', label: 'ラップフランジ' },
-            { value: 'flat_flange', label: '板フランジ' },
+            { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
 
         ],
     },

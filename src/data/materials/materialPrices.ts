@@ -9,16 +9,24 @@ export const materialPrices: Record<MaterialName, number> = {
   SGP黒鍛BH: 130,
   SGP白EG: 125,
   SGP白鍛BC: 130,
+  SGP_黒: 120,
+  SGP_白: 125,
+  可鍛鋳鉄_黒: 120,
+  可鍛鋳鉄_白: 125,
   SGPW: 128,
   
   STPY400:120,
 
   STS370: 140,
 
+  PG370: 145,
+
   STPG370S: 145,
   STPG370E: 150,
   STPG410S: 155,
   STPG410E: 160,
+
+  PT370: 148,
 
   STPT370S: 148,
   STPT370E: 153,
