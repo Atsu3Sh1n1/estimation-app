@@ -17,9 +17,10 @@ export const shapeGroups = [
             { value: 'tee_reducing', label: 'TEE(R) 径違い' },
             { value: 'reducer', label: 'R(C) レジューサ/同芯' },
             { value: 'reducer', label: 'R(E) レジューサ/偏芯' },
+            { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
+            { value: 'BL_flat_flange', label: 'BL-FF 板閉止フランジ' },
 
             { value: 'lap_joint', label: 'ラップフランジ' },
-            { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
 
         ],
     },
