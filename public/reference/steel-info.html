@@ -8,34 +8,35 @@
   <style>
     body {
       font-family: sans-serif;
-      padding: 1em;
+      padding: 0.8em;
       margin: 0;
+      line-height: 1.5;
     }
 
     h1 {
-      text-align: center;
       font-size: 1.2em;
       margin-bottom: 0.5em;
-      
     }
 
     .section {
-      margin-bottom: 1.5em;
+      margin-bottom: 1.2em;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: white;
       transition: all 0.3s ease;
     }
 
     .section-header {
-      padding: 1em;
-      background-color: #d3feff;
+      padding: 0.8em;
+      background-color: #f5f5f5;
       font-weight: bold;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e0e0e0;
+      font-size: 0.95em;
     }
 
     .section-header::after {
@@ -55,28 +56,29 @@
     }
 
     .section-content.open {
-      padding: 1em;
-      max-height: 1000px; /* 適切な最大値に調整 */
+      padding: 0.8em;
+      max-height: 5000px; /* 十分な大きさに設定 */
     }
 
     .item {
       font-size: 0.9em;
       margin-bottom: 0.5em;
-      line-height: 1.5;
     }
 
     .block {
-      margin-bottom: 1.5em;
-      padding: 1em;
+      margin-bottom: 1.2em;
+      padding: 0.8em;
+      background-color: #fafafa;
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .block-title {
       font-weight: bold;
-      margin-bottom: 0.8em;
-      padding-top: 0.5em;
+      margin-bottom: 0.6em;
+      padding-top: 0.4em;
       position: relative;
+      font-size: 0.95em;
     }
 
     .block-title:before {
@@ -86,6 +88,7 @@
       left: 0;
       width: 100%;
       height: 1px;
+      background: linear-gradient(to right, transparent, #ddd, transparent);
     }
 
     body::before {
@@ -110,7 +113,7 @@
       text-align: center;
       margin-top: 20px;
       margin-bottom: 20px;
-      font-size: 0.9em;
+      font-size: 0.8em;
     }
 
     .footer a {
@@ -119,35 +122,58 @@
     }
 
     ul {
-      padding-left: 1.2em;
+      padding-left: 1em;
       margin: 0.5em 0;
     }
 
     li {
-      margin-bottom: 0.8em;
-      line-height: 1.5;
+      margin-bottom: 0.6em;
+      font-size: 0.9em;
     }
 
     .material-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5em;
+      gap: 0.4em;
     }
 
     .material-item {
       background-color: #f0f0f0;
       padding: 0.3em 0.6em;
       border-radius: 4px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      .section-header {
+        padding: 0.7em;
+      }
+      
+      .section-content.open {
+        padding: 0.7em;
+      }
+      
+      .block {
+        padding: 0.7em;
+      }
+      
+      .material-list {
+        gap: 0.3em;
+      }
+      
+      .material-item {
+        font-size: 0.8em;
+        padding: 0.2em 0.5em;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <h1>参考資料</h1>
-  
   <!-- 鋼管情報セクション -->
   <div class="section">
     <div class="section-header">鋼管の記号と分類</div>
@@ -286,7 +312,16 @@
           const currentSection = this.parentElement;
           const currentContent = this.nextElementSibling;
           
-        
+          // すべてのセクションを閉じる
+          sections.forEach(section => {
+            if (section !== currentSection) {
+              const otherHeader = section.querySelector('.section-header');
+              const otherContent = section.querySelector('.section-content');
+              
+              otherHeader.classList.remove('active');
+              otherContent.classList.remove('open');
+            }
+          });
           
           // 現在のセクションの状態をトグル
           this.classList.toggle('active');
@@ -296,7 +331,7 @@
           if (this.classList.contains('active')) {
             // スクロール位置を調整（ヘッダーの位置にスクロール）
             const headerPosition = this.getBoundingClientRect().top;
-            const offsetPosition = headerPosition + window.pageYOffset - 20; // 20pxの余白
+            const offsetPosition = headerPosition + window.pageYOffset - 10; // 10pxの余白
             
             window.scrollTo({
               top: offsetPosition,
@@ -305,6 +340,14 @@
           }
         });
       });
+      
+      // 初期状態で最初のセクションを開く
+      if (sections.length > 0) {
+        const firstHeader = sections[0].querySelector('.section-header');
+        const firstContent = sections[0].querySelector('.section-content');
+        firstHeader.classList.add('active');
+       
+      }
     });
   </script>
 </body>
