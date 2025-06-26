@@ -47,8 +47,6 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   高温: [
     'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT480S', 'STPT480E',
-    'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN',
-    'STPT370S_N', 'STPT370E_N',
     'PT370',
   ],
 
