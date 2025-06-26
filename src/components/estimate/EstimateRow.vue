@@ -45,28 +45,16 @@
     </select>
 
     <!-- 長さ -->
-<div v-if="localRow.shape === 'pipe'" class="input-with-unit">
-  <input
-    v-model.number="localRow.length"
-    type="number"
-    min="0"
-    step="0.01"
-    :class="{ error: !localRow.length }"
-  />
-  <span class="unit">m</span>
-</div>
+    <div v-if="localRow.shape === 'pipe'" class="input-with-unit">
+      <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
+      <span class="unit">m</span>
+    </div>
 
-<!-- 個数 -->
-<div v-else class="input-with-unit">
-  <input
-    v-model.number="localRow.quantity"
-    type="number"
-    min="0"
-    step="1"
-    :class="{ error: !localRow.quantity }"
-  />
-  <span class="unit">個</span>
-</div>
+    <!-- 個数 -->
+    <div v-else class="input-with-unit">
+      <input v-model.number="localRow.quantity" type="number" min="0" step="1" :class="{ error: !localRow.quantity }" />
+      <span class="unit">個</span>
+    </div>
 
 
     <!-- 重量 -->
@@ -96,6 +84,7 @@ import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { pipeSizes, fittingCompatibility, materialCategories, MaterialName } from '@/data/materials';
 import { materialPrices } from '@/data/materials/materialPrices';
+
 
 const props = defineProps<{
   initialRow: EstimateRowType;
@@ -185,6 +174,21 @@ watch(
   }
 );
 
+watch(
+  () => [localRow.shape, localRow.material],
+  () => {
+    const candidates = availableJis.value;
+    if (candidates.length > 0) {
+      localRow.jis = candidates[0]; // 材質に合わせて自動セット
+    } else {
+      localRow.jis = '';
+    }
+    localRow.size = '';
+    localRow.schedule = '';
+  }
+);
+
+
 // 通知
 watch(
   localRow,
@@ -192,11 +196,13 @@ watch(
     emit('update', {
       ...localRow,
       weight: weight.value,
-      pipeLengthCount: pipeLengthCount.value, // ここを追加
+      pipeLengthCount: pipeLengthCount.value,
     });
   },
   { deep: true, immediate: true }
 );
+
+
 </script>
 
 <style src="./EstimateRow.css" scoped></style>

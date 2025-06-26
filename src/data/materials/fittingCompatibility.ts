@@ -2,12 +2,10 @@
 export const fittingCompatibility = {
 
     pipe: {
+        
         materials: [
-            'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW', 
-            'STPY400', 
-            'STS370',
-            'STPG370SH', 'STPG370EH', 'STPG410S', 'STPG410E', 
-            'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN', 'STPT370S_N', 'STPT370E_N',
+
+            'SUS304TPD', 'SUS304LTPD', 'SUS316TPD', 'SUS316LTPD',
 
             'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C', 
             'SUS304LTP_S_H', 'SUS304LTP_S_C', 'SUS304LTP_E_H', 'SUS304LTP_E_C', 
@@ -15,8 +13,15 @@ export const fittingCompatibility = {
             'SUS316LTP_S_H', 'SUS316LTP_S_C', 'SUS316LTP_E_H', 'SUS316LTP_E_C',
             'SUS430', 'SUS410', 'SUS329J4L',
 
+            'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW', 
+            'STPY400', 
+            'STS370',
+            'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E', 
+            'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT370S_W', 'STPT370E_W', 'STPT370S_WN', 'STPT370E_WN', 'STPT370S_N', 'STPT370E_N',
+
             '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
         ],
+
         jisMap: {
             SUS304TPD: ['G3448'], SUS304LTPD: ['G3448'], SUS316TPD: ['G3448'], SUS316LTPD: ['G3448'],
 
@@ -34,7 +39,7 @@ export const fittingCompatibility = {
 
             SGP黒EG: ['G3452'], SGP黒鍛BH: ['G3452'], SGP白EG: ['G3452'], SGP白鍛BC: ['G3452'], SGPW: ['G3442'], STPY400: ['G3457'],
 
-            STPG370SH: ['G3454'], STPG370EH: ['G3454'], STPG410S: ['G3454'], STPG410E: ['G3454'],
+            STPG370S: ['G3454'], STPG370E: ['G3454'], STPG410S: ['G3454'], STPG410E: ['G3454'],
 
             STPT370S: ['G3456'], STPT370E: ['G3456'], STPT410S: ['G3456'], STPT410E: ['G3456'], STPT480S: ['G3456'], STPT480E: ['G3456'],
             STPT370S_W: ['G3456'], STPT370E_W: ['G3456'], STPT370S_WN: ['G3456'], STPT370E_WN: ['G3456'], STPT370S_N: ['G3456'], STPT370E_N: ['G3456'],
