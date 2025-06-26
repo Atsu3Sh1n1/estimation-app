@@ -8,35 +8,33 @@
   <style>
     body {
       font-family: sans-serif;
-      padding: 0.8em;
+      padding: 1em;
       margin: 0;
-      line-height: 1.5;
     }
 
     h1 {
+      text-align: center;
       font-size: 1.2em;
       margin-bottom: 0.5em;
     }
 
     .section {
-      margin-bottom: 1.2em;
+      margin-bottom: 1.5em;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      background-color: white;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
     }
 
     .section-header {
-      padding: 0.8em;
-      background-color: #f5f5f5;
+      padding: 1em;
+      background-color: #d3feff;
       font-weight: bold;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid #e0e0e0;
-      font-size: 0.95em;
     }
 
     .section-header::after {
@@ -56,29 +54,31 @@
     }
 
     .section-content.open {
-      padding: 0.8em;
-      max-height: 5000px; /* 十分な大きさに設定 */
+      padding: 1em;
+      max-height: none;
+      /* 固定高さ制限を解除 */
+      overflow: visible;
+      /* オーバーフローを許可 */
     }
 
     .item {
       font-size: 0.9em;
       margin-bottom: 0.5em;
+      line-height: 1.5;
     }
 
     .block {
-      margin-bottom: 1.2em;
-      padding: 0.8em;
-      background-color: #fafafa;
+      margin-bottom: 1.5em;
+      padding: 1em;
       border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
     .block-title {
       font-weight: bold;
-      margin-bottom: 0.6em;
-      padding-top: 0.4em;
+      margin-bottom: 0.8em;
+      padding-top: 0.5em;
       position: relative;
-      font-size: 0.95em;
     }
 
     .block-title:before {
@@ -88,7 +88,6 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: linear-gradient(to right, transparent, #ddd, transparent);
     }
 
     body::before {
@@ -113,7 +112,7 @@
       text-align: center;
       margin-top: 20px;
       margin-bottom: 20px;
-      font-size: 0.8em;
+      font-size: 0.9em;
     }
 
     .footer a {
@@ -122,58 +121,50 @@
     }
 
     ul {
-      padding-left: 1em;
+      padding-left: 1.2em;
       margin: 0.5em 0;
     }
 
     li {
-      margin-bottom: 0.6em;
-      font-size: 0.9em;
+      margin-bottom: 0.8em;
+      line-height: 1.5;
     }
 
     .material-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4em;
+      gap: 0.5em;
     }
 
     .material-item {
       background-color: #f0f0f0;
       padding: 0.3em 0.6em;
       border-radius: 4px;
-      font-size: 0.85em;
+      font-size: 0.9em;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
     }
 
-    @media (max-width: 480px) {
+    /* モバイル対応の追加スタイル */
+    @media (max-width: 600px) {
       .section-header {
-        padding: 0.7em;
+        padding: 0.8em;
+        font-size: 0.95em;
       }
-      
+
       .section-content.open {
-        padding: 0.7em;
+        padding: 0.8em;
       }
-      
+
       .block {
-        padding: 0.7em;
-      }
-      
-      .material-list {
-        gap: 0.3em;
-      }
-      
-      .material-item {
-        font-size: 0.8em;
-        padding: 0.2em 0.5em;
+        padding: 0.8em;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <h1>参考資料</h1>
   <!-- 鋼管情報セクション -->
   <div class="section">
     <div class="section-header">鋼管の記号と分類</div>
@@ -181,7 +172,7 @@
       <div class="block">
         <div class="item">TP は「Tube Pipe（チューブ・パイプ）」の略</div>
       </div>
-      
+
       <div class="block">
         <div class="block-title">製管方法を表す記号</div>
         <div class="item">
@@ -191,7 +182,7 @@
           E：電気抵抗溶接
         </div>
       </div>
-      
+
       <div class="block">
         <div class="block-title">仕上方法を表す記号</div>
         <div class="item">
@@ -201,7 +192,7 @@
           G：電気抵抗溶接
         </div>
       </div>
-      
+
       <div class="block">
         <div class="block-title">オーステナイト系</div>
         <div class="material-list">
@@ -228,7 +219,7 @@
           <span class="material-item">SUS347HTP</span>
         </div>
       </div>
-      
+
       <div class="block">
         <div class="block-title">オーステナイト・フェライト系</div>
         <div class="material-list">
@@ -237,7 +228,7 @@
           <span class="material-item">SUS329J4LTP</span>
         </div>
       </div>
-      
+
       <div class="block">
         <div class="block-title">フェライト系</div>
         <div class="material-list">
@@ -257,44 +248,127 @@
   <div class="section">
     <div class="section-header">フランジの種類と特徴</div>
     <div class="section-content">
+
+      <!-- ラップジョイントフランジ -->
       <div class="block">
-        <div class="block-title">差込み溶接式フランジ</div>
+        <div class="block-title">ラップジョイントフランジ（Lap Joint Flange / LJF）</div>
         <ul>
           <li>
-            <strong>ハブフランジ（SOH: Slip On Hub）</strong><br>
-            中央の穴の周りに縁（ハブ）があるタイプ。強度が高く、軸方向の力に耐えやすい。
-          </li>
-          <li>
-            <strong>板フランジ（SOP: Slip On Plate）</strong><br>
-            平坦で板状のフランジ。構造がシンプルで、コストを抑えやすい。
+            <strong>LJF（Lap Joint Flange）</strong><br>
+            単体ではシール性を持たず、<strong>スタブエンドと組み合わせて使用する可動式フランジ</strong>です。<br>
+            本体のフランジは締結のみに用いられ、シール面はスタブエンドの先端部で担います。<br>
+            分解・再組立てが多いライン（例：タンク接続部、サニタリー配管）や腐食性流体で<strong>非金属パイプと金属フランジを組み合わせる場合</strong>にも活用されます。<br>
+            圧力用途としてはClass 150〜300程度が一般的です。
           </li>
         </ul>
       </div>
-      
+
+      <!-- 差込み溶接式フランジ -->
       <div class="block">
-        <div class="block-title">閉止フランジ（BFフランジ）</div>
+        <div class="block-title">差込み溶接式フランジ（Slip-on Flange）</div>
         <ul>
           <li>
-            <strong>BF（Blank Flange または Blind Flange）</strong><br>
-            配管の終端や分岐点などを一時的に塞ぐためのフランジ。流体を遮断する用途に使用される。
+            <strong>ハブなし板フランジ（SOP：Slip On Plate）</strong><br>
+            平坦な板状でハブを持たない簡素な構造。<br>
+            製造コストが低く、取り扱いも容易なため、<strong>主に建築配管・上下水道・一般設備配管などの低中圧ライン</strong>で使用されます。<br>
+            ASME規格ではClass 150程度までの圧力で使用されることが一般的です。
+          </li>
+          <li>
+            <strong>ハブ付きフランジ（SOH：Slip On Hub）</strong><br>
+            フランジ中心にハブ（突出したボス）があり、パイプを差し込んで<strong>突合せおよび角溶接</strong>により固定します。<br>
+            軸方向の応力に強く、<strong>比較的高圧の配管や振動の多いライン（例：蒸気配管、空調配管）</strong>で使用されます。<br>
+            SOPよりも強度が高く、標準的にはClass 300前後まで対応可能です。
           </li>
         </ul>
       </div>
-      
+
+      <!-- 閉止フランジ -->
       <div class="block">
-        <div class="block-title">シート面の形状</div>
+        <div class="block-title">閉止フランジ（Blind Flange / BF）</div>
         <ul>
           <li>
-            <strong>FF（Flat Face）</strong><br>
-            平らな接合面。主に低圧配管などで使用される。
-          </li>
-          <li>
-            <strong>RF（Raised Face）</strong><br>
-            接合面が突き出している形状。高い密閉性が求められる用途に適する。
+            <strong>BFフランジ（Blind Flange または Blank Flange）</strong><br>
+            <strong>中央に穴がなく、流体を完全に遮断できる厚板状のフランジ</strong>です。<br>
+            配管の終端を塞ぐために用いられ、<strong>将来の延長工事やメンテナンスのために一時的に閉止する場面</strong>でも利用されます。<br>
+            耐圧性能が高く、<strong>水圧試験（耐圧試験）や空気漏洩試験時の一時閉止</strong>としても重宝されます。<br>
+            圧力クラスはFF/RF面どちらにも対応し、ASMEでは150〜2500までの等級が規格化されています。
           </li>
         </ul>
       </div>
+
+      <!-- フランジ面形状 -->
+      <div class="block">
+        <div class="block-title">接合面（シート面）の形状</div>
+        <ul>
+          <li>
+            <strong>FF（Flat Face：フラットフェース）</strong><br>
+            接合面が完全に平らな構造で、<strong>主に鋳鉄製フランジや低圧用途（例：冷却水ライン、排水系）</strong>で使用されます。<br>
+            非金属系ソフトガスケット（例：ノンアスベスト、ゴム）との相性が良く、<strong>面圧の分散によってフランジやパイプへの局部的応力集中を防ぎます。</strong><br>
+            通常はASME Class 125〜250程度に対応。
+          </li>
+          <li>
+            <strong>RF（Raised Face：レイズドフェース）</strong><br>
+            接合面の中央部が高くなっており、<strong>ガスケットが突起部で集中圧縮されるため密封性が高い</strong>構造です。<br>
+            石油化学・発電・高温高圧の配管システムなど、<strong>広範な産業で最も一般的に採用されている形状</strong>です。<br>
+            使用圧力はClass 150〜2500まで幅広く、金属系スパイラルワウンドガスケットなどと併用されます。
+          </li>
+          <li>
+            <strong>RTJ（Ring Type Joint）</strong><br>
+            RFタイプの中心部に<strong>金属ガスケットを装填する溝</strong>が設けられた構造で、非常に高い密封性能を発揮します。<br>
+            高温・高圧条件（例：900クラス以上、750℃超）下での使用に最適で、<strong>原油・ガス・高圧蒸気などのライン</strong>で採用されます。<br>
+            ガスケットはOCTG（石油・ガス掘削設備）でも使用されるRタイプ・RXタイプなどが主流です。
+          </li>
+        </ul>
+      </div>
+
+      <!-- ウェルドネックフランジ -->
+      <div class="block">
+        <div class="block-title">突合せ溶接式フランジ（Weld Neck Flange / WNF）</div>
+        <ul>
+          <li>
+            <strong>WNF（Weld Neck Flange）</strong><br>
+            フランジに<strong>長いテーパーハブ</strong>があり、配管と<strong>突合せ溶接</strong>で接続する構造です。<br>
+            接続部の応力分布が滑らかで、<strong>高圧・高温・振動の激しい環境</strong>に非常に適しており、原子力・石油化学・火力発電などの重要配管に使用されます。<br>
+            対応圧力はASME Class 150〜2500、高温用鋼材（例：SUS304, SUS316, SCM）などとも組み合わせ可能です。
+          </li>
+        </ul>
+      </div>
+
+      <!-- ねじ込みフランジ -->
+      <div class="block">
+        <div class="block-title">ねじ込み式フランジ（Threaded Flange / THF）</div>
+        <ul>
+          <li>
+            <strong>THF（Threaded Flange）</strong><br>
+            フランジ内面に<strong>ねじ加工（NPTなど）</strong>が施されており、パイプをねじ込んで接続します。<br>
+            溶接を行わずに接続できるため、<strong>可燃性ガス配管や一時設置の現場などで便利</strong>です。<br>
+            ただし、構造上の強度は溶接式より劣るため、<strong>低圧・小口径配管（主に25A〜100A程度）</strong>に限定されます。
+          </li>
+        </ul>
+      </div>
+
+      <!-- ソケット溶接フランジ -->
+      <div class="block">
+        <div class="block-title">ソケット溶接式フランジ（Socket Weld Flange / SWF）</div>
+        <ul>
+          <li>
+            <strong>SWF（Socket Weld Flange）</strong><br>
+            フランジ中心にソケット形状の穴があり、<strong>パイプを差し込んで角溶接</strong>で接続する構造。<br>
+            小口径での使用が多く、突合せ溶接に比べて<strong>施工が簡単かつ短時間</strong>で完了します。<br>
+            主にClass 300以下の高圧・高温用途（例：冷却水ライン、蒸気ライン）で使用されます。<br>
+            注意点として、流体抵抗が増す可能性があるため、連続的な流れが要求される箇所では不向きです。
+          </li>
+        </ul>
+      </div>
+
     </div>
+  </div>
+
+
+  </div>
+  </div>
+
+  </div>
   </div>
 
   <div class="footer">
@@ -302,37 +376,37 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const sections = document.querySelectorAll('.section');
       const headers = document.querySelectorAll('.section-header');
-      
+
       headers.forEach(header => {
-        header.addEventListener('click', function() {
+        header.addEventListener('click', function () {
           // クリックされたセクションを取得
           const currentSection = this.parentElement;
           const currentContent = this.nextElementSibling;
-          
+
           // すべてのセクションを閉じる
           sections.forEach(section => {
             if (section !== currentSection) {
               const otherHeader = section.querySelector('.section-header');
               const otherContent = section.querySelector('.section-content');
-              
+
               otherHeader.classList.remove('active');
               otherContent.classList.remove('open');
             }
           });
-          
+
           // 現在のセクションの状態をトグル
           this.classList.toggle('active');
           currentContent.classList.toggle('open');
-          
+
           // 開いた場合のみスクロール処理
           if (this.classList.contains('active')) {
             // スクロール位置を調整（ヘッダーの位置にスクロール）
             const headerPosition = this.getBoundingClientRect().top;
             const offsetPosition = headerPosition + window.pageYOffset - 10; // 10pxの余白
-            
+
             window.scrollTo({
               top: offsetPosition,
               behavior: 'smooth'
@@ -340,13 +414,13 @@
           }
         });
       });
-      
+
       // 初期状態で最初のセクションを開く
       if (sections.length > 0) {
         const firstHeader = sections[0].querySelector('.section-header');
         const firstContent = sections[0].querySelector('.section-content');
         firstHeader.classList.add('active');
-       
+
       }
     });
   </script>
