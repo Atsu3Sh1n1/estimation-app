@@ -13,6 +13,8 @@ export const materialDensities = {
 
     STPY400: 7850,
 
+    SS400: 7850,
+
 
     // STPG（圧力配管用） JIS G3454
     PG370: 7850,  

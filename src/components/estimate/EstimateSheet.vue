@@ -68,12 +68,12 @@ const rows = reactive<(EstimateRowType & { id: number })[]>([
 // 呼び径（インチ）変換
 function getNominalInches(size: string): number {
   const sizeToNominalInch: Record<string, number> = {
-  '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
-  '32A': 1.25, '40A': 1.5, '50A': 2, '65A': 2.5, '80A': 3, '90A': 3.5,
-  '100A': 4, '125A': 5, '150A': 6, '175A': 7, '200A': 8, '225A': 9,
-  '250A': 10, '300A': 12, '350A': 14, '400A': 16, '450A': 18, '500A': 20,
-  '550A': 22, '600A': 24, '650A': 26, '700A': 28, '750A': 30, '800A': 32,
-  '850A': 34, '900A': 36, '1000A': 40, '1100A': 44, '1200A': 48, '1350A': 54, '1500A': 60,
+    '6A': 0.25, '8A': 0.25, '10A': 0.375, '15A': 0.5, '20A': 0.75, '25A': 1,
+    '32A': 1.25, '40A': 1.5, '50A': 2, '65A': 2.5, '80A': 3, '90A': 3.5,
+    '100A': 4, '125A': 5, '150A': 6, '175A': 7, '200A': 8, '225A': 9,
+    '250A': 10, '300A': 12, '350A': 14, '400A': 16, '450A': 18, '500A': 20,
+    '550A': 22, '600A': 24, '650A': 26, '700A': 28, '750A': 30, '800A': 32,
+    '850A': 34, '900A': 36, '1000A': 40, '1100A': 44, '1200A': 48, '1350A': 54, '1500A': 60,
   };
   return sizeToNominalInch[size] ?? 0;
 }
@@ -92,7 +92,7 @@ const totalFittingInches = computed(() => {
       return acc + inch * 2 * quantity;
     }
 
-     if (['flat_flange'].includes(shape)) {
+    if (['flat_flange'].includes(shape)) {
       return acc + inch * 3 * quantity;
     }
 
@@ -105,7 +105,7 @@ const totalFittingInches = computed(() => {
     }
 
     // パイプ処理（定尺換算リング）
-    if (shape === 'pipe') {
+    if (['pipe', 'pipe2'].includes(shape)) {
       const length = Number(row.length) || 0;
       if (length <= 0 || inch <= 0) return acc;
 
@@ -113,9 +113,11 @@ const totalFittingInches = computed(() => {
       const stdLength = isStainless ? 4 : 5.5;
 
       const numOfRings = Math.ceil(length / stdLength);
-      const ringsPerStdLength = 1;  // ここを変えればOK
+      const ringsPerStdLength = 1;  // 必要なら変更可
+
       return acc + numOfRings * ringsPerStdLength * inch;
     }
+
 
     return acc;
   }, 0);

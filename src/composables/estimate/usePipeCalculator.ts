@@ -55,9 +55,16 @@ export function getFittingWeight(row: EstimateRow): number {
   const sizes = row.size.split('*').map(s => s.trim());
   const baseSize = sizes[0]; // 同径ならこれだけ、異径TEEも代表サイズで扱う
 
-  const specificKey = `${row.shape}${baseSize}`;
+  const specificKeyWithK = `${row.shape}_${baseSize}_${row.schedule}`;
+  const specificKey = `${row.shape}_${baseSize}`;
   const genericKey = row.shape;
-  const factor = fittingFactors[specificKey] ?? fittingFactors[genericKey] ?? 0.2;
+
+  const factor =
+    fittingFactors[specificKeyWithK] ??
+    fittingFactors[specificKey] ??
+    fittingFactors[genericKey] ??
+    0.2;
+
 
   const nominalInchTotal = sizes
     .map(s => sizeToNominalInch[s] ?? 1)

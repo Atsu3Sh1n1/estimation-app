@@ -4,7 +4,7 @@ import type { EstimateRow } from '@/types/estimate';
 
 export function useEstimateRow(row: EstimateRow) {
   const weight = computed(() => {
-    return row.shape === 'pipe'
+    return ['pipe', 'pipe2'].includes(row.shape)
       ? getPipeWeight(row)
       : getFittingWeight(row);
   });

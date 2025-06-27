@@ -45,7 +45,7 @@
     </select>
 
     <!-- 長さ -->
-    <div v-if="localRow.shape === 'pipe'" class="input-with-unit">
+    <div v-if="['pipe', 'pipe2'].includes(localRow.shape)" class="input-with-unit">
       <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
       <span class="unit">m</span>
     </div>
@@ -69,9 +69,10 @@
     </span>
 
     <!-- 定尺本数 -->
-    <span v-if="localRow.shape === 'pipe'">
+    <span v-if="['pipe', 'pipe2'].includes(localRow.shape)">
       定尺 {{ pipeLengthCount.toFixed(0) }} 本
     </span>
+
 
     <button @click="$emit('remove')">削除</button>
   </div>
@@ -92,6 +93,7 @@ const props = defineProps<{
 
 const shapePriceFactor: Record<string, number> = {
   pipe: 1,
+  pipe2: 1,
   elbow: 1,
   tee: 1,
   reducer: 1,
@@ -156,7 +158,7 @@ const price = computed(() => {
 
 // 定尺本数
 const pipeLengthCount = computed(() => {
-  if (localRow.shape !== 'pipe') return 0;
+  if (!['pipe', 'pipe2'].includes(localRow.shape)) return 0;
   const len = Number(localRow.length);
   if (!len || isNaN(len)) return 0;
   const isStainless = localRow.material.startsWith('SUS');

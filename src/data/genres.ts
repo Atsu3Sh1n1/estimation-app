@@ -2,12 +2,13 @@ export const shapeGroups = [
     {
         groupName: '形状',
         shapes: [
-            { value: 'pipe', label: '配管用鋼管' },
+            { value: 'pipe', label: '配管用炭素鋼鋼管' },
+            { value: 'pipe2', label: '配管用ステンレス鋼管' },
         ],
     },
 
     {
-        groupName: '継手類',
+        groupName: '継手類（溶接）',
         shapes: [
             { value: 'elbow', label: '90E(L) エルボロング' },
             { value: 'shortelbow', label: '90E(S) エルボショート' },
@@ -22,7 +23,7 @@ export const shapeGroups = [
     },
 
         {
-        groupName: '板フランジ',
+        groupName: '板フランジ（溶接）',
         shapes: [
             { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
             { value: 'BL_flat_flange', label: 'BL-FF 閉止フランジ' },

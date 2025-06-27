@@ -1,7 +1,7 @@
 // src/data/materials/categories.ts
 export const materialCategories: Record<string, MaterialName[]> = {
 
-  ステンレス_溶接用: [
+  ステンレス: [
     'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
   ],
 
@@ -35,6 +35,11 @@ export const materialCategories: Record<string, MaterialName[]> = {
     'SUS430', 'SUS410', 'SUS329J4L',
   ],
 
+  SS材: [
+    'SS400',
+
+  ],
+
   SGP: [
     'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',
   ],
@@ -51,10 +56,11 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   ステンレス一般: [
+    'SUS304TPA', 'SUS304LTPA', 'SUS316TPA', 'SUS316LTPA',
     'SUS304TPD', 'SUS304LTPD', 'SUS316TPD', 'SUS316LTPD',
   ],
 
-  スパイラル鋼管: [
+  アーク溶接炭素鋼鋼管: [
     'STPY400',
   ],
 

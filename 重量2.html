@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>係数一括計算機（コピー機能付き）</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .flex { display: flex; gap: 10px; }
+    textarea {
+      width: 100%; height: 200px;
+      font-family: monospace;
+      white-space: pre;
+    }
+    .label { font-weight: bold; margin-bottom: 5px; display: block; }
+    #output { height: 250px; }
+    button { margin-top: 10px; padding: 8px 16px; }
+    .copy-btn { background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+    .copy-btn:hover { background-color: #45a049; }
+  </style>
+</head>
+<body>
+  <h1>🔧 係数一括計算機（コピー機能付き）</h1>
+  <p>縦に入力（行数を揃える）してください</p>
+
+  <div class="flex">
+    <div style="flex: 1;">
+      <label class="label">① フランジ重量 (kg)</label>
+      <textarea id="flangeWeights" placeholder="12.5\n8.3\n15.6"></textarea>
+    </div>
+    <div style="flex: 1;">
+      <label class="label">② 1m重量 (kg/m)</label>
+      <textarea id="pipeWeights" placeholder="28.4\n18.6\n35.2"></textarea>
+    </div>
+    <div style="flex: 1;">
+      <label class="label">③ 呼び径（インチ）</label>
+      <textarea id="inches" placeholder="4\n2\n6"></textarea>
+    </div>
+  </div>
+
+  <button onclick="calculate()">計算する</button>
+
+  <label class="label" style="margin-top: 20px;">📋 出力（係数のみ）</label>
+  <textarea id="output" readonly placeholder="ここに係数が出力されます"></textarea>
+  <button class="copy-btn" onclick="copyOutput()">📋 一括コピー</button>
+
+  <script>
+    function calculate() {
+      const flanges = document.getElementById('flangeWeights').value.trim().split('\n').map(s => parseFloat(s.trim()));
+      const pipes = document.getElementById('pipeWeights').value.trim().split('\n').map(s => parseFloat(s.trim()));
+      const inches = document.getElementById('inches').value.trim().split('\n').map(s => parseFloat(s.trim()));
+      const output = document.getElementById('output');
+      const rowCount = Math.min(flanges.length, pipes.length, inches.length);
+      let result = '';
+
+      for (let i = 0; i < rowCount; i++) {
+        const fw = flanges[i], pw = pipes[i], inch = inches[i];
+        if (isNaN(fw) || isNaN(pw) || isNaN(inch) || pw === 0 || inch === 0) continue;
+        const factor = fw / pw / inch;
+        result += factor.toFixed(10) + '\n';
+      }
+
+      output.value = result.trim();
+    }
+
+    function copyOutput() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('係数をコピーしました！');
+    }
+  </script>
+</body>
+</html>
