@@ -8,7 +8,7 @@ export const shapeGroups = [
     },
 
     {
-        groupName: '継手類（溶接）',
+        groupName: '継手類',
         shapes: [
             { value: 'elbow', label: '90E(L) エルボロング' },
             { value: 'shortelbow', label: '90E(S) エルボショート' },
@@ -23,7 +23,7 @@ export const shapeGroups = [
     },
 
         {
-        groupName: '板フランジ（溶接）',
+        groupName: '板フランジ',
         shapes: [
             { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
             { value: 'BL_flat_flange', label: 'BL-FF 閉止フランジ' },
