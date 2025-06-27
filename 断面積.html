@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>kg/m → mm² 一括変換（中央寄せ）</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    textarea {
+      width: 250px;
+      height: 300px;
+      font-size: 14px;
+      padding: 10px;
+      resize: none;
+    }
+    select, button {
+      font-size: 14px;
+      padding: 6px 12px;
+      margin: 5px;
+    }
+    label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>kg/m → mm² 一括変換ツール</h2>
+
+  <div class="controls">
+    <label for="density">比重：</label>
+    <select id="density">
+      <option value="7.85">鉄（7.85）</option>
+      <option value="7.93">SUS304（7.93）</option>
+      <option value="8.00">SUS316（8.00）</option>
+      <option value="2.70">アルミ（2.70）</option>
+    </select>
+    <button onclick="convert()">変換</button>
+    <button onclick="copyResult()">コピー</button>
+  </div>
+
+  <div class="container">
+    <div>
+      <label for="input">入力（kg/m）</label><br />
+      <textarea id="input"></textarea>
+    </div>
+
+    <div>
+      <label for="output">出力（mm²）</label><br />
+      <textarea id="output" readonly></textarea>
+    </div>
+  </div>
+
+  <script>
+    function convert() {
+      const density_g_cm3 = parseFloat(document.getElementById("density").value);
+      const density_kg_m3 = density_g_cm3 * 1000; // g/cm³ → kg/m³
+
+      const inputLines = document.getElementById("input").value
+        .split(/\r?\n/)
+        .map(line => line.trim());
+
+      const outputLines = inputLines.map(val => {
+        const num = parseFloat(val);
+        if (isNaN(num)) return '';
+        const area = (num / density_kg_m3) * 100000;
+        return area.toFixed(3); // 小数点以下3桁まで
+      });
+
+      document.getElementById("output").value = outputLines.join('\n');
+    }
+
+    function copyResult() {
+      const output = document.getElementById("output");
+      output.select();
+      document.execCommand("copy");
+      alert("コピーしました！");
+    }
+  </script>
+
+</body>
+</html>

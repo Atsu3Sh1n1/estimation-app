@@ -17,7 +17,15 @@ const sizeToNominalInch: Record<string, number> = {
 };
 
 /**
- * パイプの重量を計算（JIS・材質・スケジュール対応）
+ * 鋼材形状として断面積から計算する対象
+ */
+const areaBasedShapes = new Set([
+  'Flat_Bar', 'Angle', 'Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
+  'Square_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel'
+]);
+
+/**
+ * パイプや鋼材の重量を計算
  */
 export function getPipeWeight(row: EstimateRow): number {
   const specs = pipeSizes[row.jis];
@@ -29,9 +37,16 @@ export function getPipeWeight(row: EstimateRow): number {
   const density = materialDensities[row.material];
   if (!density) return 0;
 
+  // ✅ 断面積（area）ベースの鋼材
+  if (areaBasedShapes.has(row.shape) && 'area' in spec) {
+    const volume = spec.area * row.length; // mm^2 × m = mm^3
+    return (volume * density) / 1e5;        // g/cm^3 → kg
+  }
+
+  // ✅ 通常パイプ（外径・厚み指定）
   const id = spec.od - 2 * spec.t;
   const area = Math.PI * (spec.od ** 2 - id ** 2) / 4;
-  const volume = area / 1e6 * row.length;
+  const volume = area / 1e6 * row.length; // mm^2 → m^2, then × m = m^3
   return volume * density;
 }
 
@@ -53,7 +68,7 @@ export function getFittingWeight(row: EstimateRow): number {
   const pipeWeightPerMeter = area / 1e6 * density;
 
   const sizes = row.size.split('*').map(s => s.trim());
-  const baseSize = sizes[0]; // 同径ならこれだけ、異径TEEも代表サイズで扱う
+  const baseSize = sizes[0];
 
   const specificKeyWithK = `${row.shape}_${baseSize}_${row.schedule}`;
   const specificKey = `${row.shape}_${baseSize}`;
@@ -64,7 +79,6 @@ export function getFittingWeight(row: EstimateRow): number {
     fittingFactors[specificKey] ??
     fittingFactors[genericKey] ??
     0.2;
-
 
   const nominalInchTotal = sizes
     .map(s => sizeToNominalInch[s] ?? 1)

@@ -45,7 +45,8 @@
     </select>
 
     <!-- 長さ -->
-    <div v-if="['pipe', 'pipe2'].includes(localRow.shape)" class="input-with-unit">
+    <div v-if="['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
+      'Square_Pipe', 'Round_Pipe','Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)" class="input-with-unit">
       <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
       <span class="unit">m</span>
     </div>
