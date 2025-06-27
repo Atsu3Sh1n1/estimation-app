@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>係数一括計算機（コピー機能付き）</title>
+  <title>係数一括計算機（コピー機能付き・インチ自動変換）</title>
   <style>
     body { font-family: sans-serif; padding: 20px; }
     .flex { display: flex; gap: 10px; }
@@ -19,8 +19,8 @@
   </style>
 </head>
 <body>
-  <h1>🔧 係数一括計算機（コピー機能付き）</h1>
-  <p>縦に入力（行数を揃える）してください</p>
+  <h1>🔧 係数一括計算機（インチ自動変換＋コピー機能付き）</h1>
+  <p>縦に入力（行数を揃えてください）※呼び径は「1 1/4」や「3/8」など分数もOK</p>
 
   <div class="flex">
     <div style="flex: 1;">
@@ -33,7 +33,7 @@
     </div>
     <div style="flex: 1;">
       <label class="label">③ 呼び径（インチ）</label>
-      <textarea id="inches" placeholder="4\n2\n6"></textarea>
+      <textarea id="inches" placeholder="1 1/4\n2\n3/4"></textarea>
     </div>
   </div>
 
@@ -44,10 +44,30 @@
   <button class="copy-btn" onclick="copyOutput()">📋 一括コピー</button>
 
   <script>
+    function parseInchString(str) {
+      str = str.trim();
+      if (!str) return NaN;
+      // 帯分数（例：1 1/4）
+      if (str.includes(' ')) {
+        const [whole, frac] = str.split(' ');
+        const [num, denom] = frac.split('/');
+        return parseFloat(whole) + (parseFloat(num) / parseFloat(denom));
+      }
+      // 分数のみ（例：3/4）
+      if (str.includes('/')) {
+        const [num, denom] = str.split('/');
+        return parseFloat(num) / parseFloat(denom);
+      }
+      // 普通の数字
+      return parseFloat(str);
+    }
+
     function calculate() {
       const flanges = document.getElementById('flangeWeights').value.trim().split('\n').map(s => parseFloat(s.trim()));
       const pipes = document.getElementById('pipeWeights').value.trim().split('\n').map(s => parseFloat(s.trim()));
-      const inches = document.getElementById('inches').value.trim().split('\n').map(s => parseFloat(s.trim()));
+      const inchesRaw = document.getElementById('inches').value.trim().split('\n');
+      const inches = inchesRaw.map(parseInchString);
+
       const output = document.getElementById('output');
       const rowCount = Math.min(flanges.length, pipes.length, inches.length);
       let result = '';
