@@ -88,7 +88,7 @@ const totalFittingInches = computed(() => {
     const inch = getNominalInches(row.size);
 
     // 継手処理
-    if (['elbow', 'shortelbow'].includes(shape)) {
+    if (['elbow', 'shortelbow', 'halfelbow', 'halfshortelbow'].includes(shape)) {
       return acc + inch * 2 * quantity;
     }
 
