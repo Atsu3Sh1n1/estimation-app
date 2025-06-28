@@ -21,6 +21,8 @@ export const materialPrices: Record<MaterialName, number> = {
 
   PG370: 145,
 
+  SS400: 128,
+
   STPG370S: 145,
   STPG370E: 150,
   STPG410S: 155,

@@ -46,7 +46,8 @@
 
     <!-- 長さ -->
     <div v-if="['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
-      'Square_Pipe', 'Round_Pipe','Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)" class="input-with-unit">
+      'Square_Pipe', 'Round_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)"
+      class="input-with-unit">
       <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
       <span class="unit">m</span>
     </div>
@@ -70,7 +71,7 @@
     </span>
 
     <!-- 定尺本数 -->
-    <span v-if="['pipe', 'pipe2'].includes(localRow.shape)">
+    <span v-if="['pipe', 'pipe2', 'Flat_Bar'].includes(localRow.shape)">
       定尺 {{ pipeLengthCount.toFixed(0) }} 本
     </span>
 
@@ -100,7 +101,10 @@ const shapePriceFactor: Record<string, number> = {
   reducer: 1,
   cap: 1,
   flange: 1,
+
 };
+
+
 
 const emit = defineEmits<{
   (e: 'update', row: EstimateRowType & { weight: number; pipeLengthCount?: number }): void;
@@ -159,7 +163,7 @@ const price = computed(() => {
 
 // 定尺本数
 const pipeLengthCount = computed(() => {
-  if (!['pipe', 'pipe2'].includes(localRow.shape)) return 0;
+  if (!['pipe', 'pipe2', 'Flat_Bar'].includes(localRow.shape)) return 0;
   const len = Number(localRow.length);
   if (!len || isNaN(len)) return 0;
   const isStainless = localRow.material.startsWith('SUS');
