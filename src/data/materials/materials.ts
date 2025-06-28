@@ -62,6 +62,7 @@ export const materialDensities = {
     SUS329J4L: 7620,
 
     金24K: 19300,
+    金18K: 14475,
     銀Ag: 10490,
     銅Cu: 8960,
     プラチナ: 21450,

@@ -65,7 +65,7 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   その他: [
-    '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄',
+    '金24K', '金18K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄',
     '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン'
   ]
 };
