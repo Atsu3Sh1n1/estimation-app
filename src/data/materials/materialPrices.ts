@@ -1,9 +1,5 @@
 import type { MaterialName } from './materialDensities';
 
-/**
- * materialPrices はすべて 1kg あたりの単価（円/kg）で統一しています。
- * 金・プラチナ・ダイヤモンドなどの貴金属は市場価格に近いおおよその値です。
- */
 export const materialPrices: Record<MaterialName, number> = {
   SGP黒EG: 120,
   SGP黒鍛BH: 130,
@@ -21,7 +17,7 @@ export const materialPrices: Record<MaterialName, number> = {
 
   PG370: 145,
 
-  SS400: 128,
+  SS400: 160,
 
   STPG370S: 145,
   STPG370E: 150,
