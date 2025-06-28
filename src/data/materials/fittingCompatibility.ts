@@ -204,7 +204,7 @@ export const fittingCompatibility = {
 
     halfshortelbow: {
         materials: [
-            'SGP_黒', 'SGP_白',　'PG370', 'PT370',
+            'SGP_黒', 'SGP_白', 'PG370', 'PT370',
 
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
 
@@ -256,16 +256,16 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
             '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
         ],
         jisMap: {
-            SS400: ['B2220_FF'], 
+            SS400: ['B2220_FF'],
 
-            SUS304: ['B2220_FF'], SUS304L: ['B2220_FF'], SUS316: ['B2220_FF'], SUS316L: ['B2220_FF'], 
+            SUS304: ['B2220_FF'], SUS304L: ['B2220_FF'], SUS316: ['B2220_FF'], SUS316L: ['B2220_FF'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -291,7 +291,7 @@ export const fittingCompatibility = {
         },
     },
 
-        Flat_Bar: {
+    Flat_Bar: {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
@@ -299,11 +299,27 @@ export const fittingCompatibility = {
         ],
         jisMap: {
             SS400: ['G3194'],
-            SUS304: ['G3194'], SUS304L: ['G3194'], SUS316: ['G3194'], SUS316L: ['G3194'], 
+            SUS304: ['G3194'], SUS304L: ['G3194'], SUS316: ['G3194'], SUS316L: ['G3194'],
             金24K: ['G3194',], 銀Ag: ['G3194',], 銅Cu: ['G3194',], プラチナ: ['G3194'], チタン: ['G3194',],
             アルミ: ['G3194',], 鋳鉄: ['G3194',], PEポリエチレン: ['G3194',], タングステン: ['G3194',],
         },
     },
+
+
+    Angle: {
+        materials: [
+            'SS400',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
+            '金24K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+        ],
+        jisMap: {
+            SS400: ['G3192_L'],
+            SUS304: ['G3192_L'], SUS304L: ['G3192_L'], SUS316: ['G3192_L'], SUS316L: ['G3192_L'],
+            金24K: ['G3192_L',], 銀Ag: ['G3192_L',], 銅Cu: ['G3192_L',], プラチナ: ['G3192_L'], チタン: ['G3192_L',],
+            アルミ: ['G3192_L',], 鋳鉄: ['G3192_L',], PEポリエチレン: ['G3192_L',], タングステン: ['G3192_L',],
+        },
+    },
+
 
 
 

@@ -40,7 +40,7 @@ export function getPipeWeight(row: EstimateRow): number {
   // ✅ 断面積（area）ベースの鋼材
   if (areaBasedShapes.has(row.shape) && 'area' in spec) {
     const volume = spec.area * row.length; // mm^2 × m = mm^3
-    return (volume * density) / 1e5;        // g/cm^3 → kg
+    return (volume * density) / 1e4;        // g/cm^3 → kg
   }
 
   // ✅ 通常パイプ（外径・厚み指定）
