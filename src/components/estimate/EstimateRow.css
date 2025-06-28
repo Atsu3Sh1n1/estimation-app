@@ -7,9 +7,8 @@
   border-radius: 6px;
   margin-bottom: 6px;
 
-  background-color: transparent;
-  /* 背景は透明 */
-  box-shadow: 0 2px 6px rgba(0, 93, 94, 0.1);
+  background-color: transparent; /* 背景は透明 */
+box-shadow: 0 2px 6px rgba(0, 93, 94, 0.1);
 }
 
 select,
@@ -46,31 +45,29 @@ span {
 }
 
 select.placeholder {
-  color: #888;
-  /* 灰色の文字 */
+  color: #888; /* 灰色の文字 */
 }
 
 select.error {
   border: 1px solid red;
+    background-color: #ffdbd7;
 
 }
-
 input.error {
   border: 1px solid red;
+      background-color: #ffdbd7;
 
 }
 
 .input-with-unit {
   position: relative;
   display: inline-block;
-  width: 100px;
-  /* 必要なら調整 */
+  width: 100px; /* 必要なら調整 */
 }
 
 .input-with-unit input {
   width: 100%;
-  padding-right: 1.8em;
-  /* 単位のスペースを確保 */
+  padding-right: 1.8em; /* 単位のスペースを確保 */
   box-sizing: border-box;
 }
 
@@ -88,3 +85,5 @@ input.error {
 input.error {
   border: 1px solid red;
 }
+
+
