@@ -52,13 +52,11 @@ select.placeholder {
 
 select.error {
   border: 1px solid red;
-  background-color: #ffdbd7;
 
 }
 
 input.error {
   border: 1px solid red;
-  background-color: #ffdbd7;
 
 }
 

@@ -2,7 +2,7 @@ export const shapeGroups = [
     {
         groupName: '配管',
         shapes: [
-            { value: 'pipe', label: '配管用炭素鋼鋼管' },
+            { value: 'pipe', label: '配管用炭素鋼管' },
             { value: 'pipe2', label: '配管用ステンレス鋼管' },
         ],
     },
