@@ -71,7 +71,7 @@
     </span>
 
     <!-- 定尺本数 -->
-    <span v-if="['pipe', 'pipe2', 'Flat_Bar'].includes(localRow.shape)">
+    <span v-if="['pipe', 'pipe2', 'Flat_Bar','Angle',].includes(localRow.shape)">
       定尺 {{ pipeLengthCount.toFixed(0) }} 本
     </span>
 
