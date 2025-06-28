@@ -27,8 +27,8 @@ export const shapeGroups = [
         shapes: [
             { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
             { value: 'BL_flat_flange', label: 'BL-FF 閉止フランジ' },
-            { value: 'flange', label: 'SOP-RF 板フランジ' },
-            { value: 'flange', label: 'BL-RF 閉止フランジ' },
+            { value: 'flat_flange', label: 'SOP-RF 板フランジ' },
+            { value: 'BL_flat_flange', label: 'BL-RF 閉止フランジ' },
 
         ],
     },

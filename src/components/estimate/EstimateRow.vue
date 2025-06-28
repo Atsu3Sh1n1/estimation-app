@@ -163,7 +163,7 @@ const price = computed(() => {
 
 // 定尺本数
 const pipeLengthCount = computed(() => {
-  if (!['pipe', 'pipe2', 'Flat_Bar'].includes(localRow.shape)) return 0;
+  if (!['pipe', 'pipe2', 'Flat_Bar', 'Angle',].includes(localRow.shape)) return 0;
   const len = Number(localRow.length);
   if (!len || isNaN(len)) return 0;
   const isStainless = localRow.material.startsWith('SUS');
