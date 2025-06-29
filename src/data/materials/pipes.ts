@@ -676,7 +676,17 @@ export const pipeSpecsL = {
   "250×250": { "25mm": { area: 119.4 }, "35mm": { area: 162.6 }, },
 
 };
-
+export const pipeSpecsCB = {
+  "75×40": { "5mm": { area: 8.818 }, },
+  "100×50": { "5mm": { area: 11.92 }, },
+  "125×65": { "6mm": { area: 17.11 }, },
+  "150×75": { "6.5mm": { area: 23.71 }, "9mm": { area: 30.59 }, },
+  "180×75": { "7mm": { area: 27.20 }, },
+  "200×80": { "7.5mm": { area: 31.33 }, },
+  "200×90": { "8mm": { area: 38.65 }, },
+  "250×90": { "9mm": { area: 44.07 }, },
+  "300×90": { "9mm": { area: 48.57 }, },
+};
 
 
 
@@ -713,7 +723,7 @@ export const jisMap = {
 
   G3192_L: pipeSpecsL,
 
-
+  G3192_C: pipeSpecsCB,
 
 
 };
