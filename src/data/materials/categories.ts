@@ -40,9 +40,13 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   ],
 
+    ゲート: [
+    'ゲート・ダクタイル鋳鉄','ゲート・ダクタイル鋳鉄 (ねじ)'
+
+  ],
+
   グローブ: [
     'グローブ・ダクタイル鋳鉄','グローブ・ダクタイル鋳鉄 (ねじ)'
-
   ],
 
   ボール: [

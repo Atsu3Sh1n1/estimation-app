@@ -837,7 +837,21 @@ export const pipeSpecsTOYO_GN = {
   "50A": { "10-DD-N 10K": { weight: 3.8 }, "10-DG-N 10K": { weight: 3.8 }, "16-DG-N 16K": { weight: 5.3 }, "20-DG-N 20K": { weight: 7.1 }, },
 };
 
-
+export const pipeSpecsTOYO_SF = {
+"15A":  { "10-UMSRF-VA 10K": { weight: 3.5 }, "10-USRF-VA 10K": { weight: 3.5 }, "20-USRF-VA 20K": { weight: 4.2 }, "USF-N 10K": { weight: 10 },},
+"20A":  { "10-UMSRF-VA 10K": { weight: 3.9 }, "10-USRF-VA 10K": { weight: 3.9 }, "20-USRF-VA 20K": { weight: 5.3 }, "USF-N 10K": { weight: 10 },},
+"25A":  { "10-UMSRF-VA 10K": { weight: 5.6 }, "10-USRF-VA 10K": { weight: 5.6 }, "20-USRF-VA 20K": { weight: 6.6 }, "USF-N 10K": { weight: 12 },},
+"32A":  { "10-UMSRF-VA 10K": { weight: 6.7 }, "10-USRF-VA 10K": { weight: 6.7 },                                    "USF-N 10K": { weight: 12 },},
+"40A":  { "10-UMSRF-VA 10K": { weight: 9.0 }, "10-USRF-VA 10K": { weight: 9.0 }, "20-USRF-VA 20K": { weight: 10 },  "USF-N 10K": { weight: 14 },},
+"50A":  { "10-UMSRF-VA 10K": { weight: 11  }, "10-USRF-VA 10K": { weight: 11  }, "20-USRF-VA 20K": { weight: 16 },  "USF-N 10K": { weight: 14 },},
+"65A":  { "10-UMSRF-VA 10K": { weight: 17  }, "10-USRF-VA 10K": { weight: 17  }, "20-USRF-VA 20K": { weight: 24 },  "10-USRF-VK 10K": { weight: 15 },  },
+"80A":  { "10-UMSRF-VA 10K": { weight: 21  }, "10-USRF-VA 10K": { weight: 21  }, "20-USRF-VA 20K": { weight: 35 },  "10-USRF-VK 10K": { weight: 18 },  },
+"100A": { "10-UMSRF-VA 10K": { weight: 27  }, "10-USRF-VA 10K": { weight: 27  }, "20-USRF-VA 20K": { weight: 48 },  "10-USRF-VK 10K": { weight: 25 },  },
+"125A": { "10-UMSRF-VA 10K": { weight: 42  }, "10-USRF-VA 10K": { weight: 42  }, "20-USRF-VA 20K": { weight: 77 },  "10-USRF-VK 10K": { weight: 39 },  },
+"150A": { "10-UMSRF-VA 10K": { weight: 54  }, "10-USRF-VA 10K": { weight: 54  }, "20-USRF-VA 20K": { weight: 109 }, "10-USRF-VK 10K": { weight: 49 }, },
+"200A": { "10-UMSRF-VA 10K": { weight: 86  }, "10-USRF-VA 10K": { weight: 86  }, "20-USRF-VA 20K": { weight: 164 }, "10-USRF-VK 10K": { weight: 73 }, },
+"250A": { "10-UMSRF-VA 10K": { weight: 135 }, "10-USRF-VA 10K": { weight: 135 }, "20-USRF-VA 20K": { weight: 272 }, },
+};
 
 
 
@@ -907,7 +921,7 @@ export const jisMap = {
   'B2220_GF': pipeSpecsTOYO_GF,
 
   'B2220_GN': pipeSpecsTOYO_GN,
-
+  'B2220_SF': pipeSpecsTOYO_SF,
 };
 
 
