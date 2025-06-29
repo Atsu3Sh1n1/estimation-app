@@ -39,7 +39,7 @@ export const shapeGroups = [
     {
         groupName: 'バルブ',
         shapes: [
-            { value: 'Ball_Valve_TOYO', label: 'フランジ形ボールバルブ (TOYO)' },
+            { value: 'Ball_Valve_TOYO', label: 'ボールバルブ (KITZ/TOYO)' },
 
 
         ],

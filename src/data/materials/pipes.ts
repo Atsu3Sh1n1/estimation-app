@@ -751,22 +751,67 @@ export const pipeSpecsTOYO_DBF_N_G = {
 
 };
 export const pipeSpecsTOYO_UBF_N_L = {
-  "15A":  { "A10-UBF-L (10K)": { weight: 2.2 },  "150-UBF-N-L (10K)": { weight: 2.0 },  "K20-UBF-N-L (20K)": { weight: 2.6  }, "K300-UBF-N-L (20K)": { weight: 2.6 },},
-  "20A":  { "A10-UBF-L (10K)": { weight: 2.6 },  "150-UBF-N-L (10K)": { weight: 2.3 },  "K20-UBF-N-L (20K)": { weight: 3.1  }, "K300-UBF-N-L (20K)": { weight: 3.6 },},
-  "25A":  { "A10-UBF-L (10K)": { weight: 4.4 },  "150-UBF-N-L (10K)": { weight: 3.4 },  "K20-UBF-N-L (20K)": { weight: 5.2  }, "K300-UBF-N-L (20K)": { weight: 5.4 },},
-  "32A":  { "A10-UBF-L (10K)": { weight: 5.8 },  "K20-UBF-N-L (20K)": { weight: 6.9  }, },
-  "40A":  { "A10-UBF-L (10K)": { weight: 7.1 },  "150-UBF-N-L (10K)": { weight: 6.4 },  "K20-UBF-N-L (20K)": { weight: 8.7  }, "K300-UBF-N-L (20K)": { weight: 9.6 },},
-  "50A":  { "A10-UBF-L (10K)": { weight: 9.0 },  "150-UBF-N-L (10K)": { weight: 8.8 },  "K20-UBF-N-L (20K)": { weight: 12   }, "K300-UBF-N-L (20K)": { weight: 15 },},
-  "65A":  { "A10-UBF-L (10K)": { weight: 16  },  "150-UBF-N-L (10K)": { weight: 16  },  "K20-UBF-N-L (20K)": { weight: 26   }, "K300-UBF-N-L (20K)": { weight: 25 },},
-  "80A":  { "A10-UBF-L (10K)": { weight: 19  },  "150-UBF-N-L (10K)": { weight: 21  },  "K20-UBF-N-L (20K)": { weight: 30   }, "K300-UBF-N-L (20K)": { weight: 35 },},
-  "100A": { "A10-UBF-L (10K)": { weight: 29  },  "150-UBF-N-L (10K)": { weight: 34  },  "K20-UBF-N-L (20K)": { weight: 51   }, "K300-UBF-N-L (20K)": { weight: 55 },},
-  "125A": { "A10-UBF-L (10K)": { weight: 51  },  "150-UBF-N-L (10K)": { weight: 53  },  "K20-UBF-N-L (20K)": { weight: 75.2 },},
-  "150A": { "A10-UBF-L (10K)": { weight: 74  },  "150-UBF-N-L (10K)": { weight: 75  },  "K20-UBF-N-L (20K)": { weight: 107  }, "K300-UBF-N-L (20K)": { weight: 107 },},
-  "200A": { "A10-UBF-L (10K)": { weight: 106 },  "150-UBF-N-L (10K)": { weight: 114 },  "K20-UBF-N-L (20K)": { weight: 157  }, "K300-UBF-N-L (20K)": { weight: 142 },},
+  "15A": { "A10-UBF-L (10K)": { weight: 2.2 }, "K20-UBF-N-L (20K)": { weight: 2.6 },  },
+  "20A": { "A10-UBF-L (10K)": { weight: 2.6 }, "K20-UBF-N-L (20K)": { weight: 3.1 },  },
+  "25A": { "A10-UBF-L (10K)": { weight: 4.4 }, "K20-UBF-N-L (20K)": { weight: 5.2 },  },
+  "32A": { "A10-UBF-L (10K)": { weight: 5.8 }, },
+  "40A": { "A10-UBF-L (10K)": { weight: 7.1 }, "K20-UBF-N-L (20K)": { weight: 8.7 },  },
+  "50A": { "A10-UBF-L (10K)": { weight: 9.0 }, "K20-UBF-N-L (20K)": { weight: 12 },  },
+  "65A": { "A10-UBF-L (10K)": { weight: 16 },  "K20-UBF-N-L (20K)": { weight: 26 },  },
+  "80A": { "A10-UBF-L (10K)": { weight: 19 },  "K20-UBF-N-L (20K)": { weight: 30 },  },
+  "100A": { "A10-UBF-L (10K)": { weight: 29 }, "K20-UBF-N-L (20K)": { weight: 51 },  },
+  "125A": { "A10-UBF-L (10K)": { weight: 51 }, "K20-UBF-N-L (20K)": { weight: 75.2 }, },
+  "150A": { "A10-UBF-L (10K)": { weight: 74 }, "K20-UBF-N-L (20K)": { weight: 107 },},
+  "200A": { "A10-UBF-L (10K)": { weight: 106 }, "K20-UBF-N-L (20K)": { weight: 157 } },
+
+};
+
+export const pipeSpecsTOYO_ASME_B16 = {
+  "15A": { "150-UBF-N-L (10K)": { weight: 2.0 }, "K300-UBF-N-L (20K)": { weight: 2.6 }, },
+  "20A": { "150-UBF-N-L (10K)": { weight: 2.3 }, "K300-UBF-N-L (20K)": { weight: 3.6 }, },
+  "25A": { "150-UBF-N-L (10K)": { weight: 3.4 }, "K300-UBF-N-L (20K)": { weight: 5.4 }, },
+  "32A": { "K20-UBF-N-L (20K)": { weight: 6.9 }, },
+  "40A": { "150-UBF-N-L (10K)": { weight: 6.4 }, "K300-UBF-N-L (20K)": { weight: 9.6 }, },
+  "50A": { "150-UBF-N-L (10K)": { weight: 8.8 }, "K300-UBF-N-L (20K)": { weight: 15 }, },
+  "65A": { "150-UBF-N-L (10K)": { weight: 16 }, "K300-UBF-N-L (20K)": { weight: 25 }, },
+  "80A": { "150-UBF-N-L (10K)": { weight: 21 }, "K300-UBF-N-L (20K)": { weight: 35 }, },
+  "100A": { "150-UBF-N-L (10K)": { weight: 34 }, "K300-UBF-N-L (20K)": { weight: 55 }, },
+  "125A": { "150-UBF-N-L (10K)": { weight: 53 }, },
+  "150A": { "150-UBF-N-L (10K)": { weight: 75 }, "K300-UBF-N-L (20K)": { weight: 107 }, },
+  "200A": { "150-UBF-N-L (10K)": { weight: 114 }, "K300-UBF-N-L (20K)": { weight: 142 }, },
 
 };
 
 
+
+
+export const pipeSpecsTOYO_A10_UBF = {
+  "15A": { "FDA10-UBF (10K)": { weight: 4.5 }, "FSA10-UBF (10K)": { weight: 4.9 }, },
+  "20A": { "FDA10-UBF (10K)": { weight: 4.9 }, "FSA10-UBF (10K)": { weight: 5.3 }, },
+  "25A": { "FDA10-UBF (10K)": { weight: 6.8 }, "FSA10-UBF (10K)": { weight: 9.3 }, },
+  "32A": { "FDA10-UBF (10K)": { weight: 8.2 }, "FSA10-UBF (10K)": { weight: 11 }, },
+  "40A": { "FDA10-UBF (10K)": { weight: 12 }, "FSA10-UBF (10K)": { weight: 15 }, },
+  "50A": { "FDA10-UBF (10K)": { weight: 14 }, "FSA10-UBF (10K)": { weight: 24 }, },
+  "65A": { "FDA10-UBF (10K)": { weight: 22 }, "FSA10-UBF (10K)": { weight: 32 }, },
+  "80A": { "FDA10-UBF (10K)": { weight: 31 }, "FSA10-UBF (10K)": { weight: 47 }, },
+  "100A": { "FDA10-UBF (10K)": { weight: 41 }, "FSA10-UBF (10K)": { weight: 59 }, },
+  "125A": { "FDA10-UBF (10K)": { weight: 72 }, "FSA10-UBF (10K)": { weight: 109 }, },
+  "150A": { "FDA10-UBF (10K)": { weight: 96 }, "FSA10-UBF (10K)": { weight: 132 }, },
+  "200A": { "FDA10-UBF (10K)": { weight: 143 }, },
+
+};
+
+export const pipeSpecsTOYO_U = {
+  "8A": { "UZ-N (600型)": { weight: 0.06 }, "UZ-N-T (600型)": { weight: 0.07 }, },
+  "10A": { "10-UB-N (10K)": { weight: 0.70 }, "UZ-N (600型)": { weight: 0.10 }, "UZ-N-T (600型)": { weight: 0.10 }, },
+  "15A": { "10-UB-N (10K)": { weight: 0.90 }, "UX (800型)": { weight: 0.31 }, "UZ-N (600型)": { weight: 0.18 }, "UZ-N-T (600型)": { weight: 0.17 }, },
+  "20A": { "10-UB-N (10K)": { weight: 1.1 }, "UX (800型)": { weight: 0.42 }, "UZ-N (600型)": { weight: 0.27 }, "UZ-N-T (600型)": { weight: 0.26 }, },
+  "25A": { "10-UB-N (10K)": { weight: 1.8 }, "UX (800型)": { weight: 0.65 }, "UZ-N (600型)": { weight: 0.40 }, },
+  "32A": { "10-UB-N (10K)": { weight: 2.7 }, "UX (800型)": { weight: 1.0 }, "UZ-N (600型)": { weight: 0.70 }, },
+  "40A": { "10-UB-N (10K)": { weight: 3.9 }, "UX (800型)": { weight: 1.4 }, "UZ-N (600型)": { weight: 0.83 }, },
+  "50A": { "10-UB-N (10K)": { weight: 5.3 }, "UX (800型)": { weight: 2.3 }, "UZ-N (600型)": { weight: 1.3 }, },
+
+};
 
 
 
@@ -828,7 +873,11 @@ export const jisMap = {
   'DBF-N-L': pipeSpecsTOYO_DBF_N_L,
   'DBF-N-G': pipeSpecsTOYO_DBF_N_G,
 
-  'UBF-N-L': pipeSpecsTOYO_UBF_N_L,
+  'B2220_UBF': pipeSpecsTOYO_UBF_N_L,
+  'ASME B16.15': pipeSpecsTOYO_ASME_B16,
+  
+  'A10-UBF': pipeSpecsTOYO_A10_UBF,
+  'B0203_U': pipeSpecsTOYO_U,
 
 };
 
