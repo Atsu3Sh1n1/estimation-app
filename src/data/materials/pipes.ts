@@ -874,9 +874,9 @@ export const jisMap = {
 
   G3457: pipeSpecsPY,
 
-  B2220_FF: pipeSpecsSOPFF,
+  B2220_F: pipeSpecsSOPFF,
 
-  B2220_FFBL: pipeSpecsFFBL,
+  B2220_BL: pipeSpecsFFBL,
 
   B2220_FR: pipeSpecsSOH,
 
