@@ -9,13 +9,17 @@
       @click="openLink">参考資料</button>
 
     <div class="meta-info">
-      <label style="display: inline-block; margin-right: 2em;">
+      <label class="meta-label">
         図面番号 / タイトル:
-        <input v-model="title" placeholder="例：配管図A-101" />
+        <input v-model="title" placeholder="例：配管図A-101" class="meta-input" />
       </label>
-      <label style="display: inline-block; margin-right: 2em;">
+      <label class="meta-label">
+        サポート図面番号:
+        <input v-model="supportDrawingNo" placeholder="例：SUP-A1" class="meta-input" />
+      </label>
+      <label class="meta-label">
         サポート重量(kg):
-        <input v-model.number="supportWeight" type="number" min="0" />
+        <input v-model.number="supportWeight" type="number" min="0" class="meta-input" />
       </label>
     </div>
 
@@ -48,6 +52,7 @@ import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
 
 const supportWeight = ref(0); // ユーザーが入力するサポート重量（kg）
+const supportDrawingNo = ref(''); // サポート図面番号
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -211,9 +216,10 @@ function exportCSV() {
 
 
   const metadata = [
-    [`図面番号`, title.value],
-    [`管理番号`, controlId],
-    [`作成日時`, now.toLocaleString()]
+    ['図面番号', title.value],
+    ['サポート図面番号', supportDrawingNo.value],
+    ['管理番号', controlId],
+    ['作成日時', now.toLocaleString()],
   ];
 
   const csvContent = [...metadata, [], headers, ...body, [], ...totals]
@@ -221,7 +227,7 @@ function exportCSV() {
     .join('\n');
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-const link = document.createElement('a');
+  const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.setAttribute('download', `${controlId}.csv`);
   document.body.appendChild(link);

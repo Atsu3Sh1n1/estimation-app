@@ -95,3 +95,24 @@ button:hover {
   font-size: 0.85em; /* 小さめ */
   color: #555;       /* お好みで色も控えめに */
 }
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.meta-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+.meta-input {
+  width: 200px;
+  padding: 4px 8px;
+  font-size: 0.9em;
+}
+
