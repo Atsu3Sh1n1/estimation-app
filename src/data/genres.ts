@@ -48,6 +48,8 @@ export const shapeGroups = [
         shapes: [
             { value: 'Flat_Bar', label: '平鋼(FB)' },
             { value: 'Angle', label: '山形鋼(L)' },
+            { value: 'Angle', label: '山形鋼(L) カラー' },
+
             { value: 'Channel', label: '溝形鋼(C)' },
             { value: 'H_Beam', label: 'H形鋼(H)' },
             { value: 'Round_Bar', label: '丸鋼(丸棒)' },
