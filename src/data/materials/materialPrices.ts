@@ -18,6 +18,8 @@ export const materialPrices: Record<MaterialName, number> = {
   PG370: 145,
 
   SS400: 160,
+  
+  ダクタイル鋳鉄: 110,
 
   STPG370S: 145,
   STPG370E: 150,

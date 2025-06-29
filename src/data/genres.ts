@@ -22,7 +22,7 @@ export const shapeGroups = [
         ],
     },
 
-        {
+    {
         groupName: 'フランジ',
         shapes: [
             { value: 'flat_flange', label: 'SOP-FF 板フランジ' },
@@ -39,6 +39,8 @@ export const shapeGroups = [
     {
         groupName: 'バルブ',
         shapes: [
+            { value: 'Ball_Valve_TOYO', label: 'フランジ形ボールバルブ (TOYO)' },
+
 
         ],
     },
@@ -49,20 +51,11 @@ export const shapeGroups = [
             { value: 'Flat_Bar', label: '平鋼 (フラットバー)' },
             { value: 'Angle', label: '等辺山形鋼 (アングル)' },
             { value: 'Angle', label: '等辺山形鋼 (アングル)カラー' },
-            { value: 'ABS_Angle', label: '不等辺山形鋼 (ABS)' },
             { value: 'Channel', label: '溝形鋼 (チャンネル)' },
             { value: 'H_Beam', label: 'Ｈ形鋼（HB）' },
             { value: 'Round_Bar', label: '丸鋼（RB）' },
-
-            
-            { value: 'I_Beam', label: 'I形鋼(I)' },
-            { value: 'Square_Pipe', label: '丸鋼管(STK)' },
-            { value: 'Round_Pipe', label: '角形鋼管' },
-            { value: 'Square_Bar', label: '角鋼(角棒)' },
-            { value: 'Plate', label: '鋼板' },
-            { value: 'Light_Channel', label: '軽溝形鋼' },
-            { value: 'Lip_Channel', label: 'リップ溝形鋼' },
-
+            { value: 'ABS_Angle', label: '不等辺山形鋼 (ABS)' },
+            { value: 'PCF_Channel', label: '平行フランジ溝形鋼（PFC）' },
 
         ],
     },

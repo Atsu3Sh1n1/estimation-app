@@ -4,6 +4,7 @@ import type { EstimateRow } from '@/types/estimate';
 
 export function useEstimateRow(row: EstimateRow) {
   const weight = computed(() => {
+    // バルブや継手など → fittingWeight に流す
     return [
       'pipe',
       'pipe2',
@@ -20,10 +21,9 @@ export function useEstimateRow(row: EstimateRow) {
       'Plate',
       'Light_Channel',
       'Lip_Channel',
-
     ].includes(row.shape)
       ? getPipeWeight(row)
-      : getFittingWeight(row);
+      : getFittingWeight(row); // 👈 バルブはこちら
   });
 
   return { weight };

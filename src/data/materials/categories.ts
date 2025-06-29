@@ -40,6 +40,12 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   ],
 
+  鉄: [
+    'ダクタイル鋳鉄',
+
+  ],
+
+
   SGP: [
     'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',
   ],

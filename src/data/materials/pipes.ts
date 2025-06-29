@@ -719,6 +719,41 @@ export const pipeSpecsABS = {
   "150×90mm": { "9mm": { area: 20.94 }, "12mm": { area: 27.36 }, },
 };
 
+export const pipeSpecsPCF = {
+  "75PFC_75×40": { "6.1×3.8": { area: 7.5 }, },
+  "100PFC_100×50": { "6.7×4.2": { area: 10.6 }, },
+  "125PFC_125×65": { "7.5×4.7": { area: 15.2 }, },
+  "150PFC_150×75": { "9.5×6": { area: 22.5 }, },
+  "180PFC_180×75": { "11×6": { area: 26.6 }, },
+  "200PFC_200×75": { "12×6": { area: 29.2 }, },
+};
+
+export const pipeSpecsTOYO_DBF_N_L = {
+  "15A": { "10K_class150": { weight: 2.2 }, },
+  "20A": { "10K_class150": { weight: 2.7 }, },
+  "25A": { "10K_class150": { weight: 4.3 }, },
+  "32A": { "10K_class150": { weight: 5.8 }, },
+  "40A": { "10K_class150": { weight: 7.4 }, },
+  "50A": { "10K_class150": { weight: 9.3 }, },
+  "65A": { "10K_class150": { weight: 14.6 }, },
+  "80A": { "10K_class150": { weight: 17.3 }, },
+  "100A": { "10K_class150": { weight: 25.0 }, },
+  "125A": { "10K_class150": { weight: 41.6 }, },
+  "150A": { "10K_class150": { weight: 59.4 }, },
+  "200A": { "10K_class150": { weight: 102 }, },
+
+};
+
+export const pipeSpecsTOYO_DBF_N_G = {
+  "125A": { "10K_class150": { weight: 59 }, },
+  "150A": { "10K_class150": { weight: 79 }, },
+  "200A": { "10K_class150": { weight: 170 }, },
+
+};
+
+
+
+
 
 
 
@@ -763,7 +798,10 @@ export const jisMap = {
 
   G3192_ABS: pipeSpecsABS,
 
+  G3192_PCF: pipeSpecsPCF,
 
+  '10-DBF-N-L レバー式': pipeSpecsTOYO_DBF_N_L,
+  '10-DBF-N-G ギア式': pipeSpecsTOYO_DBF_N_G,
 };
 
 

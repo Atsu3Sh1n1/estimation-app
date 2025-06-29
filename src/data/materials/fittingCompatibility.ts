@@ -349,7 +349,7 @@ export const fittingCompatibility = {
             アルミ: ['G3192_ABS'], 鋳鉄: ['G3192_ABS'], PEポリエチレン: ['G3192_ABS'], タングステン: ['G3192_ABS'],
         },
     },
-        PCF_Channel: {
+    PCF_Channel: {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
@@ -362,6 +362,17 @@ export const fittingCompatibility = {
             アルミ: ['G3192_PCF'], 鋳鉄: ['G3192_PCF'], PEポリエチレン: ['G3192_PCF'], タングステン: ['G3192_PCF'],
         },
     },
+
+    Ball_Valve_TOYO: {
+        materials: [
+            'ダクタイル鋳鉄', 'SUS304', 'SUS316',
+        ],
+        jisMap: {
+            ダクタイル鋳鉄: ['10-DBF-N-L レバー式', '10-DBF-N-G ギア式'], SUS304: [''], SUS316: [''],
+        },
+        
+    },
+
 
 
 

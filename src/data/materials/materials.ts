@@ -15,6 +15,9 @@ export const materialDensities = {
 
     SS400: 7850,
 
+    ダクタイル鋳鉄: 7200,
+
+
 
     // STPG（圧力配管用） JIS G3454
     PG370: 7850,  

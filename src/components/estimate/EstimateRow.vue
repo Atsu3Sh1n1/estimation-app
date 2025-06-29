@@ -164,7 +164,8 @@ const price = computed(() => {
 
 // 定尺本数
 const pipeLengthCount = computed(() => {
-  if (!['pipe', 'pipe2', 'Flat_Bar', 'Angle',].includes(localRow.shape)) return 0;
+  if (!['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'ABS_Angle', 'Channel','PCF_Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
+      'Square_Pipe', 'Round_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)) return 0;
   const len = Number(localRow.length);
   if (!len || isNaN(len)) return 0;
   const isStainless = localRow.material.startsWith('SUS');

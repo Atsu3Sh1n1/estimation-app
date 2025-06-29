@@ -18,7 +18,10 @@ export type EstimateRow = {
   id: number;
   shape: 'pipe' | 'pipe2' | 'elbow' | 'shortelbow' | 'halfelbow' | 'halfshortelbow' | 'tee' | 'reducer' | 'flat_flange' |
   'Flat_Bar' | 'Angle' | 'Channel' | 'H_Beam' | 'Round_Bar' | 'I_Beam' |'ABS_Angle'|'PCF_Channel'|
-  'Square_Pipe' | 'Round_Pipe' | 'Square_Bar' | 'Plate' | 'Light_Channel' | 'Lip_Channel' | string;
+  'Square_Pipe' | 'Round_Pipe' | 'Square_Bar' | 'Plate' | 'Light_Channel' | 'Lip_Channel' |
+  'Ball_Valve_TOYO'|
+  
+  string;
   size: string;
   schedule: string;
   material: string;
