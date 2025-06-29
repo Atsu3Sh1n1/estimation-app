@@ -6,7 +6,7 @@
 import { useHead } from '@vueuse/head'
 
 useHead({
-  title: '配管継手・フランジ重量計算｜JIS・スケジュール別の簡単見積',
+  title: 'プラント配管工事見積アプリ',
   meta: [
     {
       name: 'description',

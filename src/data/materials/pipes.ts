@@ -809,7 +809,7 @@ export const pipeSpecsTOYO_U = {
   "50A": { "10-UB-N (10K)": { weight: 5.3 }, "UX (800型)": { weight: 2.3 }, "UZ-N (600型)": { weight: 1.3 }, },
 };
 
-export const pipeSpecsTOYO_UGF = {
+export const pipeSpecsTOYO_GF = {
   "10A": { "20-DGF-N 20K": { weight: 2.3 }, },
   "15A": { "10-DGF-N 10K": { weight: 1.6 }, "10-DDF-N 10K": { weight: 1.7 }, "20-DGF-N 20K": { weight: 2.5 }, },
   "20A": { "10-DGF-N 10K": { weight: 2.0 }, "10-DDF-N 10K": { weight: 2.1 }, "20-DGF-N 20K": { weight: 3.1 }, },
@@ -824,6 +824,17 @@ export const pipeSpecsTOYO_UGF = {
   "125A(BB)": { "10-DGF-N(BB) 10K": { weight: 58 }, "16-DGF-N(BB) 16K": { weight: 60.0 }, "20-DGF-N(BB) 20K": { weight: 79 }, },
   "150A(BB)": { "10-DGF-N(BB) 10K": { weight: 84 }, "16-DGF-N(BB) 16K": { weight: 84.0 }, "20-DGF-N(BB) 20K": { weight: 115 }, },
   "200A(BB)": { "10-DGF-N(BB) 10K": { weight: 124 }, "16-DGF-N(BB) 16K": { weight: 134.0 }, "20-DGF-N(BB) 20K": { weight: 300 }, },
+};
+
+export const pipeSpecsTOYO_GN = {
+  "8A": { "10-DG-N 10K": { weight: 0.3 }, },
+  "10A": { "10-DD-N 10K": { weight: 0.4 }, "10-DG-N 10K": { weight: 0.4 }, "16-DG-N 16K": { weight: 0.8 }, "20-DG-N 20K": { weight: 1.0 }, },
+  "15A": { "10-DD-N 10K": { weight: 0.6 }, "10-DG-N 10K": { weight: 0.6 }, "16-DG-N 16K": { weight: 0.8 }, "20-DG-N 20K": { weight: 1.1 }, },
+  "20A": { "10-DD-N 10K": { weight: 0.8 }, "10-DG-N 10K": { weight: 0.8 }, "16-DG-N 16K": { weight: 1.0 }, "20-DG-N 20K": { weight: 1.6 }, },
+  "25A": { "10-DD-N 10K": { weight: 1.1 }, "10-DG-N 10K": { weight: 1.1 }, "16-DG-N 16K": { weight: 1.7 }, "20-DG-N 20K": { weight: 2.4 }, },
+  "32A": { "10-DD-N 10K": { weight: 1.7 }, "10-DG-N 10K": { weight: 1.7 }, "16-DG-N 16K": { weight: 2.3 }, "20-DG-N 20K": { weight: 3.8 }, },
+  "40A": { "10-DD-N 10K": { weight: 2.5 }, "10-DG-N 10K": { weight: 2.5 }, "16-DG-N 16K": { weight: 3.2 }, "20-DG-N 20K": { weight: 4.6 }, },
+  "50A": { "10-DD-N 10K": { weight: 3.8 }, "10-DG-N 10K": { weight: 3.8 }, "16-DG-N 16K": { weight: 5.3 }, "20-DG-N 20K": { weight: 7.1 }, },
 };
 
 
@@ -893,7 +904,10 @@ export const jisMap = {
   'B2220_A': pipeSpecsTOYO_A10_UBF,
   'B0203_U': pipeSpecsTOYO_U,
 
-  'B2220_UGF': pipeSpecsTOYO_UGF,
+  'B2220_GF': pipeSpecsTOYO_GF,
+
+  'B2220_GN': pipeSpecsTOYO_GN,
+
 };
 
 

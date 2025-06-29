@@ -41,7 +41,7 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   グローブ: [
-    'グローブ・ダクタイル鋳鉄'
+    'グローブ・ダクタイル鋳鉄','グローブ・ダクタイル鋳鉄 (ねじ)'
 
   ],
 
