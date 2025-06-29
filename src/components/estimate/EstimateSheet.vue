@@ -9,11 +9,16 @@
       @click="openLink">参考資料</button>
 
     <div class="meta-info">
-      <label>
+      <label style="display: inline-block; margin-right: 2em;">
         図面番号 / タイトル:
         <input v-model="title" placeholder="例：配管図A-101" />
       </label>
+      <label style="display: inline-block; margin-right: 2em;">
+        サポート重量(kg):
+        <input v-model.number="supportWeight" type="number" min="0" />
+      </label>
     </div>
+
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
       <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
@@ -41,6 +46,8 @@ import { reactive, computed } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { shapeGroups } from '@/data/genres';
+
+const supportWeight = ref(0); // ユーザーが入力するサポート重量（kg）
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -88,7 +95,7 @@ const totalFittingInches = computed(() => {
     const inch = getNominalInches(row.size);
 
     // 継手処理
-    if (['elbow', 'shortelbow', 'halfelbow','halfshortelbow'].includes(shape)) {
+    if (['elbow', 'shortelbow', 'halfelbow', 'halfshortelbow'].includes(shape)) {
       return acc + inch * 2 * quantity;
     }
 
@@ -125,13 +132,15 @@ const totalFittingInches = computed(() => {
 
 // 総重量（継手・パイプ）
 const totalWeight = computed(() => {
-  return rows.reduce((acc, row) => {
+  const baseWeight = rows.reduce((acc, row) => {
     const weight = Number(row.weight);
     if (!isNaN(weight)) {
       acc += weight;
     }
     return acc;
   }, 0);
+
+  return baseWeight + (supportWeight.value || 0);
 });
 
 const isTIG = ref(true); // false ならアーク基準（1DB=0.05人工）
@@ -195,9 +204,11 @@ function exportCSV() {
   const totals = [
     [], [], [], [], [],
     ['溶接DB', totalFittingInches.value.toFixed(0)],
+    ['サポート重量(kg)', supportWeight.value.toFixed(0)],
     ['総重量(kg)', totalWeight.value.toFixed(0)],
     ['工数(人日)', totalManHours.value.toFixed(0)],
   ];
+
 
   const metadata = [
     [`図面番号`, title.value],
@@ -210,7 +221,7 @@ function exportCSV() {
     .join('\n');
 
   const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-  const link = document.createElement('a');
+const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
   link.setAttribute('download', `${controlId}.csv`);
   document.body.appendChild(link);
