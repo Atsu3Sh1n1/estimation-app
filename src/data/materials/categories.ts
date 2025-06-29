@@ -40,8 +40,9 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   ],
 
-  鉄: [
-    'ダクタイル鋳鉄',
+  バルブ材質: [
+    'ダクタイル鋳鉄 (レバー式)', 'ダクタイル鋳鉄 (ギア式)',
+    'SUS304 (レバー式)', 'SUS304 (ギア式)', 'SUS316 (レバー式)', 'SUS316 (ギア式)',
 
   ],
 

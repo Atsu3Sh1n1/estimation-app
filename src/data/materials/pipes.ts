@@ -800,8 +800,8 @@ export const jisMap = {
 
   G3192_PCF: pipeSpecsPCF,
 
-  '10-DBF-N-L レバー式': pipeSpecsTOYO_DBF_N_L,
-  '10-DBF-N-G ギア式': pipeSpecsTOYO_DBF_N_G,
+  '10-DBF-N-L': pipeSpecsTOYO_DBF_N_L,
+  '10-DBF-N-G': pipeSpecsTOYO_DBF_N_G,
 };
 
 
