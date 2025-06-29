@@ -22,7 +22,7 @@
 
     <!-- JIS種別 -->
     <select v-model="localRow.jis" :class="jisClass">
-      <option disabled value="" hidden>JISを選択</option>
+      <option disabled value="" hidden>JIS/型番</option>
       <option v-for="jis in availableJis" :key="jis" :value="jis">
         {{ jis }}
       </option>

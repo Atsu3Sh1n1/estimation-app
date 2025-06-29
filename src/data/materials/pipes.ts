@@ -729,27 +729,52 @@ export const pipeSpecsPCF = {
 };
 
 export const pipeSpecsTOYO_DBF_N_L = {
-  "15A": { "10K_class150": { weight: 2.2 }, },
-  "20A": { "10K_class150": { weight: 2.7 }, },
-  "25A": { "10K_class150": { weight: 4.3 }, },
-  "32A": { "10K_class150": { weight: 5.8 }, },
-  "40A": { "10K_class150": { weight: 7.4 }, },
-  "50A": { "10K_class150": { weight: 9.3 }, },
-  "65A": { "10K_class150": { weight: 14.6 }, },
-  "80A": { "10K_class150": { weight: 17.3 }, },
-  "100A": { "10K_class150": { weight: 25.0 }, },
-  "125A": { "10K_class150": { weight: 41.6 }, },
-  "150A": { "10K_class150": { weight: 59.4 }, },
-  "200A": { "10K_class150": { weight: 102 }, },
+  "DBF-N-L-15A": { "10K_class150": { weight: 2.2 }, },
+  "DBF-N-L-20A": { "10K_class150": { weight: 2.7 }, },
+  "DBF-N-L-25A": { "10K_class150": { weight: 4.3 }, },
+  "DBF-N-L-32A": { "10K_class150": { weight: 5.8 }, },
+  "DBF-N-L-40A": { "10K_class150": { weight: 7.4 }, },
+  "DBF-N-L-50A": { "10K_class150": { weight: 9.3 }, },
+  "DBF-N-L-65A": { "10K_class150": { weight: 14.6 }, },
+  "DBF-N-L-80A": { "10K_class150": { weight: 17.3 }, },
+  "DBF-N-L-100A": { "10K_class150": { weight: 25.0 }, },
+  "DBF-N-L-125A": { "10K_class150": { weight: 41.6 }, },
+  "DBF-N-L-150A": { "10K_class150": { weight: 59.4 }, },
+  "DBF-N-L-200A": { "10K_class150": { weight: 102 }, },
 
 };
 
 export const pipeSpecsTOYO_DBF_N_G = {
-  "125A": { "10K_class150": { weight: 59 }, },
-  "150A": { "10K_class150": { weight: 79 }, },
-  "200A": { "10K_class150": { weight: 170 }, },
+  "DBF-N-G-125A": { "10K_class150": { weight: 59 }, },
+  "DBF-N-G-150A": { "10K_class150": { weight: 79 }, },
+  "DBF-N-G-200A": { "10K_class150": { weight: 170 }, },
 
 };
+export const pipeSpecsTOYO_UBF_N_L = {
+  "15A":  { "A10-UBF-L (10K)": { weight: 2.2 },  "150-UBF-N-L (10K)": { weight: 2.0 },  "K20-UBF-N-L (20K)": { weight: 2.6  }, "K300-UBF-N-L (20K)": { weight: 2.6 },},
+  "20A":  { "A10-UBF-L (10K)": { weight: 2.6 },  "150-UBF-N-L (10K)": { weight: 2.3 },  "K20-UBF-N-L (20K)": { weight: 3.1  }, "K300-UBF-N-L (20K)": { weight: 3.6 },},
+  "25A":  { "A10-UBF-L (10K)": { weight: 4.4 },  "150-UBF-N-L (10K)": { weight: 3.4 },  "K20-UBF-N-L (20K)": { weight: 5.2  }, "K300-UBF-N-L (20K)": { weight: 5.4 },},
+  "32A":  { "A10-UBF-L (10K)": { weight: 5.8 },  "K20-UBF-N-L (20K)": { weight: 6.9  }, },
+  "40A":  { "A10-UBF-L (10K)": { weight: 7.1 },  "150-UBF-N-L (10K)": { weight: 6.4 },  "K20-UBF-N-L (20K)": { weight: 8.7  }, "K300-UBF-N-L (20K)": { weight: 9.6 },},
+  "50A":  { "A10-UBF-L (10K)": { weight: 9.0 },  "150-UBF-N-L (10K)": { weight: 8.8 },  "K20-UBF-N-L (20K)": { weight: 12   }, "K300-UBF-N-L (20K)": { weight: 15 },},
+  "65A":  { "A10-UBF-L (10K)": { weight: 16  },  "150-UBF-N-L (10K)": { weight: 16  },  "K20-UBF-N-L (20K)": { weight: 26   }, "K300-UBF-N-L (20K)": { weight: 25 },},
+  "80A":  { "A10-UBF-L (10K)": { weight: 19  },  "150-UBF-N-L (10K)": { weight: 21  },  "K20-UBF-N-L (20K)": { weight: 30   }, "K300-UBF-N-L (20K)": { weight: 35 },},
+  "100A": { "A10-UBF-L (10K)": { weight: 29  },  "150-UBF-N-L (10K)": { weight: 34  },  "K20-UBF-N-L (20K)": { weight: 51   }, "K300-UBF-N-L (20K)": { weight: 55 },},
+  "125A": { "A10-UBF-L (10K)": { weight: 51  },  "150-UBF-N-L (10K)": { weight: 53  },  "K20-UBF-N-L (20K)": { weight: 75.2 },},
+  "150A": { "A10-UBF-L (10K)": { weight: 74  },  "150-UBF-N-L (10K)": { weight: 75  },  "K20-UBF-N-L (20K)": { weight: 107  }, "K300-UBF-N-L (20K)": { weight: 107 },},
+  "200A": { "A10-UBF-L (10K)": { weight: 106 },  "150-UBF-N-L (10K)": { weight: 114 },  "K20-UBF-N-L (20K)": { weight: 157  }, "K300-UBF-N-L (20K)": { weight: 142 },},
+
+};
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -800,8 +825,11 @@ export const jisMap = {
 
   G3192_PCF: pipeSpecsPCF,
 
-  '10-DBF-N-L': pipeSpecsTOYO_DBF_N_L,
-  '10-DBF-N-G': pipeSpecsTOYO_DBF_N_G,
+  'DBF-N-L': pipeSpecsTOYO_DBF_N_L,
+  'DBF-N-G': pipeSpecsTOYO_DBF_N_G,
+
+  'UBF-N-L': pipeSpecsTOYO_UBF_N_L,
+
 };
 
 
