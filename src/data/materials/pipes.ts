@@ -810,7 +810,14 @@ export const pipeSpecsTOYO_U = {
 };
 
 export const pipeSpecsTOYO_UGF = {
-  "50A": { "10-DGF-N(BB) 10K": { weight: 15 }, "16-DGF-N(BB) 16K": { weight: 8.7 }, "20-DGF-N(BB) 20K": { weight: 20 }, },
+  "10A": { "20-DGF-N 20K": { weight: 2.3 }, },
+  "15A": { "10-DGF-N 10K": { weight: 1.6 }, "10-DDF-N 10K": { weight: 1.7 }, "20-DGF-N 20K": { weight: 2.5 }, },
+  "20A": { "10-DGF-N 10K": { weight: 2.0 }, "10-DDF-N 10K": { weight: 2.1 }, "20-DGF-N 20K": { weight: 3.1 }, },
+  "25A": { "10-DGF-N 10K": { weight: 3.5 }, "10-DDF-N 10K": { weight: 3.5 }, "20-DGF-N 20K": { weight: 4.8 }, },
+  "32A": { "10-DGF-N 10K": { weight: 4.5 }, "10-DDF-N 10K": { weight: 4.5 }, "20-DGF-N 20K": { weight: 6.6 }, },
+  "40A": { "10-DGF-N 10K": { weight: 5.9 }, "10-DDF-N 10K": { weight: 5.7 }, "20-DGF-N 20K": { weight: 7.8 }, },
+  "50A": { "10-DGF-N 10K": { weight: 7.8 }, "10-DDF-N 10K": { weight: 7.8 }, "20-DGF-N 20K": { weight: 11.7 }, },
+  "50A(BB)": { "10-DGF-N(BB) 10K": { weight: 15 }, "16-DGF-N(BB) 16K": { weight: 8.7 }, "20-DGF-N(BB) 20K": { weight: 20 }, },
   "65A": { "10-DGF-N(BB) 10K": { weight: 21 }, "16-DGF-N(BB) 16K": { weight: 21.0 }, "20-DGF-N(BB) 20K": { weight: 28 }, },
   "80A": { "10-DGF-N(BB) 10K": { weight: 27 }, "16-DGF-N(BB) 16K": { weight: 29.0 }, "20-DGF-N(BB) 20K": { weight: 37 }, },
   "100A": { "10-DGF-N(BB) 10K": { weight: 37 }, "16-DGF-N(BB) 16K": { weight: 39.0 }, "20-DGF-N(BB) 20K": { weight: 56 }, },
@@ -885,7 +892,7 @@ export const jisMap = {
 
   'B2220_A': pipeSpecsTOYO_A10_UBF,
   'B0203_U': pipeSpecsTOYO_U,
-  
+
   'B2220_UGF': pipeSpecsTOYO_UGF,
 };
 
