@@ -19,7 +19,7 @@
       </label>
       <label class="meta-label">
         サポート重量(kg):
-        <input v-model.number="supportWeight" type="number" min="0" class="meta-input" />
+        <input v-model.number="supportWeight" type="number"  min="0" class="meta-input" />
       </label>
     </div>
 
@@ -152,9 +152,15 @@ const isTIG = ref(true); // false ならアーク基準（1DB=0.05人工）
 
 
 // 工数：総重量 × 0.025 + リング数 × 0.1
+const supportLaborFactor = 0.03; // サポート用：1tあたり10人工など
+const pipeLaborFactor = 0.025;   // 配管用：1tあたり25人工
+
 const totalManHours = computed(() => {
-  const dbUnit = isTIG.value ? 0.1 : 0.05; // TIGなら0.1、通常なら0.05
-  return totalWeight.value * 0.025 + totalFittingInches.value * dbUnit;
+  const dbUnit = isTIG.value ? 0.1 : 0.1;
+  const pipeWeightOnly = totalWeight.value - (supportWeight.value || 0);
+  const supportManHours = (supportWeight.value || 0) * supportLaborFactor;
+  const pipeManHours = pipeWeightOnly * pipeLaborFactor;
+  return pipeManHours + supportManHours + totalFittingInches.value * dbUnit;
 });
 
 
