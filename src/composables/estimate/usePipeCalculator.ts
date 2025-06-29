@@ -21,7 +21,7 @@ const sizeToNominalInch: Record<string, number> = {
  */
 const areaBasedShapes = new Set([
   'Flat_Bar', 'Angle', 'ABS_Angle','Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
-  'Square_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',
+  'Square_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel','PCF_Channel',
 ]);
 
 /**

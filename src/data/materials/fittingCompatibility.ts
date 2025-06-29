@@ -349,6 +349,20 @@ export const fittingCompatibility = {
             アルミ: ['G3192_ABS'], 鋳鉄: ['G3192_ABS'], PEポリエチレン: ['G3192_ABS'], タングステン: ['G3192_ABS'],
         },
     },
+        PCF_Channel: {
+        materials: [
+            'SS400',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
+            '金24K', '金18K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+        ],
+        jisMap: {
+            SS400: ['G3192_PCF'],
+            SUS304: ['G3192_PCF'], SUS304L: ['G3192_PCF'], SUS316: ['G3192_PCF'], SUS316L: ['G3192_PCF'],
+            金24K: ['G3192_PCF'], 金18K: ['G3192_PCF'], 銀Ag: ['G3192_PCF'], 銅Cu: ['G3192_PCF'], プラチナ: ['G3192_PCF'], チタン: ['G3192_PCF'],
+            アルミ: ['G3192_PCF'], 鋳鉄: ['G3192_PCF'], PEポリエチレン: ['G3192_PCF'], タングステン: ['G3192_PCF'],
+        },
+    },
+
 
 
 
