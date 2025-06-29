@@ -20,7 +20,7 @@ const sizeToNominalInch: Record<string, number> = {
  * 鋼材形状として断面積から計算する対象
  */
 const areaBasedShapes = new Set([
-  'Flat_Bar', 'Angle', 'Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
+  'Flat_Bar', 'Angle', 'ABS_Angle','Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
   'Square_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',
 ]);
 

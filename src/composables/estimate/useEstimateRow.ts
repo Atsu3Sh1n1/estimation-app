@@ -9,6 +9,7 @@ export function useEstimateRow(row: EstimateRow) {
       'pipe2',
       'Flat_Bar',
       'Angle',
+      'ABS_Angle',
       'Channel',
       'H_Beam',
       'Round_Bar',
@@ -19,6 +20,7 @@ export function useEstimateRow(row: EstimateRow) {
       'Plate',
       'Light_Channel',
       'Lip_Channel',
+
     ].includes(row.shape)
       ? getPipeWeight(row)
       : getFittingWeight(row);

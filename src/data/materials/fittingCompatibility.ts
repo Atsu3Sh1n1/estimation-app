@@ -336,6 +336,21 @@ export const fittingCompatibility = {
         },
     },
 
+    ABS_Angle: {
+        materials: [
+            'SS400',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
+            '金24K', '金18K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+        ],
+        jisMap: {
+            SS400: ['G3192_ABS'],
+            SUS304: ['G3192_ABS'], SUS304L: ['G3192_ABS'], SUS316: ['G3192_ABS'], SUS316L: ['G3192_ABS'],
+            金24K: ['G3192_ABS'], 金18K: ['G3192_ABS'], 銀Ag: ['G3192_ABS'], 銅Cu: ['G3192_ABS'], プラチナ: ['G3192_ABS'], チタン: ['G3192_ABS'],
+            アルミ: ['G3192_ABS'], 鋳鉄: ['G3192_ABS'], PEポリエチレン: ['G3192_ABS'], タングステン: ['G3192_ABS'],
+        },
+    },
+
+
 
 
 
