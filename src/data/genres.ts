@@ -46,12 +46,14 @@ export const shapeGroups = [
     {
         groupName: '鋼材',
         shapes: [
-            { value: 'Flat_Bar', label: '平鋼（FB）' },
-            { value: 'Angle', label: '等辺山形鋼（AB）' },
-            { value: 'Angle', label: '等辺山形鋼（AB）カラー' },
-            { value: 'Channel', label: '溝形鋼（CB）' },
-            { value: 'Round_Bar', label: '丸鋼（RB）' },
+            { value: 'Flat_Bar', label: '平鋼(フラットバー)' },
+            { value: 'Angle', label: '等辺山形鋼(アングル)' },
+            { value: 'Angle', label: '等辺山形鋼(アングル)カラー' },
+            { value: 'Channel', label: '溝形鋼(チャンネル)' },
+
             { value: 'H_Beam', label: 'H形鋼（HB）' },
+
+            { value: 'Round_Bar', label: '丸鋼（RB）' },
 
             { value: '', label: '不等辺山形鋼（ABS）' },
             
