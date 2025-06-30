@@ -35,8 +35,8 @@ export const materialCategories: Record<string, MaterialName[]> = {
     'SUS430', 'SUS410', 'SUS329J4L',
   ],
 
-  SS材: [
-    'SS400',
+  鉄: [
+    'SS400','S45C',
 
   ],
 
