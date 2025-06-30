@@ -22,7 +22,7 @@ button {
   color: white;
   border: none;
   cursor: pointer;
-  margin: 10px;
+  margin: 6px;
 }
 
 button:hover {
@@ -45,8 +45,8 @@ button:hover {
   }
 
   button {
-    
-    width:30%;
+    font-size: 1em;
+    width:25%;
   }
 }
 
