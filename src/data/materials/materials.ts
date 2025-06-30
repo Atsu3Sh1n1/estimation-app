@@ -1,4 +1,4 @@
-export const materialDensities = {
+export const materialDensities: Record<string, number> = {
     SGP黒EG: 7850,
     SGP黒鍛BH: 7850,
     SGP白EG: 7850,
@@ -12,6 +12,8 @@ export const materialDensities = {
     STS370: 7850,
 
     STPY400: 7850,
+
+    S45C: 7850,
 
     SS400: 7850,
 

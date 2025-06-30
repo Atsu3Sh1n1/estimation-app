@@ -36,18 +36,19 @@
       </option>
     </select>
 
-    <!-- スケジュール -->
+    <!-- 厚み種別セレクト（ラベルなし）-->
     <select v-model="localRow.schedule" :class="scheduleClass">
-      <option disabled value="" hidden>スケジュールを選択</option>
+      <option disabled value="" hidden>{{ thicknessLabel }}</option>
       <option v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
 
+
+
+
     <!-- 長さ -->
-    <div v-if="['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'ABS_Angle', 'Channel','PCF_Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
-      'Square_Pipe', 'Round_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)"
-      class="input-with-unit">
+    <div v-if="SHAPES_WITH_FIXED_LENGTH.includes(localRow.shape)" class="input-with-unit">
       <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
       <span class="unit">m</span>
     </div>
@@ -71,8 +72,7 @@
     </span>
 
     <!-- 定尺本数 -->
-    <span v-if="['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'ABS_Angle', 'Channel','PCF_Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
-      'Square_Pipe', 'Round_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)">
+    <span v-if="SHAPES_WITH_FIXED_LENGTH.includes(localRow.shape)">
       定尺 {{ pipeLengthCount.toFixed(0) }} 本
     </span>
 
@@ -84,11 +84,10 @@
 <script setup lang="ts">
 import { shapeGroups } from '@/data/genres';
 import { computed, watch, reactive } from 'vue';
-import { useEstimateRow } from '@/composables/estimate/useEstimateRow';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { pipeSizes, fittingCompatibility, materialCategories, MaterialName } from '@/data/materials';
 import { materialPrices } from '@/data/materials/materialPrices';
-
+import { SHAPES_WITH_FIXED_LENGTH, useEstimateRow } from '@/composables/estimate/useEstimateRow';
 
 const props = defineProps<{
   initialRow: EstimateRowType;
@@ -102,10 +101,7 @@ const shapePriceFactor: Record<string, number> = {
   reducer: 1,
   cap: 1,
   flange: 1,
-
 };
-
-
 
 const emit = defineEmits<{
   (e: 'update', row: EstimateRowType & { weight: number; pipeLengthCount?: number }): void;
@@ -113,6 +109,9 @@ const emit = defineEmits<{
 }>();
 
 const localRow = reactive({ ...props.initialRow });
+
+// useEstimateRow から各種算出
+const { weight, pipeLengthCount, thicknessLabel } = useEstimateRow(localRow);
 
 // 材質候補
 const availableMaterialsByGroup = computed(() => {
@@ -134,7 +133,7 @@ const availableJis = computed(() => {
   return shapeInfo.jisMap?.[localRow.material] ?? [];
 });
 
-// クラス
+// UIクラス系
 const materialClass = computed(() => ({
   placeholder: localRow.material === '',
   error: localRow.material === '',
@@ -152,51 +151,22 @@ const scheduleClass = computed(() => ({
   error: localRow.schedule === '',
 }));
 
-
-// 重量計算
-const { weight } = useEstimateRow(localRow);
-
 // 金額計算
 const price = computed(() => {
   const unitPrice = materialPrices[localRow.material as MaterialName] ?? 0;
   return Math.round(weight.value * unitPrice);
 });
 
-// 定尺本数
-const pipeLengthCount = computed(() => {
-  if (!['pipe', 'pipe2', 'Flat_Bar', 'Angle', 'ABS_Angle', 'Channel','PCF_Channel', 'H_Beam', 'Round_Bar', 'I_Beam',
-      'Square_Pipe', 'Round_Pipe', 'Square_Bar', 'Plate', 'Light_Channel', 'Lip_Channel',].includes(localRow.shape)) return 0;
-  const len = Number(localRow.length);
-  if (!len || isNaN(len)) return 0;
-  const isStainless = localRow.material.startsWith('SUS');
-  const stdLength = isStainless ? 4 : 5.5;
-  return Math.ceil(len / stdLength);
-});
-
 // 初期化ウォッチ
 watch(
   () => [localRow.shape, localRow.material],
   () => {
-    localRow.jis = '';
-    localRow.size = '';
-    localRow.schedule = '';
-  }
-);
-
-watch(
-  () => [localRow.shape, localRow.material],
-  () => {
     const candidates = availableJis.value;
-    if (candidates.length > 0) {
-      localRow.jis = candidates[0]; // 材質に合わせて自動セット
-    } else {
-      localRow.jis = '';
-    }
+    localRow.jis = candidates.length > 0 ? candidates[0] : '';
     localRow.size = '';
     localRow.schedule = '';
   }
 );
-
 
 // 通知
 watch(
@@ -210,8 +180,6 @@ watch(
   },
   { deep: true, immediate: true }
 );
-
-
 </script>
 
 <style src="./EstimateRow.css" scoped></style>

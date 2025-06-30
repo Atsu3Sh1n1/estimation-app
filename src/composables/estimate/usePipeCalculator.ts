@@ -53,6 +53,9 @@ export function getPipeWeight(row: EstimateRow): number {
   return volume * density;
 }
 
+
+
+
 /**
  * 継手の重量を計算（サイズ別係数対応・異径TEE対応）
  */
@@ -65,8 +68,21 @@ export function getFittingWeight(row: EstimateRow): number {
 
   // ✅ バルブなど直接重量が登録されている場合（weight を持つ）
   if ('weight' in spec) {
-    return spec.weight * row.quantity;
+    const isValve = row.shape.includes('Valve') || row.shape.includes('バルブ');
+    if (isValve) {
+      // バルブはそのまま
+      return spec.weight * row.quantity;
+    }
+
+    // バルブ以外（例：ボルトなど）は比重補正
+    const defaultDensity = materialDensities['SS400'] ?? 7.85;
+    const targetDensity = materialDensities[row.material];
+    if (!targetDensity) return 0;
+
+    const correctedWeight = spec.weight * (targetDensity / defaultDensity);
+    return correctedWeight * row.quantity;
   }
+
 
   // ✅ 通常 fitting の重量計算ロジック
   const density = materialDensities[row.material];

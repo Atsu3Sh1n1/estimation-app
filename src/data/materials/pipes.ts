@@ -838,20 +838,33 @@ export const pipeSpecsTOYO_GN = {
 };
 
 export const pipeSpecsTOYO_SF = {
-"15A":  { "10-UMSRF-VA 10K": { weight: 3.5 }, "10-USRF-VA 10K": { weight: 3.5 },  "USF-N 10K": { weight: 10 },      "20-USRF-VA 20K": { weight: 4.2 }, },
-"20A":  { "10-UMSRF-VA 10K": { weight: 3.9 }, "10-USRF-VA 10K": { weight: 3.9 },  "USF-N 10K": { weight: 10 },      "20-USRF-VA 20K": { weight: 5.3 }, },
-"25A":  { "10-UMSRF-VA 10K": { weight: 5.6 }, "10-USRF-VA 10K": { weight: 5.6 },  "USF-N 10K": { weight: 12 },      "20-USRF-VA 20K": { weight: 6.6 }, },
-"32A":  { "10-UMSRF-VA 10K": { weight: 6.7 }, "10-USRF-VA 10K": { weight: 6.7 },  "USF-N 10K": { weight: 12 },                                         },
-"40A":  { "10-UMSRF-VA 10K": { weight: 9.0 }, "10-USRF-VA 10K": { weight: 9.0 },  "USF-N 10K": { weight: 14 },      "20-USRF-VA 20K": { weight: 10 },  },
-"50A":  { "10-UMSRF-VA 10K": { weight: 11  }, "10-USRF-VA 10K": { weight: 11  },  "USF-N 10K": { weight: 14 },      "20-USRF-VA 20K": { weight: 16 },  },
-"65A":  { "10-UMSRF-VA 10K": { weight: 17  }, "10-USRF-VA 10K": { weight: 17  },  "10-USRF-VK 10K": { weight: 15 }, "20-USRF-VA 20K": { weight: 24 },  },
-"80A":  { "10-UMSRF-VA 10K": { weight: 21  }, "10-USRF-VA 10K": { weight: 21  },  "10-USRF-VK 10K": { weight: 18 }, "20-USRF-VA 20K": { weight: 35 },  },
-"100A": { "10-UMSRF-VA 10K": { weight: 27  }, "10-USRF-VA 10K": { weight: 27  },  "10-USRF-VK 10K": { weight: 25 }, "20-USRF-VA 20K": { weight: 48 },  },
-"125A": { "10-UMSRF-VA 10K": { weight: 42  }, "10-USRF-VA 10K": { weight: 42  },  "10-USRF-VK 10K": { weight: 39 }, "20-USRF-VA 20K": { weight: 77 },  },
-"150A": { "10-UMSRF-VA 10K": { weight: 54  }, "10-USRF-VA 10K": { weight: 54  },  "10-USRF-VK 10K": { weight: 49 }, "20-USRF-VA 20K": { weight: 109 }, },
-"200A": { "10-UMSRF-VA 10K": { weight: 86  }, "10-USRF-VA 10K": { weight: 86  },  "10-USRF-VK 10K": { weight: 73 }, "20-USRF-VA 20K": { weight: 164 }, },
-"250A": { "10-UMSRF-VA 10K": { weight: 135 }, "10-USRF-VA 10K": { weight: 135 },                                    "20-USRF-VA 20K": { weight: 272 }, },
+  "15A": { "10-UMSRF-VA 10K": { weight: 3.5 }, "10-USRF-VA 10K": { weight: 3.5 }, "USF-N 10K": { weight: 10 }, "20-USRF-VA 20K": { weight: 4.2 }, },
+  "20A": { "10-UMSRF-VA 10K": { weight: 3.9 }, "10-USRF-VA 10K": { weight: 3.9 }, "USF-N 10K": { weight: 10 }, "20-USRF-VA 20K": { weight: 5.3 }, },
+  "25A": { "10-UMSRF-VA 10K": { weight: 5.6 }, "10-USRF-VA 10K": { weight: 5.6 }, "USF-N 10K": { weight: 12 }, "20-USRF-VA 20K": { weight: 6.6 }, },
+  "32A": { "10-UMSRF-VA 10K": { weight: 6.7 }, "10-USRF-VA 10K": { weight: 6.7 }, "USF-N 10K": { weight: 12 }, },
+  "40A": { "10-UMSRF-VA 10K": { weight: 9.0 }, "10-USRF-VA 10K": { weight: 9.0 }, "USF-N 10K": { weight: 14 }, "20-USRF-VA 20K": { weight: 10 }, },
+  "50A": { "10-UMSRF-VA 10K": { weight: 11 }, "10-USRF-VA 10K": { weight: 11 }, "USF-N 10K": { weight: 14 }, "20-USRF-VA 20K": { weight: 16 }, },
+  "65A": { "10-UMSRF-VA 10K": { weight: 17 }, "10-USRF-VA 10K": { weight: 17 }, "10-USRF-VK 10K": { weight: 15 }, "20-USRF-VA 20K": { weight: 24 }, },
+  "80A": { "10-UMSRF-VA 10K": { weight: 21 }, "10-USRF-VA 10K": { weight: 21 }, "10-USRF-VK 10K": { weight: 18 }, "20-USRF-VA 20K": { weight: 35 }, },
+  "100A": { "10-UMSRF-VA 10K": { weight: 27 }, "10-USRF-VA 10K": { weight: 27 }, "10-USRF-VK 10K": { weight: 25 }, "20-USRF-VA 20K": { weight: 48 }, },
+  "125A": { "10-UMSRF-VA 10K": { weight: 42 }, "10-USRF-VA 10K": { weight: 42 }, "10-USRF-VK 10K": { weight: 39 }, "20-USRF-VA 20K": { weight: 77 }, },
+  "150A": { "10-UMSRF-VA 10K": { weight: 54 }, "10-USRF-VA 10K": { weight: 54 }, "10-USRF-VK 10K": { weight: 49 }, "20-USRF-VA 20K": { weight: 109 }, },
+  "200A": { "10-UMSRF-VA 10K": { weight: 86 }, "10-USRF-VA 10K": { weight: 86 }, "10-USRF-VK 10K": { weight: 73 }, "20-USRF-VA 20K": { weight: 164 }, },
+  "250A": { "10-UMSRF-VA 10K": { weight: 135 }, "10-USRF-VA 10K": { weight: 135 }, "20-USRF-VA 20K": { weight: 272 }, },
 };
+
+
+export const ss400BoltWeights = {
+    "M12x50": { 'ボルト単品': { weight: 0.038 }, 'ナットset': { weight: 0.038 },'ワッシャ・ナットset': { weight: 0.038 }, '座金・ナットset': { weight: 0.038 }, },
+
+ 
+};
+
+
+
+
+
+
 
 
 
@@ -922,6 +935,9 @@ export const jisMap = {
 
   'B2220_GN': pipeSpecsTOYO_GN,
   'B2220_SF': pipeSpecsTOYO_SF,
+
+  'B1180': ss400BoltWeights,
+
 };
 
 
