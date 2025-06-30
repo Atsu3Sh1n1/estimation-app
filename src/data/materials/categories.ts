@@ -1,37 +1,35 @@
 // src/data/materials/categories.ts
 export const materialCategories: Record<string, MaterialName[]> = {
 
-  ステンレス: [
+  ステンレス_溶接: [
     'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
   ],
 
   ステンレス_ねじ用: [
-    'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
   ],
 
   SGP_溶接用: [
     'SGP_黒', 'SGP_白',
   ],
   SGP_ネジ用: [
-    '可鍛鋳鉄_黒', '可鍛鋳鉄_白',
   ],
 
-  ステンレス配管用304: [
+  ステンレス_304: [
     'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C',
   ],
-  ステンレス配管用304L: [
+  ステンレス_304L: [
     'SUS304LTP_S_H', 'SUS304LTP_S_C', 'SUS304LTP_E_H', 'SUS304LTP_E_C',
   ],
 
-  ステンレス配管用316: [
+  ステンレス_316: [
     'SUS316TP_S_H', 'SUS316TP_S_C', 'SUS316TP_E_H', 'SUS316TP_E_C',
   ],
 
-  ステンレス配管用316L: [
+  ステンレス_316L: [
     'SUS316LTP_S_H', 'SUS316LTP_S_C', 'SUS316LTP_E_H', 'SUS316LTP_E_C',
   ],
 
-  ステンレス配管用特殊: [
+  ステンレス特殊: [
     'SUS430', 'SUS410', 'SUS329J4L',
   ],
 

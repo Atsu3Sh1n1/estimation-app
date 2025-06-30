@@ -1,5 +1,5 @@
 
-export const pipeSpecsA = {
+export const SGP_pipe = {
   "6A": { SGP: { od: 10.5, t: 2.0 }, },
   "8A": { SGP: { od: 13.8, t: 2.3 }, },
   "10A": { SGP: { od: 17.3, t: 2.3 }, },
@@ -26,7 +26,7 @@ export const pipeSpecsA = {
   "500A": { SGP: { od: 508.0, t: 7.9 }, },
 };
 
-export const pipeSpecsF = {
+export const SGP_FSGP = {
   "6A": { FSGP: { od: 10.5, t: 2.0 }, },
   "8A": { FSGP: { od: 13.8, t: 2.3 }, },
   "10A": { FSGP: { od: 17.3, t: 2.3 }, },
@@ -53,7 +53,7 @@ export const pipeSpecsF = {
   "500A": { FSGP: { od: 508.0, t: 7.9 }, },
 };
 
-export const pipeSpecsT = {
+export const FSGP_T = {
   "6A*6A*6A": { FSGP: { od: 10.5, t: 2.0 }, },
   "8A*8A*8A": { FSGP: { od: 13.8, t: 2.3 }, },
   "10A*10A*10A": { FSGP: { od: 17.3, t: 2.3 }, },
@@ -190,7 +190,7 @@ export const pipeSpecsPY = {
   "2000A": { 13.1: { od: 2032.0, t: 13.1 }, 15.1: { od: 2032.0, t: 15.1 }, 15.9: { od: 2032.0, t: 15.9 }, },
 };
 
-export const pipeSpecsB = {
+export const SUS_pipe = {
   "6A": { Sch5s: { od: 10.5, t: 1.0 }, Sch10s: { od: 10.5, t: 1.2 }, Sch20s: { od: 10.5, t: 1.5 }, Sch40s: { od: 10.5, t: 1.7 }, Sch80s: { od: 10.5, t: 2.4 }, },
   "8A": { Sch5s: { od: 13.8, t: 1.2 }, Sch10s: { od: 13.8, t: 1.65 }, Sch20s: { od: 13.8, t: 2.0 }, Sch40s: { od: 13.8, t: 2.2 }, Sch80s: { od: 13.8, t: 3.0 }, },
   "10A": { Sch5s: { od: 17.3, t: 1.2 }, Sch10s: { od: 17.3, t: 1.65 }, Sch20s: { od: 17.3, t: 2.0 }, Sch40s: { od: 17.3, t: 2.3 }, Sch80s: { od: 17.3, t: 3.2 }, },
@@ -220,7 +220,7 @@ export const pipeSpecsB = {
 
 
 
-export const pipeSpecsU = {
+export const SUS_T = {
   "6A*6A*6A": { Sch5s: { od: 10.5, t: 1.0 }, Sch10s: { od: 10.5, t: 1.2 }, Sch20s: { od: 10.5, t: 1.5 }, Sch40: { od: 10.5, t: 1.7 }, Sch80: { od: 10.5, t: 2.4 }, },
   "8A*8A*8A": { Sch5s: { od: 13.8, t: 1.2 }, Sch10s: { od: 13.8, t: 1.65 }, Sch20s: { od: 13.8, t: 2.0 }, Sch40: { od: 13.8, t: 2.2 }, Sch80: { od: 13.8, t: 3.0 }, },
   "10A*10A*10A": { Sch5s: { od: 17.3, t: 1.2 }, Sch10s: { od: 17.3, t: 1.65 }, Sch20s: { od: 17.3, t: 2.0 }, Sch40: { od: 17.3, t: 2.3 }, Sch80: { od: 17.3, t: 3.2 }, },
@@ -248,7 +248,7 @@ export const pipeSpecsU = {
 };
 
 
-export const pipeSpecsQ = {
+export const SUS_TR = {
   "20A*20A*15A": { Sch5s: { od: 27.2, t: 1.65 }, Sch10s: { od: 27.2, t: 2.1 }, Sch20s: { od: 27.2, t: 2.5 }, Sch40: { od: 27.2, t: 2.9 }, Sch80: { od: 27.2, t: 3.9 }, Sch160: { od: 27.2, t: 5.5 } },
   "25A*25A*20A": { Sch5s: { od: 34.0, t: 1.65 }, Sch10s: { od: 34.0, t: 2.8 }, Sch20s: { od: 34.0, t: 3.0 }, Sch40: { od: 34.0, t: 3.4 }, Sch80: { od: 34.0, t: 4.5 }, Sch160: { od: 34.0, t: 6.4 } },
   "25A*25A*15A": { Sch5s: { od: 34.0, t: 1.65 }, Sch10s: { od: 34.0, t: 2.8 }, Sch20s: { od: 34.0, t: 3.0 }, Sch40: { od: 34.0, t: 3.4 }, Sch80: { od: 34.0, t: 4.5 }, Sch160: { od: 34.0, t: 6.4 } },
@@ -356,7 +356,7 @@ export const pipeSpecsG = {
 
 
 
-export const pipeSpecsC = {
+export const SS_pipe = {
   "6A": { Sch40: { od: 10.5, t: 1.7 }, Sch60: { od: 10.5, t: 2.2 }, Sch80: { od: 10.5, t: 2.4 }, },
   "8A": { Sch40: { od: 13.8, t: 2.2 }, Sch60: { od: 13.8, t: 2.4 }, Sch80: { od: 13.8, t: 3.0 }, },
   "10A": { Sch40: { od: 17.3, t: 2.3 }, Sch60: { od: 17.3, t: 2.8 }, Sch80: { od: 17.3, t: 3.2 }, },
@@ -676,7 +676,7 @@ export const pipeSpecsL = {
   "250×250mm": { "25mm": { area: 119.4 }, "35mm": { area: 162.6 }, },
 
 };
-export const pipeSpecsCB = {
+export const SS_pipeB = {
   "75×40mm": { "5mm": { area: 8.818 }, },
   "100×50mm": { "5mm": { area: 11.92 }, },
   "125×65mm": { "6mm": { area: 17.11 }, },
@@ -1377,23 +1377,28 @@ export const ss400BoltWeights = {
 
 
 export const jisMap = {
-  G3452: pipeSpecsA, G3442: pipeSpecsA,
 
-  G3459: pipeSpecsB, B2312: pipeSpecsB,
+  G3452: SGP_pipe,  B2311_SGP: SGP_FSGP,
+  G3442: SGP_pipe,
 
-  G3454: pipeSpecsC, G3456: pipeSpecsC, G3455: pipeSpecsC,
+  G3459: SUS_pipe, B2312_SUS: SUS_pipe,
+
+  G3454: SS_pipe,   B2312_SS: SS_pipe, 
+  G3455: SS_pipe,
+  G3456: SS_pipe,
+
+
 
   G3468: pipeSpecsD,
 
-  B2311: pipeSpecsF,
 
   G3448: pipeSpecsG,
 
-  B2311_T: pipeSpecsT,
+  B2311_T: FSGP_T,
 
-  B2312_T: pipeSpecsU,
+  B2312_T: SUS_T,
 
-  B2312_TR: pipeSpecsQ,
+  B2312_TR: SUS_TR,
 
   B2312_R: pipeSpecsR,
 
@@ -1409,7 +1414,7 @@ export const jisMap = {
 
   G3192_L: pipeSpecsL,
 
-  G3192_C: pipeSpecsCB,
+  G3192_C: SS_pipeB,
 
   G3192_H: pipeSpecsHB,
 
