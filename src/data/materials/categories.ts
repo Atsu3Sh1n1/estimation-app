@@ -1,19 +1,14 @@
 // src/data/materials/categories.ts
 export const materialCategories: Record<string, MaterialName[]> = {
 
-  ステンレス_溶接: [
+  ステンレス: [
     'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
   ],
 
-  ステンレス_ねじ用: [
-  ],
-
-  SGP_溶接用: [
+  SGP: [
     'SGP_黒', 'SGP_白',
   ],
-  SGP_ネジ用: [
-  ],
-
+  
   ステンレス_304: [
     'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C',
   ],

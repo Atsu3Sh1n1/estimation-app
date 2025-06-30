@@ -58,9 +58,9 @@ export const materialPrices: Record<MaterialName, number> = {
   SUS329J4L: 900,
 
   
-  金24K: 15399100,
-  金18K: 11549325,
-  銀Ag: 158400,
+  '24K GOLD': 15399100,
+  '18K GOLD': 11549325,
+  'silver925': 146520,
   銅Cu: 1549,
   プラチナ: 4942050,    
   チタン: 3000,         
