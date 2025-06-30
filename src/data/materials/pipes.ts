@@ -1562,7 +1562,7 @@ export const jisMap = {
   G3459: SUS_pipe, B2312_SUS: SUS_pipe, B2312_SUST: SUS_TS, B2312_TR: SUS_TR,
 
 
-  G3454: SS_pipe, B2312_SS: SS_pipe, B2312_SST: SS_TS, B2312_SSTR: SS_TR, B2312_SSR: SS_R,
+  G3454: SS_pipe, B2312_SS: SS_pipe, B2312_SSTS: SS_TS, B2312_SSTR: SS_TR, B2312_SSR: SS_R,
   G3455: SS_pipe,
   G3456: SS_pipe,
 
