@@ -50,12 +50,6 @@ export const materialCategories: Record<string, MaterialName[]> = {
 
   
 
-
-
-  SGP: [
-    'SGP黒EG', 'SGP黒鍛BH', 'SGP白EG', 'SGP白鍛BC', 'SGPW',
-  ],
-
   高圧: [
     'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E', 'STS370',
     'PG370',
@@ -77,7 +71,7 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   その他: [
-    '金24K', '金18K', '銀Ag', '銅Cu', 'プラチナ', 'チタン', 'アルミ', '鋳鉄',
-    '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン'
+    '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+  
   ]
 };
