@@ -85,7 +85,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
   };
 }
 
-const rows = reactive<(EstimateRowType & { id: number })[]>([createEmptyRow()]);
+const rows = reactive<(EstimateRowType & { id: number })[]>([]);
 const totalFittingInches = useTotalFittingInches(rows);
 
 const totalWeight = computed(() => {
