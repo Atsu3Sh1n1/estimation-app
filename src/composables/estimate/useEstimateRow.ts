@@ -68,7 +68,7 @@ export function useEstimateRow(row: EstimateRow) {
         return 'クラスを選択';
 
       case 'bolt':
-        return 'セット';
+        return '長さを選択';
 
       case 'Flat_Bar':
       case 'Angle':
