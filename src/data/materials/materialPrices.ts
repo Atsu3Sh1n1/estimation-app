@@ -62,7 +62,7 @@ export const materialPrices: Record<MaterialName, number> = {
   '18K GOLD': 11549325,
   'silver925': 146520,
   銅Cu: 1549,
-  プラチナ: 4942050,    
+  'pt900': 4942050,
   チタン: 3000,         
   アルミ: 404,          
   鋳鉄: 400,            
