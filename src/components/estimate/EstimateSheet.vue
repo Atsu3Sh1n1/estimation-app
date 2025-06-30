@@ -19,7 +19,7 @@
       </label>
       <label class="meta-label">
         サポート重量(kg):
-        <input v-model.number="supportWeight" type="number"  min="0" class="meta-input" />
+        <input v-model.number="supportWeight" type="number" min="0" class="meta-input" />
       </label>
     </div>
 
@@ -62,7 +62,7 @@ let idCounter = 0;
 function createEmptyRow(): EstimateRowType & { id: number } {
   return {
     id: ++idCounter,
-    shape: 'pipe',
+    shape: 'pipe2',
     material: '',
     size: '',
     jis: '',
@@ -152,7 +152,7 @@ const isTIG = ref(true); // false ならアーク基準（1DB=0.05人工）
 
 
 // 工数：総重量 × 0.025 + リング数 × 0.1
-const supportLaborFactor = 0.03; // サポート用：1tあたり10人工など
+const supportLaborFactor = 0.025; // サポート用：1tあたり10人工など
 const pipeLaborFactor = 0.025;   // 配管用：1tあたり25人工
 
 const totalManHours = computed(() => {
