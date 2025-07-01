@@ -2,49 +2,70 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>g→kg変換＆コピー</title>
+  <title>g→kg 変換＆コピー（2列合計）</title>
   <style>
     body {
       font-family: sans-serif;
       padding: 20px;
     }
+    .input-container {
+      display: flex;
+      gap: 10px;
+    }
     textarea {
       width: 200px;
       height: 200px;
-      margin: 10px 0;
-      display: block;
     }
     button {
       padding: 10px 20px;
       font-size: 16px;
+      margin-top: 10px;
     }
     #output {
       background-color: #f0f0f0;
+      width: 420px;
+      height: 200px;
+      display: block;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
 
-  <h2>g → kg 変換ツール</h2>
-  <label for="input">g単位の数値を入力（1行ずつ）</label>
-  <textarea id="input" placeholder="例：7.48&#10;8.59&#10;..."></textarea>
+  <h2>g → kg 変換ツール（2列合計）</h2>
+  <div class="input-container">
+    <div>
+      <label for="input1">入力1（g）</label><br>
+      <textarea id="input1" placeholder="例：1000&#10;2000"></textarea>
+    </div>
+    <div>
+      <label for="input2">入力2（g）</label><br>
+      <textarea id="input2" placeholder="例：3000&#10;4000"></textarea>
+    </div>
+  </div>
 
-  <button onclick="convertAndCopy()">kgに変換してコピー</button>
+  <button onclick="convertAndCopy()">合計してkgに変換＆コピー</button>
 
   <label for="output">変換後（kg）</label>
   <textarea id="output" readonly></textarea>
 
   <script>
     function convertAndCopy() {
-      const input = document.getElementById('input').value;
-      const lines = input.split(/\r?\n/);
-      const converted = lines.map(line => {
-        const num = parseFloat(line);
-        return isNaN(num) ? '' : (num / 1000).toFixed(6);
-      }).filter(line => line !== '');
-      const outputText = converted.join('\n');
+      const input1 = document.getElementById('input1').value.split(/\r?\n/);
+      const input2 = document.getElementById('input2').value.split(/\r?\n/);
+      const maxLength = Math.max(input1.length, input2.length);
+
+      const result = [];
+
+      for (let i = 0; i < maxLength; i++) {
+        const val1 = parseFloat(input1[i]) || 0;
+        const val2 = parseFloat(input2[i]) || 0;
+        const sumKg = (val1 + val2) / 1000;
+        result.push(sumKg.toFixed(6));
+      }
+
       const outputArea = document.getElementById('output');
-      outputArea.value = outputText;
+      outputArea.value = result.join('\n');
 
       // コピー処理
       outputArea.select();
