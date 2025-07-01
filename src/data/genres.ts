@@ -36,6 +36,8 @@ export const shapeGroups = [
         groupName: 'ボルト・ナット・座金',
         shapes: [
             { value: 'bolt', label: 'ボルト' },
+            { value: 'bolt_set', label: 'ボルト・ナット set' },
+
         ],
     },
 
