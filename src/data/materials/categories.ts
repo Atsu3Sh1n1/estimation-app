@@ -6,7 +6,7 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   SGP: [
-    'SGP_黒', 'SGP_白',
+    'SGP黒 5.5m', 'SGP黒ネジ 5.5m','SGP白5.5m', 'SGP白ネジ5.5m', 'SGPW',
   ],
   
   ステンレス_304: [
