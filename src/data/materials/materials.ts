@@ -51,6 +51,7 @@ export const materialDensities: Record<string, number> = {
     SUS304_TP_E_H: 7930,
     SUS304_TP_E_C: 7930,
     'SUS304_TP_Y': 7930,
+    'SUS304_TP_D': 7930,
 
     SUS304L: 7920,
     'SUS304L_TP_A': 7920,
@@ -59,6 +60,7 @@ export const materialDensities: Record<string, number> = {
     SUS304L_TP_E_H: 7920,
     SUS304L_TP_E_C: 7920,
     'SUS304L_TP_Y': 7920,
+    'SUS304L_TP_D': 7920,
 
     SUS316: 8000,
     'SUS316_TP_A': 8000,
@@ -67,6 +69,7 @@ export const materialDensities: Record<string, number> = {
     SUS316_TP_E_H: 8000,
     SUS316_TP_E_C: 8000,
     'SUS316_TP_Y': 8000,
+    'SUS316_TP_D': 8000,
 
 
     SUS316L: 7990,
@@ -76,6 +79,7 @@ export const materialDensities: Record<string, number> = {
     SUS316L_TP_E_H: 7990,
     SUS316L_TP_E_C: 7990,
     'SUS316L_TP_Y': 7990,
+    'SUS316L_TP_D': 7990,
 
  
     SUS304_TPD: 7930,

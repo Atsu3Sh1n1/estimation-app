@@ -55,7 +55,7 @@ export const materialPrices: Record<MaterialName, number> = {
   SUS304_TP_E_C: 750,
   'SUS304_TP_Y': 750,
   'SUS304_TP_Y_S': 750,
-
+  'SUS304_TP_D': 750,
 
   SUS304L: 740,
   'SUS304L_TP_A': 740,
@@ -64,6 +64,7 @@ export const materialPrices: Record<MaterialName, number> = {
   SUS304L_TP_E_H: 740,
   SUS304L_TP_E_C: 740,
   'SUS304L_TP_Y': 740,
+  'SUS304L_TP_D': 740,
 
   SUS316: 850,
   'SUS316_TP_A': 850,
@@ -72,6 +73,8 @@ export const materialPrices: Record<MaterialName, number> = {
   SUS316_TP_E_H: 850,
   SUS316_TP_E_C: 850,
   'SUS316_TP_Y': 850,
+  'SUS316_TP_D': 850,
+
 
   SUS316L: 840,
   'SUS316L_TP_A': 840,
@@ -80,6 +83,8 @@ export const materialPrices: Record<MaterialName, number> = {
   SUS316L_TP_E_H: 840,
   SUS316L_TP_E_C: 840,
   'SUS316L_TP_Y': 840,
+  'SUS316L_TP_D': 840,
+
 
   SUS304_TPD: 760,
   SUS430: 600,
