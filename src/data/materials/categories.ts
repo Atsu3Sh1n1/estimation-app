@@ -6,22 +6,22 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   SGP: [
-    'SGP黒 5.5m', 'SGP白 5.5m', 'SGP白ネジ付 5.5m', 'SGP白ネジ付 4m', 'SGPW',
+    'SGP黒 5.5m', 'SGP白 5.5m', 'SGP白ネジ付 5.5m', 'SGP白ネジ付 4m', 'SGPW', 'SGP_黒', 'SGP_白',
   ],
   
   ステンレス_304: [
-    'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C',
+    'SUS304_TP_A', 'SUS304_TP_Y', 'SUS304_TP_Y_S','SUS304_TP_S_H', 'SUS304_TP_S_C', 'SUS304_TP_E_H', 'SUS304_TP_E_C',
   ],
   ステンレス_304L: [
-    'SUS304LTP_S_H', 'SUS304LTP_S_C', 'SUS304LTP_E_H', 'SUS304LTP_E_C',
+    'SUS304L_TP_A', 'SUS304L_TP_Y', 'SUS304L_TP_Y_S', 'SUS304L_TP_S_H', 'SUS304L_TP_S_C', 'SUS304L_TP_E_H', 'SUS304L_TP_E_C',
   ],
 
   ステンレス_316: [
-    'SUS316TP_S_H', 'SUS316TP_S_C', 'SUS316TP_E_H', 'SUS316TP_E_C',
+    'SUS316_TP_A', 'SUS316_TP_Y', 'SUS316_TP_Y_S','SUS316_TP_S_H', 'SUS316_TP_S_C', 'SUS316_TP_E_H', 'SUS316_TP_E_C',
   ],
 
   ステンレス_316L: [
-    'SUS316LTP_S_H', 'SUS316LTP_S_C', 'SUS316LTP_E_H', 'SUS316LTP_E_C',
+    'SUS316L_TP_A', 'SUS316L_TP_Y', 'SUS316L_TP_Y_S','SUS316L_TP_S_H', 'SUS316L_TP_S_C', 'SUS316L_TP_E_H', 'SUS316L_TP_E_C',
   ],
 
   ステンレス特殊: [
@@ -62,8 +62,7 @@ export const materialCategories: Record<string, MaterialName[]> = {
   ],
 
   ステンレス一般: [
-    'SUS304TPA', 'SUS304LTPA', 'SUS316TPA', 'SUS316LTPA',
-    'SUS304TPD', 'SUS304LTPD', 'SUS316TPD', 'SUS316LTPD',
+    'SUS304_TPD', 'SUS304L_TPD', 'SUS316_TPD', 'SUS316L_TPD',
   ],
 
   アーク溶接炭素鋼鋼管: [

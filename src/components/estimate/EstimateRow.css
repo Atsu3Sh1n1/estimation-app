@@ -112,7 +112,7 @@ select optgroup {
 /* 各項目はオレンジ文字で背景は黒 */
 select option {
   background-color: #000;
-  color: #ff9e2f;;
+  color: #ff9e2f;
   font-size: 1em;
   padding: 3px 6px;
 }
@@ -120,7 +120,7 @@ select option {
 
 
 select {
-  color: orange; /* 選択済みはオレンジ */
+  color: #ff9e2f; /* 選択済みはオレンジ */
   background-color: #000;
 }
 
@@ -130,7 +130,7 @@ select.not-selected {
 
 .input-with-unit input.filled {
   background-color: #000;
-  color: orange;
+  color: #ff9e2f;
   border: 1px solid #666;
 }
 
@@ -145,7 +145,7 @@ select.not-selected {
 .input-with-unit.left-label .unit {
   margin-right: 6px;
   font-size: 0.9em;
-  color: orange;
+  color: #ff9e2f;
   pointer-events: none;
 }
 

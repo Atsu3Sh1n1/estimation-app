@@ -4,7 +4,7 @@ export const fittingCompatibility = {
     pipe: {
 
         materials: [
-            'SGP黒 5.5m', 'SGP白 5.5m', 'SGP白ネジ付 5.5m', 'SGP白ネジ付 4m','SGPW',
+            'SGP黒 5.5m', 'SGP白 5.5m', 'SGP白ネジ付 5.5m', 'SGP白ネジ付 4m', 'SGPW',
             'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E',
             'STS370',
             'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT480S', 'STPT480E',
@@ -25,23 +25,36 @@ export const fittingCompatibility = {
     pipe2: {
 
         materials: [
-            'SUS304TPD', 'SUS304LTPD', 'SUS316TPD', 'SUS316LTPD',
-            'SUS304TPA', 'SUS304LTPA', 'SUS316TPA', 'SUS316LTPA',
-            'SUS304TP_S_H', 'SUS304TP_S_C', 'SUS304TP_E_H', 'SUS304TP_E_C',
-            'SUS304LTP_S_H', 'SUS304LTP_S_C', 'SUS304LTP_E_H', 'SUS304LTP_E_C',
-            'SUS316TP_S_H', 'SUS316TP_S_C', 'SUS316TP_E_H', 'SUS316TP_E_C',
-            'SUS316LTP_S_H', 'SUS316LTP_S_C', 'SUS316LTP_E_H', 'SUS316LTP_E_C',
+            'SUS304_TP_A', 'SUS304_TP_Y', 'SUS304_TP_Y_S',
+            'SUS304_TP_S_H', 'SUS304_TP_S_C', 'SUS304_TP_E_H', 'SUS304_TP_E_C',
+
+            'SUS304L_TP_A', 'SUS304L_TP_Y', 'SUS304L_TP_Y_S',
+            'SUS304L_TP_S_H', 'SUS304L_TP_S_C', 'SUS304L_TP_E_H', 'SUS304L_TP_E_C',
+
+            'SUS316_TP_A', 'SUS316_TP_Y', 'SUS316_TP_Y_S',
+            'SUS316_TP_S_H', 'SUS316_TP_S_C', 'SUS316_TP_E_H', 'SUS316_TP_E_C',
+            
+            'SUS316L_TP_A', 'SUS316L_TP_Y', 'SUS316L_TP_Y_S',
+            'SUS316L_TP_S_H', 'SUS316L_TP_S_C', 'SUS316L_TP_E_H', 'SUS316L_TP_E_C',
+
             'SUS430', 'SUS410', 'SUS329J4L',
             '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
 
         jisMap: {
-            SUS304TPD: ['G3448_SUS'], SUS304LTPD: ['G3448_SUS'], SUS316TPD: ['G3448_SUS'], SUS316LTPD: ['G3448_SUS'], SUS304TPY: ['G3468'],
-            SUS304TPA: ['G3448_SUS'], SUS304LTPA: ['G3448_SUS'], SUS316TPA: ['G3448_SUS'], SUS316LTPA: ['G3448_SUS'],
-            SUS304TP_S_H: ['G3459'], SUS304TP_S_C: ['G3459'], SUS304TP_E_H: ['G3459'], SUS304TP_E_C: ['G3459'],
-            SUS304LTP_S_H: ['G3459'], SUS304LTP_S_C: ['G3459'], SUS304LTP_E_H: ['G3459'], SUS304LTP_E_C: ['G3459'],
-            SUS316TP_S_H: ['G3459'], SUS316TP_S_C: ['G3459'], SUS316TP_E_H: ['G3459'], SUS316TP_E_C: ['G3459'],
-            SUS316LTP_S_H: ['G3459'], SUS316LTP_S_C: ['G3459'], SUS316LTP_E_H: ['G3459'], SUS316LTP_E_C: ['G3459'],
+
+            SUS304_TP_A: ['G3459'], SUS304_TP_Y: ['G3468'], SUS304_TP_Y_S: ['G3468'],
+            SUS304_TP_S_H: ['G3459'], SUS304_TP_S_C: ['G3459'], SUS304_TP_E_H: ['G3459'], SUS304_TP_E_C: ['G3459'],
+
+            SUS304L_TP_A: ['G3459'], SUS304L_TP_Y: ['G3468'], SUS304L_TP_Y_S: ['G3468'],
+            SUS304L_TP_S_H: ['G3459'], SUS304L_TP_S_C: ['G3459'], SUS304L_TP_E_H: ['G3459'], SUS304L_TP_E_C: ['G3459'],
+
+            SUS316_TP_A: ['G3459'], SUS316_TP_Y: ['G3468'], SUS316_TP_Y_S: ['G3468'],
+            SUS316_TP_S_H: ['G3459'], SUS316_TP_S_C: ['G3459'], SUS316_TP_E_H: ['G3459'], SUS316_TP_E_C: ['G3459'],
+
+            SUS316L_TP_A: ['G3459'], SUS316L_TP_Y: ['G3468'], SUS316L_TP_Y_S: ['G3468'],
+            SUS316L_TP_S_H: ['G3459'], SUS316L_TP_S_C: ['G3459'], SUS316L_TP_E_H: ['G3459'], SUS316L_TP_E_C: ['G3459'],
+
             SUS430: ['G3459'], SUS410: ['G3459'], SUS329J4L: ['G3459'],
             '24K GOLD': ['G3459'], '18K GOLD': ['G3459'], 'silver925': ['G3459'], 銅Cu: ['G3459'], 'pt900': ['G3459'], チタン: ['G3459'],
         },
@@ -51,7 +64,7 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
@@ -62,7 +75,7 @@ export const fittingCompatibility = {
         jisMap: {
             SGP_黒: ['B2311_SGP'], SGP_白: ['B2311_SGP'], PG370: ['B2312_SS'], PT370: ['B2312_SS'],
 
-            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304_TPD: ['G3448_SUS'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -77,7 +90,7 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
@@ -88,7 +101,7 @@ export const fittingCompatibility = {
         jisMap: {
             SGP_黒: ['B2311_SGP'], SGP_白: ['B2311_SGP'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SS'], PT370: ['B2312_SS'], ST370: ['B2312_SS'],
 
-            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304_TPD: ['G3448_SUS'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -104,7 +117,7 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
@@ -116,7 +129,7 @@ export const fittingCompatibility = {
 
             SGP_黒: ['B2311_TS'], SGP_白: ['B2311_TS'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTS'], PT370: ['B2312_SSTS'], ST370: ['B2312_SSTS'],
 
-            SUS304: ['B2312_SUST'], SUS304L: ['B2312_SUST'], SUS316: ['B2312_SUST'], SUS316L: ['B2312_SUST'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_SUST'], SUS304L: ['B2312_SUST'], SUS316: ['B2312_SUST'], SUS316L: ['B2312_SUST'], SUS304_TPD: ['G3448_SUS'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -130,7 +143,7 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
@@ -141,7 +154,7 @@ export const fittingCompatibility = {
         jisMap: {
             SGP_黒: ['B2311_TR'], SGP_白: ['B2311_TR'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTR'], PT370: ['B2312_SSTR'], ST370: ['B2312_SSTR'],
 
-            SUS304: ['B2312_TR'], SUS304L: ['B2312_TR'], SUS316: ['B2312_TR'], SUS316L: ['B2312_TR'], SUS304TPD: [''],
+            SUS304: ['B2312_TR'], SUS304L: ['B2312_TR'], SUS316: ['B2312_TR'], SUS316L: ['B2312_TR'], SUS304_TPD: [''],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -155,7 +168,7 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
@@ -166,7 +179,7 @@ export const fittingCompatibility = {
         jisMap: {
             SGP_黒: ['B2311_SGP'], SGP_白: ['B2311_SGP'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SS'], PT370: ['B2312_SS'], ST370: ['B2312_SS'],
 
-            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304_TPD: ['G3448_SUS'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -180,16 +193,16 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS430', 'SUS410', 'SUS329J4L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SGP_黒: ['B2311_SGP'], SGP_白: ['B2311_SGP'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SS'], PT370: ['B2312_SS'], ST370: ['B2312_SS'],
 
-            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_SUS'], SUS304L: ['B2312_SUS'], SUS316: ['B2312_SUS'], SUS316L: ['B2312_SUS'], SUS304_TPD: ['G3448_SUS'],
 
             SUS430: ['B2312_SUS'], SUS410: ['B2312_SUS'], SUS329J4L: ['B2312_SUS'],
 
@@ -203,19 +216,19 @@ export const fittingCompatibility = {
         materials: [
             'SGP_黒', 'SGP_白', '可鍛鋳鉄_黒', '可鍛鋳鉄_白', 'PG370', 'PT370', 'ST370',
 
-            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304TPD',
+            'SUS304', 'SUS304L', 'SUS316', 'SUS316L', 'SUS304_TPD',
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
             'SUS430', 'SUS410', 'SUS329J4L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
 
         jisMap: {
             SGP_黒: [''], SGP_白: [''], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSR'], PT370: ['B2312_SSR'], ST370: ['B2312_SSR'],
 
-            SUS304: ['B2312_R'], SUS304L: ['B2312_R'], SUS316: ['B2312_R'], SUS316L: ['B2312_R'], SUS304TPD: ['G3448_SUS'],
+            SUS304: ['B2312_R'], SUS304L: ['B2312_R'], SUS316: ['B2312_R'], SUS316L: ['B2312_R'], SUS304_TPD: ['G3448_SUS'],
 
             SUS304_PT: [''], SUS304L_PT: [''], SUS316_PT: [''], SUS316L_PT: [''],
 
@@ -234,7 +247,7 @@ export const fittingCompatibility = {
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['B2220_F'],
@@ -253,13 +266,13 @@ export const fittingCompatibility = {
 
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
 
             SS400: [''],
 
-            SUS304: ['B2220_BL'], SUS304L: ['B2220_BL'], SUS316: ['B2220_BL'], SUS316L: ['B2220_BL'], SUS304TPD: [''],
+            SUS304: ['B2220_BL'], SUS304L: ['B2220_BL'], SUS316: ['B2220_BL'], SUS316L: ['B2220_BL'], SUS304_TPD: [''],
 
             '24K GOLD': ['B2220_BL'], '18K GOLD': ['B2220_BL'], 'silver925': ['B2220_BL'], 銅Cu: ['B2220_BL'], 'pt900': ['B2220_BL'], チタン: ['B2220_BL'],
         },
@@ -269,7 +282,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3194'],
@@ -296,7 +309,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_C'],
@@ -309,7 +322,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_H'],
@@ -322,7 +335,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_R'],
@@ -335,7 +348,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_ABS'],
@@ -348,7 +361,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_PCF'],
