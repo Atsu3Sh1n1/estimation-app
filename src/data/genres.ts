@@ -18,7 +18,6 @@ export const shapeGroups = [
             { value: 'tee_reducing', label: 'TEE(R) 径違い' },
             { value: 'reducer', label: 'R(C) レジューサ/同芯' },
             { value: 'reducer', label: 'R(E) レジューサ/偏芯' },
-
         ],
     },
 
@@ -29,28 +28,20 @@ export const shapeGroups = [
             { value: 'BL_flat_flange', label: 'BL-FF 閉止フランジ' },
             { value: 'flat_flange', label: 'SOP-RF 板フランジ' },
             { value: 'BL_flat_flange', label: 'BL-RF 閉止フランジ' },
-
         ],
     },
-        {
-        groupName: 'ボルト・ナット・座金',
+    {
+        groupName: 'ボルト・ナット',
         shapes: [
-            { value: 'bolt', label: 'ボルト' },
-            { value: 'bolt_set', label: 'ボルト・ナット set' },
-
+            { value: 'bolt', label: 'ボルト 単品' },
+            { value: 'bolt_set', label: 'ボルト ナット set' },
         ],
     },
-
-
-
-
 
     {
         groupName: 'バルブ',
         shapes: [
             { value: 'Ball_Valve_TOYO', label: 'バルブ・TOYO' },
-            { value: 'Valve_KITZ', label: 'バルブ・KITZ' },
-
         ],
     },
 
@@ -59,13 +50,12 @@ export const shapeGroups = [
         shapes: [
             { value: 'Flat_Bar', label: '平鋼 (フラットバー)' },
             { value: 'Angle', label: '等辺山形鋼 (アングル)' },
-            { value: 'Angle', label: '等辺山形鋼 (アングル)カラー' },
+            { value: 'Angle', label: '等辺山形鋼 カラー' },
             { value: 'Channel', label: '溝形鋼 (チャンネル)' },
             { value: 'H_Beam', label: 'Ｈ形鋼（HB）' },
             { value: 'Round_Bar', label: '丸鋼（RB）' },
             { value: 'ABS_Angle', label: '不等辺山形鋼 (ABS)' },
             { value: 'PCF_Channel', label: '平行フランジ溝形鋼（PFC）' },
-
         ],
     },
 

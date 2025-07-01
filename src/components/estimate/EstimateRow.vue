@@ -1,7 +1,7 @@
 <template>
   <div class="row">
     <!-- 形状 -->
-    <select v-model="localRow.shape">
+    <select v-model="localRow.shape" :class="{ 'not-selected': localRow.shape === '' }">
       <option disabled value="" hidden>形状を選択</option>
       <optgroup v-for="group in shapeGroups" :key="group.groupName" :label="group.groupName">
         <option v-for="shape in group.shapes" :key="shape.value" :value="shape.value">
@@ -11,7 +11,7 @@
     </select>
 
     <!-- 材質 -->
-    <select v-model="localRow.material" :class="materialClass">
+    <select v-model="localRow.material" :class="[materialClass, { 'not-selected': localRow.material === '' }]">
       <option disabled value="" hidden>材質を選択</option>
       <optgroup v-for="group in availableMaterialsByGroup" :key="group.groupName" :label="group.groupName">
         <option v-for="mat in group.materials" :key="mat" :value="mat">
@@ -21,7 +21,7 @@
     </select>
 
     <!-- JIS種別 -->
-    <select v-model="localRow.jis" :class="jisClass">
+    <select v-model="localRow.jis" :class="[jisClass, { 'not-selected': localRow.jis === '' }]">
       <option disabled value="" hidden>JIS/型番</option>
       <option v-for="jis in availableJis" :key="jis" :value="jis">
         {{ jis }}
@@ -29,7 +29,7 @@
     </select>
 
     <!-- サイズ -->
-    <select v-model="localRow.size" :class="sizeClass">
+    <select v-model="localRow.size" :class="[sizeClass, { 'not-selected': localRow.size === '' }, 'numeric-select']">
       <option disabled value="" hidden>サイズを選択</option>
       <option v-for="(val, key) in pipeSizes[localRow.jis] || {}" :key="key" :value="key">
         {{ key }}
@@ -37,25 +37,25 @@
     </select>
 
     <!-- 厚み種別セレクト（ラベルなし）-->
-    <select v-model="localRow.schedule" :class="scheduleClass">
+    <select v-model="localRow.schedule"
+      :class="[scheduleClass, { 'not-selected': localRow.schedule === '' }, 'numeric-select']">
       <option disabled value="" hidden>{{ thicknessLabel }}</option>
       <option v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
 
-
-
-
     <!-- 長さ -->
     <div v-if="SHAPES_WITH_FIXED_LENGTH.includes(localRow.shape)" class="input-with-unit">
-      <input v-model.number="localRow.length" type="number" min="0" step="0.01" :class="{ error: !localRow.length }" />
+      <input v-model.number="localRow.length" type="number" min="0" step="0.01"
+        :class="[{ 'filled': localRow.length }, { error: !localRow.length }]" />
       <span class="unit">m</span>
     </div>
 
     <!-- 個数 -->
     <div v-else class="input-with-unit">
-      <input v-model.number="localRow.quantity" type="number" min="0" step="1" :class="{ error: !localRow.quantity }" />
+      <input v-model.number="localRow.quantity" type="number" min="0" step="1"
+        :class="[{ 'filled': localRow.quantity }, { error: !localRow.quantity }]" />
       <span class="unit">個</span>
     </div>
 
@@ -63,19 +63,19 @@
     <!-- 重量 -->
     <span>{{ weight.toFixed(3) }} kg</span>
 
-
     <!-- 金額 -->
     <span>
-      ※材質原価 {{
+      ※材質原価
+      {{
         (price * (shapePriceFactor[localRow.shape] ?? 1)).toLocaleString()
-      }} 円
+      }}
+      円
     </span>
 
     <!-- 定尺本数 -->
     <span v-if="SHAPES_WITH_FIXED_LENGTH.includes(localRow.shape)">
       定尺 {{ pipeLengthCount.toFixed(0) }} 本
     </span>
-
 
     <button @click="$emit('remove')">削除</button>
   </div>

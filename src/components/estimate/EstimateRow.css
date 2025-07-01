@@ -18,11 +18,12 @@ input {
   padding: 4px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  min-width: 100px;
+  min-width: 60px;
 }
 
 input[type="number"] {
   width: 100px;
+  
 }
 
 button {
@@ -81,7 +82,8 @@ input.error {
   right: 6px;
   top: 50%;
   transform: translateY(-50%);
-  color: #666666;
+  color: orange;
+  
   font-size: 0.9em;
   pointer-events: none;
 }
@@ -111,6 +113,26 @@ select optgroup {
 select option {
   background-color: #000;
   color: #ff9e2f;;
-  font-size: 0.85em;
+  font-size: 1em;
   padding: 3px 6px;
 }
+
+
+
+select {
+  color: orange; /* 選択済みはオレンジ */
+  background-color: #000;
+}
+
+select.not-selected {
+  color: #888; /* 未選択（プレースホルダー）は灰色 */
+}
+
+.input-with-unit input.filled {
+  background-color: #000;
+  color: orange;
+  border: 1px solid #666;
+}
+
+
+

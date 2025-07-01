@@ -184,7 +184,7 @@ export const fittingCompatibility = {
 
             'SUS430', 'SUS410', 'SUS329J4L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SGP_黒: ['B2311_SGP'], SGP_白: ['B2311_SGP'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SS'], PT370: ['B2312_SS'], ST370: ['B2312_SS'],
@@ -209,7 +209,7 @@ export const fittingCompatibility = {
 
             'SUS430', 'SUS410', 'SUS329J4L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
 
         jisMap: {
@@ -234,7 +234,7 @@ export const fittingCompatibility = {
 
             'SUS304_PT', 'SUS304L_PT', 'SUS316_PT', 'SUS316L_PT',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['B2220_F'],
@@ -253,7 +253,7 @@ export const fittingCompatibility = {
 
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
 
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
 
@@ -269,13 +269,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3194'],
             SUS304: ['G3194'], SUS304L: ['G3194'], SUS316: ['G3194'], SUS316L: ['G3194'],
             '24K GOLD': ['G3194'], '18K GOLD': ['G3194'], 'silver925': ['G3194'], 銅Cu: ['G3194'], 'pt900': ['G3194'], チタン: ['G3194'],
-            アルミ: ['G3194'], 鋳鉄: ['G3194'], PEポリエチレン: ['G3194'], タングステン: ['G3194'],
         },
     },
 
@@ -284,13 +283,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
             SS400: ['G3192_L'],
             SUS304: ['G3192_L'], SUS304L: ['G3192_L'], SUS316: ['G3192_L'], SUS316L: ['G3192_L'],
             '24K GOLD': ['G3192_L'], '18K GOLD': ['G3192_L'], 'silver925': ['G3192_L'], 銅Cu: ['G3192_L'], 'pt900': ['G3192_L'], チタン: ['G3192_L'],
-            アルミ: ['G3192_L'], 鋳鉄: ['G3192_L'], PEポリエチレン: ['G3192_L'], タングステン: ['G3192_L'],
         },
     },
 
@@ -298,13 +296,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3192_C'],
             SUS304: ['G3192_C'], SUS304L: ['G3192_C'], SUS316: ['G3192_C'], SUS316L: ['G3192_C'],
             '24K GOLD': ['G3192_C'], '18K GOLD': ['G3192_C'], 'silver925': ['G3192_C'], 銅Cu: ['G3192_C'], 'pt900': ['G3192_C'], チタン: ['G3192_C'],
-            アルミ: ['G3192_C'], 鋳鉄: ['G3192_C'], PEポリエチレン: ['G3192_C'], タングステン: ['G3192_C'],
         },
     },
 
@@ -312,13 +309,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3192_H'],
             SUS304: ['G3192_H'], SUS304L: ['G3192_H'], SUS316: ['G3192_H'], SUS316L: ['G3192_H'],
             '24K GOLD': ['G3192_H'], '18K GOLD': ['G3192_H'], 'silver925': ['G3192_H'], 銅Cu: ['G3192_H'], 'pt900': ['G3192_H'], チタン: ['G3192_H'],
-            アルミ: ['G3192_H'], 鋳鉄: ['G3192_H'], PEポリエチレン: ['G3192_H'], タングステン: ['G3192_H'],
         },
     },
 
@@ -326,13 +322,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3192_R'],
             SUS304: ['G3192_R'], SUS304L: ['G3192_R'], SUS316: ['G3192_R'], SUS316L: ['G3192_R'],
             '24K GOLD': ['G3192_R'], '18K GOLD': ['G3192_R'], 'silver925': ['G3192_R'], 銅Cu: ['G3192_R'], 'pt900': ['G3192_R'], チタン: ['G3192_R'],
-            アルミ: ['G3192_R'], 鋳鉄: ['G3192_R'], PEポリエチレン: ['G3192_R'], タングステン: ['G3192_R'],
         },
     },
 
@@ -340,7 +335,7 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3192_ABS'],
@@ -353,13 +348,12 @@ export const fittingCompatibility = {
         materials: [
             'SS400',
             'SUS304', 'SUS304L', 'SUS316', 'SUS316L',
-            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 'アルミ', '鋳鉄', '塩ビPVC', 'PEポリエチレン', 'ダイヤモンド', 'タングステン',
+            '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン', 
         ],
         jisMap: {
             SS400: ['G3192_PCF'],
             SUS304: ['G3192_PCF'], SUS304L: ['G3192_PCF'], SUS316: ['G3192_PCF'], SUS316L: ['G3192_PCF'],
             '24K GOLD': ['G3192_PCF'], '18K GOLD': ['G3192_PCF'], 'silver925': ['G3192_PCF'], 銅Cu: ['G3192_PCF'], 'pt900': ['G3192_PCF'], チタン: ['G3192_PCF'],
-            アルミ: ['G3192_PCF'], 鋳鉄: ['G3192_PCF'], PEポリエチレン: ['G3192_PCF'], タングステン: ['G3192_PCF'],
         },
     },
 
