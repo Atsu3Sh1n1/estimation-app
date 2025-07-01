@@ -136,3 +136,21 @@ select.not-selected {
 
 
 
+.input-with-unit.left-label {
+  display: flex;
+  align-items: center;
+  width: auto;
+}
+
+.input-with-unit.left-label .unit {
+  margin-right: 6px;
+  font-size: 0.9em;
+  color: orange;
+  pointer-events: none;
+}
+
+.input-with-unit.left-label input[type="number"] {
+  width: 100px;
+  padding-right: 8px;
+  padding-left: 8px;
+}

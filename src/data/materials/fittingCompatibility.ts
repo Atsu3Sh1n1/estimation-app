@@ -114,7 +114,7 @@ export const fittingCompatibility = {
         ],
         jisMap: {
 
-            SGP_黒: ['B2311_T'], SGP_白: ['B2311_T'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTS'], PT370: ['B2312_SSTS'], ST370: ['B2312_SSTS'],
+            SGP_黒: ['B2311_TS'], SGP_白: ['B2311_TS'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTS'], PT370: ['B2312_SSTS'], ST370: ['B2312_SSTS'],
 
             SUS304: ['B2312_SUST'], SUS304L: ['B2312_SUST'], SUS316: ['B2312_SUST'], SUS316L: ['B2312_SUST'], SUS304TPD: ['G3448_SUS'],
 
@@ -139,7 +139,7 @@ export const fittingCompatibility = {
             '24K GOLD', '18K GOLD', 'silver925', '銅Cu', 'pt900', 'チタン',
         ],
         jisMap: {
-            SGP_黒: [''], SGP_白: [''], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTR'], PT370: ['B2312_SSTR'], ST370: ['B2312_SSTR'],
+            SGP_黒: ['B2311_TR'], SGP_白: ['B2311_TR'], 可鍛鋳鉄_黒: [''], 可鍛鋳鉄_白: [''], PG370: ['B2312_SSTR'], PT370: ['B2312_SSTR'], ST370: ['B2312_SSTR'],
 
             SUS304: ['B2312_TR'], SUS304L: ['B2312_TR'], SUS316: ['B2312_TR'], SUS316L: ['B2312_TR'], SUS304TPD: [''],
 
