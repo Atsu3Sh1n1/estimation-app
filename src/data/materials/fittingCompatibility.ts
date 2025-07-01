@@ -4,7 +4,7 @@ export const fittingCompatibility = {
     pipe: {
 
         materials: [
-            'SGP黒5.5m', 'SGP黒ネジ5.5m', 'SGP白5.5m', 'SGP白ネジ5.5m', 'SGPW',
+            'SGP黒 5.5m', 'SGP白 5.5m', 'SGP白ネジ付 5.5m', 'SGP白ネジ付 4m','SGPW',
             'STPG370S', 'STPG370E', 'STPG410S', 'STPG410E',
             'STS370',
             'STPT370S', 'STPT370E', 'STPT410S', 'STPT410E', 'STPT480S', 'STPT480E',
@@ -13,7 +13,7 @@ export const fittingCompatibility = {
         ],
 
         jisMap: {
-            'SGP黒5.5m': ['G3452'], 'SGP黒ネジ5.5m': ['G3452'], 'SGP白5.5m': ['G3452'], 'SGP白ネジ5.5m': ['G3452'], 'SGPW': ['G3442'],
+            'SGP黒 5.5m': ['G3452'], 'SGP白 5.5m': ['G3452'], 'SGP白ネジ付 5.5m': ['G3452'], 'SGP白ネジ付 4m': ['G3452_N'], 'SGPW': ['G3442'],
             'STPG370S': ['G3454'], 'STPG370E': ['G3454'], 'STPG410S': ['G3454'], 'STPG410E': ['G3454'],
             'STS370': ['G3455'],
             'STPT370S': ['G3456'], 'STPT370E': ['G3456'], 'STPT410S': ['G3456'], 'STPT410E': ['G3456'], 'STPT480S': ['G3456'], 'STPT480E': ['G3456'],

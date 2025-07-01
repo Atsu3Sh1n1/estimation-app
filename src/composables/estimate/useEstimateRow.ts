@@ -38,10 +38,15 @@ export function useEstimateRow(row: EstimateRow) {
     if (!SHAPES_WITH_FIXED_LENGTH.includes(row.shape)) return 0;
     const len = Number(row.length);
     if (!len || isNaN(len)) return 0;
-    const isStainless = row.material?.startsWith('SUS');
-    const stdLength = isStainless ? 4 : 5.5;
+
+    const material = row.material?.toLowerCase() ?? '';
+    const isStainless = material.startsWith('sus');
+    const is4mPipe = material.includes('4m');
+    const stdLength = isStainless || is4mPipe ? 4 : 5.5;
+
     return Math.ceil(len / stdLength);
   });
+
 
   const thicknessLabel = computed(() => {
     const shape = row.shape;

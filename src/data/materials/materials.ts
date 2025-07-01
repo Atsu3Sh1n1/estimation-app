@@ -1,8 +1,8 @@
 export const materialDensities: Record<string, number> = {
-    SGP黒EG: 7850,
-    SGP黒鍛BH: 7850,
-    SGP白EG: 7850,
-    SGP白鍛BC: 7850,
+    'SGP黒 5.5m': 7850,
+    'SGP白 5.5m': 7850,
+    'SGP白ネジ付 5.5m': 7850,
+    'SGP白ネジ付 4m': 7850,
     SGP_黒: 7850,
     SGP_白: 7850,
     可鍛鋳鉄_黒: 7850,

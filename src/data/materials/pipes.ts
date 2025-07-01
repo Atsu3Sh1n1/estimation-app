@@ -25,6 +25,22 @@ export const SGP_pipe = {
   "450A": { SGP: { od: 457.2, t: 7.9 }, },
   "500A": { SGP: { od: 508.0, t: 7.9 }, },
 };
+export const SGP_pipeN = {
+  "6A": { SGP: { od: 10.5, t: 2.0 }, },
+  "8A": { SGP: { od: 13.8, t: 2.3 }, },
+  "10A": { SGP: { od: 17.3, t: 2.3 }, },
+  "15A": { SGP: { od: 21.7, t: 2.8 }, },
+  "20A": { SGP: { od: 27.2, t: 2.8 }, },
+  "25A": { SGP: { od: 34.0, t: 3.2 }, },
+  "32A": { SGP: { od: 42.7, t: 3.5 }, },
+  "40A": { SGP: { od: 48.6, t: 3.5 }, },
+  "50A": { SGP: { od: 60.5, t: 3.8 }, },
+  "65A": { SGP: { od: 76.3, t: 4.2 }, },
+  "80A": { SGP: { od: 89.1, t: 4.2 }, },
+  "90A": { SGP: { od: 101.6, t: 4.2 }, },
+  "100A": { SGP: { od: 114.3, t: 4.5 }, },
+};
+
 
 export const SGP_FSGP = {
   "6A": { FSGP: { od: 10.5, t: 2.0 }, },
@@ -2074,7 +2090,7 @@ export const ss400Bolt_N = {
 
 export const jisMap = {
 
-  G3452: SGP_pipe, G3442: SGP_pipe, B2311_SGP: SGP_FSGP, B2311_TS: FSGP_TS, B2311_TR: FSGP_TR,
+  G3452: SGP_pipe, G3452_N: SGP_pipeN, G3442: SGP_pipe, B2311_SGP: SGP_FSGP, B2311_TS: FSGP_TS, B2311_TR: FSGP_TR,
 
   G3459: SUS_pipe, B2312_SUS: SUS_pipe, B2312_SUST: SUS_TS, B2312_TR: SUS_TR,
 
