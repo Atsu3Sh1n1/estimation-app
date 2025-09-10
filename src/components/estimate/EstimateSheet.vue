@@ -1,7 +1,7 @@
 <template>
   <div class="estimate-sheet">
     <div class="footer">
-      <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU Inc.</a>
+      <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU CO.,LTD.</a>
     </div>
 
     <button @click="addRow">追加</button>

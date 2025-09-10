@@ -3,7 +3,6 @@
 import { pipeSizes, materialDensities } from '@/data/materials';
 import type { EstimateRow } from '@/types/estimate';
 import { fittingFactors } from '@/composables/estimate/useFittingCalculator';
-import { valveWeights } from '@/data/materials/valveWeights';
 
 
 /**

@@ -1,24 +1,100 @@
-呼び径
-Su
-外径
-mm
-肉厚
-mm
-単位質量（kg/m）
-SUS304TPD SUS316TPD
-13  15.88  0.8  0.301 0.303
-20  22.22  1.0  0.529 0.532
-25  28.58  1.0  0.687 0.691
-30  34.0   1.2  0.980 0.986
-40  42.7   1.2  1.24 1.25
-50  48.6   1.2  1.42 1.43
-60  60.5   1.5  2.20 2.21
-75  76.3   1.5  2.79 2.81
-80  89.1   2.0  4.34 4.37
-100 114.3  2.0  5.59 5.63
-125 139.8  2.0  6.87 6.91
-150 165.2  3.0  12.1 12.2
-200 216.3  3.0  15.9 16.0
-250 267.4  3.0  19.8 19.9
-300 318.5  3.0  23.6 23.8
-　一般配管用ステンレス鋼管 　JIS G 3448(TPD)
+// materials.ts
+
+export const materials = {
+  'SGP黒 5.5m':       { density: 7850, price: 120 },
+  'SGP白 5.5m':       { density: 7850, price: 125 },
+  'SGP白ネジ付 5.5m': { density: 7850, price: 125 },
+  'SGP白ネジ付 4m':   { density: 7850, price: 125 },
+  'SGP_黒':           { density: 7850, price: 120 },
+  'SGP_白':           { density: 7850, price: 125 },
+  '可鍛鋳鉄_黒':      { density: 7850, price: 120 },
+  '可鍛鋳鉄_白':      { density: 7850, price: 125 },
+  'SGPW':             { density: 7850, price: 128 },
+
+    STPT410S: { density: 7850, price: 160, }, 
+    STPT410E: { density: 7850, price: 160, }, 
+
+    STPT480S: { density: 7850, price: 160, }, 
+    STPT480E: { density: 7850, price: 160, },
+
+    STPY400: { density: 7850, price: 120, },
+
+    ダクタイル鋳鉄: 7200,
+
+    S45C: { density: 7850, price: 140, },
+
+    SS400: { density: 7850, price: 160, },
+
+    STS370: { density: 7850, price: 150, },
+
+    STPT370S_W: { density: 7850, price: 150, },
+    STPT370E_W: { density: 7850, price: 155, },   
+    STPT370S_WN:{ density: 7850, price: 152, },  
+    STPT370E_WN:{ density: 7850, price: 157, },  
+    STPT370S_N: { density: 7850, price: 149, },   
+    STPT370E_N: { density: 7850, price: 154, },   
+
+    STPG370S: { density: 7850, price: 150, },    
+    STPG370E: { density: 7850, price: 150, },
+    PG370: { density: 7850, price: 150, },  
+
+    STPT370S: { density: 7850, price: 150, },   
+    STPT370E: { density: 7850, price: 150, },   
+    PT370: { density: 7850, price: 150, }, 
+
+    STPG410S: { density: 7850, price: 155, },  
+    STPG410E: { density: 7850, price: 160, },  
+
+    SUS304:        { density: 7930, price: 750, }, 
+    'SUS304_TP_A': { density: 7930, price: 750, }, 
+    SUS304_TP_S_H: { density: 7930, price: 750, }, 
+    SUS304_TP_S_C: { density: 7930, price: 750, }, 
+    SUS304_TP_E_H: { density: 7930, price: 750, }, 
+    SUS304_TP_E_C: { density: 7930, price: 750, }, 
+    'SUS304_TP_Y': { density: 7930, price: 750, }, 
+    'SUS304_TP_D': { density: 7930, price: 750, }, 
+
+    SUS304L:        { density: 7920, price: 740, }, 
+    'SUS304L_TP_A': { density: 7920, price: 740, }, 
+    SUS304L_TP_S_H: { density: 7920, price: 740, }, 
+    SUS304L_TP_S_C: { density: 7920, price: 740, }, 
+    SUS304L_TP_E_H: { density: 7920, price: 740, }, 
+    SUS304L_TP_E_C: { density: 7920, price: 740, }, 
+    'SUS304L_TP_Y': { density: 7920, price: 740, }, 
+    'SUS304L_TP_D': { density: 7920, price: 740, }, 
+
+    SUS316:        { density: 8000, price: 850, },  
+    'SUS316_TP_A': { density: 8000, price: 850, },  
+    SUS316_TP_S_H: { density: 8000, price: 850, },  
+    SUS316_TP_S_C: { density: 8000, price: 850, },  
+    SUS316_TP_E_H: { density: 8000, price: 850, },  
+    SUS316_TP_E_C: { density: 8000, price: 850, },  
+    'SUS316_TP_Y': { density: 8000, price: 850, },  
+    'SUS316_TP_D': { density: 8000, price: 850, },  
+
+    SUS316L:         { density: 7990, price: 840, },  
+    'SUS316L_TP_A':  { density: 7990, price: 840, },  
+    SUS316L_TP_S_H:  { density: 7990, price: 840, },  
+    SUS316L_TP_S_C:  { density: 7990, price: 840, },  
+    SUS316L_TP_E_H:  { density: 7990, price: 840, },  
+    SUS316L_TP_E_C:  { density: 7990, price: 840, },  
+    'SUS316L_TP_Y':  { density: 7990, price: 840, },  
+    'SUS316L_TP_D':  { density: 7990, price: 840, },  
+
+    SUS304_TPD: { density: 7930, price: 760, }, 
+    SUS430: { density: 7750, price: 600, }, 
+    SUS410: { density: 7700, price: 580, }, 
+    SUS329J4L: { density: 7620, price: 900, }, 
+
+    '24K GOLD': { density: 19300, price: 15399100, },
+    '18K GOLD': { density: 14475, price: 11549325, },
+    'silver925':{ density: 10490, price: 146520, },
+    銅Cu:        { density: 8960, price: 1549, },
+    'pt900':    { density: 21450, price: 4942050, },
+    チタン:      { density: 4500, price: 3000, },
+
+} as const;
+
+export type MaterialName = keyof typeof materials;
+export type MaterialInfo = (typeof materials)[MaterialName];
+
