@@ -1,6 +1,7 @@
 <template>
   <div class="estimation-view">
-    <h1>見積システム</h1>
+    <h1>配管施工費算出機</h1>
+     <h5>フジタ君２号</h5>
     <EstimateSheet />
   </div>
 </template>
@@ -20,6 +21,13 @@ h1 {
   margin-bottom: 20px;
   color: #333;
   font-size: 1.5em;
+  
+}
+h5 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 0.8em;
   
 }
 @media (max-width: 768px) {
