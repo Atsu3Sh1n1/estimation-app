@@ -52,9 +52,9 @@ button:hover {
 
 .footer {
   text-align: center;
-  margin-top: 20px;
-  font-size: 0.8em;
-   padding: 6px;
+  margin: 20px;
+  font-size: 0.6em;
+   padding: 25px;
 }
 
 /* リンクスタイルの上書き */
