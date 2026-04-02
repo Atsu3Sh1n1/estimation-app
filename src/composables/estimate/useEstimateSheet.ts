@@ -43,7 +43,7 @@ export function useTotalFittingInches(rows: (EstimateRow & { id: number })[], au
         const length = Number(row.length) || 0;
         if (length <= 0 || inch <= 0) return acc;
 
-        if (autoAddDB) {
+        if (autoAddDB && !material.includes('ネジ付')) {
           const material = row.material?.toLowerCase() ?? '';
           const isStainless = material.startsWith('sus');
           const is4mPipe = ['4m', '6m'].some((kw) => material.includes(kw));
