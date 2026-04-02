@@ -15,7 +15,7 @@ export function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 0;
 }
 
-export function useTotalFittingInches(rows: (EstimateRow & { id: number })[]) {
+export function useTotalFittingInches(rows: (EstimateRow & { id: number })[], autoAddDB: boolean = true) {
   return computed(() => {
     return rows.reduce((acc, row) => {
       if (!row.size || !row.shape) return acc;
@@ -43,21 +43,15 @@ export function useTotalFittingInches(rows: (EstimateRow & { id: number })[]) {
         const length = Number(row.length) || 0;
         if (length <= 0 || inch <= 0) return acc;
 
-        if (['pipe', 'pipe2'].includes(shape)) {
-          const length = Number(row.length) || 0;
-          if (length <= 0 || inch <= 0) return acc;
-
+        if (autoAddDB) {
           const material = row.material?.toLowerCase() ?? '';
           const isStainless = material.startsWith('sus');
-          const is4mPipe = ['4m', '6m'].some((kw) => material.includes(kw));  // ◯ OK
+          const is4mPipe = ['4m', '6m'].some((kw) => material.includes(kw));
           const stdLength = isStainless || is4mPipe ? 4 : 5.5;
 
           const numOfRings = Math.ceil(length / stdLength);
           return acc + numOfRings * inch;
         }
-
-
-
       }
 
       return acc;
