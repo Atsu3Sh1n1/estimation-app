@@ -49,11 +49,6 @@
         <input type="checkbox" v-model="isTIG" />
         TIG溶接で計算する<br />(1DB = 0.1人工：アーク0.05)
       </label>
-      <br>
-      <label>
-        <input type="checkbox" v-model="autoAddDB" />
-        定尺本数からDB数を自動追加
-      </label>
     </div>
   </div>
 </template>
@@ -70,7 +65,6 @@ const supportDrawingNo = ref('');
 const title = ref('');
 const isTIG = ref(true);
 const workHeight = ref(0);
-const autoAddDB = ref(true);
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -92,7 +86,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
 }
 
 const rows = reactive<(EstimateRowType & { id: number })[]>([]);
-const totalFittingInches = computed(() => useTotalFittingInches(rows, autoAddDB.value).value);
+const totalFittingInches = useTotalFittingInches(rows);
 
 const totalWeight = computed(() => {
   const baseWeight = rows.reduce((acc, row) => acc + (Number(row.weight) || 0), 0);
