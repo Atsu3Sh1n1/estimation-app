@@ -49,6 +49,7 @@
         <input type="checkbox" v-model="isTIG" />
         TIG溶接で計算する<br />(1DB = 0.1人工：アーク0.05)
       </label>
+      <br>
       <label>
         <input type="checkbox" v-model="autoAddDB" />
         定尺本数からDB数を自動追加
