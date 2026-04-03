@@ -26,10 +26,6 @@
         <input v-model.number="workHeight" type="number" step="0.1" min="0" class="meta-input" />
         <small>（高所係数: {{ heightFactor.toFixed(2) }} 倍）</small>
       </label>
-      <label class="meta-label">
-        追加DB数:
-        <input v-model.number="manualAdditionalDB" type="number" min="0" step="0.1" class="meta-input" />
-      </label>
     </div>
 
     <div v-for="(row, index) in rows" :key="row.id" class="estimate-row-wrapper">
@@ -43,7 +39,7 @@
 
       <strong>溶接: {{ totalDBCount.toFixed(1) }} DB</strong>
       <small>
-        （自動計算: {{ totalFittingInches.toFixed(1) }} DB + 追加: {{ manualAdditionalDB.toFixed(1) }} DB）
+        （自動計算: {{ totalFittingInches.toFixed(1) }} DB）
         {{ weldLabor.toFixed(2) }} 人日 / DB={{ isTIG ? '0.1' : '0.05' }}）
       </small><br />
 
@@ -72,7 +68,6 @@ const supportDrawingNo = ref('');
 const title = ref('');
 const isTIG = ref(true);
 const workHeight = ref(0);
-const manualAdditionalDB = ref(0);
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -137,7 +132,7 @@ const weightLabor = computed(() => {
 });
 
 const totalDBCount = computed(() => {
-  return totalFittingInches.value + (manualAdditionalDB.value || 0);
+  return totalFittingInches.value;
 });
 
 const weldLabor = computed(() => {
