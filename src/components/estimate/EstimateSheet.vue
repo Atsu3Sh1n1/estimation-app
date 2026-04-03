@@ -49,11 +49,6 @@
         <input type="checkbox" v-model="isTIG" />
         TIG溶接で計算する<br />(1DB = 0.1人工：アーク0.05)
       </label>
-      <br />
-      <label>
-        <input type="checkbox" v-model="isSkipDbAddition" />
-        定尺本数からDBを追加しない
-      </label>
     </div>
   </div>
 </template>
@@ -69,7 +64,6 @@ const supportWeight = ref(0);
 const supportDrawingNo = ref('');
 const title = ref('');
 const isTIG = ref(true);
-const isSkipDbAddition = ref(false);
 const workHeight = ref(0);
 
 const openLink = () => {
@@ -92,7 +86,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
 }
 
 const rows = reactive<(EstimateRowType & { id: number })[]>([]);
-const totalFittingInches = useTotalFittingInches(rows, isSkipDbAddition);
+const totalFittingInches = useTotalFittingInches(rows);
 
 const totalWeight = computed(() => {
   const baseWeight = rows.reduce((acc, row) => acc + (Number(row.weight) || 0), 0);
