@@ -1,5 +1,5 @@
 // useEstimateSheet.ts
-import { computed, type Ref } from 'vue';
+import { computed } from 'vue';
 import type { EstimateRow } from '@/types/estimate';
 
 export function getNominalInches(size: string): number {
@@ -15,7 +15,7 @@ export function getNominalInches(size: string): number {
   return sizeToNominalInch[size] ?? 0;
 }
 
-export function useTotalFittingInches(rows: (EstimateRow & { id: number })[], isSkipDbAddition: Ref<boolean>) {
+export function useTotalFittingInches(rows: (EstimateRow & { id: number })[]) {
   return computed(() => {
     return rows.reduce((acc, row) => {
       if (!row.size || !row.shape) return acc;
@@ -47,8 +47,10 @@ export function useTotalFittingInches(rows: (EstimateRow & { id: number })[], is
           const length = Number(row.length) || 0;
           if (length <= 0 || inch <= 0) return acc;
 
-        if (isSkipDbAddition.value) return acc;
-
+          const material = row.material?.toLowerCase() ?? '';
+          const isStainless = material.startsWith('sus');
+          const is4mPipe = ['4m', '6m'].some((kw) => material.includes(kw));  // ◯ OK
+          const stdLength = isStainless || is4mPipe ? 4 : 5.5;
 
           const numOfRings = Math.ceil(length / stdLength);
           return acc + numOfRings * inch;
