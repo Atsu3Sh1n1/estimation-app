@@ -12,7 +12,7 @@ shapeGroups.forEach(group => {
 });
 
 export function exportCSV(
-  rows: (EstimateRowType & { id: number; weight: number; pipeLengthCount?: number })[],
+  rows: (EstimateRowType & { id: number; weight?: number; pipeLengthCount?: number })[],
   supportWeight: number,
   supportDrawingNo: string,
   title: string,
@@ -38,7 +38,7 @@ export function exportCSV(
     row.schedule,
     row.length,
     row.quantity,
-    row.weight.toFixed(0),
+    (row.weight ?? 0).toFixed(0),
     row.pipeLengthCount ?? '',
   ]);
 

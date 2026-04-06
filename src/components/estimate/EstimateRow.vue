@@ -31,7 +31,7 @@
     <!-- サイズ -->
     <select v-model="localRow.size" :class="[sizeClass, { 'not-selected': localRow.size === '' }, 'numeric-select']">
       <option disabled value="" hidden>サイズを選択</option>
-      <option v-for="(val, key) in pipeSizes[localRow.jis] || {}" :key="key" :value="key">
+      <option v-for="(val, key) in currentPipeSizes || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
@@ -40,7 +40,7 @@
     <select v-model="localRow.schedule"
       :class="[scheduleClass, { 'not-selected': localRow.schedule === '' }, 'numeric-select']">
       <option disabled value="" hidden>{{ thicknessLabel }}</option>
-      <option v-for="(val, key) in pipeSizes[localRow.jis]?.[localRow.size] || {}" :key="key" :value="key">
+      <option v-for="(val, key) in currentPipeSizeOptions || {}" :key="key" :value="key">
         {{ key }}
       </option>
     </select>
@@ -84,7 +84,7 @@
 <script setup lang="ts">
 import { shapeGroups } from '@/data/genres';
 import { computed, watch, reactive } from 'vue';
-import type { EstimateRow as EstimateRowType } from '@/types/estimate';
+import type { EstimateRow as EstimateRowType, JISStandard, PipeSize } from '@/types/estimate';
 import { pipeSizes, fittingCompatibility, materialCategories, MaterialName } from '@/data/materials';
 import { materialPrices } from '@/data/materials/materialPrices';
 import { SHAPES_WITH_FIXED_LENGTH, useEstimateRow } from '@/composables/estimate/useEstimateRow';
@@ -115,7 +115,7 @@ const { weight, pipeLengthCount, thicknessLabel } = useEstimateRow(localRow);
 
 // 材質候補
 const availableMaterialsByGroup = computed(() => {
-  const shapeInfo = fittingCompatibility[localRow.shape];
+  const shapeInfo = localRow.shape ? fittingCompatibility[localRow.shape] : undefined;
   const materials = shapeInfo?.materials ?? [];
 
   return Object.entries(materialCategories)
@@ -128,9 +128,10 @@ const availableMaterialsByGroup = computed(() => {
 
 // JIS候補
 const availableJis = computed(() => {
-  const shapeInfo = fittingCompatibility[localRow.shape];
+  const shapeInfo = localRow.shape ? fittingCompatibility[localRow.shape] : undefined;
   if (!shapeInfo) return [];
-  return shapeInfo.jisMap?.[localRow.material] ?? [];
+  const jisMap = shapeInfo.jisMap as Record<string, string[]>;
+  return jisMap?.[localRow.material] ?? [];
 });
 
 // UIクラス系
@@ -150,6 +151,15 @@ const scheduleClass = computed(() => ({
   placeholder: localRow.schedule === '',
   error: localRow.schedule === '',
 }));
+
+const currentPipeSizes = computed(() => {
+  return localRow.jis ? (pipeSizes as any)[localRow.jis] : undefined;
+});
+
+const currentPipeSizeOptions = computed(() => {
+  if (!localRow.jis || !localRow.size) return undefined;
+  return (pipeSizes as any)[localRow.jis]?.[localRow.size];
+});
 
 // 金額計算
 const price = computed(() => {
