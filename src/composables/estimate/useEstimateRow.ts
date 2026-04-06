@@ -61,11 +61,8 @@ export function useEstimateRow(row: EstimateRow) {
       case 'tee':
       case 'tee_reducing':
       case 'reducer':
-      case 'reducer':
         return 'スケジュールを選択';
 
-      case 'flat_flange':
-      case 'BL_flat_flange':
       case 'flat_flange':
       case 'BL_flat_flange':
       case 'Ball_Valve_TOYO':
