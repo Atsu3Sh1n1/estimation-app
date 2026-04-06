@@ -63,9 +63,9 @@ export function exportCSV(
     .map(row => row.join(','))
     .join('\n');
 
-  const encodedCsv = encodeURIComponent(csvContent);
+  const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
-  link.href = `data:text/csv;charset=utf-8,${encodedCsv}`;
+  link.href = URL.createObjectURL(blob);
   link.setAttribute('download', `${controlId}.csv`);
   document.body.appendChild(link);
   link.click();
