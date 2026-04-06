@@ -61,18 +61,30 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, watch } from 'vue';
 import EstimateRow from './EstimateRow.vue';
 import type { EstimateRow as EstimateRowType } from '@/types/estimate';
 import { useTotalFittingInches } from '@/composables/estimate/useEstimateSheet';
 import { exportCSV } from '@/composables/exportCSV';
 
-const supportWeight = ref(0);
-const supportDrawingNo = ref('');
-const title = ref('');
-const isTIG = ref(true);
-const workHeight = ref(0);
-const manualAdditionalDB = ref(0);
+function loadFromStorage<T>(key: string, defaultValue: T): T {
+  const stored = localStorage.getItem(key);
+  if (stored) {
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return defaultValue;
+    }
+  }
+  return defaultValue;
+}
+
+const supportWeight = ref(loadFromStorage('supportWeight', 0));
+const supportDrawingNo = ref(loadFromStorage('supportDrawingNo', ''));
+const title = ref(loadFromStorage('title', ''));
+const isTIG = ref(loadFromStorage('isTIG', true));
+const workHeight = ref(loadFromStorage('workHeight', 0));
+const manualAdditionalDB = ref(loadFromStorage('manualAdditionalDB', 0));
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -93,7 +105,13 @@ function createEmptyRow(): EstimateRowType & { id: number } {
   };
 }
 
-const rows = reactive<(EstimateRowType & { id: number })[]>([]);
+function loadRowsFromStorage(): (EstimateRowType & { id: number })[] {
+  const stored = loadFromStorage('estimateRows', []);
+  idCounter = stored.length > 0 ? Math.max(...stored.map((r: any) => r.id || 0)) : 0;
+  return stored;
+}
+
+const rows = reactive<(EstimateRowType & { id: number })[]>(loadRowsFromStorage());
 const totalFittingInches = useTotalFittingInches(rows);
 
 const totalWeight = computed(() => {
@@ -176,6 +194,15 @@ function handleExportCSV() {
     workHeight.value
   );
 }
+
+// Watch for changes and save to localStorage
+watch(supportWeight, (v) => localStorage.setItem('supportWeight', JSON.stringify(v)));
+watch(supportDrawingNo, (v) => localStorage.setItem('supportDrawingNo', JSON.stringify(v)));
+watch(title, (v) => localStorage.setItem('title', JSON.stringify(v)));
+watch(isTIG, (v) => localStorage.setItem('isTIG', JSON.stringify(v)));
+watch(workHeight, (v) => localStorage.setItem('workHeight', JSON.stringify(v)));
+watch(manualAdditionalDB, (v) => localStorage.setItem('manualAdditionalDB', JSON.stringify(v)));
+watch(rows, (v) => localStorage.setItem('estimateRows', JSON.stringify(v)), { deep: true });
 </script>
 
 <style src="./EstimateSheet.css" scoped></style>
