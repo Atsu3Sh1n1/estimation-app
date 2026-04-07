@@ -38,6 +38,7 @@
       <small>（{{ weightLabor.toFixed(2) }} 人日 / kg=0.025）</small><br />
 
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong>
+      <input v-model.number="weldAdjustment" type="number" step="0.1" placeholder="調整" class="weld-adjustment" />
       <small>（{{ weldLabor.toFixed(2) }} 人日 / DB={{ isTIG ? '0.1' : '0.05' }}）</small><br />
 
       <strong>工数: {{ totalManHours.toFixed(2) }} 人日</strong>
@@ -65,6 +66,7 @@ const supportDrawingNo = ref('');
 const title = ref('');
 const isTIG = ref(true);
 const workHeight = ref(0);
+const weldAdjustment = ref(0);
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -86,7 +88,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
 }
 
 const rows = reactive<(EstimateRowType & { id: number })[]>([]);
-const totalFittingInches = useTotalFittingInches(rows);
+const totalFittingInches = computed(() => useTotalFittingInches(rows).value + (weldAdjustment.value || 0));
 
 const totalWeight = computed(() => {
   const baseWeight = rows.reduce((acc, row) => acc + (Number(row.weight) || 0), 0);
