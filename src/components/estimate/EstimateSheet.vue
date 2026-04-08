@@ -24,20 +24,14 @@
       </label>
     </div>
 
-    <div class="button-group">
-      <button @click="addRow">追加</button>
-      <button @click="handleExportCSV">CSV出力</button>
-      <button @click="openLink">参考資料</button>
-    </div>
-
     <div class="total">
       <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>
       <small>（{{ weightLabor.toFixed(2) }} 人日 / kg=0.025）</small><br />
 
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong>
-      <input v-model="weldAdjustment" type="number" step="0.1" placeholder="調整" class="weld-adjustment" />
       <small>（{{ weldLabor.toFixed(2) }} 人日 / DB={{ isTIG ? '0.1' : '0.05' }}）</small><br />
-
+      <input v-model.number="weldAdjustment" type="number" step="0.1" placeholder="調整" class="weld-adjustment" />
+      <br />
       <strong>工数: {{ totalManHours.toFixed(2) }} 人日</strong>
       <small>（高所補正係数 {{ heightFactor.toFixed(3) }} 倍）</small>
     </div>
@@ -52,6 +46,12 @@
         <input type="checkbox" v-model="isTIG" />
         TIG溶接で計算する<br />(1DB = 0.1人工：アーク0.05)
       </label>
+    </div>
+
+    <div class="button-group">
+      <button @click="addRow">追加</button>
+      <button @click="handleExportCSV">CSV出力</button>
+      <button @click="openLink">参考資料</button>
     </div>
   </div>
 </template>
@@ -68,7 +68,7 @@ const supportDrawingNo = ref('');
 const title = ref('');
 const isTIG = ref(true);
 const workHeight = ref(0);
-const weldAdjustment = ref('');
+const weldAdjustment = ref<number | null>(null);
 
 const openLink = () => {
   window.open(`${import.meta.env.BASE_URL}reference/steel-info.html`, '_blank');
@@ -90,7 +90,7 @@ function createEmptyRow(): EstimateRowType & { id: number } {
 }
 
 const rows = reactive<(EstimateRowType & { id: number })[]>([]);
-const totalFittingInches = computed(() => useTotalFittingInches(rows).value + (Number(weldAdjustment.value) || 0));
+const totalFittingInches = computed(() => useTotalFittingInches(rows).value + (weldAdjustment.value || 0));
 
 const totalWeight = computed(() => {
   const baseWeight = rows.reduce((acc, row) => acc + (Number(row.weight) || 0), 0);
