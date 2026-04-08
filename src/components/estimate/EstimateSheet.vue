@@ -4,10 +4,6 @@
       <a href="https://atsu3sh1n1.github.io/yumikou/" target="_blank">Created by YUMIKOU CO.,LTD.</a>
     </div>
 
-    <button @click="addRow">追加</button>
-    <button @click="handleExportCSV">CSV出力</button>
-    <button @click="openLink">参考資料</button>
-
     <div class="meta-info">
       <label class="meta-label">
         図面番号 / タイトル:
@@ -32,6 +28,12 @@
       <EstimateRow :initialRow="row" @update="updateRow(index, $event)" @remove="removeRow(index)" />
     </div>
     <br />
+
+    <div class="button-group">
+      <button @click="addRow">追加</button>
+      <button @click="handleExportCSV">CSV出力</button>
+      <button @click="openLink">参考資料</button>
+    </div>
 
     <div class="total">
       <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>
