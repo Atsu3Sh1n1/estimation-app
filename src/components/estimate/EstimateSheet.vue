@@ -24,6 +24,12 @@
       </label>
     </div>
 
+    <div class="button-group">
+      <button @click="addRow">追加</button>
+      <button @click="handleExportCSV">CSV出力</button>
+      <button @click="openLink">参考資料</button>
+    </div>
+
     <div class="total">
       <strong>総重量: {{ totalWeight.toFixed(1) }} kg</strong>
       <small>（{{ weightLabor.toFixed(2) }} 人日 / kg=0.025）</small><br />
@@ -46,12 +52,6 @@
         <input type="checkbox" v-model="isTIG" />
         TIG溶接で計算する<br />(1DB = 0.1人工：アーク0.05)
       </label>
-    </div>
-
-    <div class="button-group">
-      <button @click="addRow">追加</button>
-      <button @click="handleExportCSV">CSV出力</button>
-      <button @click="openLink">参考資料</button>
     </div>
   </div>
 </template>
