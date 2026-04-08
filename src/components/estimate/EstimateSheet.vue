@@ -30,7 +30,7 @@
 
       <strong>溶接: {{ totalFittingInches.toFixed(1) }} DB</strong>
       <small>（{{ weldLabor.toFixed(2) }} 人日 / DB={{ isTIG ? '0.1' : '0.05' }}）</small><br />
-      <input v-model.number="weldAdjustment" type="number" step="0.1" placeholder="調整" class="weld-adjustment" />
+      調整用：<input v-model.number="weldAdjustment" type="number" step="0.1" placeholder="+/-" class="weld-adjustment" />
       <br />
       <strong>工数: {{ totalManHours.toFixed(2) }} 人日</strong>
       <small>（高所補正係数 {{ heightFactor.toFixed(3) }} 倍）</small>
